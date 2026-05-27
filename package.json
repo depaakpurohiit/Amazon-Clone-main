@@ -1,0 +1,10 @@
+{
+  "name": "amazon-clone",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:frontend": "npm --prefix frontend install",
+    "install:all": "npm run install:frontend"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,85 @@
+[
+  {
+    "_id": "1774983770947",
+    "name": "John Doe",
+    "number": "9876543210",
+    "email": "john@example.com",
+    "password": "$2a$10$tvWa1PUtDetMqOio3YW5jO9B/xk1G23oWlCIppnyU.RaL8dzwSWD2",
+    "tokens": [
+      {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxNzc0OTgzNzcwOTQ3IiwiaWF0IjoxNzc0OTgzNzcxfQ.btXWRhqPh7qLu6GTX6KZKgeIZaqM6KAl1e8Y0WHxzKw"
+      }
+    ],
+    "cart": [],
+    "orders": [],
+    "createdAt": "2026-03-31T19:02:50.947Z"
+  },
+  {
+    "_id": "1774983857030",
+    "name": "Manager",
+    "number": "1324567890",
+    "email": "manager@gmail.com",
+    "password": "$2a$10$UwOLk9Q34dGIHxPGb89Zau3bsi6ApoIQO0wdEfOoXqvA/prdunp7S",
+    "tokens": [],
+    "cart": [
+      {
+        "id": "3",
+        "cartItem": {
+          "id": "3",
+          "url": "images/products/3.jpg",
+          "price": "₹21,900.00",
+          "name": "New Apple AirPods Pro with MagSafe Charging Case",
+          "resUrl": "../images/products/3res.jpg",
+          "value": "21,900",
+          "accValue": "21900",
+          "discount": "-12%",
+          "mrp": "₹24,900.00",
+          "points": [
+            "Active Noise Cancellation blocks outside noise, so you can immerse yourself in music",
+            "Transparency mode for hearing and interacting with the world around you",
+            "Spatial audio with dynamic head tracking places sound all around you",
+            "Adaptive EQ automatically tunes music to your ears",
+            "Three sizes of soft, tapered silicone tips for a customisable fit"
+          ]
+        },
+        "qty": 10
+      }
+    ],
+    "orders": [],
+    "createdAt": "2026-03-31T19:04:17.030Z"
+  },
+  {
+    "_id": "1774984222291",
+    "name": "Jane Smith",
+    "number": "8765432109",
+    "email": "jane@example.com",
+    "password": "$2a$10$lysSU/.Xy5wxW6.oHP9lzORG.L7qgAYRcHE8ewUWFiyrdV6nSXacG",
+    "tokens": [],
+    "cart": [
+      {
+        "id": "1",
+        "cartItem": {
+          "id": "1",
+          "url": "images/products/1.jpg",
+          "resUrl": "../images/products/1res.jpg",
+          "price": "₹61,990.00",
+          "value": "61,990",
+          "accValue": "61990",
+          "discount": "-46%",
+          "mrp": "₹1,15,668.00",
+          "name": "Lenovo ThinkBook 14 Intel Core i5 11th Gen 14 inch (35.56cm) FHD IPS Thin & Light Laptop (16GB RAM/512GB SSD/Windows 11 Home/MS Office 2021/FPR/Intel Iris Xe Graphics Mineral Grey/1.4 kg), 20VDA0TLIH",
+          "points": [
+            "ThinkBook 14 Reliability tested on 12 MIL-STD-810H Methods and 22 Procedures | Body Material: Aluminium | Surface Treatment: Anodizing sandblasting | Built to withstand rugged usage and can handle accidental knocks, drops, and even spills",
+            "Processor: 11th Gen Intel Core i5-1135G7, 2.4 Ghz base clock, 4.2 Ghz max boost clock, 4 Cores, 8 MB Cache | Memory: 16GB (8GB soldered + 8GB SO-DIMM) RAM DDR4-3200 MHz upgradable upto 40 GB | Storage: 512GB SSD M.2",
+            "Operating System: Preloaded Windows 11 Home with Lifetime Validity | Pre-installed software: Microsoft Office Home & Student 2021",
+            "Display: 14-inch (35.56 cm) screen with (1920X1080) Full HD IPS 250 nits Antiglare display | Graphics: Integrated Intel Iris Xe Graphics comes with DirectX 12 enables amazing graphics | Monitor Support: Supports up to 4 independent displays",
+            "Ports: 2x USB 3.2 Gen 1 (1x Always On), 1x USB-C 3.2 Gen 2 (support data transfer, PD 3.0 and DP 1.4), 1x Thunderbolt 4 / USB4 40Gbps (support data transfer, PD 3.0 and DP 1.4), 1x HDMI 1.4b, 1x Card reader, 1x Ethernet (RJ-45), 1x Headphone / microphone combo jack (3.5mm)"
+          ]
+        },
+        "qty": 2
+      }
+    ],
+    "orders": [],
+    "createdAt": "2026-03-31T19:10:22.291Z"
+  }
+]

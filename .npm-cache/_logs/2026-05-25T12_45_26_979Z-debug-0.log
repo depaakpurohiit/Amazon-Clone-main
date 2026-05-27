@@ -1,0 +1,889 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.6.2
+2 info using node@v25.0.0
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\Owner\Downloads\Amazon-Clone-main\frontend\.npmrc
+5 silly config load:file:C:\Users\Owner\.npmrc
+6 silly config load:file:C:\Users\Owner\Downloads\Amazon-Clone-main\frontend\etc\npmrc
+7 verbose title npm install
+8 verbose argv "--prefix" "frontend" "install"
+9 verbose logfile logs-max:10 dir:C:\Users\Owner\Downloads\Amazon-Clone-main\.npm-cache\_logs\2026-05-25T12_45_26_979Z-
+10 verbose logfile C:\Users\Owner\Downloads\Amazon-Clone-main\.npm-cache\_logs\2026-05-25T12_45_26_979Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 http fetch GET https://registry.npmjs.org/npm attempt 1 failed with EACCES
+14 silly idealTree buildDeps
+15 silly reify mark retired [
+15 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\caniuse-lite'
+15 silly reify ]
+16 silly reify mark retired [
+16 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint'
+16 silly reify ]
+17 silly reify mark retired [
+17 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-config-next'
+17 silly reify ]
+18 silly reify mark retired [
+18 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\get-tsconfig'
+18 silly reify ]
+19 silly reify mark retired [
+19 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\next'
+19 silly reify ]
+20 silly reify mark retired [
+20 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\react'
+20 silly reify ]
+21 silly reify mark retired [
+21 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\react-dom'
+21 silly reify ]
+22 silly reify mark retired [
+22 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\react-remove-scroll'
+22 silly reify ]
+23 silly reify mark retired [
+23 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\sharp'
+23 silly reify ]
+24 silly reify mark retired [
+24 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\config-helpers'
+24 silly reify ]
+25 silly reify mark retired [
+25 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\core'
+25 silly reify ]
+26 silly reify mark retired [
+26 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\eslintrc'
+26 silly reify ]
+27 silly reify mark retired [
+27 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\js'
+27 silly reify ]
+28 silly reify mark retired [
+28 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\plugin-kit'
+28 silly reify ]
+29 silly reify mark retired [
+29 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@emnapi\\core'
+29 silly reify ]
+30 silly reify mark retired [
+30 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@emnapi\\runtime'
+30 silly reify ]
+31 silly reify mark retired [
+31 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@img\\colour'
+31 silly reify ]
+32 silly reify mark retired [
+32 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@img\\sharp-win32-x64'
+32 silly reify ]
+33 silly reify mark retired [
+33 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@next\\env'
+33 silly reify ]
+34 silly reify mark retired [
+34 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@next\\swc-win32-x64-msvc'
+34 silly reify ]
+35 silly reify mark retired [
+35 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@next\\eslint-plugin-next'
+35 silly reify ]
+36 silly reify mark retired [
+36 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@radix-ui\\react-separator'
+36 silly reify ]
+37 silly reify mark retired [
+37 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@tailwindcss\\postcss'
+37 silly reify ]
+38 silly reify mark retired [
+38 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@types\\node'
+38 silly reify ]
+39 silly reify mark retired [
+39 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\eslint-plugin'
+39 silly reify ]
+40 silly reify mark retired [
+40 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\parser'
+40 silly reify ]
+41 silly reify mark retired [
+41 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\project-service'
+41 silly reify ]
+42 silly reify mark retired [
+42 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\tsconfig-utils'
+42 silly reify ]
+43 silly reify mark retired [
+43 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\scope-manager'
+43 silly reify ]
+44 silly reify mark retired [
+44 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\type-utils'
+44 silly reify ]
+45 silly reify mark retired [
+45 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\types'
+45 silly reify ]
+46 silly reify mark retired [
+46 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\typescript-estree'
+46 silly reify ]
+47 silly reify mark retired [
+47 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\utils'
+47 silly reify ]
+48 silly reify mark retired [
+48 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\visitor-keys'
+48 silly reify ]
+49 silly reify mark retired [
+49 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\acorn',
+49 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\acorn',
+49 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\acorn.cmd',
+49 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\acorn.ps1'
+49 silly reify ]
+50 silly reify mark retired [
+50 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-import\\node_modules\\semver',
+50 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-import\\node_modules\\.bin\\semver',
+50 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-import\\node_modules\\.bin\\semver.cmd',
+50 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-import\\node_modules\\.bin\\semver.ps1'
+50 silly reify ]
+51 silly reify mark retired [
+51 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\resolve',
+51 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\resolve',
+51 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\resolve.cmd',
+51 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\resolve.ps1'
+51 silly reify ]
+52 silly reify mark retired [
+52 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\semver',
+52 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\semver',
+52 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\semver.cmd',
+52 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\semver.ps1'
+52 silly reify ]
+53 silly reify mark retired [
+53 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\jiti',
+53 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\jiti',
+53 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\jiti.cmd',
+53 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\jiti.ps1'
+53 silly reify ]
+54 silly reify mark retired [
+54 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\js-yaml',
+54 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\js-yaml',
+54 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\js-yaml.cmd',
+54 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\js-yaml.ps1'
+54 silly reify ]
+55 silly reify mark retired [
+55 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\json5',
+55 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\json5',
+55 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\json5.cmd',
+55 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\json5.ps1'
+55 silly reify ]
+56 silly reify mark retired [
+56 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\loose-envify',
+56 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\loose-envify',
+56 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\loose-envify.cmd',
+56 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\loose-envify.ps1'
+56 silly reify ]
+57 silly reify mark retired [
+57 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\napi-postinstall',
+57 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\napi-postinstall',
+57 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\napi-postinstall.cmd',
+57 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\napi-postinstall.ps1'
+57 silly reify ]
+58 silly reify mark retired [
+58 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\nanoid',
+58 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\nanoid',
+58 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\nanoid.cmd',
+58 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\nanoid.ps1'
+58 silly reify ]
+59 silly reify mark retired [
+59 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\resolve',
+59 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\resolve',
+59 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\resolve.cmd',
+59 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\resolve.ps1'
+59 silly reify ]
+60 silly reify mark retired [
+60 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\semver',
+60 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\semver',
+60 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\semver.cmd',
+60 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\semver.ps1'
+60 silly reify ]
+61 silly reify mark retired [
+61 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\typescript',
+61 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\tsc',
+61 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\tsc.cmd',
+61 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\tsc.ps1',
+61 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\tsserver',
+61 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\tsserver.cmd',
+61 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\tsserver.ps1'
+61 silly reify ]
+62 silly reify mark retired [
+62 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\which',
+62 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\node-which',
+62 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\node-which.cmd',
+62 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\node-which.ps1'
+62 silly reify ]
+63 silly reify moves {
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\caniuse-lite': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.caniuse-lite-ZwQJzeUZ',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.eslint-Xc3PmVr9',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-config-next': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.eslint-config-next-cjcWv1hJ',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\get-tsconfig': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.get-tsconfig-UyGXQCUt',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\next': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.next-sCKjFxBL',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\react': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.react-uM6DIqCj',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\react-dom': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.react-dom-dOijUkT1',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\react-remove-scroll': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.react-remove-scroll-Vaw852qd',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\sharp': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.sharp-lSVMvYTW',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\config-helpers': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\.config-helpers-8IBQYAdD',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\core': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\.core-ufwKradx',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\eslintrc': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\.eslintrc-tJfriwtb',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\js': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\.js-ez3dwHOa',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\plugin-kit': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@eslint\\.plugin-kit-sPS5FHIN',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@emnapi\\core': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@emnapi\\.core-LEvbXlH3',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@emnapi\\runtime': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@emnapi\\.runtime-rxAFJZqw',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@img\\colour': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@img\\.colour-MPBUuKh3',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@img\\sharp-win32-x64': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@img\\.sharp-win32-x64-16aqiv85',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@next\\env': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@next\\.env-7SQ56vWV',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@next\\swc-win32-x64-msvc': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@next\\.swc-win32-x64-msvc-qafbDrWi',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@next\\eslint-plugin-next': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@next\\.eslint-plugin-next-7OIivoEH',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@radix-ui\\react-separator': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@radix-ui\\.react-separator-6AmlFMP0',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@tailwindcss\\postcss': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@tailwindcss\\.postcss-b2EIxRVV',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@types\\node': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@types\\.node-TJtXFtUx',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\eslint-plugin': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\.eslint-plugin-rZty548G',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\parser': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\.parser-LubEjB99',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\project-service': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\.project-service-RZoYn0gW',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\tsconfig-utils': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\.tsconfig-utils-P85kseSs',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\scope-manager': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\.scope-manager-hWXiSJXS',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\type-utils': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\.type-utils-c1fSQEvk',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\types': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\.types-CCOQG6yu',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\typescript-estree': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\.typescript-estree-3nrt8c8w',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\utils': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\.utils-JgzCJZWP',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\visitor-keys': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\@typescript-eslint\\.visitor-keys-B5JvTk3Q',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\acorn': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.acorn-kBonF3cj',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\acorn': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.acorn-ln0vxwIx',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\acorn.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.acorn.cmd-lwLzE6VN',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\acorn.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.acorn.ps1-nCp0zCeY',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-import\\node_modules\\semver': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-import\\node_modules\\.semver-tylGXLxI',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-import\\node_modules\\.bin\\semver': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-import\\node_modules\\.bin\\.semver-jK3xrRXA',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-import\\node_modules\\.bin\\semver.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-import\\node_modules\\.bin\\.semver.cmd-5LcZ9klc',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-import\\node_modules\\.bin\\semver.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-import\\node_modules\\.bin\\.semver.ps1-EBuqIsX0',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\resolve': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.resolve-wHSF2ErS',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\resolve': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\.resolve-db642zHV',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\resolve.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\.resolve.cmd-rWbW7v7A',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\resolve.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\.resolve.ps1-qNFkBESV',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\semver': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.semver-phMc5JoH',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\semver': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\.semver-OYheruBu',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\semver.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\.semver.cmd-XfpNVQIe',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\semver.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\eslint-plugin-react\\node_modules\\.bin\\.semver.ps1-Nxsw2iPO',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\jiti': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.jiti-wxjapiKz',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\jiti': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.jiti-6FEfzLcl',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\jiti.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.jiti.cmd-8unFiaBE',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\jiti.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.jiti.ps1-GBmBvqz7',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\js-yaml': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.js-yaml-HUuMJbst',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\js-yaml': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.js-yaml-sgaWYLal',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\js-yaml.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.js-yaml.cmd-zgPIIhZg',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\js-yaml.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.js-yaml.ps1-G0DAEl1Z',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\json5': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.json5-7vpldXmb',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\json5': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.json5-ejzcID4a',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\json5.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.json5.cmd-ZXnVLwcS',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\json5.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.json5.ps1-nzDBy8hz',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\loose-envify': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.loose-envify-alWPr4GL',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\loose-envify': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.loose-envify-sXdNIumR',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\loose-envify.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.loose-envify.cmd-5wmey9pf',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\loose-envify.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.loose-envify.ps1-bnFtrYtX',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\napi-postinstall': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.napi-postinstall-5pfaTbB6',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\napi-postinstall': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.napi-postinstall-2xeChzQE',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\napi-postinstall.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.napi-postinstall.cmd-Oa5V47Ox',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\napi-postinstall.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.napi-postinstall.ps1-VokPsU7l',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\nanoid': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.nanoid-h6aTD7d2',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\nanoid': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.nanoid-kraQdy18',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\nanoid.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.nanoid.cmd-xXyCjinb',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\nanoid.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.nanoid.ps1-BvTGrcc5',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\resolve': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.resolve-gkFj4kZA',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\resolve': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.resolve-FAiIVDVy',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\resolve.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.resolve.cmd-3Uubamaz',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\resolve.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.resolve.ps1-GhqbyVzB',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\semver': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.semver-jirOZBRC',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\semver': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.semver-bxBqlZ6i',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\semver.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.semver.cmd-X16ZJptS',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\semver.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.semver.ps1-BNqBaS4o',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\typescript': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.typescript-BxOI4EuY',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\tsc': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.tsc-ZcnGnBor',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\tsc.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.tsc.cmd-YtnZ38m0',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\tsc.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.tsc.ps1-aiAkPXTf',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\tsserver': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.tsserver-rthmCELA',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\tsserver.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.tsserver.cmd-vQjP3qbA',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\tsserver.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.tsserver.ps1-G6PDWjsh',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\which': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.which-Z0aTeHj5',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\node-which': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.node-which-FRmX4Ybx',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\node-which.cmd': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.node-which.cmd-HjFtCTJB',
+63 silly reify   'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\node-which.ps1': 'C:\\Users\\Owner\\Downloads\\Amazon-Clone-main\\frontend\\node_modules\\.bin\\.node-which.ps1-tOVLuoe5'
+63 silly reify }
+64 silly audit bulk request {
+64 silly audit   '@alloc/quick-lru': [ '5.2.0' ],
+64 silly audit   '@emnapi/core': [ '1.7.1' ],
+64 silly audit   '@emnapi/runtime': [ '1.7.1' ],
+64 silly audit   '@emnapi/wasi-threads': [ '1.1.0' ],
+64 silly audit   '@eslint-community/eslint-utils': [ '4.9.0' ],
+64 silly audit   'eslint-visitor-keys': [ '3.4.3', '4.2.1' ],
+64 silly audit   '@eslint-community/regexpp': [ '4.12.2' ],
+64 silly audit   '@eslint/config-array': [ '0.21.1' ],
+64 silly audit   '@eslint/config-helpers': [ '0.4.2' ],
+64 silly audit   '@eslint/core': [ '0.17.0' ],
+64 silly audit   '@eslint/eslintrc': [ '3.3.3' ],
+64 silly audit   '@eslint/js': [ '9.39.1' ],
+64 silly audit   '@eslint/object-schema': [ '2.1.7' ],
+64 silly audit   '@eslint/plugin-kit': [ '0.4.1' ],
+64 silly audit   '@floating-ui/core': [ '1.7.3' ],
+64 silly audit   '@floating-ui/dom': [ '1.7.4' ],
+64 silly audit   '@floating-ui/react-dom': [ '2.1.6' ],
+64 silly audit   '@floating-ui/utils': [ '0.2.10' ],
+64 silly audit   '@humanfs/core': [ '0.19.1' ],
+64 silly audit   '@humanfs/node': [ '0.16.7' ],
+64 silly audit   '@humanwhocodes/module-importer': [ '1.0.1' ],
+64 silly audit   '@humanwhocodes/retry': [ '0.4.3' ],
+64 silly audit   '@img/colour': [ '1.0.0' ],
+64 silly audit   '@img/sharp-darwin-arm64': [ '0.34.5' ],
+64 silly audit   '@img/sharp-darwin-x64': [ '0.34.5' ],
+64 silly audit   '@img/sharp-libvips-darwin-arm64': [ '1.2.4' ],
+64 silly audit   '@img/sharp-libvips-darwin-x64': [ '1.2.4' ],
+64 silly audit   '@img/sharp-libvips-linux-arm': [ '1.2.4' ],
+64 silly audit   '@img/sharp-libvips-linux-arm64': [ '1.2.4' ],
+64 silly audit   '@img/sharp-libvips-linux-ppc64': [ '1.2.4' ],
+64 silly audit   '@img/sharp-libvips-linux-riscv64': [ '1.2.4' ],
+64 silly audit   '@img/sharp-libvips-linux-s390x': [ '1.2.4' ],
+64 silly audit   '@img/sharp-libvips-linux-x64': [ '1.2.4' ],
+64 silly audit   '@img/sharp-libvips-linuxmusl-arm64': [ '1.2.4' ],
+64 silly audit   '@img/sharp-libvips-linuxmusl-x64': [ '1.2.4' ],
+64 silly audit   '@img/sharp-linux-arm': [ '0.34.5' ],
+64 silly audit   '@img/sharp-linux-arm64': [ '0.34.5' ],
+64 silly audit   '@img/sharp-linux-ppc64': [ '0.34.5' ],
+64 silly audit   '@img/sharp-linux-riscv64': [ '0.34.5' ],
+64 silly audit   '@img/sharp-linux-s390x': [ '0.34.5' ],
+64 silly audit   '@img/sharp-linux-x64': [ '0.34.5' ],
+64 silly audit   '@img/sharp-linuxmusl-arm64': [ '0.34.5' ],
+64 silly audit   '@img/sharp-linuxmusl-x64': [ '0.34.5' ],
+64 silly audit   '@img/sharp-wasm32': [ '0.34.5' ],
+64 silly audit   '@img/sharp-win32-arm64': [ '0.34.5' ],
+64 silly audit   '@img/sharp-win32-ia32': [ '0.34.5' ],
+64 silly audit   '@img/sharp-win32-x64': [ '0.34.5' ],
+64 silly audit   '@jridgewell/gen-mapping': [ '0.3.13' ],
+64 silly audit   '@jridgewell/remapping': [ '2.3.5' ],
+64 silly audit   '@jridgewell/resolve-uri': [ '3.1.2' ],
+64 silly audit   '@jridgewell/sourcemap-codec': [ '1.5.5' ],
+64 silly audit   '@jridgewell/trace-mapping': [ '0.3.31' ],
+64 silly audit   '@napi-rs/wasm-runtime': [ '0.2.12' ],
+64 silly audit   '@next/env': [ '16.0.9' ],
+64 silly audit   '@next/eslint-plugin-next': [ '15.2.1' ],
+64 silly audit   '@next/swc-darwin-arm64': [ '16.0.9' ],
+64 silly audit   '@next/swc-darwin-x64': [ '16.0.9' ],
+64 silly audit   '@next/swc-linux-arm64-gnu': [ '16.0.9' ],
+64 silly audit   '@next/swc-linux-arm64-musl': [ '16.0.9' ],
+64 silly audit   '@next/swc-linux-x64-gnu': [ '16.0.9' ],
+64 silly audit   '@next/swc-linux-x64-musl': [ '16.0.9' ],
+64 silly audit   '@next/swc-win32-arm64-msvc': [ '16.0.9' ],
+64 silly audit   '@next/swc-win32-x64-msvc': [ '16.0.9' ],
+64 silly audit   '@nodelib/fs.scandir': [ '2.1.5' ],
+64 silly audit   '@nodelib/fs.stat': [ '2.0.5' ],
+64 silly audit   '@nodelib/fs.walk': [ '1.2.8' ],
+64 silly audit   '@nolyfill/is-core-module': [ '1.0.39' ],
+64 silly audit   '@radix-ui/number': [ '1.1.1' ],
+64 silly audit   '@radix-ui/primitive': [ '1.1.3' ],
+64 silly audit   '@radix-ui/react-arrow': [ '1.1.7' ],
+64 silly audit   '@radix-ui/react-collection': [ '1.1.7' ],
+64 silly audit   '@radix-ui/react-slot': [ '1.2.3', '1.2.4' ],
+64 silly audit   '@radix-ui/react-compose-refs': [ '1.1.2' ],
+64 silly audit   '@radix-ui/react-context': [ '1.1.2' ],
+64 silly audit   '@radix-ui/react-direction': [ '1.1.1' ],
+64 silly audit   '@radix-ui/react-dismissable-layer': [ '1.1.11' ],
+64 silly audit   '@radix-ui/react-focus-guards': [ '1.1.3' ],
+64 silly audit   '@radix-ui/react-focus-scope': [ '1.1.7' ],
+64 silly audit   '@radix-ui/react-id': [ '1.1.1' ],
+64 silly audit   '@radix-ui/react-popper': [ '1.2.8' ],
+64 silly audit   '@radix-ui/react-portal': [ '1.1.9' ],
+64 silly audit   '@radix-ui/react-primitive': [ '2.1.3', '2.1.4' ],
+64 silly audit   '@radix-ui/react-select': [ '2.2.6' ],
+64 silly audit   '@radix-ui/react-separator': [ '1.1.8' ],
+64 silly audit   '@radix-ui/react-use-callback-ref': [ '1.1.1' ],
+64 silly audit   '@radix-ui/react-use-controllable-state': [ '1.2.2' ],
+64 silly audit   '@radix-ui/react-use-effect-event': [ '0.0.2' ],
+64 silly audit   '@radix-ui/react-use-escape-keydown': [ '1.1.1' ],
+64 silly audit   '@radix-ui/react-use-layout-effect': [ '1.1.1' ],
+64 silly audit   '@radix-ui/react-use-previous': [ '1.1.1' ],
+64 silly audit   '@radix-ui/react-use-rect': [ '1.1.1' ],
+64 silly audit   '@radix-ui/react-use-size': [ '1.1.1' ],
+64 silly audit   '@radix-ui/react-visually-hidden': [ '1.2.3' ],
+64 silly audit   '@radix-ui/rect': [ '1.1.1' ],
+64 silly audit   '@rtsao/scc': [ '1.1.0' ],
+64 silly audit   '@rushstack/eslint-patch': [ '1.15.0' ],
+64 silly audit   '@swc/helpers': [ '0.5.15' ],
+64 silly audit   '@tailwindcss/node': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/oxide': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/oxide-android-arm64': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/oxide-darwin-arm64': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/oxide-darwin-x64': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/oxide-freebsd-x64': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/oxide-linux-arm-gnueabihf': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/oxide-linux-arm64-gnu': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/oxide-linux-arm64-musl': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/oxide-linux-x64-gnu': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/oxide-linux-x64-musl': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/oxide-wasm32-wasi': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/oxide-win32-arm64-msvc': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/oxide-win32-x64-msvc': [ '4.1.18' ],
+64 silly audit   '@tailwindcss/postcss': [ '4.1.18' ],
+64 silly audit   '@tybys/wasm-util': [ '0.10.1' ],
+64 silly audit   '@types/estree': [ '1.0.8' ],
+64 silly audit   '@types/json-schema': [ '7.0.15' ],
+64 silly audit   '@types/json5': [ '0.0.29' ],
+64 silly audit   '@types/node': [ '25.0.0' ],
+64 silly audit   '@types/react': [ '19.2.7' ],
+64 silly audit   '@types/react-dom': [ '19.2.3' ],
+64 silly audit   '@typescript-eslint/eslint-plugin': [ '8.49.0' ],
+64 silly audit   ignore: [ '7.0.5', '5.3.2' ],
+64 silly audit   '@typescript-eslint/parser': [ '8.49.0' ],
+64 silly audit   '@typescript-eslint/project-service': [ '8.49.0' ],
+64 silly audit   '@typescript-eslint/scope-manager': [ '8.49.0' ],
+64 silly audit   '@typescript-eslint/tsconfig-utils': [ '8.49.0' ],
+64 silly audit   '@typescript-eslint/type-utils': [ '8.49.0' ],
+64 silly audit   '@typescript-eslint/types': [ '8.49.0' ],
+64 silly audit   '@typescript-eslint/typescript-estree': [ '8.49.0' ],
+64 silly audit   'brace-expansion': [ '2.0.2', '1.1.12' ],
+64 silly audit   minimatch: [ '9.0.5', '3.1.2' ],
+64 silly audit   '@typescript-eslint/utils': [ '8.49.0' ],
+64 silly audit   '@typescript-eslint/visitor-keys': [ '8.49.0' ],
+64 silly audit   '@unrs/resolver-binding-android-arm-eabi': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-android-arm64': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-darwin-arm64': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-darwin-x64': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-freebsd-x64': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-linux-arm-gnueabihf': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-linux-arm-musleabihf': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-linux-arm64-gnu': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-linux-arm64-musl': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-linux-ppc64-gnu': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-linux-riscv64-gnu': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-linux-riscv64-musl': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-linux-s390x-gnu': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-linux-x64-gnu': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-linux-x64-musl': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-wasm32-wasi': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-win32-arm64-msvc': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-win32-ia32-msvc': [ '1.11.1' ],
+64 silly audit   '@unrs/resolver-binding-win32-x64-msvc': [ '1.11.1' ],
+64 silly audit   acorn: [ '8.15.0' ],
+64 silly audit   'acorn-jsx': [ '5.3.2' ],
+64 silly audit   ajv: [ '6.12.6' ],
+64 silly audit   'ansi-styles': [ '4.3.0' ],
+64 silly audit   argparse: [ '2.0.1' ],
+64 silly audit   'aria-hidden': [ '1.2.6' ],
+64 silly audit   'aria-query': [ '5.3.2' ],
+64 silly audit   'array-buffer-byte-length': [ '1.0.2' ],
+64 silly audit   'array-includes': [ '3.1.9' ],
+64 silly audit   'array.prototype.findlast': [ '1.2.5' ],
+64 silly audit   'array.prototype.findlastindex': [ '1.2.6' ],
+64 silly audit   'array.prototype.flat': [ '1.3.3' ],
+64 silly audit   'array.prototype.flatmap': [ '1.3.3' ],
+64 silly audit   'array.prototype.tosorted': [ '1.1.4' ],
+64 silly audit   'arraybuffer.prototype.slice': [ '1.0.4' ],
+64 silly audit   'ast-types-flow': [ '0.0.8' ],
+64 silly audit   'async-function': [ '1.0.0' ],
+64 silly audit   'available-typed-arrays': [ '1.0.7' ],
+64 silly audit   'axe-core': [ '4.11.0' ],
+64 silly audit   'axobject-query': [ '4.1.0' ],
+64 silly audit   'balanced-match': [ '1.0.2' ],
+64 silly audit   braces: [ '3.0.3' ],
+64 silly audit   'call-bind': [ '1.0.8' ],
+64 silly audit   'call-bind-apply-helpers': [ '1.0.2' ],
+64 silly audit   'call-bound': [ '1.0.4' ],
+64 silly audit   callsites: [ '3.1.0' ],
+64 silly audit   'caniuse-lite': [ '1.0.30001760' ],
+64 silly audit   chalk: [ '4.1.2' ],
+64 silly audit   'class-variance-authority': [ '0.7.1' ],
+64 silly audit   'client-only': [ '0.0.1' ],
+64 silly audit   clsx: [ '2.1.1' ],
+64 silly audit   'color-convert': [ '2.0.1' ],
+64 silly audit   'color-name': [ '1.1.4' ],
+64 silly audit   'concat-map': [ '0.0.1' ],
+64 silly audit   'cross-spawn': [ '7.0.6' ],
+64 silly audit   csstype: [ '3.2.3' ],
+64 silly audit   'damerau-levenshtein': [ '1.0.8' ],
+64 silly audit   'data-view-buffer': [ '1.0.2' ],
+64 silly audit   'data-view-byte-length': [ '1.0.2' ],
+64 silly audit   'data-view-byte-offset': [ '1.0.1' ],
+64 silly audit   debug: [ '4.4.3', '3.2.7' ],
+64 silly audit   'deep-is': [ '0.1.4' ],
+64 silly audit   'define-data-property': [ '1.1.4' ],
+64 silly audit   'define-properties': [ '1.2.1' ],
+64 silly audit   'detect-libc': [ '2.1.2' ],
+64 silly audit   'detect-node-es': [ '1.1.0' ],
+64 silly audit   doctrine: [ '2.1.0' ],
+64 silly audit   'dunder-proto': [ '1.0.1' ],
+64 silly audit   'emoji-regex': [ '9.2.2' ],
+64 silly audit   'enhanced-resolve': [ '5.18.4' ],
+64 silly audit   'es-abstract': [ '1.24.0' ],
+64 silly audit   'es-define-property': [ '1.0.1' ],
+64 silly audit   'es-errors': [ '1.3.0' ],
+64 silly audit   'es-iterator-helpers': [ '1.2.1' ],
+64 silly audit   'es-object-atoms': [ '1.1.1' ],
+64 silly audit   'es-set-tostringtag': [ '2.1.0' ],
+64 silly audit   'es-shim-unscopables': [ '1.1.0' ],
+64 silly audit   'es-to-primitive': [ '1.3.0' ],
+64 silly audit   'escape-string-regexp': [ '4.0.0' ],
+64 silly audit   eslint: [ '9.39.1' ],
+64 silly audit   'eslint-config-next': [ '15.2.1' ],
+64 silly audit   'eslint-import-resolver-node': [ '0.3.9' ],
+64 silly audit   'eslint-import-resolver-typescript': [ '3.10.1' ],
+64 silly audit   'eslint-module-utils': [ '2.12.1' ],
+64 silly audit   'eslint-plugin-import': [ '2.32.0' ],
+64 silly audit   semver: [ '6.3.1', '7.7.3' ],
+64 silly audit   'eslint-plugin-jsx-a11y': [ '6.10.2' ],
+64 silly audit   'eslint-plugin-react': [ '7.37.5' ],
+64 silly audit   'eslint-plugin-react-hooks': [ '5.2.0' ],
+64 silly audit   resolve: [ '2.0.0-next.5', '1.22.11' ],
+64 silly audit   'eslint-scope': [ '8.4.0' ],
+64 silly audit   espree: [ '10.4.0' ],
+64 silly audit   esquery: [ '1.6.0' ],
+64 silly audit   esrecurse: [ '4.3.0' ],
+64 silly audit   estraverse: [ '5.3.0' ],
+64 silly audit   esutils: [ '2.0.3' ],
+64 silly audit   'fast-deep-equal': [ '3.1.3' ],
+64 silly audit   'fast-glob': [ '3.3.1' ],
+64 silly audit   'glob-parent': [ '5.1.2', '6.0.2' ],
+64 silly audit   'fast-json-stable-stringify': [ '2.1.0' ],
+64 silly audit   'fast-levenshtein': [ '2.0.6' ],
+64 silly audit   fastq: [ '1.19.1' ],
+64 silly audit   'file-entry-cache': [ '8.0.0' ],
+64 silly audit   'fill-range': [ '7.1.1' ],
+64 silly audit   'find-up': [ '5.0.0' ],
+64 silly audit   'flat-cache': [ '4.0.1' ],
+64 silly audit   flatted: [ '3.3.3' ],
+64 silly audit   'for-each': [ '0.3.5' ],
+64 silly audit   'function-bind': [ '1.1.2' ],
+64 silly audit   'function.prototype.name': [ '1.1.8' ],
+64 silly audit   'functions-have-names': [ '1.2.3' ],
+64 silly audit   'generator-function': [ '2.0.1' ],
+64 silly audit   'get-intrinsic': [ '1.3.0' ],
+64 silly audit   'get-nonce': [ '1.0.1' ],
+64 silly audit   'get-proto': [ '1.0.1' ],
+64 silly audit   'get-symbol-description': [ '1.1.0' ],
+64 silly audit   'get-tsconfig': [ '4.13.0' ],
+64 silly audit   globals: [ '14.0.0' ],
+64 silly audit   globalthis: [ '1.0.4' ],
+64 silly audit   gopd: [ '1.2.0' ],
+64 silly audit   'graceful-fs': [ '4.2.11' ],
+64 silly audit   'has-bigints': [ '1.1.0' ],
+64 silly audit   'has-flag': [ '4.0.0' ],
+64 silly audit   'has-property-descriptors': [ '1.0.2' ],
+64 silly audit   'has-proto': [ '1.2.0' ],
+64 silly audit   'has-symbols': [ '1.1.0' ],
+64 silly audit   'has-tostringtag': [ '1.0.2' ],
+64 silly audit   hasown: [ '2.0.2' ],
+64 silly audit   'import-fresh': [ '3.3.1' ],
+64 silly audit   imurmurhash: [ '0.1.4' ],
+64 silly audit   'internal-slot': [ '1.1.0' ],
+64 silly audit   'is-array-buffer': [ '3.0.5' ],
+64 silly audit   'is-async-function': [ '2.1.1' ],
+64 silly audit   'is-bigint': [ '1.1.0' ],
+64 silly audit   'is-boolean-object': [ '1.2.2' ],
+64 silly audit   'is-bun-module': [ '2.0.0' ],
+64 silly audit   'is-callable': [ '1.2.7' ],
+64 silly audit   'is-core-module': [ '2.16.1' ],
+64 silly audit   'is-data-view': [ '1.0.2' ],
+64 silly audit   'is-date-object': [ '1.1.0' ],
+64 silly audit   'is-extglob': [ '2.1.1' ],
+64 silly audit   'is-finalizationregistry': [ '1.1.1' ],
+64 silly audit   'is-generator-function': [ '1.1.2' ],
+64 silly audit   'is-glob': [ '4.0.3' ],
+64 silly audit   'is-map': [ '2.0.3' ],
+64 silly audit   'is-negative-zero': [ '2.0.3' ],
+64 silly audit   'is-number': [ '7.0.0' ],
+64 silly audit   'is-number-object': [ '1.1.1' ],
+64 silly audit   'is-regex': [ '1.2.1' ],
+64 silly audit   'is-set': [ '2.0.3' ],
+64 silly audit   'is-shared-array-buffer': [ '1.0.4' ],
+64 silly audit   'is-string': [ '1.1.1' ],
+64 silly audit   'is-symbol': [ '1.1.1' ],
+64 silly audit   'is-typed-array': [ '1.1.15' ],
+64 silly audit   'is-weakmap': [ '2.0.2' ],
+64 silly audit   'is-weakref': [ '1.1.1' ],
+64 silly audit   'is-weakset': [ '2.0.4' ],
+64 silly audit   isarray: [ '2.0.5' ],
+64 silly audit   isexe: [ '2.0.0' ],
+64 silly audit   'iterator.prototype': [ '1.1.5' ],
+64 silly audit   jiti: [ '2.6.1' ],
+64 silly audit   'js-tokens': [ '4.0.0' ],
+64 silly audit   'js-yaml': [ '4.1.1' ],
+64 silly audit   'json-buffer': [ '3.0.1' ],
+64 silly audit   'json-schema-traverse': [ '0.4.1' ],
+64 silly audit   'json-stable-stringify-without-jsonify': [ '1.0.1' ],
+64 silly audit   json5: [ '1.0.2' ],
+64 silly audit   'jsx-ast-utils': [ '3.3.5' ],
+64 silly audit   keyv: [ '4.5.4' ],
+64 silly audit   'language-subtag-registry': [ '0.3.23' ],
+64 silly audit   'language-tags': [ '1.0.9' ],
+64 silly audit   levn: [ '0.4.1' ],
+64 silly audit   lightningcss: [ '1.30.2' ],
+64 silly audit   'lightningcss-android-arm64': [ '1.30.2' ],
+64 silly audit   'lightningcss-darwin-arm64': [ '1.30.2' ],
+64 silly audit   'lightningcss-darwin-x64': [ '1.30.2' ],
+64 silly audit   'lightningcss-freebsd-x64': [ '1.30.2' ],
+64 silly audit   'lightningcss-linux-arm-gnueabihf': [ '1.30.2' ],
+64 silly audit   'lightningcss-linux-arm64-gnu': [ '1.30.2' ],
+64 silly audit   'lightningcss-linux-arm64-musl': [ '1.30.2' ],
+64 silly audit   'lightningcss-linux-x64-gnu': [ '1.30.2' ],
+64 silly audit   'lightningcss-linux-x64-musl': [ '1.30.2' ],
+64 silly audit   'lightningcss-win32-arm64-msvc': [ '1.30.2' ],
+64 silly audit   'lightningcss-win32-x64-msvc': [ '1.30.2' ],
+64 silly audit   'locate-path': [ '6.0.0' ],
+64 silly audit   'lodash.merge': [ '4.6.2' ],
+64 silly audit   'loose-envify': [ '1.4.0' ],
+64 silly audit   'lucide-react': [ '0.544.0' ],
+64 silly audit   'magic-string': [ '0.30.21' ],
+64 silly audit   'math-intrinsics': [ '1.1.0' ],
+64 silly audit   merge2: [ '1.4.1' ],
+64 silly audit   micromatch: [ '4.0.8' ],
+64 silly audit   minimist: [ '1.2.8' ],
+64 silly audit   ms: [ '2.1.3' ],
+64 silly audit   nanoid: [ '3.3.11' ],
+64 silly audit   'napi-postinstall': [ '0.3.4' ],
+64 silly audit   'natural-compare': [ '1.4.0' ],
+64 silly audit   next: [ '16.0.9' ],
+64 silly audit   postcss: [ '8.4.31', '8.5.6' ],
+64 silly audit   'object-assign': [ '4.1.1' ],
+64 silly audit   'object-inspect': [ '1.13.4' ],
+64 silly audit   'object-keys': [ '1.1.1' ],
+64 silly audit   'object.assign': [ '4.1.7' ],
+64 silly audit   'object.entries': [ '1.1.9' ],
+64 silly audit   'object.fromentries': [ '2.0.8' ],
+64 silly audit   'object.groupby': [ '1.0.3' ],
+64 silly audit   'object.values': [ '1.2.1' ],
+64 silly audit   optionator: [ '0.9.4' ],
+64 silly audit   'own-keys': [ '1.0.1' ],
+64 silly audit   'p-limit': [ '3.1.0' ],
+64 silly audit   'p-locate': [ '5.0.0' ],
+64 silly audit   'parent-module': [ '1.0.1' ],
+64 silly audit   'path-exists': [ '4.0.0' ],
+64 silly audit   'path-key': [ '3.1.1' ],
+64 silly audit   'path-parse': [ '1.0.7' ],
+64 silly audit   picocolors: [ '1.1.1' ],
+64 silly audit   picomatch: [ '2.3.1', '4.0.3' ],
+64 silly audit   'possible-typed-array-names': [ '1.1.0' ],
+64 silly audit   'prelude-ls': [ '1.2.1' ],
+64 silly audit   'prop-types': [ '15.8.1' ],
+64 silly audit   punycode: [ '2.3.1' ],
+64 silly audit   'queue-microtask': [ '1.2.3' ],
+64 silly audit   react: [ '19.2.2' ],
+64 silly audit   'react-dom': [ '19.2.2' ],
+64 silly audit   'react-is': [ '16.13.1' ],
+64 silly audit   'react-remove-scroll': [ '2.7.2' ],
+64 silly audit   'react-remove-scroll-bar': [ '2.3.8' ],
+64 silly audit   'react-style-singleton': [ '2.2.3' ],
+64 silly audit   'reflect.getprototypeof': [ '1.0.10' ],
+64 silly audit   'regexp.prototype.flags': [ '1.5.4' ],
+64 silly audit   'resolve-from': [ '4.0.0' ],
+64 silly audit   'resolve-pkg-maps': [ '1.0.0' ],
+64 silly audit   reusify: [ '1.1.0' ],
+64 silly audit   'run-parallel': [ '1.2.0' ],
+64 silly audit   'safe-array-concat': [ '1.1.3' ],
+64 silly audit   'safe-push-apply': [ '1.0.0' ],
+64 silly audit   'safe-regex-test': [ '1.1.0' ],
+64 silly audit   scheduler: [ '0.27.0' ],
+64 silly audit   'set-function-length': [ '1.2.2' ],
+64 silly audit   'set-function-name': [ '2.0.2' ],
+64 silly audit   'set-proto': [ '1.0.0' ],
+64 silly audit   sharp: [ '0.34.5' ],
+64 silly audit   'shebang-command': [ '2.0.0' ],
+64 silly audit   'shebang-regex': [ '3.0.0' ],
+64 silly audit   'side-channel': [ '1.1.0' ],
+64 silly audit   'side-channel-list': [ '1.0.0' ],
+64 silly audit   'side-channel-map': [ '1.0.1' ],
+64 silly audit   'side-channel-weakmap': [ '1.0.2' ],
+64 silly audit   'source-map-js': [ '1.2.1' ],
+64 silly audit   'stable-hash': [ '0.0.5' ],
+64 silly audit   'stop-iteration-iterator': [ '1.1.0' ],
+64 silly audit   'string.prototype.includes': [ '2.0.1' ],
+64 silly audit   'string.prototype.matchall': [ '4.0.12' ],
+64 silly audit   'string.prototype.repeat': [ '1.0.0' ],
+64 silly audit   'string.prototype.trim': [ '1.2.10' ],
+64 silly audit   'string.prototype.trimend': [ '1.0.9' ],
+64 silly audit   'string.prototype.trimstart': [ '1.0.8' ],
+64 silly audit   'strip-bom': [ '3.0.0' ],
+64 silly audit   'strip-json-comments': [ '3.1.1' ],
+64 silly audit   'styled-jsx': [ '5.1.6' ],
+64 silly audit   'supports-color': [ '7.2.0' ],
+64 silly audit   'supports-preserve-symlinks-flag': [ '1.0.0' ],
+64 silly audit   'tailwind-merge': [ '3.4.0' ],
+64 silly audit   tailwindcss: [ '4.1.18' ],
+64 silly audit   'tailwindcss-animate': [ '1.0.7' ],
+64 silly audit   tapable: [ '2.3.0' ],
+64 silly audit   tinyglobby: [ '0.2.15' ],
+64 silly audit   fdir: [ '6.5.0' ],
+64 silly audit   'to-regex-range': [ '5.0.1' ],
+64 silly audit   'ts-api-utils': [ '2.1.0' ],
+64 silly audit   'tsconfig-paths': [ '3.15.0' ],
+64 silly audit   tslib: [ '2.8.1' ],
+64 silly audit   'type-check': [ '0.4.0' ],
+64 silly audit   'typed-array-buffer': [ '1.0.3' ],
+64 silly audit   'typed-array-byte-length': [ '1.0.3' ],
+64 silly audit   'typed-array-byte-offset': [ '1.0.4' ],
+64 silly audit   'typed-array-length': [ '1.0.7' ],
+64 silly audit   typescript: [ '5.9.3' ],
+64 silly audit   'unbox-primitive': [ '1.1.0' ],
+64 silly audit   'undici-types': [ '7.16.0' ],
+64 silly audit   'unrs-resolver': [ '1.11.1' ],
+64 silly audit   'uri-js': [ '4.4.1' ],
+64 silly audit   'use-callback-ref': [ '1.3.3' ],
+64 silly audit   'use-sidecar': [ '1.1.3' ],
+64 silly audit   which: [ '2.0.2' ],
+64 silly audit   'which-boxed-primitive': [ '1.1.1' ],
+64 silly audit   'which-builtin-type': [ '1.2.1' ],
+64 silly audit   'which-collection': [ '1.0.2' ],
+64 silly audit   'which-typed-array': [ '1.1.19' ],
+64 silly audit   'word-wrap': [ '1.2.5' ],
+64 silly audit   'yocto-queue': [ '0.1.0' ]
+64 silly audit }
+65 verbose audit error FetchError: request to https://registry.npmjs.org/-/npm/v1/security/advisories/bulk failed, reason: 
+65 verbose audit error     at ClientRequest.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\minipass-fetch\lib\index.js:130:14)
+65 verbose audit error     at ClientRequest.emit (node:events:508:28)
+65 verbose audit error     at emitErrorEvent (node:_http_client:108:11)
+65 verbose audit error     at _destroy (node:_http_client:962:9)
+65 verbose audit error     at onSocketNT (node:_http_client:982:5)
+65 verbose audit error     at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+65 verbose audit error   code: 'EACCES',
+65 verbose audit error   errno: 'EACCES',
+65 verbose audit error   type: 'system'
+65 verbose audit error }
+66 silly audit error undefined
+67 silly audit report null
+68 http cache which@https://registry.npmjs.org/which/-/which-2.0.2.tgz 0ms (cache hit)
+69 http cache semver@https://registry.npmjs.org/semver/-/semver-7.7.3.tgz 0ms (cache hit)
+70 http cache resolve@https://registry.npmjs.org/resolve/-/resolve-1.22.11.tgz 0ms (cache hit)
+71 http cache nanoid@https://registry.npmjs.org/nanoid/-/nanoid-3.3.11.tgz 0ms (cache hit)
+72 http cache napi-postinstall@https://registry.npmjs.org/napi-postinstall/-/napi-postinstall-0.3.4.tgz 0ms (cache hit)
+73 http cache loose-envify@https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz 0ms (cache hit)
+74 http cache json5@https://registry.npmjs.org/json5/-/json5-1.0.2.tgz 0ms (cache hit)
+75 http cache @typescript-eslint/visitor-keys@https://registry.npmjs.org/@typescript-eslint/visitor-keys/-/visitor-keys-8.49.0.tgz 0ms (cache hit)
+76 http cache js-yaml@https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.1.tgz 0ms (cache hit)
+77 http cache @typescript-eslint/utils@https://registry.npmjs.org/@typescript-eslint/utils/-/utils-8.49.0.tgz 0ms (cache hit)
+78 http cache typescript@https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz 0ms (cache hit)
+79 http cache @typescript-eslint/types@https://registry.npmjs.org/@typescript-eslint/types/-/types-8.49.0.tgz 0ms (cache hit)
+80 http cache jiti@https://registry.npmjs.org/jiti/-/jiti-2.6.1.tgz 0ms (cache hit)
+81 http cache acorn@https://registry.npmjs.org/acorn/-/acorn-8.15.0.tgz 0ms (cache hit)
+82 http cache @typescript-eslint/type-utils@https://registry.npmjs.org/@typescript-eslint/type-utils/-/type-utils-8.49.0.tgz 0ms (cache hit)
+83 http cache @typescript-eslint/tsconfig-utils@https://registry.npmjs.org/@typescript-eslint/tsconfig-utils/-/tsconfig-utils-8.49.0.tgz 0ms (cache hit)
+84 http cache @typescript-eslint/scope-manager@https://registry.npmjs.org/@typescript-eslint/scope-manager/-/scope-manager-8.49.0.tgz 0ms (cache hit)
+85 http cache @typescript-eslint/typescript-estree@https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-8.49.0.tgz 0ms (cache hit)
+86 http cache @typescript-eslint/project-service@https://registry.npmjs.org/@typescript-eslint/project-service/-/project-service-8.49.0.tgz 0ms (cache hit)
+87 http cache @typescript-eslint/parser@https://registry.npmjs.org/@typescript-eslint/parser/-/parser-8.49.0.tgz 0ms (cache hit)
+88 http cache @typescript-eslint/eslint-plugin@https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-8.49.0.tgz 0ms (cache hit)
+89 http cache @types/node@https://registry.npmjs.org/@types/node/-/node-25.0.0.tgz 0ms (cache hit)
+90 http cache @radix-ui/react-separator@https://registry.npmjs.org/@radix-ui/react-separator/-/react-separator-1.1.8.tgz 0ms (cache hit)
+91 http cache @tailwindcss/postcss@https://registry.npmjs.org/@tailwindcss/postcss/-/postcss-4.1.18.tgz 0ms (cache hit)
+92 http cache @next/eslint-plugin-next@https://registry.npmjs.org/@next/eslint-plugin-next/-/eslint-plugin-next-15.2.1.tgz 0ms (cache hit)
+93 http cache @img/colour@https://registry.npmjs.org/@img/colour/-/colour-1.0.0.tgz 0ms (cache hit)
+94 http cache @img/sharp-win32-x64@https://registry.npmjs.org/@img/sharp-win32-x64/-/sharp-win32-x64-0.34.5.tgz 0ms (cache hit)
+95 http cache @next/swc-win32-x64-msvc@https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-16.0.9.tgz 1ms (cache hit)
+96 http cache @next/env@https://registry.npmjs.org/@next/env/-/env-16.0.9.tgz 0ms (cache hit)
+97 http cache @emnapi/core@https://registry.npmjs.org/@emnapi/core/-/core-1.7.1.tgz 0ms (cache hit)
+98 http cache @eslint/plugin-kit@https://registry.npmjs.org/@eslint/plugin-kit/-/plugin-kit-0.4.1.tgz 0ms (cache hit)
+99 http cache @eslint/js@https://registry.npmjs.org/@eslint/js/-/js-9.39.1.tgz 0ms (cache hit)
+100 http cache sharp@https://registry.npmjs.org/sharp/-/sharp-0.34.5.tgz 0ms (cache hit)
+101 http cache @eslint/eslintrc@https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-3.3.3.tgz 0ms (cache hit)
+102 http cache @emnapi/runtime@https://registry.npmjs.org/@emnapi/runtime/-/runtime-1.7.1.tgz 0ms (cache hit)
+103 http cache @eslint/config-helpers@https://registry.npmjs.org/@eslint/config-helpers/-/config-helpers-0.4.2.tgz 0ms (cache hit)
+104 http cache @eslint/core@https://registry.npmjs.org/@eslint/core/-/core-0.17.0.tgz 0ms (cache hit)
+105 http cache react-remove-scroll@https://registry.npmjs.org/react-remove-scroll/-/react-remove-scroll-2.7.2.tgz 0ms (cache hit)
+106 http cache next@https://registry.npmjs.org/next/-/next-16.0.9.tgz 0ms (cache hit)
+107 http cache react@https://registry.npmjs.org/react/-/react-19.2.2.tgz 0ms (cache hit)
+108 http cache react-dom@https://registry.npmjs.org/react-dom/-/react-dom-19.2.2.tgz 0ms (cache hit)
+109 http cache eslint-config-next@https://registry.npmjs.org/eslint-config-next/-/eslint-config-next-15.2.1.tgz 0ms (cache hit)
+110 http cache eslint@https://registry.npmjs.org/eslint/-/eslint-9.39.1.tgz 0ms (cache hit)
+111 http cache get-tsconfig@https://registry.npmjs.org/get-tsconfig/-/get-tsconfig-4.13.0.tgz 0ms (cache hit)
+112 http cache semver@https://registry.npmjs.org/semver/-/semver-6.3.1.tgz 0ms (cache hit)
+113 silly tarball no local data for which@https://registry.npmjs.org/which/-/which-2.0.2.tgz. Extracting by manifest.
+114 http cache caniuse-lite@https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001760.tgz 0ms (cache hit)
+115 silly tarball no local data for semver@https://registry.npmjs.org/semver/-/semver-7.7.3.tgz. Extracting by manifest.
+116 silly tarball no local data for resolve@https://registry.npmjs.org/resolve/-/resolve-1.22.11.tgz. Extracting by manifest.
+117 silly tarball no local data for nanoid@https://registry.npmjs.org/nanoid/-/nanoid-3.3.11.tgz. Extracting by manifest.
+118 http cache resolve@https://registry.npmjs.org/resolve/-/resolve-2.0.0-next.5.tgz 0ms (cache hit)
+119 silly tarball no local data for napi-postinstall@https://registry.npmjs.org/napi-postinstall/-/napi-postinstall-0.3.4.tgz. Extracting by manifest.
+120 http cache semver@https://registry.npmjs.org/semver/-/semver-6.3.1.tgz 0ms (cache hit)
+121 silly tarball no local data for loose-envify@https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz. Extracting by manifest.
+122 silly tarball no local data for json5@https://registry.npmjs.org/json5/-/json5-1.0.2.tgz. Extracting by manifest.
+123 silly tarball no local data for @typescript-eslint/visitor-keys@https://registry.npmjs.org/@typescript-eslint/visitor-keys/-/visitor-keys-8.49.0.tgz. Extracting by manifest.
+124 silly tarball no local data for js-yaml@https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.1.tgz. Extracting by manifest.
+125 silly tarball no local data for @typescript-eslint/utils@https://registry.npmjs.org/@typescript-eslint/utils/-/utils-8.49.0.tgz. Extracting by manifest.
+126 silly tarball no local data for typescript@https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz. Extracting by manifest.
+127 silly tarball no local data for @typescript-eslint/types@https://registry.npmjs.org/@typescript-eslint/types/-/types-8.49.0.tgz. Extracting by manifest.
+128 silly tarball no local data for jiti@https://registry.npmjs.org/jiti/-/jiti-2.6.1.tgz. Extracting by manifest.
+129 silly tarball no local data for acorn@https://registry.npmjs.org/acorn/-/acorn-8.15.0.tgz. Extracting by manifest.
+130 silly tarball no local data for @typescript-eslint/type-utils@https://registry.npmjs.org/@typescript-eslint/type-utils/-/type-utils-8.49.0.tgz. Extracting by manifest.
+131 silly tarball no local data for @typescript-eslint/tsconfig-utils@https://registry.npmjs.org/@typescript-eslint/tsconfig-utils/-/tsconfig-utils-8.49.0.tgz. Extracting by manifest.
+132 silly tarball no local data for @typescript-eslint/scope-manager@https://registry.npmjs.org/@typescript-eslint/scope-manager/-/scope-manager-8.49.0.tgz. Extracting by manifest.
+133 silly tarball no local data for @typescript-eslint/typescript-estree@https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-8.49.0.tgz. Extracting by manifest.
+134 silly tarball no local data for @typescript-eslint/project-service@https://registry.npmjs.org/@typescript-eslint/project-service/-/project-service-8.49.0.tgz. Extracting by manifest.
+135 silly tarball no local data for @typescript-eslint/parser@https://registry.npmjs.org/@typescript-eslint/parser/-/parser-8.49.0.tgz. Extracting by manifest.
+136 silly tarball no local data for @typescript-eslint/eslint-plugin@https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-8.49.0.tgz. Extracting by manifest.
+137 silly tarball no local data for @types/node@https://registry.npmjs.org/@types/node/-/node-25.0.0.tgz. Extracting by manifest.
+138 silly tarball no local data for @radix-ui/react-separator@https://registry.npmjs.org/@radix-ui/react-separator/-/react-separator-1.1.8.tgz. Extracting by manifest.
+139 silly tarball no local data for @tailwindcss/postcss@https://registry.npmjs.org/@tailwindcss/postcss/-/postcss-4.1.18.tgz. Extracting by manifest.
+140 silly tarball no local data for @next/eslint-plugin-next@https://registry.npmjs.org/@next/eslint-plugin-next/-/eslint-plugin-next-15.2.1.tgz. Extracting by manifest.
+141 silly tarball no local data for @img/colour@https://registry.npmjs.org/@img/colour/-/colour-1.0.0.tgz. Extracting by manifest.
+142 silly tarball no local data for @img/sharp-win32-x64@https://registry.npmjs.org/@img/sharp-win32-x64/-/sharp-win32-x64-0.34.5.tgz. Extracting by manifest.
+143 silly tarball no local data for @next/swc-win32-x64-msvc@https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-16.0.9.tgz. Extracting by manifest.
+144 silly tarball no local data for @next/env@https://registry.npmjs.org/@next/env/-/env-16.0.9.tgz. Extracting by manifest.
+145 silly tarball no local data for @emnapi/core@https://registry.npmjs.org/@emnapi/core/-/core-1.7.1.tgz. Extracting by manifest.
+146 silly tarball no local data for @eslint/plugin-kit@https://registry.npmjs.org/@eslint/plugin-kit/-/plugin-kit-0.4.1.tgz. Extracting by manifest.
+147 silly tarball no local data for @eslint/js@https://registry.npmjs.org/@eslint/js/-/js-9.39.1.tgz. Extracting by manifest.
+148 silly tarball no local data for sharp@https://registry.npmjs.org/sharp/-/sharp-0.34.5.tgz. Extracting by manifest.
+149 silly tarball no local data for @eslint/eslintrc@https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-3.3.3.tgz. Extracting by manifest.
+150 silly tarball no local data for @emnapi/runtime@https://registry.npmjs.org/@emnapi/runtime/-/runtime-1.7.1.tgz. Extracting by manifest.
+151 silly tarball no local data for @eslint/config-helpers@https://registry.npmjs.org/@eslint/config-helpers/-/config-helpers-0.4.2.tgz. Extracting by manifest.
+152 silly tarball no local data for @eslint/core@https://registry.npmjs.org/@eslint/core/-/core-0.17.0.tgz. Extracting by manifest.
+153 silly tarball no local data for react-remove-scroll@https://registry.npmjs.org/react-remove-scroll/-/react-remove-scroll-2.7.2.tgz. Extracting by manifest.
+154 silly tarball no local data for next@https://registry.npmjs.org/next/-/next-16.0.9.tgz. Extracting by manifest.
+155 silly tarball no local data for react@https://registry.npmjs.org/react/-/react-19.2.2.tgz. Extracting by manifest.
+156 silly tarball no local data for react-dom@https://registry.npmjs.org/react-dom/-/react-dom-19.2.2.tgz. Extracting by manifest.
+157 silly tarball no local data for eslint-config-next@https://registry.npmjs.org/eslint-config-next/-/eslint-config-next-15.2.1.tgz. Extracting by manifest.
+158 silly tarball no local data for eslint@https://registry.npmjs.org/eslint/-/eslint-9.39.1.tgz. Extracting by manifest.
+159 silly tarball no local data for get-tsconfig@https://registry.npmjs.org/get-tsconfig/-/get-tsconfig-4.13.0.tgz. Extracting by manifest.
+160 silly tarball no local data for semver@https://registry.npmjs.org/semver/-/semver-6.3.1.tgz. Extracting by manifest.
+161 silly tarball no local data for caniuse-lite@https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001760.tgz. Extracting by manifest.
+162 silly tarball no local data for resolve@https://registry.npmjs.org/resolve/-/resolve-2.0.0-next.5.tgz. Extracting by manifest.
+163 silly tarball no local data for semver@https://registry.npmjs.org/semver/-/semver-6.3.1.tgz. Extracting by manifest.
+164 http fetch GET https://registry.npmjs.org/which/-/which-2.0.2.tgz attempt 1 failed with EACCES
+165 http fetch GET https://registry.npmjs.org/semver/-/semver-7.7.3.tgz attempt 1 failed with EACCES
+166 http fetch GET https://registry.npmjs.org/resolve/-/resolve-1.22.11.tgz attempt 1 failed with EACCES
+167 http fetch GET https://registry.npmjs.org/nanoid/-/nanoid-3.3.11.tgz attempt 1 failed with EACCES
+168 http fetch GET https://registry.npmjs.org/napi-postinstall/-/napi-postinstall-0.3.4.tgz attempt 1 failed with EACCES
+169 http fetch GET https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz attempt 1 failed with EACCES
+170 http fetch GET https://registry.npmjs.org/json5/-/json5-1.0.2.tgz attempt 1 failed with EACCES
+171 http fetch GET https://registry.npmjs.org/@typescript-eslint/visitor-keys/-/visitor-keys-8.49.0.tgz attempt 1 failed with EACCES
+172 http fetch GET https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.1.tgz attempt 1 failed with EACCES
+173 http fetch GET https://registry.npmjs.org/@typescript-eslint/utils/-/utils-8.49.0.tgz attempt 1 failed with EACCES
+174 http fetch GET https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz attempt 1 failed with EACCES
+175 http fetch GET https://registry.npmjs.org/@typescript-eslint/types/-/types-8.49.0.tgz attempt 1 failed with EACCES
+176 http fetch GET https://registry.npmjs.org/jiti/-/jiti-2.6.1.tgz attempt 1 failed with EACCES
+177 http fetch GET https://registry.npmjs.org/acorn/-/acorn-8.15.0.tgz attempt 1 failed with EACCES
+178 http fetch GET https://registry.npmjs.org/@typescript-eslint/type-utils/-/type-utils-8.49.0.tgz attempt 1 failed with EACCES
+179 http fetch GET https://registry.npmjs.org/npm attempt 2 failed with EACCES
+180 http fetch GET https://registry.npmjs.org/which/-/which-2.0.2.tgz attempt 2 failed with EACCES
+181 http fetch GET https://registry.npmjs.org/semver/-/semver-7.7.3.tgz attempt 2 failed with EACCES
+182 http fetch GET https://registry.npmjs.org/resolve/-/resolve-1.22.11.tgz attempt 2 failed with EACCES
+183 http fetch GET https://registry.npmjs.org/nanoid/-/nanoid-3.3.11.tgz attempt 2 failed with EACCES
+184 http fetch GET https://registry.npmjs.org/napi-postinstall/-/napi-postinstall-0.3.4.tgz attempt 2 failed with EACCES
+185 http fetch GET https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz attempt 2 failed with EACCES
+186 http fetch GET https://registry.npmjs.org/json5/-/json5-1.0.2.tgz attempt 2 failed with EACCES
+187 http fetch GET https://registry.npmjs.org/@typescript-eslint/visitor-keys/-/visitor-keys-8.49.0.tgz attempt 2 failed with EACCES
+188 http fetch GET https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.1.tgz attempt 2 failed with EACCES
+189 http fetch GET https://registry.npmjs.org/@typescript-eslint/utils/-/utils-8.49.0.tgz attempt 2 failed with EACCES
+190 http fetch GET https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz attempt 2 failed with EACCES
+191 http fetch GET https://registry.npmjs.org/@typescript-eslint/types/-/types-8.49.0.tgz attempt 2 failed with EACCES
+192 http fetch GET https://registry.npmjs.org/jiti/-/jiti-2.6.1.tgz attempt 2 failed with EACCES
+193 http fetch GET https://registry.npmjs.org/acorn/-/acorn-8.15.0.tgz attempt 2 failed with EACCES
+194 http fetch GET https://registry.npmjs.org/@typescript-eslint/type-utils/-/type-utils-8.49.0.tgz attempt 2 failed with EACCES
+195 http fetch GET https://registry.npmjs.org/npm attempt 3 failed with EACCES
+196 http fetch GET https://registry.npmjs.org/which/-/which-2.0.2.tgz attempt 3 failed with EACCES
+197 http fetch GET https://registry.npmjs.org/semver/-/semver-7.7.3.tgz attempt 3 failed with EACCES
+198 http fetch GET https://registry.npmjs.org/resolve/-/resolve-1.22.11.tgz attempt 3 failed with EACCES
+199 http fetch GET https://registry.npmjs.org/nanoid/-/nanoid-3.3.11.tgz attempt 3 failed with EACCES
+200 http fetch GET https://registry.npmjs.org/napi-postinstall/-/napi-postinstall-0.3.4.tgz attempt 3 failed with EACCES
+201 http fetch GET https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz attempt 3 failed with EACCES
+202 http fetch GET https://registry.npmjs.org/json5/-/json5-1.0.2.tgz attempt 3 failed with EACCES
+203 http fetch GET https://registry.npmjs.org/@typescript-eslint/visitor-keys/-/visitor-keys-8.49.0.tgz attempt 3 failed with EACCES
+204 http fetch GET https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.1.tgz attempt 3 failed with EACCES
+205 http fetch GET https://registry.npmjs.org/@typescript-eslint/utils/-/utils-8.49.0.tgz attempt 3 failed with EACCES
+206 http fetch GET https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz attempt 3 failed with EACCES
+207 http fetch GET https://registry.npmjs.org/@typescript-eslint/types/-/types-8.49.0.tgz attempt 3 failed with EACCES
+208 http fetch GET https://registry.npmjs.org/jiti/-/jiti-2.6.1.tgz attempt 3 failed with EACCES
+209 http fetch GET https://registry.npmjs.org/acorn/-/acorn-8.15.0.tgz attempt 3 failed with EACCES
+210 http fetch GET https://registry.npmjs.org/@typescript-eslint/type-utils/-/type-utils-8.49.0.tgz attempt 3 failed with EACCES
+211 verbose cwd C:\Users\Owner\Downloads\Amazon-Clone-main
+212 verbose os Windows_NT 10.0.26200
+213 verbose node v25.0.0
+214 verbose npm  v11.6.2
+215 error Exit handler never called!
+216 error This is an error with npm itself. Please report this error at:
+217 error   <https://github.com/npm/cli/issues>
+218 verbose exit 1
+219 verbose code 1
+220 error A complete log of this run can be found in: C:\Users\Owner\Downloads\Amazon-Clone-main\.npm-cache\_logs\2026-05-25T12_45_26_979Z-debug-0.log
