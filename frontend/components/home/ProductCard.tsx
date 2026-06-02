@@ -6,6 +6,7 @@ import { useCart } from "@/context/CartContext";
 import { useFavorites } from "@/context/FavoritesContext";
 import { cn } from "@/lib/utils";
 import { Check, Eye, Heart, ShoppingCart } from "lucide-react";
+import SellerBadge from "@/components/seller/SellerBadge";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -115,6 +116,11 @@ export default function ProductCard({
       </div>
 
       <CardContent className="p-4 space-y-3">
+        {product.sellerId && (
+          <div className="mb-1">
+            <SellerBadge sellerId={product.sellerId} sellerName={product.sellerName} />
+          </div>
+        )}
         <Link href={`/product/${product.id}`}>
           <h2 className="font-semibold text-foreground line-clamp-2 hover:text-primary transition-colors">
             {product.name}

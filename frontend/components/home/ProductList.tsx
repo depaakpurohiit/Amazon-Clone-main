@@ -4,6 +4,26 @@ import { API_BASE_URL, getProducts } from "@/lib/api";
 import type { Product } from "@/types/product";
 import { useEffect, useMemo, useState } from "react";
 import ProductCard from "./ProductCard";
+import { Skeleton } from "@/components/ui/skeleton";
+
+function ProductCardSkeleton() {
+  return (
+    <div className="overflow-hidden rounded-xl border border-border bg-card">
+      <Skeleton className="aspect-square w-full rounded-none" />
+      <div className="space-y-3 p-4">
+        <Skeleton className="h-4 w-24" />
+        <div className="space-y-2">
+          <Skeleton className="h-5 w-5/6" />
+          <Skeleton className="h-5 w-2/3" />
+        </div>
+        <div className="flex items-center gap-2">
+          <Skeleton className="h-6 w-20" />
+        </div>
+        <Skeleton className="h-10 w-full rounded-lg" />
+      </div>
+    </div>
+  );
+}
 
 export default function ProductList({ query }: { query?: string }) {
   const [products, setProducts] = useState<Product[]>([]);
@@ -44,16 +64,11 @@ export default function ProductList({ query }: { query?: string }) {
   return (
     <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 max-w-7xl mx-auto">
       {isLoading ? (
-        Array.from({ length: 9 }).map((_, idx) => (
-          <div
-            key={idx}
-            className="h-[420px] rounded-xl border border-border bg-muted/30 animate-pulse"
-          />
-        ))
+        Array.from({ length: 9 }).map((_, idx) => <ProductCardSkeleton key={idx} />)
       ) : error ? (
         <div className="col-span-full flex flex-col items-center justify-center py-16 text-center">
           <h3 className="text-xl font-semibold text-foreground mb-2">
-            Couldnâ€™t load products
+            
           </h3>
           <p className="text-muted-foreground">{error}</p>
         </div>
@@ -79,4 +94,3 @@ export default function ProductList({ query }: { query?: string }) {
     </div>
   );
 }
-

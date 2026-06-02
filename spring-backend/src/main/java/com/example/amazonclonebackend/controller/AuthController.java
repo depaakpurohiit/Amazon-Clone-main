@@ -8,6 +8,8 @@ import com.example.amazonclonebackend.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,8 @@ import java.util.Map;
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class AuthController {
 
+    private static final Logger log = LoggerFactory.getLogger(AuthController.class);
+
     private final UserService userService;
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
@@ -30,7 +34,20 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<Map<String, Object>> register(@Valid @RequestBody RegisterRequest request) {
         try {
+            log.info(
+                    "Register endpoint payload email={} accountType={} role={}",
+                    request.getEmail(),
+                    request.getAccountType(),
+                    request.getRole()
+            );
             User user = userService.registerUser(request);
+            log.info(
+                    "Register endpoint saved user id={} email={} role={} sellerApproved={}",
+                    user.getId(),
+                    user.getEmail(),
+                    user.getRole(),
+                    user.getSellerApproved()
+            );
 
             Map<String, Object> response = new HashMap<>();
             response.put("status", true);
@@ -50,10 +67,14 @@ public class AuthController {
     public ResponseEntity<Map<String, Object>> login(@Valid @RequestBody LoginRequest request,
                                                    HttpServletResponse response) {
         try {
+            log.info("Login attempt for email={}", request.getEmail());
             User user = userService.findByEmail(request.getEmail())
                     .orElseThrow(() -> new RuntimeException("Incorrect Email or Password"));
 
-            if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            boolean ok = userService.authenticate(user, request.getPassword());
+            log.info("Authentication result for userId={} : {}", user.getId(), ok);
+            if (!ok) {
+                log.warn("Failed login for email={}", request.getEmail());
                 throw new RuntimeException("Incorrect Email or Password");
             }
 

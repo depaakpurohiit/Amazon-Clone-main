@@ -7,6 +7,7 @@ import { LogOut, ArrowLeft, Heart } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { requestSeller } from "@/lib/api";
 
 export default function ProfileForm() {
   const { authUser, isAuthenticated, isLoading, logout } = useCart();
@@ -35,8 +36,8 @@ export default function ProfileForm() {
   }
 
   const handleLogout = async () => {
-    await logout();
     router.replace("/login");
+    void logout();
   };
 
   return (
@@ -153,6 +154,14 @@ export default function ProfileForm() {
               <CardTitle className="text-lg">Actions</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
+              <Button onClick={async () => {
+                try {
+                  await requestSeller({ message: "Request to become seller" });
+                  alert("Seller request sent — admin will review it.");
+                } catch (e) {
+                  alert("Failed to send seller request.");
+                }
+              }} className="w-full">Request to Become Seller</Button>
               <Button asChild className="w-full" variant="outline">
                 <Link href="/cart">View Cart</Link>
               </Button>

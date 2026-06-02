@@ -31,4 +31,16 @@ public class RegisterRequest {
     @NotBlank(message = "Confirm Password can't be empty")
     private String confirmPassword;
 
+    /**
+     * Optional account type coming from the frontend signup flow.
+     * Accepted values: customer, seller.
+     */
+    private String accountType;
+
+    /**
+     * Optional explicit role field for compatibility with older/newer clients.
+     * Accepted values: CUSTOMER, SELLER.
+     */
+    private String role;
+
 }

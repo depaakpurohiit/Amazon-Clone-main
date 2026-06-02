@@ -28,9 +28,9 @@ interface CartContextProps {
   authUser: CompatAuthUserDTO | null;
   isLoading: boolean;
   error: string | null;
-  refresh: () => Promise<void>;
-  login: (email: string, password: string) => Promise<void>;
-  signup: (body: { name: string; number: string; email: string; password: string }) => Promise<void>;
+  refresh: () => Promise<CompatAuthUserDTO | null>;
+  login: (email: string, password: string) => Promise<CompatAuthUserDTO | null>;
+  signup: (body: { name: string; number: string; email: string; password: string; confirmPassword: string; accountType?: "customer" | "seller"; role?: "CUSTOMER" | "SELLER" | "ADMIN" }) => Promise<CompatAuthUserDTO | null>;
   logout: () => Promise<void>;
   addToCart: (productId: string, quantity?: number) => Promise<void>;
   removeFromCart: (cartItemId: string) => Promise<void>;
@@ -45,19 +45,39 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
   const refresh = useCallback(async () => {
     setError(null);
     try {
       const user = await getAuthUser();
       setAuthUser(user);
+      return user;
     } catch (e) {
       if (e instanceof ApiError && e.status === 401) {
         setAuthUser(null);
+        return null;
       } else {
         setError(e instanceof Error ? e.message : "Failed to load session");
+        return null;
       }
     }
   }, []);
+
+  const refreshWithRetry = useCallback(
+    async (attempts = 4, delayMs = 200) => {
+      let user: CompatAuthUserDTO | null = null;
+      for (let attempt = 0; attempt < attempts; attempt += 1) {
+        user = await refresh();
+        if (user) return user;
+        if (attempt < attempts - 1) {
+          await sleep(delayMs);
+        }
+      }
+      return user;
+    },
+    [refresh]
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -95,17 +115,17 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const login = useCallback(async (email: string, password: string) => {
     setError(null);
     await apiLogin({ email, password });
-    await refresh();
-  }, [refresh]);
+    return await refreshWithRetry();
+  }, [refreshWithRetry]);
 
   const signup = useCallback(
-    async (body: { name: string; number: string; email: string; password: string }) => {
+    async (body: { name: string; number: string; email: string; password: string; confirmPassword: string; accountType?: "customer" | "seller"; role?: "CUSTOMER" | "SELLER" | "ADMIN" }) => {
       setError(null);
       await apiRegister(body);
       await apiLogin({ email: body.email, password: body.password });
-      await refresh();
+      return await refreshWithRetry();
     },
-    [refresh]
+    [refreshWithRetry]
   );
 
   const logout = useCallback(async () => {

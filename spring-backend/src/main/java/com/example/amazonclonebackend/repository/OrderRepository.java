@@ -12,4 +12,6 @@ public interface OrderRepository extends JpaRepository<Order, String> {
 
     List<Order> findByUserOrderByDateOrderedDesc(User user);
 
+    List<Order> findDistinctByOrderProductsProductSellerProfileIdOrderByDateOrderedDesc(String sellerProfileId);
+
 }

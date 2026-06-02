@@ -4,28 +4,31 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useCart } from "@/context/CartContext";
+import { getRoleLandingPath } from "@/lib/role";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function LoginForm({ nextPath }: { nextPath: string }) {
-  const { login, isAuthenticated, error } = useCart();
+  const { login, isAuthenticated, authUser, error } = useCart();
   const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  if (isAuthenticated) {
-    router.replace(nextPath);
-  }
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.replace(authUser ? getRoleLandingPath(authUser.role) : nextPath);
+    }
+  }, [authUser, isAuthenticated, nextPath, router]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await login(email, password);
-      router.replace(nextPath);
+      const user = await login(email.trim().toLowerCase(), password);
+      router.replace(getRoleLandingPath(user?.role));
     } finally {
       setIsSubmitting(false);
     }
@@ -82,4 +85,3 @@ export default function LoginForm({ nextPath }: { nextPath: string }) {
     </div>
   );
 }
-

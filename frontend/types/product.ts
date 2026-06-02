@@ -10,5 +10,7 @@ export type Product = {
   accValue?: number;
   category?: string;
   points?: string[];
+  sellerId?: string;
+  sellerName?: string;
 };
 

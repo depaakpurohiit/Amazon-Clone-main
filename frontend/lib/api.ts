@@ -12,7 +12,12 @@ export class ApiError extends Error {
 
 async function parseJsonSafely<T>(response: Response): Promise<T> {
   const text = await response.text();
-  return (text ? JSON.parse(text) : null) as T;
+  if (!text) return null as T;
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    return text as unknown as T;
+  }
 }
 
 function extractErrorMessage(body: unknown, fallback: string) {
@@ -68,6 +73,9 @@ export type ProductDTO = {
   name: string;
   category?: string;
   points?: string[];
+  // seller metadata
+  sellerId?: string;
+  sellerName?: string;
 };
 
 export type CompatAuthUserDTO = {
@@ -81,6 +89,8 @@ export type CompatAuthUserDTO = {
     qty: number;
   }>;
   orders: unknown[];
+  role?: string;
+  sellerApproved?: boolean;
 };
 
 export function getProducts(params?: { category?: string; tag?: string }) {
@@ -97,11 +107,146 @@ export function getProduct(id: string) {
   });
 }
 
+export function requestSeller(body: { message?: string }) {
+  return apiFetch<{ requestId: string }>(`/api/seller/request`, {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+}
+
+export function getSellerRequests() {
+  return apiFetch<
+    Array<{
+      id: string;
+      requesterId?: string;
+      message?: string;
+      status?: string;
+      createdAt?: string;
+    }>
+  >(`/api/admin/seller-requests`, { method: "GET" });
+}
+
+export function approveSellerRequest(id: string) {
+  return apiFetch<{ status: string }>(`/api/admin/seller-requests/${encodeURIComponent(id)}/approve`, { method: "POST" });
+}
+
+export function rejectSellerRequest(id: string) {
+  return apiFetch<{ status: string }>(`/api/admin/seller-requests/${encodeURIComponent(id)}/reject`, { method: "POST" });
+}
+
+export function getAdminNotifications() {
+  return apiFetch<
+    Array<{
+      id: string;
+      type?: string;
+      payload?: string;
+      isRead?: boolean;
+      createdAt?: string;
+    }>
+  >(`/api/admin/notifications`, { method: "GET" });
+}
+
+export function getLiveUsers() {
+  return apiFetch<{ count: number; users: string[] }>(`/api/admin/live-users`, { method: "GET" });
+}
+
+export type SellerProfileDTO = {
+  id?: string;
+  userId?: string;
+  businessName?: string;
+  bio?: string;
+  logoUrl?: string;
+  status?: string;
+};
+
+export type SellerOrderItemDTO = {
+  productId: string;
+  productName: string;
+  qty: number;
+  priceAtTime: string;
+};
+
+export type SellerOrderDTO = {
+  id: string;
+  buyerId?: string;
+  buyerName?: string;
+  dateOrdered: string;
+  isPaid?: boolean;
+  sellerTotal?: string;
+  items?: SellerOrderItemDTO[];
+};
+
+export function createSellerProduct(body: Partial<ProductDTO>) {
+  return apiFetch<{ productId: string }>(`/api/seller/products`, {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+}
+
+export function getMySellerProducts() {
+  return apiFetch<ProductDTO[]>(`/api/seller/me/products`, { method: "GET" });
+}
+
+export function getSellerProfile() {
+  return apiFetch<SellerProfileDTO>(`/api/seller/me/profile`, { method: "GET" });
+}
+
+export function updateSellerProfile(body: Partial<SellerProfileDTO>) {
+  return apiFetch<SellerProfileDTO>(`/api/seller/me/profile`, {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+}
+
+export function getSellerOrders() {
+  return apiFetch<SellerOrderDTO[]>(`/api/seller/me/orders`, { method: "GET" });
+}
+
+export function getSellerProductsBySeller(sellerId: string) {
+  return apiFetch<ProductDTO[]>(`/api/seller/${encodeURIComponent(sellerId)}/products`, { method: "GET" });
+}
+
+export function getSellerPublicProfile(sellerId: string) {
+  return apiFetch<SellerProfileDTO>(`/api/seller/${encodeURIComponent(sellerId)}/profile`, { method: "GET" });
+}
+
+export function updateSellerProduct(productId: string, body: Partial<ProductDTO>) {
+  return apiFetch<{ status: string }>(`/api/seller/products/${encodeURIComponent(productId)}`, {
+    method: "PUT",
+    body: JSON.stringify(body),
+  });
+}
+
+export function deleteSellerProduct(productId: string) {
+  return apiFetch<{ status: string }>(`/api/seller/products/${encodeURIComponent(productId)}`, {
+    method: "DELETE",
+  });
+}
+
+export function getAdminSellers() {
+  return apiFetch<SellerProfileDTO[]>(`/api/admin/sellers`, { method: "GET" });
+}
+
+export function deleteAdminSeller(sellerId: string) {
+  return apiFetch<{ status: string }>(`/api/admin/sellers/${encodeURIComponent(sellerId)}`, {
+    method: "DELETE",
+  });
+}
+
+export function adminDeleteProduct(productId: string) {
+  return apiFetch<{ status: string }>(`/api/admin/products/${encodeURIComponent(productId)}`, {
+    method: "DELETE",
+  });
+}
+
 export function register(body: {
   name: string;
   number: string;
   email: string;
   password: string;
+  confirmPassword?: string;
+  accountType?: "customer" | "seller";
+  role?: "CUSTOMER" | "SELLER" | "ADMIN";
 }) {
   return apiFetch<{ status: boolean; message: unknown }>(`/api/register`, {
     method: "POST",
@@ -155,4 +300,19 @@ export function updateCartQty(cartItemId: string, qty: number) {
     `/api/update-qty/${encodeURIComponent(cartItemId)}?${qs.toString()}`,
     { method: "PATCH" }
   );
+}
+
+export function getFavorites() {
+  return apiFetch<ProductDTO[]>(`/api/me/favorites`, { method: "GET" });
+}
+
+export function addFavorite(productId: string) {
+  return apiFetch<ProductDTO>(`/api/me/favorites`, {
+    method: "POST",
+    body: JSON.stringify({ productId }),
+  });
+}
+
+export function removeFavorite(productId: string) {
+  return apiFetch<{ status: boolean }>(`/api/me/favorites/${encodeURIComponent(productId)}`, { method: "DELETE" });
 }

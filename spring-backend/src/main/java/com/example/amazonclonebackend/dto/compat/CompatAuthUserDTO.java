@@ -16,5 +16,7 @@ public class CompatAuthUserDTO {
     private String email;
     private List<CompatCartEntryDTO> cart;
     private List<CompatOrderWrapperDTO> orders;
+    private String role;
+    private Boolean sellerApproved;
 }
 

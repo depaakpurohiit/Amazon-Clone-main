@@ -4,30 +4,60 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useCart } from "@/context/CartContext";
+import { getRoleLandingPath } from "@/lib/role";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function SignupForm({ nextPath }: { nextPath: string }) {
-  const { signup, isAuthenticated, error } = useCart();
+export default function SignupForm({ nextPath, accountType = "customer" }: { nextPath: string; accountType?: "customer" | "seller" }) {
+  const { signup, isAuthenticated, authUser, error } = useCart();
   const router = useRouter();
+  const sellerLandingPath = "/seller/dashboard";
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.replace(
+        accountType === "seller"
+          ? sellerLandingPath
+          : authUser
+            ? getRoleLandingPath(authUser.role)
+            : nextPath
+      );
+    }
+  }, [accountType, authUser, isAuthenticated, nextPath, router]);
 
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [localError, setLocalError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  if (isAuthenticated) {
-    router.replace(nextPath);
-  }
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLocalError(null);
+    if (password !== confirmPassword) {
+      setLocalError("Passwords do not match.");
+      return;
+    }
+
     setIsSubmitting(true);
     try {
-      await signup({ name, number, email, password });
-      router.replace(nextPath);
+      const user = await signup({
+        name: name.trim(),
+        number: number.trim(),
+        email: email.trim().toLowerCase(),
+        password,
+        confirmPassword,
+        accountType,
+        role: accountType === "seller" ? "SELLER" : "CUSTOMER",
+      });
+      const landingPath =
+        accountType === "seller"
+          ? sellerLandingPath
+          : getRoleLandingPath(user?.role);
+      router.replace(landingPath === "/" ? nextPath : landingPath);
     } finally {
       setIsSubmitting(false);
     }
@@ -37,9 +67,15 @@ export default function SignupForm({ nextPath }: { nextPath: string }) {
     <div className="container mx-auto px-4 py-10 max-w-lg">
       <Card>
         <CardHeader>
-          <CardTitle>Create account</CardTitle>
+          <CardTitle>{accountType === "seller" ? "Create seller account" : "Create account"}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
+          {accountType === "seller" ? (
+            <p className="rounded-lg border border-orange-200 bg-orange-50 p-3 text-sm text-orange-800">
+              Seller sign-up creates a seller account and sends you to the seller dashboard after sign in.
+            </p>
+          ) : null}
+
           <form onSubmit={onSubmit} className="space-y-3">
             <div className="space-y-1">
               <label className="text-sm font-medium">Name</label>
@@ -75,7 +111,19 @@ export default function SignupForm({ nextPath }: { nextPath: string }) {
                 required
               />
             </div>
+            <div className="space-y-1">
+              <label className="text-sm font-medium">Confirm Password</label>
+              <Input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+            </div>
 
+            {localError ? (
+              <div className="text-sm text-destructive">{localError}</div>
+            ) : null}
             {error ? (
               <div className="text-sm text-destructive">{error}</div>
             ) : null}
@@ -99,4 +147,3 @@ export default function SignupForm({ nextPath }: { nextPath: string }) {
     </div>
   );
 }
-

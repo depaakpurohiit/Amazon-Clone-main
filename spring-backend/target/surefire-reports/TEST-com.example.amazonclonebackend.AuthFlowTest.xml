@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.amazonclonebackend.AuthFlowTest" time="15.448" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.amazonclonebackend.AuthFlowTest" time="3.096" tests="1" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\test-classes;C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.0\spring-boot-starter-web-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.0\spring-boot-starter-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.0\spring-boot-starter-logging-3.2.0.jar;C:\Users\Owner\.m2\repository\ch\qos\logback\logback-classic\1.4.11\logback-classic-1.4.11.jar;C:\Users\Owner\.m2\repository\ch\qos\logback\logback-core\1.4.11\logback-core-1.4.11.jar;C:\Users\Owner\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\Owner\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\Owner\.m2\repository\org\slf4j\jul-to-slf4j\2.0.9\jul-to-slf4j-2.0.9.jar;C:\Users\Owner\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\Owner\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.0\spring-boot-starter-json-3.2.0.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.3\jackson-datatype-jdk8-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.3\jackson-datatype-jsr310-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.3\jackson-module-parameter-names-2.15.3.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.0\spring-boot-starter-tomcat-3.2.0.jar;C:\Users\Owner\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.16\tomcat-embed-core-10.1.16.jar;C:\Users\Owner\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.16\tomcat-embed-websocket-10.1.16.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-web\6.1.1\spring-web-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-beans\6.1.1\spring-beans-6.1.1.jar;C:\Users\Owner\.m2\repository\io\micrometer\micrometer-observation\1.12.0\micrometer-observation-1.12.0.jar;C:\Users\Owner\.m2\repository\io\micrometer\micrometer-commons\1.12.0\micrometer-commons-1.12.0.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-webmvc\6.1.1\spring-webmvc-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-context\6.1.1\spring-context-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-expression\6.1.1\spring-expression-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.2.0\spring-boot-starter-data-jpa-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.2.0\spring-boot-starter-aop-3.2.0.jar;C:\Users\Owner\.m2\repository\org\aspectj\aspectjweaver\1.9.20.1\aspectjweaver-1.9.20.1.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.0\spring-boot-starter-jdbc-3.2.0.jar;C:\Users\Owner\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-jdbc\6.1.1\spring-jdbc-6.1.1.jar;C:\Users\Owner\.m2\repository\org\hibernate\orm\hibernate-core\6.3.1.Final\hibernate-core-6.3.1.Final.jar;C:\Users\Owner\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\Owner\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Owner\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\Owner\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\Owner\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\Owner\.m2\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;C:\Users\Owner\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\Owner\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.4\jaxb-runtime-4.0.4.jar;C:\Users\Owner\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.4\jaxb-core-4.0.4.jar;C:\Users\Owner\.m2\repository\org\eclipse\angus\angus-activation\2.0.1\angus-activation-2.0.1.jar;C:\Users\Owner\.m2\repository\org\glassfish\jaxb\txw2\4.0.4\txw2-4.0.4.jar;C:\Users\Owner\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Owner\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Owner\.m2\repository\org\antlr\antlr4-runtime\4.10.1\antlr4-runtime-4.10.1.jar;C:\Users\Owner\.m2\repository\org\springframework\data\spring-data-jpa\3.2.0\spring-data-jpa-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\data\spring-data-commons\3.2.0\spring-data-commons-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-orm\6.1.1\spring-orm-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-tx\6.1.1\spring-tx-6.1.1.jar;C:\Users\Owner\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-aspects\6.1.1\spring-aspects-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.2.0\spring-boot-starter-security-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-aop\6.1.1\spring-aop-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-config\6.2.0\spring-security-config-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-web\6.2.0\spring-security-web-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.2.0\spring-boot-starter-validation-3.2.0.jar;C:\Users\Owner\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.16\tomcat-embed-el-10.1.16.jar;C:\Users\Owner\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\Owner\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\Owner\.m2\repository\org\postgresql\postgresql\42.6.0\postgresql-42.6.0.jar;C:\Users\Owner\.m2\repository\org\checkerframework\checker-qual\3.31.0\checker-qual-3.31.0.jar;C:\Users\Owner\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;C:\Users\Owner\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\Owner\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\Owner\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.3\jackson-annotations-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.3\jackson-core-2.15.3.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-devtools\3.2.0\spring-boot-devtools-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot\3.2.0\spring-boot-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.0\spring-boot-autoconfigure-3.2.0.jar;C:\Users\Owner\.m2\repository\org\projectlombok\lombok\1.18.30\lombok-1.18.30.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.2.0\spring-boot-starter-test-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-test\3.2.0\spring-boot-test-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.0\spring-boot-test-autoconfigure-3.2.0.jar;C:\Users\Owner\.m2\repository\com\jayway\jsonpath\json-path\2.8.0\json-path-2.8.0.jar;C:\Users\Owner\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.1\jakarta.xml.bind-api-4.0.1.jar;C:\Users\Owner\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.2\jakarta.activation-api-2.1.2.jar;C:\Users\Owner\.m2\repository\net\minidev\json-smart\2.5.0\json-smart-2.5.0.jar;C:\Users\Owner\.m2\repository\net\minidev\accessors-smart\2.5.0\accessors-smart-2.5.0.jar;C:\Users\Owner\.m2\repository\org\ow2\asm\asm\9.3\asm-9.3.jar;C:\Users\Owner\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\Owner\.m2\repository\org\awaitility\awaitility\4.2.0\awaitility-4.2.0.jar;C:\Users\Owner\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\Owner\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Owner\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\Owner\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\Owner\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\Owner\.m2\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;C:\Users\Owner\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\Owner\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Owner\.m2\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;C:\Users\Owner\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\Owner\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-core\6.1.1\spring-core-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-jcl\6.1.1\spring-jcl-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-test\6.1.1\spring-test-6.1.1.jar;C:\Users\Owner\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-test\6.2.0\spring-security-test-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-core\6.2.0\spring-security-core-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-crypto\6.2.0\spring-security-crypto-6.2.0.jar;"/>
+    <property name="java.class.path" value="C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\test-classes;C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.0\spring-boot-starter-web-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.0\spring-boot-starter-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.0\spring-boot-starter-logging-3.2.0.jar;C:\Users\Owner\.m2\repository\ch\qos\logback\logback-classic\1.4.11\logback-classic-1.4.11.jar;C:\Users\Owner\.m2\repository\ch\qos\logback\logback-core\1.4.11\logback-core-1.4.11.jar;C:\Users\Owner\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\Owner\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\Owner\.m2\repository\org\slf4j\jul-to-slf4j\2.0.9\jul-to-slf4j-2.0.9.jar;C:\Users\Owner\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\Owner\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.0\spring-boot-starter-json-3.2.0.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.3\jackson-datatype-jdk8-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.3\jackson-datatype-jsr310-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.3\jackson-module-parameter-names-2.15.3.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.0\spring-boot-starter-tomcat-3.2.0.jar;C:\Users\Owner\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.16\tomcat-embed-core-10.1.16.jar;C:\Users\Owner\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.16\tomcat-embed-websocket-10.1.16.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-web\6.1.1\spring-web-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-beans\6.1.1\spring-beans-6.1.1.jar;C:\Users\Owner\.m2\repository\io\micrometer\micrometer-observation\1.12.0\micrometer-observation-1.12.0.jar;C:\Users\Owner\.m2\repository\io\micrometer\micrometer-commons\1.12.0\micrometer-commons-1.12.0.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-webmvc\6.1.1\spring-webmvc-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-context\6.1.1\spring-context-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-expression\6.1.1\spring-expression-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.2.0\spring-boot-starter-data-jpa-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.2.0\spring-boot-starter-aop-3.2.0.jar;C:\Users\Owner\.m2\repository\org\aspectj\aspectjweaver\1.9.20.1\aspectjweaver-1.9.20.1.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.0\spring-boot-starter-jdbc-3.2.0.jar;C:\Users\Owner\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-jdbc\6.1.1\spring-jdbc-6.1.1.jar;C:\Users\Owner\.m2\repository\org\hibernate\orm\hibernate-core\6.3.1.Final\hibernate-core-6.3.1.Final.jar;C:\Users\Owner\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\Owner\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Owner\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\Owner\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\Owner\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\Owner\.m2\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;C:\Users\Owner\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\Owner\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.4\jaxb-runtime-4.0.4.jar;C:\Users\Owner\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.4\jaxb-core-4.0.4.jar;C:\Users\Owner\.m2\repository\org\eclipse\angus\angus-activation\2.0.1\angus-activation-2.0.1.jar;C:\Users\Owner\.m2\repository\org\glassfish\jaxb\txw2\4.0.4\txw2-4.0.4.jar;C:\Users\Owner\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Owner\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Owner\.m2\repository\org\antlr\antlr4-runtime\4.10.1\antlr4-runtime-4.10.1.jar;C:\Users\Owner\.m2\repository\org\springframework\data\spring-data-jpa\3.2.0\spring-data-jpa-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\data\spring-data-commons\3.2.0\spring-data-commons-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-orm\6.1.1\spring-orm-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-tx\6.1.1\spring-tx-6.1.1.jar;C:\Users\Owner\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-aspects\6.1.1\spring-aspects-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.2.0\spring-boot-starter-security-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-aop\6.1.1\spring-aop-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-config\6.2.0\spring-security-config-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-web\6.2.0\spring-security-web-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.2.0\spring-boot-starter-validation-3.2.0.jar;C:\Users\Owner\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.16\tomcat-embed-el-10.1.16.jar;C:\Users\Owner\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\Owner\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\Owner\.m2\repository\org\postgresql\postgresql\42.6.0\postgresql-42.6.0.jar;C:\Users\Owner\.m2\repository\org\checkerframework\checker-qual\3.31.0\checker-qual-3.31.0.jar;C:\Users\Owner\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;C:\Users\Owner\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\Owner\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\Owner\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.3\jackson-annotations-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.3\jackson-core-2.15.3.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-devtools\3.2.0\spring-boot-devtools-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot\3.2.0\spring-boot-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.0\spring-boot-autoconfigure-3.2.0.jar;C:\Users\Owner\.m2\repository\org\projectlombok\lombok\1.18.30\lombok-1.18.30.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.2.0\spring-boot-starter-test-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-test\3.2.0\spring-boot-test-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.0\spring-boot-test-autoconfigure-3.2.0.jar;C:\Users\Owner\.m2\repository\com\jayway\jsonpath\json-path\2.8.0\json-path-2.8.0.jar;C:\Users\Owner\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.1\jakarta.xml.bind-api-4.0.1.jar;C:\Users\Owner\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.2\jakarta.activation-api-2.1.2.jar;C:\Users\Owner\.m2\repository\net\minidev\json-smart\2.5.0\json-smart-2.5.0.jar;C:\Users\Owner\.m2\repository\net\minidev\accessors-smart\2.5.0\accessors-smart-2.5.0.jar;C:\Users\Owner\.m2\repository\org\ow2\asm\asm\9.3\asm-9.3.jar;C:\Users\Owner\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\Owner\.m2\repository\org\awaitility\awaitility\4.2.0\awaitility-4.2.0.jar;C:\Users\Owner\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\Owner\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Owner\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\Owner\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\Owner\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\Owner\.m2\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;C:\Users\Owner\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\Owner\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Owner\.m2\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;C:\Users\Owner\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\Owner\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-core\6.1.1\spring-core-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-jcl\6.1.1\spring-jcl-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-test\6.1.1\spring-test-6.1.1.jar;C:\Users\Owner\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\Owner\.m2\repository\org\flywaydb\flyway-core\9.22.3\flyway-core-9.22.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-toml\2.15.3\jackson-dataformat-toml-2.15.3.jar;C:\Users\Owner\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-test\6.2.0\spring-security-test-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-core\6.2.0\spring-security-core-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-crypto\6.2.0\spring-security-crypto-6.2.0.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -16,9 +16,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\Owner\AppData\Local\Temp\surefire273487156948903661\surefirebooter-20260526001259616_3.jar C:\Users\Owner\AppData\Local\Temp\surefire273487156948903661 2026-05-26T00-12-59_229-jvmRun1 surefire-20260526001259616_1tmp surefire_0-20260526001259616_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Owner\AppData\Local\Temp\surefire9549769478782939979\surefirebooter-20260602164303212_3.jar C:\Users\Owner\AppData\Local\Temp\surefire9549769478782939979 2026-06-02T16-43-03_026-jvmRun1 surefire-20260602164303212_1tmp surefire_0-20260602164303212_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\test-classes;C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.0\spring-boot-starter-web-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.0\spring-boot-starter-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.0\spring-boot-starter-logging-3.2.0.jar;C:\Users\Owner\.m2\repository\ch\qos\logback\logback-classic\1.4.11\logback-classic-1.4.11.jar;C:\Users\Owner\.m2\repository\ch\qos\logback\logback-core\1.4.11\logback-core-1.4.11.jar;C:\Users\Owner\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\Owner\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\Owner\.m2\repository\org\slf4j\jul-to-slf4j\2.0.9\jul-to-slf4j-2.0.9.jar;C:\Users\Owner\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\Owner\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.0\spring-boot-starter-json-3.2.0.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.3\jackson-datatype-jdk8-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.3\jackson-datatype-jsr310-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.3\jackson-module-parameter-names-2.15.3.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.0\spring-boot-starter-tomcat-3.2.0.jar;C:\Users\Owner\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.16\tomcat-embed-core-10.1.16.jar;C:\Users\Owner\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.16\tomcat-embed-websocket-10.1.16.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-web\6.1.1\spring-web-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-beans\6.1.1\spring-beans-6.1.1.jar;C:\Users\Owner\.m2\repository\io\micrometer\micrometer-observation\1.12.0\micrometer-observation-1.12.0.jar;C:\Users\Owner\.m2\repository\io\micrometer\micrometer-commons\1.12.0\micrometer-commons-1.12.0.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-webmvc\6.1.1\spring-webmvc-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-context\6.1.1\spring-context-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-expression\6.1.1\spring-expression-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.2.0\spring-boot-starter-data-jpa-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.2.0\spring-boot-starter-aop-3.2.0.jar;C:\Users\Owner\.m2\repository\org\aspectj\aspectjweaver\1.9.20.1\aspectjweaver-1.9.20.1.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.0\spring-boot-starter-jdbc-3.2.0.jar;C:\Users\Owner\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-jdbc\6.1.1\spring-jdbc-6.1.1.jar;C:\Users\Owner\.m2\repository\org\hibernate\orm\hibernate-core\6.3.1.Final\hibernate-core-6.3.1.Final.jar;C:\Users\Owner\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\Owner\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Owner\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\Owner\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\Owner\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\Owner\.m2\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;C:\Users\Owner\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\Owner\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.4\jaxb-runtime-4.0.4.jar;C:\Users\Owner\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.4\jaxb-core-4.0.4.jar;C:\Users\Owner\.m2\repository\org\eclipse\angus\angus-activation\2.0.1\angus-activation-2.0.1.jar;C:\Users\Owner\.m2\repository\org\glassfish\jaxb\txw2\4.0.4\txw2-4.0.4.jar;C:\Users\Owner\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Owner\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Owner\.m2\repository\org\antlr\antlr4-runtime\4.10.1\antlr4-runtime-4.10.1.jar;C:\Users\Owner\.m2\repository\org\springframework\data\spring-data-jpa\3.2.0\spring-data-jpa-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\data\spring-data-commons\3.2.0\spring-data-commons-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-orm\6.1.1\spring-orm-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-tx\6.1.1\spring-tx-6.1.1.jar;C:\Users\Owner\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-aspects\6.1.1\spring-aspects-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.2.0\spring-boot-starter-security-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-aop\6.1.1\spring-aop-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-config\6.2.0\spring-security-config-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-web\6.2.0\spring-security-web-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.2.0\spring-boot-starter-validation-3.2.0.jar;C:\Users\Owner\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.16\tomcat-embed-el-10.1.16.jar;C:\Users\Owner\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\Owner\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\Owner\.m2\repository\org\postgresql\postgresql\42.6.0\postgresql-42.6.0.jar;C:\Users\Owner\.m2\repository\org\checkerframework\checker-qual\3.31.0\checker-qual-3.31.0.jar;C:\Users\Owner\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;C:\Users\Owner\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\Owner\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\Owner\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.3\jackson-annotations-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.3\jackson-core-2.15.3.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-devtools\3.2.0\spring-boot-devtools-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot\3.2.0\spring-boot-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.0\spring-boot-autoconfigure-3.2.0.jar;C:\Users\Owner\.m2\repository\org\projectlombok\lombok\1.18.30\lombok-1.18.30.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.2.0\spring-boot-starter-test-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-test\3.2.0\spring-boot-test-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.0\spring-boot-test-autoconfigure-3.2.0.jar;C:\Users\Owner\.m2\repository\com\jayway\jsonpath\json-path\2.8.0\json-path-2.8.0.jar;C:\Users\Owner\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.1\jakarta.xml.bind-api-4.0.1.jar;C:\Users\Owner\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.2\jakarta.activation-api-2.1.2.jar;C:\Users\Owner\.m2\repository\net\minidev\json-smart\2.5.0\json-smart-2.5.0.jar;C:\Users\Owner\.m2\repository\net\minidev\accessors-smart\2.5.0\accessors-smart-2.5.0.jar;C:\Users\Owner\.m2\repository\org\ow2\asm\asm\9.3\asm-9.3.jar;C:\Users\Owner\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\Owner\.m2\repository\org\awaitility\awaitility\4.2.0\awaitility-4.2.0.jar;C:\Users\Owner\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\Owner\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Owner\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\Owner\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\Owner\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\Owner\.m2\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;C:\Users\Owner\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\Owner\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Owner\.m2\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;C:\Users\Owner\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\Owner\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-core\6.1.1\spring-core-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-jcl\6.1.1\spring-jcl-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-test\6.1.1\spring-test-6.1.1.jar;C:\Users\Owner\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-test\6.2.0\spring-security-test-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-core\6.2.0\spring-security-core-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-crypto\6.2.0\spring-security-crypto-6.2.0.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\test-classes;C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.0\spring-boot-starter-web-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.0\spring-boot-starter-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.0\spring-boot-starter-logging-3.2.0.jar;C:\Users\Owner\.m2\repository\ch\qos\logback\logback-classic\1.4.11\logback-classic-1.4.11.jar;C:\Users\Owner\.m2\repository\ch\qos\logback\logback-core\1.4.11\logback-core-1.4.11.jar;C:\Users\Owner\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\Owner\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\Owner\.m2\repository\org\slf4j\jul-to-slf4j\2.0.9\jul-to-slf4j-2.0.9.jar;C:\Users\Owner\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\Owner\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.0\spring-boot-starter-json-3.2.0.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.3\jackson-datatype-jdk8-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.3\jackson-datatype-jsr310-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.3\jackson-module-parameter-names-2.15.3.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.0\spring-boot-starter-tomcat-3.2.0.jar;C:\Users\Owner\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.16\tomcat-embed-core-10.1.16.jar;C:\Users\Owner\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.16\tomcat-embed-websocket-10.1.16.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-web\6.1.1\spring-web-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-beans\6.1.1\spring-beans-6.1.1.jar;C:\Users\Owner\.m2\repository\io\micrometer\micrometer-observation\1.12.0\micrometer-observation-1.12.0.jar;C:\Users\Owner\.m2\repository\io\micrometer\micrometer-commons\1.12.0\micrometer-commons-1.12.0.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-webmvc\6.1.1\spring-webmvc-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-context\6.1.1\spring-context-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-expression\6.1.1\spring-expression-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.2.0\spring-boot-starter-data-jpa-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.2.0\spring-boot-starter-aop-3.2.0.jar;C:\Users\Owner\.m2\repository\org\aspectj\aspectjweaver\1.9.20.1\aspectjweaver-1.9.20.1.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.0\spring-boot-starter-jdbc-3.2.0.jar;C:\Users\Owner\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-jdbc\6.1.1\spring-jdbc-6.1.1.jar;C:\Users\Owner\.m2\repository\org\hibernate\orm\hibernate-core\6.3.1.Final\hibernate-core-6.3.1.Final.jar;C:\Users\Owner\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\Owner\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Owner\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\Owner\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\Owner\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\Owner\.m2\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;C:\Users\Owner\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\Owner\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.4\jaxb-runtime-4.0.4.jar;C:\Users\Owner\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.4\jaxb-core-4.0.4.jar;C:\Users\Owner\.m2\repository\org\eclipse\angus\angus-activation\2.0.1\angus-activation-2.0.1.jar;C:\Users\Owner\.m2\repository\org\glassfish\jaxb\txw2\4.0.4\txw2-4.0.4.jar;C:\Users\Owner\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Owner\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Owner\.m2\repository\org\antlr\antlr4-runtime\4.10.1\antlr4-runtime-4.10.1.jar;C:\Users\Owner\.m2\repository\org\springframework\data\spring-data-jpa\3.2.0\spring-data-jpa-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\data\spring-data-commons\3.2.0\spring-data-commons-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-orm\6.1.1\spring-orm-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-tx\6.1.1\spring-tx-6.1.1.jar;C:\Users\Owner\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-aspects\6.1.1\spring-aspects-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.2.0\spring-boot-starter-security-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-aop\6.1.1\spring-aop-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-config\6.2.0\spring-security-config-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-web\6.2.0\spring-security-web-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.2.0\spring-boot-starter-validation-3.2.0.jar;C:\Users\Owner\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.16\tomcat-embed-el-10.1.16.jar;C:\Users\Owner\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\Owner\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\Owner\.m2\repository\org\postgresql\postgresql\42.6.0\postgresql-42.6.0.jar;C:\Users\Owner\.m2\repository\org\checkerframework\checker-qual\3.31.0\checker-qual-3.31.0.jar;C:\Users\Owner\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;C:\Users\Owner\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\Owner\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\Owner\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.3\jackson-annotations-2.15.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.3\jackson-core-2.15.3.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-devtools\3.2.0\spring-boot-devtools-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot\3.2.0\spring-boot-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.0\spring-boot-autoconfigure-3.2.0.jar;C:\Users\Owner\.m2\repository\org\projectlombok\lombok\1.18.30\lombok-1.18.30.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.2.0\spring-boot-starter-test-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-test\3.2.0\spring-boot-test-3.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.0\spring-boot-test-autoconfigure-3.2.0.jar;C:\Users\Owner\.m2\repository\com\jayway\jsonpath\json-path\2.8.0\json-path-2.8.0.jar;C:\Users\Owner\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.1\jakarta.xml.bind-api-4.0.1.jar;C:\Users\Owner\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.2\jakarta.activation-api-2.1.2.jar;C:\Users\Owner\.m2\repository\net\minidev\json-smart\2.5.0\json-smart-2.5.0.jar;C:\Users\Owner\.m2\repository\net\minidev\accessors-smart\2.5.0\accessors-smart-2.5.0.jar;C:\Users\Owner\.m2\repository\org\ow2\asm\asm\9.3\asm-9.3.jar;C:\Users\Owner\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\Owner\.m2\repository\org\awaitility\awaitility\4.2.0\awaitility-4.2.0.jar;C:\Users\Owner\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\Owner\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Owner\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\Owner\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\Owner\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\Owner\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\Owner\.m2\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;C:\Users\Owner\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\Owner\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Owner\.m2\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;C:\Users\Owner\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\Owner\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-core\6.1.1\spring-core-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-jcl\6.1.1\spring-jcl-6.1.1.jar;C:\Users\Owner\.m2\repository\org\springframework\spring-test\6.1.1\spring-test-6.1.1.jar;C:\Users\Owner\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\Owner\.m2\repository\org\flywaydb\flyway-core\9.22.3\flyway-core-9.22.3.jar;C:\Users\Owner\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-toml\2.15.3\jackson-dataformat-toml-2.15.3.jar;C:\Users\Owner\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-test\6.2.0\spring-security-test-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-core\6.2.0\spring-security-core-6.2.0.jar;C:\Users\Owner\.m2\repository\org\springframework\security\spring-security-crypto\6.2.0\spring-security-crypto-6.2.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Owner"/>
     <property name="user.language" value="en"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="surefire.real.class.path" value="C:\Users\Owner\AppData\Local\Temp\surefire273487156948903661\surefirebooter-20260526001259616_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Owner\AppData\Local\Temp\surefire9549769478782939979\surefirebooter-20260602164303212_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21+35-LTS-2513"/>
@@ -52,11 +52,11 @@
     <property name="user.dir" value="C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="6172"/>
+    <property name="PID" value="14592"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-21\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk-21\bin;C:\Users\Owner\.codex\tmp\arg0\codex-arg0l9xwNS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\mingw64\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk-21\bin;C:\Program Files\dotnet\;C:\Users\Owner\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\Owner\AppData\Local\Programs\Python\Python311\;C:\Users\Owner\.local\bin;C:\Users\Owner\AppData\Local\Programs\Python\Python314\Scripts\;C:\Users\Owner\AppData\Local\Programs\Python\Python314\;C:\Users\Owner\AppData\Local\Programs\Python\Launcher\;C:\Users\Owner\AppData\Local\Microsoft\WindowsApps;C:\Users\Owner\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Owner\AppData\Roaming\npm;C:\Program Files (x86)\Nmap;C:\Users\Owner\AppData\Local\Programs\Ollama;c:\Users\Owner\.vscode\extensions\openai.chatgpt-26.513.21555-win32-x64\bin\windows-x86_64;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-21\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk-21\bin;C:\Users\Owner\.codex\tmp\arg0\codex-arg0YBRmJ2;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\mingw64\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk-21\bin;C:\Program Files\dotnet\;C:\Users\Owner\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\Owner\AppData\Local\Programs\Python\Python311\;C:\Users\Owner\.local\bin;C:\Users\Owner\AppData\Local\Programs\Python\Python314\Scripts\;C:\Users\Owner\AppData\Local\Programs\Python\Python314\;C:\Users\Owner\AppData\Local\Programs\Python\Launcher\;C:\Users\Owner\AppData\Local\Microsoft\WindowsApps;C:\Users\Owner\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Owner\AppData\Roaming\npm;C:\Program Files (x86)\Nmap;C:\Users\Owner\AppData\Local\Programs\Ollama;c:\Users\Owner\.vscode\extensions\openai.chatgpt-26.513.21555-win32-x64\bin\windows-x86_64;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="stderr.encoding" value="Cp1252"/>
     <property name="java.vendor" value="Oracle Corporation"/>
@@ -64,10 +64,141 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="registerLoginAndGetAuthUser_worksWithCookie" classname="com.example.amazonclonebackend.AuthFlowTest" time="3.978">
-    <system-out><![CDATA[00:13:01.479 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.amazonclonebackend.AuthFlowTest]: AuthFlowTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-00:13:01.686 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.amazonclonebackend.AmazonCloneBackendApplication for test class com.example.amazonclonebackend.AuthFlowTest
-00:13:02.041 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+  <testcase name="registerLoginAndGetAuthUser_worksWithCookie" classname="com.example.amazonclonebackend.AuthFlowTest" time="0.021">
+    <error message="Failed to load ApplicationContext for [WebMergedContextConfiguration@113dcaf8 testClass = com.example.amazonclonebackend.AuthFlowTest, locations = [], classes = [com.example.amazonclonebackend.AmazonCloneBackendApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [[ImportsContextCustomizer@b5d9f1e key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@18ece7f4, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@264f218, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@2462cb01, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@7ba8c737, org.springframework.boot.test.context.SpringBootTestAnnotation@2f561bfa], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]" type="java.lang.IllegalStateException"><![CDATA[java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@113dcaf8 testClass = com.example.amazonclonebackend.AuthFlowTest, locations = [], classes = [com.example.amazonclonebackend.AmazonCloneBackendApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [[ImportsContextCustomizer@b5d9f1e key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@18ece7f4, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@264f218, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@2462cb01, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@7ba8c737, org.springframework.boot.test.context.SpringBootTestAnnotation@2f561bfa], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:247)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V1__init.sql failed
+-----------------------------
+SQL State  : 42S02
+Error Code : 42102
+Message    : Table "PRODUCTS" not found; SQL statement:
+UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL [42102-224]
+Location   : db/migration/V1__init.sql (C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes\db\migration\V1__init.sql)
+Line       : 8
+Statement  : UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1442)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:552)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	... 17 more
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: Migration V1__init.sql failed
+-----------------------------
+SQL State  : 42S02
+Error Code : 42102
+Message    : Table "PRODUCTS" not found; SQL statement:
+UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL [42102-224]
+Location   : db/migration/V1__init.sql (C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes\db\migration\V1__init.sql)
+Line       : 8
+Statement  : UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:382)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$applyMigrations$1(DbMigrate.java:272)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:271)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:244)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:139)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate$1.call(TableLockingExecutionTemplate.java:36)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate.execute(TableLockingExecutionTemplate.java:31)
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:102)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:144)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:139)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:97)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:188)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:213)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:140)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	... 40 more
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: Migration V1__init.sql failed
+-----------------------------
+SQL State  : 42S02
+Error Code : 42102
+Message    : Table "PRODUCTS" not found; SQL statement:
+UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL [42102-224]
+Location   : db/migration/V1__init.sql (C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes\db\migration\V1__init.sql)
+Line       : 8
+Statement  : UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:267)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:222)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:126)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:68)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.lambda$execute$0(SqlMigrationExecutor.java:57)
+	at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:27)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:56)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:374)
+	... 58 more
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found; SQL statement:
+UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL [42102-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8064)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8035)
+	at org.h2.command.Parser.readTableOrView(Parser.java:8024)
+	at org.h2.command.Parser.readTableOrView(Parser.java:7990)
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:1094)
+	at org.h2.command.Parser.parseUpdate(Parser.java:1018)
+	at org.h2.command.Parser.parsePrepared(Parser.java:765)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:201)
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:95)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:210)
+	... 64 more
+]]></error>
+    <system-out><![CDATA[16:43:04.390 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.amazonclonebackend.AuthFlowTest]: AuthFlowTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:43:04.508 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.amazonclonebackend.AmazonCloneBackendApplication for test class com.example.amazonclonebackend.AuthFlowTest
+16:43:04.727 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -77,66 +208,41 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.0)
 
-2026-05-26T00:13:02.559+05:30  INFO 6172 --- [           main] c.e.amazonclonebackend.AuthFlowTest      : Starting AuthFlowTest using Java 21 with PID 6172 (started by Owner in C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend)
-2026-05-26T00:13:02.560+05:30  INFO 6172 --- [           main] c.e.amazonclonebackend.AuthFlowTest      : No active profile set, falling back to 1 default profile: "default"
-2026-05-26T00:13:02.566+05:30 DEBUG 6172 --- [           main] o.s.boot.SpringApplication               : Loading source class com.example.amazonclonebackend.AmazonCloneBackendApplication
-2026-05-26T00:13:02.599+05:30 DEBUG 6172 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@160c3ec1
-2026-05-26T00:13:04.282+05:30  INFO 6172 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-05-26T00:13:04.310+05:30 DEBUG 6172 --- [           main] o.s.b.a.AutoConfigurationPackages        : @EnableAutoConfiguration was declared on a class in the package 'com.example.amazonclonebackend'. Automatic @Repository and @Entity scanning is enabled.
-2026-05-26T00:13:04.392+05:30  INFO 6172 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 97 ms. Found 5 JPA repository interfaces.
-2026-05-26T00:13:05.410+05:30  INFO 6172 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-05-26T00:13:05.521+05:30  INFO 6172 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-05-26T00:13:05.662+05:30  INFO 6172 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-05-26T00:13:06.402+05:30  INFO 6172 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-05-26T00:13:06.449+05:30  INFO 6172 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-05-26T00:13:06.768+05:30  INFO 6172 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:amazonclone_test user=SA
-2026-05-26T00:13:06.772+05:30  INFO 6172 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-05-26T00:13:06.811+05:30  WARN 6172 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-26T00:13:08.362+05:30  INFO 6172 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-05-26T00:13:08.392+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : drop table if exists "cart_items" cascade 
-2026-05-26T00:13:08.398+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : drop table if exists "order_products" cascade 
-2026-05-26T00:13:08.398+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : drop table if exists "orders" cascade 
-2026-05-26T00:13:08.400+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : drop table if exists "product_points" cascade 
-2026-05-26T00:13:08.400+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : drop table if exists "products" cascade 
-2026-05-26T00:13:08.401+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : drop table if exists "user_tokens" cascade 
-2026-05-26T00:13:08.401+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : drop table if exists "users" cascade 
-2026-05-26T00:13:08.422+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : create table "cart_items" ("qty" integer not null, "id" bigint generated by default as identity, "product_id" varchar(255) not null, "user_id" varchar(255) not null, primary key ("id"))
-2026-05-26T00:13:08.439+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : create table "order_products" ("price_at_time" numeric(10,2), "qty" integer not null, "id" bigint generated by default as identity, "order_id" varchar(255) not null, "product_id" varchar(255) not null, primary key ("id"))
-2026-05-26T00:13:08.441+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : create table "orders" ("amount" numeric(10,2) not null, "is_paid" boolean not null, "date_ordered" timestamp(6) not null, "id" varchar(255) not null, "razorpay_order_id" varchar(255), "razorpay_payment_id" varchar(255), "razorpay_signature" varchar(255), "user_id" varchar(255) not null, primary key ("id"))
-2026-05-26T00:13:08.446+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : create table "product_points" ("id" bigint generated by default as identity, "point" varchar(1024) not null, "product_id" varchar(255) not null, primary key ("id"))
-2026-05-26T00:13:08.448+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : create table "products" ("acc_value" integer not null, "best_seller" boolean not null, "new_release" boolean not null, "today_deal" boolean not null, "category" varchar(255), "discount" varchar(255), "id" varchar(255) not null, "mrp" varchar(255), "name" varchar(255) not null, "price" varchar(255) not null, "res_url" varchar(255), "url" varchar(255) not null, "value" varchar(255) not null, primary key ("id"))
-2026-05-26T00:13:08.450+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : create table "user_tokens" ("id" bigint generated by default as identity, "token" varchar(255) not null, "user_id" varchar(255) not null, primary key ("id"))
-2026-05-26T00:13:08.456+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : create table "users" ("created_at" timestamp(6), "email" varchar(255) not null unique, "id" varchar(255) not null, "name" varchar(255) not null, "number" varchar(255) not null unique, "password" varchar(255) not null, primary key ("id"))
-2026-05-26T00:13:08.460+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : alter table if exists "cart_items" add constraint "FKrfese8quoo2eesobharr06mr4" foreign key ("product_id") references "products"
-2026-05-26T00:13:08.487+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : alter table if exists "cart_items" add constraint "FKpteuc7ngec5cj0ug73cmsc0k9" foreign key ("user_id") references "users"
-2026-05-26T00:13:08.489+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : alter table if exists "order_products" add constraint "FKir01o9i5sl041f3ta792ec2xu" foreign key ("order_id") references "orders"
-2026-05-26T00:13:08.492+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : alter table if exists "order_products" add constraint "FKhejciolatynfv56br6kq3ldrj" foreign key ("product_id") references "products"
-2026-05-26T00:13:08.498+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : alter table if exists "orders" add constraint "FKitd0598xtxfyrro0df4ey8kdd" foreign key ("user_id") references "users"
-2026-05-26T00:13:08.500+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : alter table if exists "product_points" add constraint "FK92d6n1j543s5kjxjcertk6a9s" foreign key ("product_id") references "products"
-2026-05-26T00:13:08.503+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : alter table if exists "user_tokens" add constraint "FK5tju0po10bq00m48ca2h3sa4s" foreign key ("user_id") references "users"
-2026-05-26T00:13:08.509+05:30  INFO 6172 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-05-26T00:13:10.096+05:30  WARN 6172 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-05-26T00:13:10.139+05:30  WARN 6172 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+2026-06-02T16:43:05.015+05:30  INFO 14592 --- [           main] c.e.amazonclonebackend.AuthFlowTest      : Starting AuthFlowTest using Java 21 with PID 14592 (started by Owner in C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend)
+2026-06-02T16:43:05.017+05:30  INFO 14592 --- [           main] c.e.amazonclonebackend.AuthFlowTest      : No active profile set, falling back to 1 default profile: "default"
+2026-06-02T16:43:05.018+05:30 DEBUG 14592 --- [           main] o.s.boot.SpringApplication               : Loading source class com.example.amazonclonebackend.AmazonCloneBackendApplication
+2026-06-02T16:43:05.038+05:30 DEBUG 14592 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@3153ddfc
+2026-06-02T16:43:05.949+05:30  INFO 14592 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-02T16:43:05.967+05:30 DEBUG 14592 --- [           main] o.s.b.a.AutoConfigurationPackages        : @EnableAutoConfiguration was declared on a class in the package 'com.example.amazonclonebackend'. Automatic @Repository and @Entity scanning is enabled.
+2026-06-02T16:43:06.039+05:30  INFO 14592 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81 ms. Found 10 JPA repository interfaces.
+2026-06-02T16:43:06.627+05:30  INFO 14592 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-02T16:43:06.892+05:30  INFO 14592 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:amazonclone_test user=SA
+2026-06-02T16:43:06.895+05:30  INFO 14592 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-02T16:43:06.996+05:30  INFO 14592 --- [           main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2026-06-02T16:43:06.997+05:30  INFO 14592 --- [           main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2026-06-02T16:43:06.997+05:30  INFO 14592 --- [           main] o.f.c.internal.license.VersionPrinter    : 
+2026-06-02T16:43:07.066+05:30  INFO 14592 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:h2:mem:amazonclone_test (H2 2.2)
+2026-06-02T16:43:07.072+05:30  WARN 14592 --- [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2026-06-02T16:43:07.103+05:30  INFO 14592 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+2026-06-02T16:43:07.107+05:30  INFO 14592 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.022s)
+2026-06-02T16:43:07.116+05:30  INFO 14592 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2026-06-02T16:43:07.145+05:30  INFO 14592 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
+2026-06-02T16:43:07.154+05:30  INFO 14592 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "1 - init"
+2026-06-02T16:43:07.173+05:30 ERROR 14592 --- [           main] o.f.core.internal.command.DbMigrate      : Migration of schema "PUBLIC" to version "1 - init" failed! Please restore backups and roll back database and code!
+2026-06-02T16:43:07.177+05:30  WARN 14592 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V1__init.sql failed
+-----------------------------
+SQL State  : 42S02
+Error Code : 42102
+Message    : Table "PRODUCTS" not found; SQL statement:
+UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL [42102-224]
+Location   : db/migration/V1__init.sql (C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes\db\migration\V1__init.sql)
+Line       : 8
+Statement  : UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL
 
-Using generated security password: c91ebf54-2845-49ff-800b-5cf90acb62bc
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2026-05-26T00:13:10.641+05:30 DEBUG 6172 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
-2026-05-26T00:13:10.989+05:30 DEBUG 6172 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2026-05-26T00:13:11.068+05:30  INFO 6172 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@732fa176, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@413e8246, org.springframework.security.web.context.SecurityContextHolderFilter@601ca994, org.springframework.security.web.header.HeaderWriterFilter@5cb4ba80, org.springframework.web.filter.CorsFilter@4c7b4a31, org.springframework.security.web.authentication.logout.LogoutFilter@7cb4d4ee, com.example.amazonclonebackend.security.JwtAuthenticationFilter@4779df3d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5432be12, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ee5fe1e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2df7766b, org.springframework.security.web.session.SessionManagementFilter@a4e1ca7, org.springframework.security.web.access.ExceptionTranslationFilter@34dda1b4, org.springframework.security.web.access.intercept.AuthorizationFilter@3811464b]
-2026-05-26T00:13:11.434+05:30 DEBUG 6172 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2026-05-26T00:13:11.494+05:30 DEBUG 6172 --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2026-05-26T00:13:11.682+05:30 DEBUG 6172 --- [           main] o.s.b.w.s.ServletContextInitializerBeans : Mapping filters: springSecurityFilterChain urls=[/*] order=-100, characterEncodingFilter urls=[/*] order=-2147483648, formContentFilter urls=[/*] order=-9900, requestContextFilter urls=[/*] order=-105, jwtAuthenticationFilter urls=[/*] order=2147483647
-2026-05-26T00:13:11.683+05:30 DEBUG 6172 --- [           main] o.s.b.w.s.ServletContextInitializerBeans : Mapping servlets: 
-2026-05-26T00:13:11.731+05:30 DEBUG 6172 --- [           main] s.b.w.s.f.OrderedCharacterEncodingFilter : Filter 'characterEncodingFilter' configured for use
-2026-05-26T00:13:11.731+05:30 DEBUG 6172 --- [           main] o.s.b.w.s.f.OrderedFormContentFilter     : Filter 'formContentFilter' configured for use
-2026-05-26T00:13:11.733+05:30 DEBUG 6172 --- [           main] o.s.b.w.s.f.OrderedRequestContextFilter  : Filter 'requestContextFilter' configured for use
-2026-05-26T00:13:11.733+05:30 DEBUG 6172 --- [           main] .DelegatingFilterProxyRegistrationBean$1 : Filter 'springSecurityFilterChain' configured for use
-2026-05-26T00:13:11.734+05:30  INFO 6172 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-05-26T00:13:11.735+05:30  INFO 6172 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-05-26T00:13:11.738+05:30  INFO 6172 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
-2026-05-26T00:13:11.801+05:30 DEBUG 6172 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2026-06-02T16:43:07.177+05:30  INFO 14592 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-02T16:43:07.180+05:30  INFO 14592 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-02T16:43:07.183+05:30 DEBUG 14592 --- [           main] o.s.boot.devtools.restart.Restarter      : Creating new Restarter for thread Thread[#1,main,5,main]
+2026-06-02T16:43:07.196+05:30 DEBUG 14592 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
 
 
 ============================
@@ -222,8 +328,38 @@ Positive matches:
    ErrorMvcAutoConfiguration.WhitelabelErrorViewConfiguration#defaultErrorView matched:
       - @ConditionalOnMissingBean (names: error; SearchStrategy: all) did not find any beans (OnBeanCondition)
 
+   FlywayAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.flywaydb.core.Flyway' (OnClassCondition)
+      - @ConditionalOnProperty (spring.flyway.enabled) matched (OnPropertyCondition)
+      - AnyNestedCondition 2 matched 1 did not; NestedCondition on FlywayAutoConfiguration.FlywayDataSourceCondition.FlywayUrlCondition @ConditionalOnProperty (spring.flyway.url) did not find property 'url'; NestedCondition on FlywayAutoConfiguration.FlywayDataSourceCondition.JdbcConnectionDetailsCondition @ConditionalOnBean (types: org.springframework.boot.autoconfigure.jdbc.JdbcConnectionDetails; SearchStrategy: all) found bean 'jdbcConnectionDetails'; NestedCondition on FlywayAutoConfiguration.FlywayDataSourceCondition.DataSourceBeanCondition @ConditionalOnBean (types: javax.sql.DataSource; SearchStrategy: all) found bean 'dataSource' (FlywayAutoConfiguration.FlywayDataSourceCondition)
+
+   FlywayAutoConfiguration.FlywayConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.jdbc.support.JdbcUtils' (OnClassCondition)
+      - @ConditionalOnMissingBean (types: org.flywaydb.core.Flyway; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   FlywayAutoConfiguration.FlywayConfiguration#flywayConnectionDetails matched:
+      - @ConditionalOnMissingBean (types: org.springframework.boot.autoconfigure.flyway.FlywayConnectionDetails; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   FlywayAutoConfiguration.FlywayConfiguration#flywayInitializer matched:
+      - @ConditionalOnMissingBean (types: org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   FlywayAutoConfiguration.FlywayConfiguration#postgresqlFlywayConfigurationCustomizer matched:
+      - @ConditionalOnClass found required class 'org.flywaydb.core.internal.database.postgresql.PostgreSQLConfigurationExtension' (OnClassCondition)
+
    GenericCacheConfiguration matched:
       - Cache org.springframework.boot.autoconfigure.cache.GenericCacheConfiguration automatic cache type (CacheCondition)
+
+   GsonAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'com.google.gson.Gson' (OnClassCondition)
+
+   GsonAutoConfiguration#gson matched:
+      - @ConditionalOnMissingBean (types: com.google.gson.Gson; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   GsonAutoConfiguration#gsonBuilder matched:
+      - @ConditionalOnMissingBean (types: com.google.gson.GsonBuilder; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   GsonHttpMessageConvertersConfiguration matched:
+      - @ConditionalOnClass found required class 'com.google.gson.Gson' (OnClassCondition)
 
    HibernateJpaAutoConfiguration matched:
       - @ConditionalOnClass found required classes 'org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean', 'jakarta.persistence.EntityManager', 'org.hibernate.engine.spi.SessionImplementor' (OnClassCondition)
@@ -683,6 +819,14 @@ Negative matches:
       Did not match:
          - @ConditionalOnMissingBean (types: org.springframework.transaction.TransactionManager; SearchStrategy: all) found beans of type 'org.springframework.transaction.TransactionManager' transactionManager (OnBeanCondition)
 
+   DbVerifierRunner:
+      Did not match:
+         - @ConditionalOnProperty (app.db.verify=true) did not find property 'app.db.verify' (OnPropertyCondition)
+
+   DevDbController:
+      Did not match:
+         - @ConditionalOnProperty (app.db.verify=true) did not find property 'app.db.verify' (OnPropertyCondition)
+
    DevToolsDataSourceAutoConfiguration:
       Did not match:
          - Devtools devtools is disabled for current context. (OnEnabledDevToolsCondition)
@@ -725,9 +869,17 @@ Negative matches:
       Did not match:
          - @ConditionalOnClass did not find required class 'org.springframework.web.reactive.config.WebFluxConfigurer' (OnClassCondition)
 
-   FlywayAutoConfiguration:
+   FallbackUsersImporter:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.flywaydb.core.Flyway' (OnClassCondition)
+         - @ConditionalOnProperty (app.import.fallback-users=true) did not find property 'fallback-users' (OnPropertyCondition)
+
+   FlywayAutoConfiguration.FlywayConfiguration#oracleFlywayConfigurationCustomizer:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.flywaydb.database.oracle.OracleConfigurationExtension' (OnClassCondition)
+
+   FlywayAutoConfiguration.FlywayConfiguration#sqlServerFlywayConfigurationCustomizer:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.flywaydb.database.sqlserver.SQLServerConfigurationExtension' (OnClassCondition)
 
    FreeMarkerAutoConfiguration:
       Did not match:
@@ -777,13 +929,9 @@ Negative matches:
       Did not match:
          - @ConditionalOnClass did not find required class 'groovy.text.markup.MarkupTemplateEngine' (OnClassCondition)
 
-   GsonAutoConfiguration:
+   GsonHttpMessageConvertersConfiguration.GsonHttpMessageConverterConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'com.google.gson.Gson' (OnClassCondition)
-
-   GsonHttpMessageConvertersConfiguration:
-      Did not match:
-         - @ConditionalOnClass did not find required class 'com.google.gson.Gson' (OnClassCondition)
+         - AnyNestedCondition 0 matched 2 did not; NestedCondition on GsonHttpMessageConvertersConfiguration.PreferGsonOrJacksonAndJsonbUnavailableCondition.JacksonJsonbUnavailable NoneNestedConditions 1 matched 1 did not; NestedCondition on GsonHttpMessageConvertersConfiguration.JacksonAndJsonbUnavailableCondition.JsonbPreferred @ConditionalOnProperty (spring.mvc.converters.preferred-json-mapper=jsonb) did not find property 'spring.mvc.converters.preferred-json-mapper'; NestedCondition on GsonHttpMessageConvertersConfiguration.JacksonAndJsonbUnavailableCondition.JacksonAvailable @ConditionalOnBean (types: org.springframework.http.converter.json.MappingJackson2HttpMessageConverter; SearchStrategy: all) found bean 'mappingJackson2HttpMessageConverter'; NestedCondition on GsonHttpMessageConvertersConfiguration.PreferGsonOrJacksonAndJsonbUnavailableCondition.GsonPreferred @ConditionalOnProperty (spring.mvc.converters.preferred-json-mapper=gson) did not find property 'spring.mvc.converters.preferred-json-mapper' (GsonHttpMessageConvertersConfiguration.PreferGsonOrJacksonAndJsonbUnavailableCondition)
 
    H2ConsoleAutoConfiguration:
       Did not match:
@@ -1300,202 +1448,415 @@ Unconditional classes:
 
 
 
-2026-05-26T00:13:11.814+05:30  INFO 6172 --- [           main] c.e.amazonclonebackend.AuthFlowTest      : Started AuthFlowTest in 9.8 seconds (process running for 11.676)
-2026-05-26T00:13:11.817+05:30 DEBUG 6172 --- [           main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
-2026-05-26T00:13:11.820+05:30 DEBUG 6172 --- [           main] o.s.jdbc.core.JdbcTemplate               : Executing SQL statement [ALTER TABLE "products" ADD COLUMN IF NOT EXISTS "category" VARCHAR(50)]
-2026-05-26T00:13:11.827+05:30 DEBUG 6172 --- [           main] o.s.jdbc.core.JdbcTemplate               : Executing SQL statement [ALTER TABLE "products" ADD COLUMN IF NOT EXISTS "best_seller" BOOLEAN NOT NULL DEFAULT FALSE]
-2026-05-26T00:13:11.828+05:30 DEBUG 6172 --- [           main] o.s.jdbc.core.JdbcTemplate               : Executing SQL statement [ALTER TABLE "products" ADD COLUMN IF NOT EXISTS "today_deal" BOOLEAN NOT NULL DEFAULT FALSE]
-2026-05-26T00:13:11.829+05:30 DEBUG 6172 --- [           main] o.s.jdbc.core.JdbcTemplate               : Executing SQL statement [ALTER TABLE "products" ADD COLUMN IF NOT EXISTS "new_release" BOOLEAN NOT NULL DEFAULT FALSE]
-2026-05-26T00:13:11.830+05:30 DEBUG 6172 --- [           main] o.s.jdbc.core.JdbcTemplate               : Executing SQL statement [UPDATE "products" SET "category" = 'ELECTRONICS' WHERE "category" IS NULL]
-2026-05-26T00:13:12.146+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value" from "products" p1_0
-2026-05-26T00:13:12.212+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.335+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.346+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.356+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.357+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.359+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.361+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.361+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.363+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.364+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.365+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.366+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.366+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.367+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.368+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.371+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.372+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.373+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.374+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.375+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.376+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.377+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.378+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.379+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.379+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.381+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.382+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.383+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.383+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.384+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.387+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.388+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.389+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.392+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.393+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.394+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.396+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.397+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.398+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.399+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.400+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.402+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.403+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.404+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.405+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.406+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.408+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.408+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.409+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.411+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.412+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.413+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.414+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.415+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.416+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.417+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.418+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.418+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.422+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.422+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.424+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.424+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.426+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.427+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.428+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.429+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.430+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.431+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.431+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.433+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.434+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.435+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.436+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.436+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.437+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.438+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.439+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.439+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.441+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.443+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.444+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.444+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.444+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.446+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.447+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.449+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.450+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.451+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.451+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.453+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.454+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.454+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.456+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.457+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.458+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.470+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.472+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.473+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.474+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.475+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.477+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.478+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.480+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.481+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.482+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.483+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.484+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.486+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.486+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.488+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.489+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.491+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.493+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.494+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.495+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.496+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.497+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.497+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.499+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.499+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.501+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.502+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.503+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.504+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.504+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.506+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.507+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.507+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.508+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.509+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.509+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.509+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.512+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.513+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.514+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.515+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.516+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.516+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.517+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.518+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.519+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.519+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.521+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.521+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.523+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.524+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.524+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.524+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.524+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.526+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.528+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select p1_0."id",p1_0."acc_value",p1_0."best_seller",p1_0."category",p1_0."discount",p1_0."mrp",p1_0."name",p1_0."new_release",p1_0."price",p1_0."res_url",p1_0."today_deal",p1_0."url",p1_0."value",p2_0."product_id",p2_0."id",p2_0."point" from "products" p1_0 left join "product_points" p2_0 on p1_0."id"=p2_0."product_id" where p1_0."id"=?
-2026-05-26T00:13:12.528+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "products" ("acc_value","best_seller","category","discount","mrp","name","new_release","price","res_url","today_deal","url","value","id") values (?,?,?,?,?,?,?,?,?,?,?,?,?)
-2026-05-26T00:13:12.529+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.530+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-2026-05-26T00:13:12.530+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "product_points" ("point","product_id","id") values (?,?,default)
-Replaced products table with 30 product(s).
-2026-05-26T00:13:12.587+05:30  INFO 6172 --- [           main] c.e.a.config.DatasourceDiagnostics       : Active Spring profile(s): default
-2026-05-26T00:13:12.587+05:30  INFO 6172 --- [           main] c.e.a.config.DatasourceDiagnostics       : Datasource driver: org.h2.Driver
-2026-05-26T00:13:12.587+05:30  INFO 6172 --- [           main] c.e.a.config.DatasourceDiagnostics       : Datasource dialect: org.hibernate.dialect.H2Dialect
-2026-05-26T00:13:12.587+05:30  INFO 6172 --- [           main] c.e.a.config.DatasourceDiagnostics       : Datasource target: jdbc:h2:mem:amazonclone_test
-2026-05-26T00:13:12.587+05:30  WARN 6172 --- [           main] c.e.a.config.DatasourceDiagnostics       : Backend is using H2 datasource. Registrations will not appear in Neon/Postgres.
-2026-05-26T00:13:12.589+05:30 DEBUG 6172 --- [           main] o.s.boot.devtools.restart.Restarter      : Creating new Restarter for thread Thread[#1,main,5,main]
-2026-05-26T00:13:12.589+05:30 DEBUG 6172 --- [           main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
-2026-05-26T00:13:15.195+05:30 DEBUG 6172 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.amazonclonebackend.controller.AuthController#register(RegisterRequest)
-2026-05-26T00:13:15.302+05:30 DEBUG 6172 --- [           main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [RegisterRequest(name=Test User, number=9999999999, email=test@example.com, password=pass123, confirm (truncated)...]
-2026-05-26T00:13:15.458+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select u1_0."id" from "users" u1_0 where u1_0."email"=? fetch first ? rows only
-2026-05-26T00:13:15.462+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select u1_0."id" from "users" u1_0 where u1_0."number"=? fetch first ? rows only
-2026-05-26T00:13:15.715+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "users" ("created_at","email","name","number","password","id") values (?,?,?,?,?,?)
-2026-05-26T00:13:15.741+05:30 DEBUG 6172 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2026-05-26T00:13:15.742+05:30 DEBUG 6172 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{message=User registered successfully, status=true}]
-2026-05-26T00:13:15.863+05:30 DEBUG 6172 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.amazonclonebackend.controller.AuthController#login(LoginRequest, HttpServletResponse)
-2026-05-26T00:13:15.866+05:30 DEBUG 6172 --- [           main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=test@example.com, password=pass123)]
-2026-05-26T00:13:15.874+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select u1_0."id",u1_0."created_at",u1_0."email",u1_0."name",u1_0."number",u1_0."password" from "users" u1_0 where u1_0."email"=?
-2026-05-26T00:13:16.129+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : insert into "user_tokens" ("token","user_id","id") values (?,?,default)
-2026-05-26T00:13:16.156+05:30 DEBUG 6172 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2026-05-26T00:13:16.157+05:30 DEBUG 6172 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{message=Logged in successfully!, status=true}]
-2026-05-26T00:13:16.375+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select ut1_0."id",ut1_0."token",ut1_0."user_id" from "user_tokens" ut1_0 where ut1_0."token"=?
-2026-05-26T00:13:16.393+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select u1_0."id",u1_0."created_at",u1_0."email",u1_0."name",u1_0."number",u1_0."password" from "users" u1_0 where u1_0."id"=?
-2026-05-26T00:13:16.400+05:30 DEBUG 6172 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.amazonclonebackend.controller.UserController#getAuthenticatedUser(User)
-2026-05-26T00:13:16.408+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select ci1_0."id",ci1_0."product_id",ci1_0."qty",ci1_0."user_id" from "cart_items" ci1_0 where ci1_0."user_id"=?
-2026-05-26T00:13:16.414+05:30 DEBUG 6172 --- [           main] org.hibernate.SQL                        : select o1_0."id",o1_0."amount",o1_0."date_ordered",o1_0."is_paid",o1_0."razorpay_order_id",o1_0."razorpay_payment_id",o1_0."razorpay_signature",o1_0."user_id" from "orders" o1_0 where o1_0."user_id"=? order by o1_0."date_ordered" desc
-2026-05-26T00:13:16.431+05:30 DEBUG 6172 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2026-05-26T00:13:16.434+05:30 DEBUG 6172 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CompatAuthUserDTO(_id=bf484149-2e19-4399-81b9-f249bb9487a8, name=Test User, number=9999999999, email (truncated)...]
+2026-06-02T16:43:07.226+05:30 ERROR 14592 --- [           main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V1__init.sql failed
+-----------------------------
+SQL State  : 42S02
+Error Code : 42102
+Message    : Table "PRODUCTS" not found; SQL statement:
+UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL [42102-224]
+Location   : db/migration/V1__init.sql (C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes\db\migration\V1__init.sql)
+Line       : 8
+Statement  : UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137) ~[spring-boot-test-3.2.0.jar:3.2.0]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.1.1.jar:6.1.1]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.1.1.jar:6.1.1]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1442) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:552) ~[spring-boot-test-3.2.0.jar:3.2.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137) ~[spring-boot-test-3.2.0.jar:3.2.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108) ~[spring-boot-test-3.2.0.jar:3.2.0]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:247) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310) ~[na:na]
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[na:na]
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.1.2.jar:3.1.2]
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: Migration V1__init.sql failed
+-----------------------------
+SQL State  : 42S02
+Error Code : 42102
+Message    : Table "PRODUCTS" not found; SQL statement:
+UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL [42102-224]
+Location   : db/migration/V1__init.sql (C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes\db\migration\V1__init.sql)
+Line       : 8
+Statement  : UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:382) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$applyMigrations$1(DbMigrate.java:272) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:271) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:244) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:139) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate$1.call(TableLockingExecutionTemplate.java:36) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate.execute(TableLockingExecutionTemplate.java:31) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:102) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:144) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:139) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:97) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:188) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:213) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:140) ~[flyway-core-9.22.3.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.2.0.jar:3.2.0]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771) ~[spring-beans-6.1.1.jar:6.1.1]
+	... 96 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: Migration V1__init.sql failed
+-----------------------------
+SQL State  : 42S02
+Error Code : 42102
+Message    : Table "PRODUCTS" not found; SQL statement:
+UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL [42102-224]
+Location   : db/migration/V1__init.sql (C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes\db\migration\V1__init.sql)
+Line       : 8
+Statement  : UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:267) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:222) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:126) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:68) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.lambda$execute$0(SqlMigrationExecutor.java:57) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:27) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:56) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:374) ~[flyway-core-9.22.3.jar:na]
+	... 114 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found; SQL statement:
+UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL [42102-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.get(DbException.java:223) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.get(DbException.java:199) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8064) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8035) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.readTableOrView(Parser.java:8024) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.readTableOrView(Parser.java:7990) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:1094) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.parseUpdate(Parser.java:1018) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.parsePrepared(Parser.java:765) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.parse(Parser.java:592) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.parse(Parser.java:564) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.prepareCommand(Parser.java:483) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:201) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:95) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:210) ~[flyway-core-9.22.3.jar:na]
+	... 120 common frames omitted
+
+2026-06-02T16:43:07.249+05:30 ERROR 14592 --- [           main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [com.example.amazonclonebackend.AuthFlowTest@350ff014]
+
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@113dcaf8 testClass = com.example.amazonclonebackend.AuthFlowTest, locations = [], classes = [com.example.amazonclonebackend.AmazonCloneBackendApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [[ImportsContextCustomizer@b5d9f1e key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@18ece7f4, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@264f218, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@2462cb01, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@7ba8c737, org.springframework.boot.test.context.SpringBootTestAnnotation@2f561bfa], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:247) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310) ~[na:na]
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[na:na]
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.1.2.jar:3.1.2]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V1__init.sql failed
+-----------------------------
+SQL State  : 42S02
+Error Code : 42102
+Message    : Table "PRODUCTS" not found; SQL statement:
+UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL [42102-224]
+Location   : db/migration/V1__init.sql (C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes\db\migration\V1__init.sql)
+Line       : 8
+Statement  : UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137) ~[spring-boot-test-3.2.0.jar:3.2.0]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.1.1.jar:6.1.1]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.1.1.jar:6.1.1]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1442) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:552) ~[spring-boot-test-3.2.0.jar:3.2.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137) ~[spring-boot-test-3.2.0.jar:3.2.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108) ~[spring-boot-test-3.2.0.jar:3.2.0]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.1.jar:6.1.1]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.1.jar:6.1.1]
+	... 73 common frames omitted
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: Migration V1__init.sql failed
+-----------------------------
+SQL State  : 42S02
+Error Code : 42102
+Message    : Table "PRODUCTS" not found; SQL statement:
+UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL [42102-224]
+Location   : db/migration/V1__init.sql (C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes\db\migration\V1__init.sql)
+Line       : 8
+Statement  : UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:382) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$applyMigrations$1(DbMigrate.java:272) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:271) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:244) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:139) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate$1.call(TableLockingExecutionTemplate.java:36) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate.execute(TableLockingExecutionTemplate.java:31) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:102) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:144) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:139) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:97) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:188) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:213) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:140) ~[flyway-core-9.22.3.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.2.0.jar:3.2.0]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771) ~[spring-beans-6.1.1.jar:6.1.1]
+	... 96 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: Migration V1__init.sql failed
+-----------------------------
+SQL State  : 42S02
+Error Code : 42102
+Message    : Table "PRODUCTS" not found; SQL statement:
+UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL [42102-224]
+Location   : db/migration/V1__init.sql (C:\Users\Owner\Downloads\Amazon-Clone-main\spring-backend\target\classes\db\migration\V1__init.sql)
+Line       : 8
+Statement  : UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:267) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:222) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:126) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:68) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.lambda$execute$0(SqlMigrationExecutor.java:57) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:27) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:56) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:374) ~[flyway-core-9.22.3.jar:na]
+	... 114 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found; SQL statement:
+UPDATE products SET category = 'ELECTRONICS' WHERE category IS NULL [42102-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.get(DbException.java:223) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.get(DbException.java:199) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8064) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8035) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.readTableOrView(Parser.java:8024) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.readTableOrView(Parser.java:7990) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:1094) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.parseUpdate(Parser.java:1018) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.parsePrepared(Parser.java:765) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.parse(Parser.java:592) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.parse(Parser.java:564) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Parser.prepareCommand(Parser.java:483) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:201) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:95) ~[flyway-core-9.22.3.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:210) ~[flyway-core-9.22.3.jar:na]
+	... 120 common frames omitted
+
 ]]></system-out>
-    <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\Owner\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar)
-WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
-WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
-WARNING: Dynamic loading of agents will be disallowed by default in a future release
+    <system-err><![CDATA[
+
+
+============================
+CONDITIONS EVALUATION REPORT
+============================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
 ]]></system-err>
   </testcase>
 </testsuite>

@@ -13,9 +13,16 @@ import { useState } from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
+import { useCart } from "@/context/CartContext";
+import { isPrivilegedRole } from "@/lib/role";
 
 export default function Footer() {
+  const { authUser } = useCart();
   const [email, setEmail] = useState("");
+
+  if (isPrivilegedRole(authUser?.role)) {
+    return null;
+  }
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();

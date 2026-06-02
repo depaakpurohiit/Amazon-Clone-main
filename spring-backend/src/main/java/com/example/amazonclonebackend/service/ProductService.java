@@ -57,18 +57,27 @@ public class ProductService {
                         .collect(Collectors.toList()) :
                 List.of();
 
+        String sellerId = null;
+        String sellerName = null;
+        if (product.getSellerProfile() != null && product.getSellerProfile().getUser() != null) {
+            sellerId = product.getSellerProfile().getId();
+            sellerName = product.getSellerProfile().getUser().getName();
+        }
+
         return new ProductDTO(
-                product.getId(),
-                product.getUrl(),
-                product.getResUrl(),
-                product.getPrice(),
-                product.getValue(),
-                product.getAccValue(),
-                product.getDiscount(),
-                product.getMrp(),
-                product.getName(),
-                product.getCategory(),
-                points
+            product.getId(),
+            product.getUrl(),
+            product.getResUrl(),
+            product.getPrice(),
+            product.getValue(),
+            product.getAccValue(),
+            product.getDiscount(),
+            product.getMrp(),
+            product.getName(),
+            product.getCategory(),
+            points,
+            sellerId,
+            sellerName
         );
     }
 

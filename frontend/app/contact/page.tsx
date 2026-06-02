@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
+import RoleAccessGate from "@/components/auth/RoleAccessGate";
 import {
   CheckCircle,
   Clock,
@@ -97,7 +98,8 @@ export default function Contact() {
   ];
 
   return (
-    <div className="bg-background">
+    <RoleAccessGate mode="customer">
+      <div className="bg-background">
       <section className="py-16 lg:py-24 bg-gradient-to-br from-primary/5 to-accent/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
@@ -389,6 +391,7 @@ export default function Contact() {
           </Card>
         </div>
       </section>
-    </div>
+      </div>
+    </RoleAccessGate>
   );
 }

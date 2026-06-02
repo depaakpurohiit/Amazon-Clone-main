@@ -31,15 +31,15 @@ public class DataLoader implements CommandLineRunner {
          * Seeding modes:
          * - none: do not seed
          * - empty-only: seed only when products table is empty
-         * - missing (default): insert only products that don't exist by id (safe to re-run)
+         * - missing: insert only products that don't exist by id (safe to re-run)
          * - replace: clear products table and insert only the seed list (used to enforce a fixed test dataset)
          */
-        @Value("${app.seed.products:replace}")
+        @Value("${app.seed.products:none}")
         private String seedMode;
 
     @Override
     public void run(String... args) {
-        String mode = seedMode == null ? "missing" : seedMode.trim().toLowerCase(Locale.ROOT);
+        String mode = seedMode == null ? "none" : seedMode.trim().toLowerCase(Locale.ROOT);
         if ("none".equals(mode)) return;
 
         if ("empty-only".equals(mode)) {

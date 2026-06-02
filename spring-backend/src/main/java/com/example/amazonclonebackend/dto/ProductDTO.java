@@ -22,5 +22,8 @@ public class ProductDTO {
     private String name;
     private String category;
     private List<String> points;
+    // seller info
+    private String sellerId;
+    private String sellerName;
 
 }

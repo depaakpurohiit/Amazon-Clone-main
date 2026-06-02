@@ -10,6 +10,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
@@ -24,10 +25,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final UserRepository userRepository;
+    private final com.example.amazonclonebackend.repository.ActiveSessionRepository activeSessionRepository;
 
-    public JwtAuthenticationFilter(JwtService jwtService, UserRepository userRepository) {
+    public JwtAuthenticationFilter(JwtService jwtService, UserRepository userRepository, com.example.amazonclonebackend.repository.ActiveSessionRepository activeSessionRepository) {
         this.jwtService = jwtService;
         this.userRepository = userRepository;
+        this.activeSessionRepository = activeSessionRepository;
     }
 
     @Override
@@ -54,9 +57,25 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 // Set user in request attributes for controllers
                 request.setAttribute("user", user);
 
+                // Record active session (use token as session id)
+                String sessionId = token;
+                try {
+                    activeSessionRepository.findBySessionId(sessionId).ifPresentOrElse(s -> {
+                        s.setLastSeen(java.time.LocalDateTime.now());
+                        activeSessionRepository.save(s);
+                    }, () -> {
+                        com.example.amazonclonebackend.entity.ActiveSession s = new com.example.amazonclonebackend.entity.ActiveSession();
+                        s.setSessionId(sessionId);
+                        s.setUser(user);
+                        s.setLastSeen(java.time.LocalDateTime.now());
+                        activeSessionRepository.save(s);
+                    });
+                } catch (Exception ignored) {}
+
                 // Set authentication in security context
                 UsernamePasswordAuthenticationToken authentication =
-                        new UsernamePasswordAuthenticationToken(user, null, Collections.emptyList());
+                        new UsernamePasswordAuthenticationToken(user, null,
+                                Collections.singletonList(new SimpleGrantedAuthority(user.getRole().name())));
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }

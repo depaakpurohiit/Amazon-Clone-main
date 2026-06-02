@@ -103,7 +103,7 @@ mvn spring-boot:run
 
 The application will start on `http://localhost:8081`
 
-Note: the default configuration uses a local file-based H2 database; you can switch to Postgres by setting the `DB_*` env vars shown above.
+Note: the runtime configuration expects Neon/Postgres through the `DB_*` env vars shown above. H2 is now limited to test-only usage under `src/test/resources/application.properties`.
 
 ## Migration Notes
 

@@ -31,11 +31,13 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable)
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/api/products", "/api/product/**", "/api/register", "/api/login", "/api/get-razorpay-key",
-                        "/api/getAuthUser", "/api/logout").permitAll()
+                .requestMatchers("/api/products", "/api/product/**", "/api/register", "/api/login", "/api/get-razorpay-key").permitAll()
+                .requestMatchers("/api/getAuthUser", "/api/logout").authenticated()
+                .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
+                .requestMatchers("/api/seller/**").hasAnyAuthority("SELLER","ADMIN")
                 .requestMatchers("/api/addtocart/**", "/api/delete/**", "/api/update-qty/**",
                                "/api/create-order", "/api/pay-order").authenticated()
-                .anyRequest().permitAll()
+                .anyRequest().authenticated()
             )
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

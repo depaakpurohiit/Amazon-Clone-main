@@ -68,7 +68,7 @@ mvn spring-boot:run
 ```
 The server is now running at http://localhost:8081/
 
-**Note**: By default the Spring Boot backend uses a local file-based H2 database; you can override it to Postgres via env vars. See `spring-backend/README.md` for details.
+**Note**: The Spring Boot backend now expects Neon/Postgres via `DB_URL`, `DB_USERNAME`, `DB_PASSWORD`, `DB_DRIVER`, and `DB_DIALECT`. See `spring-backend/README.md` for the production-safe configuration and test-only H2 notes.
 
 ## To start both (from project root)
 ```shell

@@ -41,8 +41,11 @@ public class CompatAuthUserService {
                 user.getNumber(),
                 user.getEmail(),
                 cart,
-                orders
+                orders,
+                user.getRole() != null ? user.getRole().name() : null,
+                user.getSellerApproved()
         );
+
     }
 
     private CompatCartEntryDTO toCompatCart(CartItem cartItem) {

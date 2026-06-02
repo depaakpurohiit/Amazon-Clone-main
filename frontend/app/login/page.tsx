@@ -1,3 +1,4 @@
+import RoleAccessGate from "@/components/auth/RoleAccessGate";
 import LoginForm from "@/components/auth/LoginForm";
 
 export default async function LoginPage({
@@ -7,5 +8,10 @@ export default async function LoginPage({
 }) {
   const resolvedSearchParams = await Promise.resolve(searchParams);
   const nextPath = resolvedSearchParams?.next ?? "/";
-  return <LoginForm nextPath={nextPath} />;
+  return (
+    <RoleAccessGate mode="guest">
+      <LoginForm nextPath={nextPath} />
+    </RoleAccessGate>
+  );
 }
+

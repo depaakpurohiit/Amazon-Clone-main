@@ -2,6 +2,8 @@
 
 import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
 import type { Product } from "@/types/product";
+import { getFavorites, addFavorite as apiAddFavorite, removeFavorite as apiRemoveFavorite } from "@/lib/api";
+import { useCart } from "@/context/CartContext";
 
 interface FavoritesContextProps {
   favorites: Product[];
@@ -21,29 +23,65 @@ const FAVORITES_STORAGE_KEY = "amazon_clone_favorites";
 export const FavoritesProvider = ({ children }: { children: React.ReactNode }) => {
   const [favorites, setFavorites] = useState<Product[]>([]);
   const [mounted, setMounted] = useState(false);
+  const { isAuthenticated } = useCart();
 
   // Load favorites from localStorage on mount
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(FAVORITES_STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        setFavorites(Array.isArray(parsed) ? parsed : []);
+    let cancelled = false;
+    (async () => {
+      try {
+        if (isAuthenticated) {
+          const serverFavs = await getFavorites();
+          if (!cancelled) setFavorites(serverFavs ?? []);
+        } else {
+          const stored = localStorage.getItem(FAVORITES_STORAGE_KEY);
+          if (stored) {
+            const parsed = JSON.parse(stored);
+            if (!cancelled) setFavorites(Array.isArray(parsed) ? parsed : []);
+          }
+        }
+      } catch (error) {
+        console.error("Failed to load favorites:", error);
+      } finally {
+        if (!cancelled) setMounted(true);
       }
-    } catch (error) {
-      console.error("Failed to load favorites:", error);
-    }
-    setMounted(true);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // Save favorites to localStorage whenever they change
   useEffect(() => {
     if (!mounted) return;
-    try {
-      localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
-    } catch (error) {
-      console.error("Failed to save favorites:", error);
-    }
+    (async () => {
+      try {
+        if (isAuthenticated) {
+          // Sync client favorites with server: best-effort add/remove
+          // Fetch current server favorites to compute diff
+          const serverFavs = await getFavorites();
+          const serverIds = new Set((serverFavs ?? []).map((p) => p.id));
+          // Add missing
+          for (const p of favorites) {
+            if (!serverIds.has(p.id)) {
+              try {
+                await apiAddFavorite(p.id);
+              } catch {
+                // ignore individual failures
+              }
+            }
+          }
+        } else {
+          try {
+            localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
+          } catch (error) {
+            console.error("Failed to save favorites:", error);
+          }
+        }
+      } catch (error) {
+        console.error("Failed to sync favorites:", error);
+      }
+    })();
   }, [favorites, mounted]);
 
   const isFavorite = useCallback(
@@ -53,16 +91,37 @@ export const FavoritesProvider = ({ children }: { children: React.ReactNode }) =
 
   const addFavorite = useCallback((product: Product) => {
     setFavorites((prev) => {
-      if (prev.some((fav) => fav.id === product.id)) {
-        return prev;
+      if (prev.some((fav) => fav.id === product.id)) return prev;
+      const next = [...prev, product];
+      // If authenticated, optimistically update and sync in effect
+      if (isAuthenticated) {
+        (async () => {
+          try {
+            await apiAddFavorite(product.id);
+          } catch (err) {
+            console.error("Failed to add favorite on server:", err);
+          }
+        })();
       }
-      return [...prev, product];
+      return next;
     });
-  }, []);
+  }, [isAuthenticated]);
 
   const removeFavorite = useCallback((productId: string) => {
-    setFavorites((prev) => prev.filter((fav) => fav.id !== productId));
-  }, []);
+    setFavorites((prev) => {
+      const next = prev.filter((fav) => fav.id !== productId);
+      if (isAuthenticated) {
+        (async () => {
+          try {
+            await apiRemoveFavorite(productId);
+          } catch (err) {
+            console.error("Failed to remove favorite on server:", err);
+          }
+        })();
+      }
+      return next;
+    });
+  }, [isAuthenticated]);
 
   const toggleFavorite = useCallback(
     (product: Product) => {
