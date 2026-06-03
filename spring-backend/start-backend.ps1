@@ -1,5 +1,5 @@
 param(
-    [string]$DbUrl = "jdbc:postgresql://ep-misty-rain-apff0rak-pooler.c-7.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
+    [string]$DbUrl = "postgresql://neondb_owner:npg_LNe3xVF1DovC@ep-misty-rain-apff0rak-pooler.c-7.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
     [string]$DbUsername = "neondb_owner",
     [string]$DbPassword = $env:DB_PASSWORD
 )
