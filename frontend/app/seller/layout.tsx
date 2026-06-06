@@ -4,6 +4,7 @@ import RoleAccessGate from "@/components/auth/RoleAccessGate";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
+import { SellerDataProvider } from "@/context/SellerDataContext";
 
 const navItems = [
   { href: "/seller/dashboard", label: "Dashboard" },
@@ -33,6 +34,7 @@ function SellerNavLink({ href, label }: { href: string; label: string }) {
 export default function SellerLayout({ children }: { children: ReactNode }) {
   return (
     <RoleAccessGate mode="seller">
+      <SellerDataProvider>
       <div className="min-h-screen bg-slate-50">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
@@ -60,6 +62,7 @@ export default function SellerLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
       </div>
+      </SellerDataProvider>
     </RoleAccessGate>
   );
 }

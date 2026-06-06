@@ -8,6 +8,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { requestSeller } from "@/lib/api";
+import ConfirmDialog from "@/components/ui/ConfirmDialog";
+import LogoutLoader from "@/components/ui/LogoutLoader";
+import { useState } from "react";
 
 export default function ProfileForm() {
   const { authUser, isAuthenticated, isLoading, logout } = useCart();
@@ -35,13 +38,27 @@ export default function ProfileForm() {
     return null;
   }
 
-  const handleLogout = async () => {
-    router.replace("/login");
-    void logout();
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const handleLogout = () => {
+    setShowConfirm(true);
+  };
+
+  const confirmLogout = async () => {
+    setShowConfirm(false);
+    setIsLoggingOut(true);
+    try {
+      await logout();
+    } finally {
+      setIsLoggingOut(false);
+      router.replace("/login");
+    }
   };
 
   return (
-    <div className="container mx-auto px-4 py-10 max-w-6xl">
+    <>
+      <div className="container mx-auto px-4 py-10 max-w-6xl">
       <div className="mb-6">
         <Button
           variant="ghost"
@@ -180,6 +197,17 @@ export default function ProfileForm() {
           </Card>
         </div>
       </div>
-    </div>
+      </div>
+      <ConfirmDialog
+      open={showConfirm}
+      title="Are you sure you want to log out?"
+      description="You will be signed out of your account."
+      confirmLabel="Log out"
+      cancelLabel="Cancel"
+      onConfirm={confirmLogout}
+      onCancel={() => setShowConfirm(false)}
+    />
+    {isLoggingOut && <LogoutLoader message="Logging out…" />}
+    </>
   );
 }

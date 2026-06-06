@@ -4,6 +4,7 @@ import RoleAccessGate from "@/components/auth/RoleAccessGate";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
+import { AdminDataProvider } from "@/context/AdminDataContext";
 
 const navItems = [
   { href: "/admin/dashboard", label: "Dashboard" },
@@ -32,6 +33,7 @@ function AdminNavLink({ href, label }: { href: string; label: string }) {
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
     <RoleAccessGate mode="admin">
+      <AdminDataProvider>
       <div className="min-h-screen bg-slate-50">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
@@ -56,6 +58,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
       </div>
+      </AdminDataProvider>
     </RoleAccessGate>
   );
 }

@@ -5,10 +5,12 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { createSellerProduct, getSellerProfile } from "@/lib/api";
+import { useSellerData } from "@/context/SellerDataContext";
 import { useEffect } from "react";
 
 export default function SellerAddProductPage() {
   const router = useRouter();
+  const { refreshProducts } = useSellerData();
   const [form, setForm] = useState({
     name: "",
     category: "",
@@ -28,12 +30,57 @@ export default function SellerAddProductPage() {
     setForm((prev) => ({ ...prev, [key]: value }));
   };
 
+  const validateForm = () => {
+    if (!form.name || String(form.name).trim() === "") return "Product name is required.";
+
+    const price = Number(form.price);
+    if (isNaN(price)) return "Price must be a valid number.";
+    if (price < 0) return "Price cannot be negative.";
+
+    if (form.mrp !== "") {
+      const mrp = Number(form.mrp);
+      if (isNaN(mrp)) return "MRP must be a valid number.";
+      if (mrp < price) return "MRP should be greater than or equal to Price.";
+    }
+
+    if (form.discount !== "") {
+      const disc = Number(form.discount);
+      if (isNaN(disc)) return "Discount must be a valid number.";
+      if (disc < 0 || disc > 100) return "Discount must be between 0 and 100.";
+    }
+
+    if (typeof form.accValue === "number" && form.accValue < 0) return "Accessory value cannot be negative.";
+
+    const testUrl = (u: string) => {
+      if (!u) return true;
+      try {
+        new URL(u);
+        return true;
+      } catch (e) {
+        return false;
+      }
+    };
+    if (form.url && !testUrl(form.url)) return "Main image URL is not a valid URL.";
+    if (form.resUrl && !testUrl(form.resUrl)) return "Secondary image URL is not a valid URL.";
+
+    return null;
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError(null);
+
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+
     setIsSaving(true);
     try {
       await createSellerProduct(form);
+      // refresh seller products cache
+      try { await refreshProducts(); } catch {}
       router.push("/seller/products");
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Unable to save product";
@@ -114,6 +161,9 @@ export default function SellerAddProductPage() {
             <div>
               <label className="block text-sm font-medium text-slate-700">Price</label>
               <input
+                type="number"
+                min="0"
+                step="0.01"
                 value={form.price}
                 onChange={(e) => handleChange("price", e.target.value)}
                 className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
@@ -122,6 +172,9 @@ export default function SellerAddProductPage() {
             <div>
               <label className="block text-sm font-medium text-slate-700">MRP</label>
               <input
+                type="number"
+                min="0"
+                step="0.01"
                 value={form.mrp}
                 onChange={(e) => handleChange("mrp", e.target.value)}
                 className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
@@ -131,16 +184,26 @@ export default function SellerAddProductPage() {
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="block text-sm font-medium text-slate-700">Discount</label>
-              <input
-                value={form.discount}
-                onChange={(e) => handleChange("discount", e.target.value)}
-                className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
-              />
+              <div className="mt-2 flex rounded-2xl border border-slate-300 bg-slate-50 focus-within:ring-2 focus-within:ring-orange-400">
+                <input
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="0.01"
+                  inputMode="decimal"
+                  placeholder="0"
+                  value={form.discount}
+                  onChange={(e) => handleChange("discount", e.target.value)}
+                  className="w-full rounded-l-2xl border-none bg-transparent px-4 py-3 text-sm outline-none"
+                />
+                <span className="mr-4 inline-flex items-center text-sm text-slate-500">%</span>
+              </div>
             </div>
             <div>
               <label className="block text-sm font-medium text-slate-700">Accessory value</label>
               <input
                 type="number"
+                min="0"
                 value={form.accValue}
                 onChange={(e) => handleChange("accValue", Number(e.target.value))}
                 className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"

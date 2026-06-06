@@ -1,24 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { getSellerOrders } from "@/lib/api";
+import { useSellerData } from "@/context/SellerDataContext";
 
 export default function SellerOrdersPage() {
-  const [orders, setOrders] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await getSellerOrders();
-        setOrders(data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
+  const { orders, isLoading } = useSellerData();
 
   return (
     <div className="space-y-6">

@@ -2,6 +2,7 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import { CartProvider } from "@/context/CartContext";
 import { FavoritesProvider } from "@/context/FavoritesContext";
+import { HomeDataProvider } from "@/context/HomeDataContext";
 import type { Metadata } from "next";
 import "./globals.css";
 import { Suspense } from "react";
@@ -24,11 +25,13 @@ export default function RootLayout({
       >
         <CartProvider>
           <FavoritesProvider>
-            <Suspense fallback={<div className="h-[72px] border-b border-border bg-background" />}>
-              <Header />
-            </Suspense>
-            <main className="flex-grow">{children}</main>
-            <Footer />
+            <HomeDataProvider>
+              <Suspense fallback={<div className="h-[72px] border-b border-border bg-background" />}>
+                <Header />
+              </Suspense>
+              <main className="flex-grow">{children}</main>
+              <Footer />
+            </HomeDataProvider>
           </FavoritesProvider>
         </CartProvider>
       </body>

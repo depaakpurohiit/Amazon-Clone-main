@@ -1,35 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getSellerRequests, getAdminNotifications, getLiveUsers } from "@/lib/api";
+import { useAdminData } from "@/context/AdminDataContext";
 
 export default function AdminDashboard() {
-  const [requests, setRequests] = useState<any[]>([]);
-  const [notifs, setNotifs] = useState<any[]>([]);
-  const [live, setLive] = useState<{ count: number; users: string[] }>({ count: 0, users: [] });
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const [requestData, notificationData, liveData] = await Promise.all([
-          getSellerRequests(),
-          getAdminNotifications(),
-          getLiveUsers(),
-        ]);
-        setRequests(requestData);
-        setNotifs(notificationData);
-        setLive(liveData);
-      } catch (e) {
-        console.error(e);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
+  const { sellerRequests, notifications, liveUsersCount, isLoading } = useAdminData();
 
   return (
     <div className="space-y-6">
@@ -54,7 +31,7 @@ export default function AdminDashboard() {
             <CardTitle>Live users</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-semibold text-slate-900">{isLoading ? "—" : live.count}</p>
+            <p className="text-3xl font-semibold text-slate-900">{isLoading ? "—" : liveUsersCount}</p>
             <p className="mt-2 text-sm text-slate-600">Users active in the last few minutes</p>
           </CardContent>
         </Card>
@@ -63,7 +40,7 @@ export default function AdminDashboard() {
             <CardTitle>Seller requests</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-semibold text-slate-900">{isLoading ? "—" : requests.length}</p>
+            <p className="text-3xl font-semibold text-slate-900">{isLoading ? "—" : sellerRequests.length}</p>
             <p className="mt-2 text-sm text-slate-600">Pending seller approvals</p>
           </CardContent>
         </Card>
@@ -72,7 +49,7 @@ export default function AdminDashboard() {
             <CardTitle>Notifications</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-semibold text-slate-900">{isLoading ? "—" : notifs.length}</p>
+            <p className="text-3xl font-semibold text-slate-900">{isLoading ? "—" : notifications.length}</p>
             <p className="mt-2 text-sm text-slate-600">System and workflow events</p>
           </CardContent>
         </Card>
@@ -90,11 +67,11 @@ export default function AdminDashboard() {
                   <div key={idx} className="h-16 rounded-2xl bg-slate-100 animate-pulse" />
                 ))}
               </div>
-            ) : requests.length === 0 ? (
+            ) : sellerRequests.length === 0 ? (
               <p className="text-sm text-slate-600">No pending requests at the moment.</p>
             ) : (
               <div className="space-y-4">
-                {requests.map((request) => (
+                {sellerRequests.map((request) => (
                   <div key={request.id} className="rounded-3xl border border-slate-200 bg-slate-50 p-4">
                     <p className="text-sm font-semibold text-slate-900">Request from {request.requesterId}</p>
                     <p className="mt-2 text-sm text-slate-600">{request.message}</p>
@@ -116,11 +93,11 @@ export default function AdminDashboard() {
                   <div key={idx} className="h-14 rounded-2xl bg-slate-100 animate-pulse" />
                 ))}
               </div>
-            ) : notifs.length === 0 ? (
+            ) : notifications.length === 0 ? (
               <p className="text-sm text-slate-600">No notifications yet.</p>
             ) : (
               <ul className="space-y-3">
-                {notifs.slice(0, 4).map((notification) => (
+                {notifications.slice(0, 4).map((notification) => (
                   <li key={notification.id} className="rounded-2xl bg-slate-50 p-4 text-sm text-slate-600">
                     <div className="font-medium text-slate-900">{notification.type}</div>
                     <div>{notification.payload}</div>

@@ -1,35 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getMySellerProducts, getSellerOrders, getSellerProfile } from "@/lib/api";
+import { useSellerData } from "@/context/SellerDataContext";
 
 export default function SellerDashboard() {
-  const [products, setProducts] = useState<any[]>([]);
-  const [orders, setOrders] = useState<any[]>([]);
-  const [profile, setProfile] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const [productData, orderData, profileData] = await Promise.all([
-          getMySellerProducts(),
-          getSellerOrders(),
-          getSellerProfile(),
-        ]);
-        setProducts(productData);
-        setOrders(orderData);
-        setProfile(profileData);
-      } catch (e) {
-        console.error(e);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
+  const { products, orders, profile, isLoading } = useSellerData();
 
   return (
     <div className="space-y-6">

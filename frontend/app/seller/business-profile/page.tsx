@@ -3,33 +3,22 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { getSellerProfile, SellerProfileDTO, updateSellerProfile } from "@/lib/api";
+import { useSellerData } from "@/context/SellerDataContext";
 
 export default function SellerBusinessProfilePage() {
-  const [profile, setProfile] = useState<SellerProfileDTO>({});
-  const [isLoading, setIsLoading] = useState(true);
+  const { profile, isLoading, refreshProfile } = useSellerData();
+  const [localProfile, setLocalProfile] = useState<SellerProfileDTO>({});
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState<SellerProfileDTO>({});
 
   useEffect(() => {
-    (async () => {
-      try {
-        const data = await getSellerProfile();
-        setProfile(data ?? {});
-        setEditForm(data ?? {});
-        // If no profile exists, start in edit mode
-        if (!data || !data.id) {
-          setIsEditing(true);
-        }
-      } catch (err) {
-        console.error(err);
-        setIsEditing(true);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
+    // initialize local copies from context
+    setLocalProfile(profile ?? {});
+    setEditForm(profile ?? {});
+    if (!profile || !profile.id) setIsEditing(true);
+  }, [profile]);
 
   const handleChange = (key: keyof SellerProfileDTO, value: string) => {
     setEditForm((prev) => ({ ...prev, [key]: value }));
@@ -41,7 +30,9 @@ export default function SellerBusinessProfilePage() {
     setIsSaving(true);
     try {
       const saved = await updateSellerProfile(editForm);
-      setProfile(saved ?? editForm);
+      // refresh context profile so other seller pages see updated data
+      await refreshProfile();
+      setLocalProfile(saved ?? editForm);
       setIsEditing(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unable to save profile");
@@ -51,12 +42,12 @@ export default function SellerBusinessProfilePage() {
   };
 
   const handleEdit = () => {
-    setEditForm(profile);
+    setEditForm(localProfile);
     setIsEditing(true);
   };
 
   const handleCancel = () => {
-    setEditForm(profile);
+    setEditForm(localProfile);
     setIsEditing(false);
     setError(null);
   };
@@ -68,31 +59,31 @@ export default function SellerBusinessProfilePage() {
         <p className="mt-2 text-sm text-slate-600">Keep your storefront identity and seller bio up to date.</p>
       </div>
 
-      {!isEditing && !isLoading && profile.id ? (
+      {!isEditing && !isLoading && localProfile.id ? (
         // View Mode
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
             <div>
               <p className="text-sm font-medium text-slate-700">Store name</p>
-              <p className="mt-2 text-lg text-slate-900">{profile.businessName || "—"}</p>
+              <p className="mt-2 text-lg text-slate-900">{localProfile.businessName || "—"}</p>
             </div>
             <div>
               <p className="text-sm font-medium text-slate-700">Logo URL</p>
-              <p className="mt-2 text-sm text-slate-600 break-all">{profile.logoUrl || "—"}</p>
-              {profile.logoUrl && (
-                <img src={profile.logoUrl} alt="Store logo" className="mt-2 h-12 w-12 rounded" onError={(e) => (e.currentTarget.style.display = "none")} />
+              <p className="mt-2 text-sm text-slate-600 break-all">{localProfile.logoUrl || "—"}</p>
+              {localProfile.logoUrl && (
+                <img src={localProfile.logoUrl} alt="Store logo" className="mt-2 h-12 w-12 rounded" onError={(e) => (e.currentTarget.style.display = "none")} />
               )}
             </div>
             <div>
               <p className="text-sm font-medium text-slate-700">Store status</p>
-              <p className="mt-2 inline-block rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">{profile.status || "—"}</p>
+              <p className="mt-2 inline-block rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">{localProfile.status || "—"}</p>
             </div>
           </div>
 
           <div className="space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
             <div>
               <p className="text-sm font-medium text-slate-700">Seller bio</p>
-              <p className="mt-2 text-slate-600 whitespace-pre-wrap">{profile.bio || "—"}</p>
+              <p className="mt-2 text-slate-600 whitespace-pre-wrap">{localProfile.bio || "—"}</p>
             </div>
             <div className="flex justify-end gap-3 pt-4">
               <Button onClick={handleEdit}>Edit profile</Button>
@@ -141,7 +132,7 @@ export default function SellerBusinessProfilePage() {
             </div>
             {error && <p className="text-sm text-destructive">{error}</p>}
             <div className="flex justify-end gap-3 pt-4">
-              {isEditing && profile.id && (
+              {isEditing && localProfile.id && (
                 <Button type="button" variant="outline" onClick={handleCancel} disabled={isSaving || isLoading}>
                   Cancel
                 </Button>

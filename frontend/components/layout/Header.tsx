@@ -7,6 +7,8 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 import { Button } from "../ui/button";
+import ConfirmDialog from "../ui/ConfirmDialog";
+import LogoutLoader from "../ui/LogoutLoader";
 
 export default function Header() {
   const { cart, authUser, isAuthenticated, logout } = useCart();
@@ -65,12 +67,26 @@ export default function Header() {
   };
 
   const handleLogout = () => {
-    router.replace("/login");
-    void logout();
+    setShowConfirm(true);
+  };
+
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const confirmLogout = async () => {
+    setShowConfirm(false);
+    setIsLoggingOut(true);
+    try {
+      await logout();
+    } finally {
+      setIsLoggingOut(false);
+      router.replace("/login");
+    }
   };
 
   return (
-    <header
+    <>
+      <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-lg"
@@ -177,14 +193,14 @@ export default function Header() {
                     <Button variant="ghost" size="sm" className="text-sm" asChild>
                       <Link href={roleProfilePath}>Profile</Link>
                     </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="text-sm"
-                      onClick={handleLogout}
-                    >
-                      Logout
-                    </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-sm"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </Button>
                   </>
                 ) : (
                 <>
@@ -295,14 +311,13 @@ export default function Header() {
                     <Button className="w-full text-sm" variant="ghost" asChild>
                       <Link href={roleProfilePath} onClick={closeMobileMenu}>Profile</Link>
                     </Button>
-                    <Button
-                      className="w-full text-sm"
-                      variant="outline"
-                      onClick={() => {
-                        router.replace("/login");
-                        void logout();
-                        closeMobileMenu();
-                      }}
+                      <Button
+                        className="w-full text-sm"
+                        variant="outline"
+                        onClick={() => {
+                          setShowConfirm(true);
+                          closeMobileMenu();
+                        }}
                     >
                       Logout
                     </Button>
@@ -319,12 +334,11 @@ export default function Header() {
                       <Link href="/seller/dashboard" onClick={closeMobileMenu}>Seller Dashboard</Link>
                     </Button>
                   )}
-                  <Button
-                    className="w-full text-sm"
-                    variant="outline"
-                    onClick={() => {
-                        router.replace("/login");
-                        void logout();
+                    <Button
+                      className="w-full text-sm"
+                      variant="outline"
+                      onClick={() => {
+                        setShowConfirm(true);
                         closeMobileMenu();
                       }}
                   >
@@ -356,5 +370,16 @@ export default function Header() {
         )}
       </div>
     </header>
+      <ConfirmDialog
+        open={showConfirm}
+        title="Are you sure you want to log out?"
+        description="You will be signed out of your account."
+        confirmLabel="Log out"
+        cancelLabel="Cancel"
+        onConfirm={confirmLogout}
+        onCancel={() => setShowConfirm(false)}
+      />
+      {isLoggingOut && <LogoutLoader message="Logging out…" />}
+    </>
   );
 }

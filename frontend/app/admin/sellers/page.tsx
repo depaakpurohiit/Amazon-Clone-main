@@ -2,32 +2,20 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { deleteAdminSeller, getAdminSellers, SellerProfileDTO } from "@/lib/api";
+import { deleteAdminSeller, SellerProfileDTO } from "@/lib/api";
+import { useAdminData } from "@/context/AdminDataContext";
 
 export default function AdminSellersPage() {
-  const [sellers, setSellers] = useState<SellerProfileDTO[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { sellers, isLoading, refreshAll } = useAdminData();
   const [isDeleting, setIsDeleting] = useState<string | null>(null);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await getAdminSellers();
-        setSellers(data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
 
   const handleRemoveSeller = async (id?: string) => {
     if (!id) return;
     setIsDeleting(id);
     try {
       await deleteAdminSeller(id);
-      setSellers((current) => current.filter((seller) => seller.id !== id));
+      // refresh admin cache
+      await refreshAll();
     } catch (error) {
       console.error(error);
     } finally {

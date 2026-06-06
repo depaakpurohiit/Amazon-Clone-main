@@ -1,6 +1,7 @@
 "use client";
 
-import { API_BASE_URL, getProducts } from "@/lib/api";
+import { API_BASE_URL } from "@/lib/api";
+import { useHomeData } from "@/context/HomeDataContext";
 import type { Product } from "@/types/product";
 import { useEffect, useMemo, useState } from "react";
 import ProductCard from "./ProductCard";
@@ -26,34 +27,7 @@ function ProductCardSkeleton() {
 }
 
 export default function ProductList({ query }: { query?: string }) {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        setIsLoading(true);
-        setError(null);
-        const data = await getProducts();
-        if (!cancelled) setProducts(data);
-      } catch (e) {
-        if (!cancelled) {
-          if (e instanceof TypeError) {
-            setError(`Backend not reachable at ${API_BASE_URL}`);
-          } else {
-            setError(e instanceof Error ? e.message : "Failed to load products");
-          }
-        }
-      } finally {
-        if (!cancelled) setIsLoading(false);
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const { products, isLoading, error, refresh } = useHomeData();
 
   const filtered = useMemo(() => {
     const q = (query ?? "").trim().toLowerCase();

@@ -4,32 +4,19 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ProductDTO, deleteSellerProduct, getMySellerProducts } from "@/lib/api";
+import { ProductDTO, deleteSellerProduct } from "@/lib/api";
+import { useSellerData } from "@/context/SellerDataContext";
 
 export default function SellerProductsPage() {
-  const [products, setProducts] = useState<ProductDTO[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { products, isLoading, refreshProducts } = useSellerData();
   const [isSaving, setIsSaving] = useState(false);
-
-  const loadProducts = async () => {
-    setIsLoading(true);
-    try {
-      const data = await getMySellerProducts();
-      setProducts(data);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    loadProducts();
-  }, []);
 
   const handleDelete = async (id: string) => {
     setIsSaving(true);
     try {
       await deleteSellerProduct(id);
-      await loadProducts();
+      // refresh cached seller products
+      await refreshProducts();
     } finally {
       setIsSaving(false);
     }

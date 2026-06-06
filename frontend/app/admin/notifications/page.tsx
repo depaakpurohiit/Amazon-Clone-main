@@ -1,23 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { getAdminNotifications } from "@/lib/api";
+import { useAdminData } from "@/context/AdminDataContext";
 
 export default function AdminNotificationsPage() {
-  const [notifications, setNotifications] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        setNotifications(await getAdminNotifications());
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
+  const { notifications, isLoading } = useAdminData();
 
   return (
     <div className="space-y-6">

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { getProduct, ProductDTO, updateSellerProduct } from "@/lib/api";
+import { useSellerData } from "@/context/SellerDataContext";
 
 export default function SellerEditProductPage() {
   const params = useParams();
@@ -13,6 +14,7 @@ export default function SellerEditProductPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { refreshProducts } = useSellerData();
 
   useEffect(() => {
     if (!productId) return;
@@ -39,6 +41,8 @@ export default function SellerEditProductPage() {
     setIsSaving(true);
     try {
       await updateSellerProduct(productId, form);
+      // refresh cached products so seller listing shows latest data
+      try { await refreshProducts(); } catch {};
       router.push("/seller/products");
     } catch (e) {
       setError(e instanceof Error ? e.message : "Unable to update product");
