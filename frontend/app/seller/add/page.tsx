@@ -26,8 +26,34 @@ export default function SellerAddProductPage() {
   const [isSaving, setIsSaving] = useState(false);
   const [hasSellerProfile, setHasSellerProfile] = useState<boolean | null>(null);
 
+  const computeDiscount = (price: number, mrp: number) => {
+    if (mrp <= 0 || price < 0 || mrp < price) return "";
+    return ((100 * (mrp - price)) / mrp).toFixed(2);
+  };
+
+  const computeAverageValue = (price: number, mrp: number) => {
+    if (price < 0 || mrp < price) return "";
+    return ((price + mrp) / 2).toFixed(2);
+  };
+
   const handleChange = (key: keyof typeof form, value: string | number) => {
-    setForm((prev) => ({ ...prev, [key]: value }));
+    setForm((prev) => {
+      const nextForm = { ...prev, [key]: value };
+      if (key === "price" || key === "mrp") {
+        const price = Number(nextForm.price);
+        const mrp = Number(nextForm.mrp);
+        const hasValidNumbers = !isNaN(price) && !isNaN(mrp);
+        if (hasValidNumbers && mrp >= price && price >= 0) {
+          return {
+            ...nextForm,
+            discount: computeDiscount(price, mrp),
+            value: computeAverageValue(price, mrp),
+          };
+        }
+        return { ...nextForm, discount: "", value: "" };
+      }
+      return nextForm;
+    });
   };
 
   const validateForm = () => {
@@ -184,19 +210,8 @@ export default function SellerAddProductPage() {
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="block text-sm font-medium text-slate-700">Discount</label>
-              <div className="mt-2 flex rounded-2xl border border-slate-300 bg-slate-50 focus-within:ring-2 focus-within:ring-orange-400">
-                <input
-                  type="number"
-                  min="0"
-                  max="100"
-                  step="0.01"
-                  inputMode="decimal"
-                  placeholder="0"
-                  value={form.discount}
-                  onChange={(e) => handleChange("discount", e.target.value)}
-                  className="w-full rounded-l-2xl border-none bg-transparent px-4 py-3 text-sm outline-none"
-                />
-                <span className="mr-4 inline-flex items-center text-sm text-slate-500">%</span>
+              <div className="mt-2 rounded-2xl border border-slate-300 bg-slate-100 px-4 py-3 text-sm text-slate-600 font-medium">
+                {form.discount ? `${form.discount}%` : "Auto-calculated"}
               </div>
             </div>
             <div>
@@ -207,6 +222,16 @@ export default function SellerAddProductPage() {
                 value={form.accValue}
                 onChange={(e) => handleChange("accValue", Number(e.target.value))}
                 className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+              />
+            </div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label className="block text-sm font-medium text-slate-700">Average value</label>
+              <input
+                value={form.value}
+                readOnly
+                className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-100 px-4 py-3 text-sm text-slate-500"
               />
             </div>
           </div>

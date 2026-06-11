@@ -101,7 +101,7 @@ export default function Header() {
               href={isRoleAccount ? roleProfilePath : "/"}
               aria-label={isRoleAccount ? "Go to profile" : "Go to home page"}
             >
-              amazon<span className="text-primary">clone</span>
+              Trade <span className="text-primary">Hive</span>
             </Link>
 
             <nav

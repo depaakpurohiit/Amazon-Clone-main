@@ -14,21 +14,17 @@ if (-not (Test-Path -LiteralPath $jarPath)) {
 function Normalize-And-Extract-DbParams {
     param([string]$inputUrl)
 
-    # Remove any leading 'jdbc:' for parsing
     $urlForParsing = $inputUrl -replace '^jdbc:', ''
 
-    # Detect and extract userinfo if present (scheme://user:pass@rest)
     if ($urlForParsing -match '^(?<scheme>[^:]+://)(?<userinfo>[^@]+)@(?<rest>.+)$') {
         $scheme = $matches['scheme']
         $userinfo = $matches['userinfo']
         $rest = $matches['rest']
 
-        # split userinfo into user and password (limit to 2 parts)
         $parts = $userinfo -split ':', 2
         $u = $parts[0]
         $p = if ($parts.Length -gt 1) { $parts[1] } else { $null }
 
-        # Build JDBC url without userinfo
         if ($scheme -match '^(postgresql|postgres)://') {
             $jdbc = "jdbc:postgresql://$rest"
         } else {
@@ -38,7 +34,6 @@ function Normalize-And-Extract-DbParams {
 
         return @{ JdbcUrl = $jdbc; Username = $u; Password = $p }
     } else {
-        # No credentials in URL; ensure JDBC prefix
         if ($urlForParsing -match '^(postgresql|postgres)://') {
             $jdbc = if ($urlForParsing -match '^jdbc:') { $urlForParsing } else { $urlForParsing -replace '^(postgresql|postgres):', 'jdbc:postgresql:' }
         } elseif ($inputUrl -match '^jdbc:') {
@@ -50,13 +45,49 @@ function Normalize-And-Extract-DbParams {
     }
 }
 
-$normalized = Normalize-And-Extract-DbParams -inputUrl $DbUrl
+function Get-JavaExecutable {
+    $candidates = @()
 
-# If username/password were embedded in the URL, prefer them.
+    if ($env:JAVA_HOME) {
+        $candidates += Join-Path $env:JAVA_HOME 'bin\java.exe'
+    }
+
+    $candidates += @(
+        'C:\Program Files\Java\jdk-21\bin\java.exe',
+        'C:\Program Files (x86)\Java\jdk-21\bin\java.exe'
+    )
+
+    foreach ($candidate in $candidates) {
+        if ($candidate -and (Test-Path -LiteralPath $candidate)) {
+            return $candidate
+        }
+    }
+
+    $javaCommand = Get-Command java -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source -ErrorAction SilentlyContinue
+    if ($javaCommand -and (Test-Path -LiteralPath $javaCommand)) {
+        return $javaCommand
+    }
+
+    throw "Java executable not found. Install JDK 21 or set JAVA_HOME to a JDK 21 installation."
+}
+
+function Get-JavaMajorVersion {
+    param([string]$javaPath)
+
+    $output = & $javaPath -version 2>&1 | Select-String -Pattern 'version' | Select-Object -First 1
+    if (-not $output) { return $null }
+
+    if ($output -match '"(?<ver>[0-9]+)(?:\.[0-9]+)*') {
+        return [int]$matches['ver']
+    }
+
+    return $null
+}
+
+$normalized = Normalize-And-Extract-DbParams -inputUrl $DbUrl
 if ($normalized.Username) { $DbUsername = $normalized.Username }
 if ($normalized.Password) { $DbPassword = $normalized.Password }
 
-# Final DB URL to use for Spring (without credentials)
 $finalDbUrl = $normalized.JdbcUrl
 
 if ([string]::IsNullOrWhiteSpace($DbPassword) -or $DbPassword -eq "ACTUAL_PASSWORD" -or $DbPassword -eq "YOUR_NEW_PASSWORD") {
@@ -76,13 +107,22 @@ try {
         throw "Neon host DNS resolution failed for $hostName."
     }
 
+    $javaExe = Get-JavaExecutable
+    $javaMajor = Get-JavaMajorVersion -javaPath $javaExe
+    if (-not $javaMajor -or $javaMajor -lt 21) {
+        throw "Java 21 is required. Found '$javaMajor' at '$javaExe'. Set JAVA_HOME to a JDK 21 installation or install Java 21."
+    }
+
+    Write-Host "[INFO] Using Java executable: $javaExe"
     Write-Host "[INFO] Starting backend with Neon PostgreSQL..."
+
     $env:DB_URL = $finalDbUrl
     $env:DB_USERNAME = $DbUsername
     $env:DB_PASSWORD = $DbPassword
     $env:DB_DRIVER = "org.postgresql.Driver"
     $env:DB_DIALECT = "org.hibernate.dialect.PostgreSQLDialect"
-    & java -jar $jarPath
+
+    & $javaExe -jar $jarPath
     exit $LASTEXITCODE
 } catch {
     throw "Neon startup precheck failed: $($_.Exception.Message)"

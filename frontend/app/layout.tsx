@@ -8,9 +8,9 @@ import "./globals.css";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Bloom E-Commerce Template",
+  title: "Trade Hive",
   description:
-    "Discover a wide selection of trendy clothes, shoes and accessories on Bloom E-Commerce. Enjoy fast delivery and free returns. Shop now!",
+    "Discover a wide selection of quality products at Trade Hive. Enjoy fast delivery and seamless shopping in one modern marketplace.",
 };
 
 export default function RootLayout({

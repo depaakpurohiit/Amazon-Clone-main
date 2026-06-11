@@ -1,4 +1,4 @@
-# Amazon Clone Backend - Spring Boot Migration
+# Trade Hive Backend - Spring Boot Migration
 
 This is a production-grade Spring Boot backend migrated from a MERN stack application.
 

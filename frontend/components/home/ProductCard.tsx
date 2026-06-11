@@ -30,12 +30,14 @@ export default function ProductCard({
     setIsLiked(isFavorite(product.id));
   }, [product.id, isFavorite]);
 
-  const imageSrc = imageError
+  const rawSrc = imageError
     ? "/images/NoImage.jpg"
     : product.resUrl?.trim() || product.url;
 
+  const imageSrc = rawSrc && rawSrc !== "" ? rawSrc : null;
+
   const shouldBypassNextImage =
-    imageSrc.startsWith("/") || imageSrc.startsWith("http://");
+    !!imageSrc && (imageSrc.startsWith("/") || imageSrc.startsWith("http://"));
 
   const { addToCart } = useCart();
   const router = useRouter();
@@ -89,18 +91,24 @@ export default function ProductCard({
 
         <Link href={`/product/${product.id}`} className="block relative">
           <div className="relative aspect-square overflow-hidden bg-muted">
-            <Image
-              src={imageSrc}
-              alt={product.name}
-              fill
-              priority={priority}
-              unoptimized={shouldBypassNextImage}
-              sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw"
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              onError={() => {
-                if (!imageError) setImageError(true);
-              }}
-            />
+            {imageSrc ? (
+              <Image
+                src={imageSrc}
+                alt={product.name}
+                fill
+                priority={priority}
+                unoptimized={shouldBypassNextImage}
+                sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw"
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                onError={() => {
+                  if (!imageError) setImageError(true);
+                }}
+              />
+            ) : (
+              <div className="h-full w-full flex items-center justify-center text-sm text-slate-400">
+                No image
+              </div>
+            )}
           </div>
 
           <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">

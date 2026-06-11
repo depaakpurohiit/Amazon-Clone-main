@@ -119,9 +119,9 @@ export default function Footer() {
               <Link
                 className="text-2xl tracking-tight text-gray-900 hover:text-gray-700 transition-colors"
                 href="/"
-                aria-label="Amazon Clone Home"
+                aria-label="Trade Hive Home"
               >
-                amazon<span className="text-primary">clone</span>
+                Trade <span className="text-primary">Hive</span>
               </Link>
               <p className="text-muted-foreground max-w-sm">
                 Your one-stop online shopping destination for quality products
@@ -175,7 +175,7 @@ export default function Footer() {
         <div className="py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span>© 2026 Amazon Clone. Made with</span>
+              <span>© 2026 Trade Hive. Made with</span>
               <Heart className="h-4 w-4 text-red-500 fill-current" />
               <span>All Rights Reserved.</span>
             </div>

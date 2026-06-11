@@ -2,7 +2,7 @@
 
 import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
 import type { Product } from "@/types/product";
-import { getFavorites, addFavorite as apiAddFavorite, removeFavorite as apiRemoveFavorite } from "@/lib/api";
+import { getFavorites, addFavorite as apiAddFavorite, removeFavorite as apiRemoveFavorite, ApiError } from "@/lib/api";
 import { useCart } from "@/context/CartContext";
 
 interface FavoritesContextProps {
@@ -18,7 +18,7 @@ const FavoritesContext = createContext<FavoritesContextProps | undefined>(
   undefined
 );
 
-const FAVORITES_STORAGE_KEY = "amazon_clone_favorites";
+const FAVORITES_STORAGE_KEY = "trade_hive_favorites";
 
 export const FavoritesProvider = ({ children }: { children: React.ReactNode }) => {
   const [favorites, setFavorites] = useState<Product[]>([]);
@@ -99,7 +99,17 @@ export const FavoritesProvider = ({ children }: { children: React.ReactNode }) =
           try {
             await apiAddFavorite(product.id);
           } catch (err) {
-            console.error("Failed to add favorite on server:", err);
+            // Treat duplicate-key / already-exists errors as benign (server already has it)
+            const msg = err instanceof Error ? err.message : String(err);
+            if (
+              msg.includes("duplicate key") ||
+              msg.includes("already exists") ||
+              msg.includes("favorites_user_id_product_id_key")
+            ) {
+              // ignore - favorite already exists on server
+            } else {
+              console.error("Failed to add favorite on server:", err);
+            }
           }
         })();
       }
@@ -115,7 +125,18 @@ export const FavoritesProvider = ({ children }: { children: React.ReactNode }) =
           try {
             await apiRemoveFavorite(productId);
           } catch (err) {
-            console.error("Failed to remove favorite on server:", err);
+            // Some backend errors indicate the row was already removed/updated elsewhere — treat as benign
+            const msg = err instanceof Error ? err.message : String(err);
+            if (
+              msg.includes("Row was updated or deleted") ||
+              msg.includes("not found") ||
+              msg.includes("does not exist") ||
+              msg.includes("No row")
+            ) {
+              // ignore - favorite already removed on server
+            } else {
+              console.error("Failed to remove favorite on server:", err);
+            }
           }
         })();
       }
