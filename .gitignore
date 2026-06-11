@@ -32,3 +32,6 @@ yarn-error.log*
 # IDE files
 .idea/
 .vscode/
+
+# Ignore backend start script
+/spring-backend/start-backend.ps1
