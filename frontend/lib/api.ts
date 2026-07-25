@@ -118,12 +118,17 @@ export function getSellerRequests() {
   return apiFetch<
     Array<{
       id: string;
-      requesterId?: string;
-      message?: string;
-      status?: string;
-      createdAt?: string;
+      requesterId: string;
+      requesterName: string;
+      requesterEmail: string;
+      requesterNumber: string;
+      message: string;
+      status: string;
+      createdAt: string;
     }>
-  >(`/api/admin/seller-requests`, { method: "GET" });
+  >(`/api/admin/seller-requests`, {
+    method: "GET",
+  });
 }
 
 export function approveSellerRequest(id: string) {

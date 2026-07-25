@@ -41,9 +41,13 @@ export default function SellerDashboard() {
           <p className="mt-2 text-sm text-slate-600">Manage your storefront, products, and orders in one place.</p>
         </div>
         <div className="flex flex-wrap gap-3">
-          <Link href="/seller/add">
-            <Button>Add product</Button>
-          </Link>
+          {authUser?.sellerApproved ? (
+            <Link href="/seller/add">
+              <Button>Add product</Button>
+            </Link>
+          ) : (
+            <Button disabled>Add product (Pending Approval)</Button>
+          )}
           <Link href="/seller/products">
             <Button variant="outline">Manage products</Button>
           </Link>

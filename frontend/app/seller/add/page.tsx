@@ -4,13 +4,15 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { createSellerProduct, getSellerProfile } from "@/lib/api";
+import { getSellerProfile, createSellerProduct } from "@/lib/api";
 import { useSellerData } from "@/context/SellerDataContext";
+import { useCart } from "@/context/CartContext";
 import { useEffect } from "react";
 
 export default function SellerAddProductPage() {
   const router = useRouter();
   const { refreshProducts } = useSellerData();
+  const { authUser } = useCart();
   const [form, setForm] = useState({
     name: "",
     category: "",
@@ -131,6 +133,20 @@ export default function SellerAddProductPage() {
       }
     })();
   }, []);
+
+  if (authUser && authUser.role === "SELLER" && !authUser.sellerApproved) {
+    return (
+      <div className="flex h-64 items-center justify-center">
+        <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+          <h2 className="text-xl font-semibold text-slate-900">Verification Pending</h2>
+          <p className="mt-2 text-slate-600">You must be approved by an administrator before you can add products.</p>
+          <Link href="/seller/dashboard">
+            <Button className="mt-6">Back to Dashboard</Button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">

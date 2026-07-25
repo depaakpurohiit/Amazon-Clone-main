@@ -57,6 +57,10 @@ public class SellerController {
             return ResponseEntity.status(403).body("Forbidden");
         }
 
+        if (user.getRole() == Role.SELLER && !Boolean.TRUE.equals(user.getSellerApproved())) {
+            return ResponseEntity.status(403).body("Seller not approved");
+        }
+
         Optional<SellerProfile> profileOpt = sellerProfileRepository.findByUserId(user.getId());
         if (profileOpt.isEmpty() && user.getRole() != Role.ADMIN) {
             return ResponseEntity.status(400).body("Seller profile missing");
@@ -96,6 +100,9 @@ public class SellerController {
 
         // Ownership check: seller can only edit own products
         if (user.getRole() == Role.SELLER) {
+            if (!Boolean.TRUE.equals(user.getSellerApproved())) {
+                return ResponseEntity.status(403).body("Seller not approved");
+            }
             if (p.getSellerProfile() == null || !p.getSellerProfile().getUser().getId().equals(user.getId())) {
                 return ResponseEntity.status(403).body("Forbidden");
             }
@@ -128,6 +135,9 @@ public class SellerController {
         Product p = prodOpt.get();
 
         if (user.getRole() == Role.SELLER) {
+            if (!Boolean.TRUE.equals(user.getSellerApproved())) {
+                return ResponseEntity.status(403).body("Seller not approved");
+            }
             if (p.getSellerProfile() == null || !p.getSellerProfile().getUser().getId().equals(user.getId())) {
                 return ResponseEntity.status(403).body("Forbidden");
             }

@@ -12,6 +12,9 @@ import java.time.LocalDateTime;
 public class SellerRequestDTO {
     private String id;
     private String requesterId;
+    private String requesterName;
+    private String requesterEmail;
+    private String requesterNumber;
     private String message;
     private String status;
     private LocalDateTime createdAt;

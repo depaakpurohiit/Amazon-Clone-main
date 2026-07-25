@@ -27,7 +27,16 @@ public class AdminController {
 
     @GetMapping("/seller-requests")
     public ResponseEntity<?> listSellerRequests() {
-        List<com.example.amazonclonebackend.dto.SellerRequestDTO> all = sellerRequestRepository.findAll().stream().map(r -> new com.example.amazonclonebackend.dto.SellerRequestDTO(r.getId(), r.getRequester() != null ? r.getRequester().getId() : null, r.getMessage(), r.getStatus(), r.getCreatedAt())).collect(java.util.stream.Collectors.toList());
+        List<com.example.amazonclonebackend.dto.SellerRequestDTO> all = sellerRequestRepository.findAll().stream().map(r -> new com.example.amazonclonebackend.dto.SellerRequestDTO(
+                r.getId(), 
+                r.getRequester() != null ? r.getRequester().getId() : null, 
+                r.getRequester() != null ? r.getRequester().getName() : null, 
+                r.getRequester() != null ? r.getRequester().getEmail() : null, 
+                r.getRequester() != null ? r.getRequester().getNumber() : null, 
+                r.getMessage(), 
+                r.getStatus(), 
+                r.getCreatedAt()
+        )).collect(java.util.stream.Collectors.toList());
         return ResponseEntity.ok(all);
     }
 
