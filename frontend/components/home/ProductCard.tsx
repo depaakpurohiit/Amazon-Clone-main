@@ -37,7 +37,7 @@ export default function ProductCard({
   const imageSrc = rawSrc && rawSrc !== "" ? rawSrc : null;
 
   const shouldBypassNextImage =
-    !!imageSrc && (imageSrc.startsWith("/") || imageSrc.startsWith("http://"));
+    !!imageSrc && (imageSrc.startsWith("/") || imageSrc.startsWith("http://") || imageSrc.startsWith("https://"));
 
   const { addToCart } = useCart();
   const router = useRouter();

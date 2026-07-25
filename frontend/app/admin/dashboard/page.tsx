@@ -108,6 +108,19 @@ export default function AdminDashboard() {
           </CardContent>
         </Card>
       </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>System Health & Infrastructure Metrics</CardTitle>
+        </CardHeader>
+        <CardContent className="p-0">
+          <iframe
+            src="/sba"
+            className="w-full h-[800px] border-0 rounded-b-xl"
+            title="Spring Boot Admin Dashboard"
+          />
+        </CardContent>
+      </Card>
     </div>
   );
 }

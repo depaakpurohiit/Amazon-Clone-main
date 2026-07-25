@@ -15,6 +15,8 @@ import { useState } from "react";
 export default function ProfileForm() {
   const { authUser, isAuthenticated, isLoading, logout } = useCart();
   const router = useRouter();
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
@@ -37,9 +39,6 @@ export default function ProfileForm() {
   if (!authUser) {
     return null;
   }
-
-  const [showConfirm, setShowConfirm] = useState(false);
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   const handleLogout = () => {
     setShowConfirm(true);
@@ -171,14 +170,25 @@ export default function ProfileForm() {
               <CardTitle className="text-lg">Actions</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
-              <Button onClick={async () => {
-                try {
-                  await requestSeller({ message: "Request to become seller" });
-                  alert("Seller request sent — admin will review it.");
-                } catch (e) {
-                  alert("Failed to send seller request.");
-                }
-              }} className="w-full">Request to Become Seller</Button>
+              {authUser.role === "SELLER" && authUser.sellerApproved === false ? (
+                <Button onClick={async () => {
+                  try {
+                    await requestSeller({ message: "Request for admin verification" });
+                    alert("Verification request sent to admin.");
+                  } catch {
+                    alert("Failed to send verification request.");
+                  }
+                }} className="w-full">Request Admin Verification</Button>
+              ) : authUser.role === "CUSTOMER" ? (
+                <Button onClick={async () => {
+                  try {
+                    await requestSeller({ message: "Request to become seller" });
+                    alert("Seller request sent — admin will review it.");
+                  } catch {
+                    alert("Failed to send seller request.");
+                  }
+                }} className="w-full">Request to Become Seller</Button>
+              ) : null}
               <Button asChild className="w-full" variant="outline">
                 <Link href="/cart">View Cart</Link>
               </Button>

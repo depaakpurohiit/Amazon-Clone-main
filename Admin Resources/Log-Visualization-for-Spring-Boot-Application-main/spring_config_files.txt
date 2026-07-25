@@ -1,0 +1,37 @@
+# ============================================
+# application.yml - Spring Boot Configuration
+# ============================================
+spring:
+  application:
+    name: log-visualization-demo
+  
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    com.example.logvisualization: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: /var/log/spring-boot/application.log
+    max-size: 10MB
+    max-history: 30
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,loggers
+  endpoint:
+    health:
+      show-details: always
+
+---
+# ============================================
+# logback-spring.xml - Logback Configuration
+# Save as: src/main/resources/logback-spring.xml
+# ============================================
+<?xml version="

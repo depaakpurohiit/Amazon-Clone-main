@@ -6,13 +6,29 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "unsplash.com",
+        hostname: "**",
       },
       {
-        protocol: "https",
-        hostname: "images.unsplash.com",
+        protocol: "http",
+        hostname: "**",
       },
     ],
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/sba/:path*',
+        destination: 'http://localhost:8081/sba/:path*',
+      },
+      {
+        source: '/instances/:path*',
+        destination: 'http://localhost:8081/instances/:path*',
+      },
+      {
+        source: '/actuator/:path*',
+        destination: 'http://localhost:8081/actuator/:path*',
+      },
+    ];
   },
 };
 

@@ -99,7 +99,7 @@ export default function Product() {
     : null;
 
   const shouldBypassNextImage = Boolean(
-    imageSrc && (imageSrc.startsWith("/") || imageSrc.startsWith("http://"))
+    imageSrc && (imageSrc.startsWith("/") || imageSrc.startsWith("http://") || imageSrc.startsWith("https://"))
   );
 
   useEffect(() => {

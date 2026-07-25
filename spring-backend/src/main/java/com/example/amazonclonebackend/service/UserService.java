@@ -43,6 +43,10 @@ public class UserService {
         final String number = request.getNumber().trim();
         final Role requestedRole = parseRole(request.getAccountType(), request.getRole());
 
+        if (requestedRole == Role.ADMIN) {
+            throw new RuntimeException("Cannot register as Admin. Admin account is pre-configured.");
+        }
+
         log.info(
                 "Register request received email={} accountType={} role={} resolvedRole={}",
                 email,

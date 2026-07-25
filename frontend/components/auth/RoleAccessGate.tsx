@@ -4,13 +4,14 @@ import { useCart } from "@/context/CartContext";
 import { getRoleLandingPath, normalizeRole } from "@/lib/role";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, type ReactNode } from "react";
+import PageSkeletonLoader from "@/components/ui/PageSkeletonLoader";
 
 type GateMode = "customer" | "seller" | "admin" | "guest";
 
 export default function RoleAccessGate({
   mode,
   children,
-  fallback = null,
+  fallback = <PageSkeletonLoader />,
 }: {
   mode: GateMode;
   children: ReactNode;

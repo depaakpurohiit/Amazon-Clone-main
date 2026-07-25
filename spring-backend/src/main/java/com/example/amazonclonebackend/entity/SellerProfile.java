@@ -25,7 +25,7 @@ public class SellerProfile {
     @Column(name = "business_name")
     private String businessName;
 
-    @Column(name = "bio", columnDefinition = "text")
+    @Column(name = "bio", columnDefinition = "TEXT")
     private String bio;
 
     @Column(name = "logo_url")

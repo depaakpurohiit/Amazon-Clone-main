@@ -4,12 +4,37 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useSellerData } from "@/context/SellerDataContext";
+import { useCart } from "@/context/CartContext";
+import { useEffect, useState } from "react";
 
 export default function SellerDashboard() {
   const { products, orders, profile, isLoading } = useSellerData();
+  const { authUser } = useCart();
+  const [showVerificationAlert, setShowVerificationAlert] = useState(false);
+
+  useEffect(() => {
+    if (authUser && authUser.role === "SELLER" && authUser.sellerApproved === false) {
+      setShowVerificationAlert(true);
+    }
+  }, [authUser]);
 
   return (
     <div className="space-y-6">
+      {showVerificationAlert && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/40" onClick={() => setShowVerificationAlert(false)} />
+          <div className="relative z-10 w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+            <h3 className="text-lg font-semibold text-slate-900">Verification Pending</h3>
+            <p className="mt-2 text-sm text-slate-600">
+              You cannot add products until verified by the admin.
+            </p>
+            <div className="mt-6 flex justify-end">
+              <Button onClick={() => setShowVerificationAlert(false)}>Okay</Button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <h1 className="text-3xl font-semibold text-slate-900">Seller dashboard</h1>

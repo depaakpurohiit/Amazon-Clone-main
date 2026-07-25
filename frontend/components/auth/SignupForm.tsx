@@ -41,6 +41,10 @@ export default function SignupForm({ nextPath, accountType = "customer" }: { nex
       setLocalError("Passwords do not match.");
       return;
     }
+    if (number.trim().length !== 10) {
+      setLocalError("Phone number must be exactly 10 digits.");
+      return;
+    }
 
     setIsSubmitting(true);
     try {
@@ -88,8 +92,16 @@ export default function SignupForm({ nextPath, accountType = "customer" }: { nex
             <div className="space-y-1">
               <label className="text-sm font-medium">Phone</label>
               <Input
+                type="tel"
+                inputMode="numeric"
+                pattern="[0-9]{10}"
+                maxLength={10}
+                placeholder="10-digit mobile number"
                 value={number}
-                onChange={(e) => setNumber(e.target.value)}
+                onChange={(e) => {
+                  const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
+                  setNumber(digits);
+                }}
                 required
               />
             </div>

@@ -25,6 +25,19 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
+    @org.springframework.core.annotation.Order(1)
+    public SecurityFilterChain adminFilterChain(HttpSecurity http) throws Exception {
+        http
+            .securityMatcher("/sba/**", "/instances/**", "/actuator/**")
+            .csrf(AbstractHttpConfigurer::disable)
+            .authorizeHttpRequests(authz -> authz.anyRequest().hasAuthority("ADMIN"))
+            .httpBasic(org.springframework.security.config.Customizer.withDefaults());
+
+        return http.build();
+    }
+
+    @Bean
+    @org.springframework.core.annotation.Order(2)
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
@@ -42,6 +55,17 @@ public class SecurityConfig {
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
+    }
+
+    @Bean
+    public org.springframework.security.core.userdetails.UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
+        org.springframework.security.core.userdetails.UserDetails admin = 
+            org.springframework.security.core.userdetails.User.builder()
+                .username("mainadmin@@1212")
+                .password(passwordEncoder.encode("adminadmin@@"))
+                .authorities("ADMIN")
+                .build();
+        return new org.springframework.security.provisioning.InMemoryUserDetailsManager(admin);
     }
 
     @Bean

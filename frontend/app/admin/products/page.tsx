@@ -56,10 +56,27 @@ export default function AdminProductsPage() {
           {products.map((product) => (
             <div key={product.id} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-sm text-slate-500">Product</p>
-                  <p className="text-lg font-semibold text-slate-900">{product.name}</p>
-                  <p className="text-sm text-slate-600">Seller: {product.sellerName ?? "Marketplace"}</p>
+                <div className="flex items-center gap-4">
+                  <div className="relative h-16 w-16 overflow-hidden rounded-md border border-slate-200 bg-slate-50 flex-shrink-0">
+                    {product.url ? (
+                      <img src={product.url} alt={product.name} className="h-full w-full object-cover" />
+                    ) : (
+                      <div className="h-full w-full bg-slate-200 flex items-center justify-center text-xs text-slate-500">No Img</div>
+                    )}
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-500">Product</p>
+                    <p className="text-lg font-semibold text-slate-900">{product.name}</p>
+                    <p className="text-sm text-slate-600">
+                      {product.sellerName ? (
+                        <>
+                          Seller: <span className="font-medium text-blue-600">{product.sellerName}</span>
+                        </>
+                      ) : (
+                        <span className="font-medium text-orange-600">Trade Hive Marketplace</span>
+                      )}
+                    </p>
+                  </div>
                 </div>
                 <div className="flex flex-wrap gap-3">
                   <Button

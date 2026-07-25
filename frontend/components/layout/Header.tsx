@@ -11,7 +11,7 @@ import ConfirmDialog from "../ui/ConfirmDialog";
 import LogoutLoader from "../ui/LogoutLoader";
 
 export default function Header() {
-  const { cart, authUser, isAuthenticated, logout } = useCart();
+  const { cart, authUser, isAuthenticated, isLoading, logout } = useCart();
   const role = normalizeRole(authUser?.role);
   const isRoleAccount = isPrivilegedRole(authUser?.role);
   const roleProfilePath = role === "SELLER" ? "/seller/profile" : role === "ADMIN" ? "/admin/dashboard" : "/profile";
@@ -98,8 +98,8 @@ export default function Header() {
           <div className="flex items-center space-x-8 lg:space-x-12">
             <Link
               className="text-2xl tracking-tight text-gray-900 hover:text-gray-700 transition-colors"
-              href={isRoleAccount ? roleProfilePath : "/"}
-              aria-label={isRoleAccount ? "Go to profile" : "Go to home page"}
+              href="/"
+              aria-label="Go to home page"
             >
               Trade <span className="text-primary">Hive</span>
             </Link>
@@ -187,31 +187,21 @@ export default function Header() {
             )}
 
             <div className="hidden sm:flex items-center space-x-2">
-              {mounted && isAuthenticated ? (
-                isRoleAccount ? (
-                  <>
-                    <Button variant="ghost" size="sm" className="text-sm" asChild>
-                      <Link href={roleProfilePath}>Profile</Link>
-                    </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-sm"
-                        onClick={handleLogout}
-                      >
-                        Logout
-                      </Button>
-                  </>
-                ) : (
+              {mounted && isLoading ? (
+                <div className="flex space-x-2">
+                  <div className="h-8 w-16 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-8 w-16 bg-gray-200 rounded animate-pulse"></div>
+                </div>
+              ) : mounted && isAuthenticated ? (
                 <>
                   {authUser?.role === "ADMIN" && (
                     <Button variant="ghost" size="sm" className="text-sm" asChild>
-                      <Link href="/admin/dashboard">Admin</Link>
+                      <Link href="/admin/dashboard">Admin Dashboard</Link>
                     </Button>
                   )}
                   {authUser?.role === "SELLER" && (
                     <Button variant="ghost" size="sm" className="text-sm" asChild>
-                      <Link href="/seller/dashboard">Seller</Link>
+                      <Link href="/seller/dashboard">Seller Dashboard</Link>
                     </Button>
                   )}
                   <Button
@@ -220,7 +210,7 @@ export default function Header() {
                     className="text-sm"
                     asChild
                   >
-                    <Link href="/profile">Hi, {authUser?.name}</Link>
+                    <Link href={roleProfilePath}>Hi, {authUser?.name}</Link>
                   </Button>
                   <Button
                     variant="ghost"
@@ -231,7 +221,6 @@ export default function Header() {
                     Logout
                   </Button>
                 </>
-                )
               ) : (
                 <>
                   <Button variant="ghost" size="sm" className="text-sm" asChild>
@@ -305,24 +294,12 @@ export default function Header() {
             </div>
 
             <div className="flex flex-col space-y-3 pt-4 sm:hidden">
-              {mounted && isAuthenticated ? (
-                isRoleAccount ? (
-                  <>
-                    <Button className="w-full text-sm" variant="ghost" asChild>
-                      <Link href={roleProfilePath} onClick={closeMobileMenu}>Profile</Link>
-                    </Button>
-                      <Button
-                        className="w-full text-sm"
-                        variant="outline"
-                        onClick={() => {
-                          setShowConfirm(true);
-                          closeMobileMenu();
-                        }}
-                    >
-                      Logout
-                    </Button>
-                  </>
-                ) : (
+              {mounted && isLoading ? (
+                <>
+                  <div className="h-10 w-full bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-10 w-full bg-gray-200 rounded animate-pulse"></div>
+                </>
+              ) : mounted && isAuthenticated ? (
                 <>
                   {authUser?.role === "ADMIN" && (
                     <Button className="w-full text-sm" variant="ghost" asChild>
@@ -334,18 +311,22 @@ export default function Header() {
                       <Link href="/seller/dashboard" onClick={closeMobileMenu}>Seller Dashboard</Link>
                     </Button>
                   )}
-                    <Button
-                      className="w-full text-sm"
-                      variant="outline"
-                      onClick={() => {
-                        setShowConfirm(true);
-                        closeMobileMenu();
-                      }}
+                  {authUser?.role !== "ADMIN" && (
+                    <Button className="w-full text-sm" variant="ghost" asChild>
+                      <Link href={roleProfilePath} onClick={closeMobileMenu}>Profile</Link>
+                    </Button>
+                  )}
+                  <Button
+                    className="w-full text-sm"
+                    variant="outline"
+                    onClick={() => {
+                      setShowConfirm(true);
+                      closeMobileMenu();
+                    }}
                   >
                     Logout
                   </Button>
                 </>
-                )
               ) : (
                 <>
                   <Button variant="outline" className="w-full text-sm" asChild>
