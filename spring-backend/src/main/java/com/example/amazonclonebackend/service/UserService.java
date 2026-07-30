@@ -99,13 +99,13 @@ public class UserService {
         String normalizedAccountType = normalizeRoleValue(accountType);
         String normalizedRole = normalizeRoleValue(role);
 
-        if ("SELLER".equals(normalizedAccountType) || "SELLER".equals(normalizedRole)) {
-            return Role.SELLER;
+        if ("MANAGER".equals(normalizedAccountType) || "MANAGER".equals(normalizedRole)) {
+            return Role.MANAGER;
         }
         if ("ADMIN".equals(normalizedAccountType) || "ADMIN".equals(normalizedRole)) {
             return Role.ADMIN;
         }
-        return Role.CUSTOMER;
+        return Role.USER;
     }
 
     private String normalizeRoleValue(String value) {
@@ -166,4 +166,11 @@ public class UserService {
         );
     }
 
+    @Transactional
+    public void updateUserAddress(User user, String address, Double lat, Double lng) {
+        user.setAddress(address);
+        user.setLat(lat);
+        user.setLng(lng);
+        userRepository.save(user);
+    }
 }

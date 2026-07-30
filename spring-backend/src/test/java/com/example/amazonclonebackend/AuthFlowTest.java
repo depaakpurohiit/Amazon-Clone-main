@@ -72,7 +72,7 @@ class AuthFlowTest {
                 .andExpect(status().isCreated());
 
         User saved = userRepository.findByEmail(email).orElseThrow();
-        assertThat(saved.getRole()).isEqualTo(Role.SELLER);
+        assertThat(saved.getRole()).isEqualTo(Role.MANAGER);
         assertThat(saved.getSellerApproved()).isFalse();
 
         var loginResult = mockMvc.perform(post("/api/login")

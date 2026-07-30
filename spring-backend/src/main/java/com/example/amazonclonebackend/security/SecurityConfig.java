@@ -30,6 +30,7 @@ public class SecurityConfig {
         http
             .securityMatcher("/sba/**", "/instances/**", "/actuator/**")
             .csrf(AbstractHttpConfigurer::disable)
+            .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.sameOrigin()))
             .authorizeHttpRequests(authz -> authz.anyRequest().hasAuthority("ADMIN"))
             .httpBasic(org.springframework.security.config.Customizer.withDefaults());
 
@@ -47,7 +48,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/products", "/api/product/**", "/api/register", "/api/login", "/api/get-razorpay-key").permitAll()
                 .requestMatchers("/api/getAuthUser", "/api/logout").authenticated()
                 .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
-                .requestMatchers("/api/seller/**").hasAnyAuthority("SELLER","ADMIN")
+                .requestMatchers("/api/seller/**").hasAnyAuthority("MANAGER","ADMIN")
                 .requestMatchers("/api/addtocart/**", "/api/delete/**", "/api/update-qty/**",
                                "/api/create-order", "/api/pay-order").authenticated()
                 .anyRequest().authenticated()

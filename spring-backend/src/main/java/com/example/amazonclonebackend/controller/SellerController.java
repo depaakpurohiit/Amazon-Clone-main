@@ -53,11 +53,11 @@ public class SellerController {
         if (user == null) return ResponseEntity.status(401).body("Unauthenticated");
 
         // Only sellers or admins can create products
-        if (!(user.getRole() == Role.SELLER || user.getRole() == Role.ADMIN)) {
+        if (!(user.getRole() == Role.MANAGER || user.getRole() == Role.ADMIN)) {
             return ResponseEntity.status(403).body("Forbidden");
         }
 
-        if (user.getRole() == Role.SELLER && !Boolean.TRUE.equals(user.getSellerApproved())) {
+        if (user.getRole() == Role.MANAGER && !Boolean.TRUE.equals(user.getSellerApproved())) {
             return ResponseEntity.status(403).body("Seller not approved");
         }
 
@@ -99,7 +99,7 @@ public class SellerController {
         Product p = prodOpt.get();
 
         // Ownership check: seller can only edit own products
-        if (user.getRole() == Role.SELLER) {
+        if (user.getRole() == Role.MANAGER) {
             if (!Boolean.TRUE.equals(user.getSellerApproved())) {
                 return ResponseEntity.status(403).body("Seller not approved");
             }
@@ -123,29 +123,46 @@ public class SellerController {
         return ResponseEntity.ok("Updated");
     }
 
-    @DeleteMapping("/products/{id}")
-    @Transactional
-    public ResponseEntity<?> deleteProduct(@PathVariable String id, HttpServletRequest request) {
-        User user = (User) request.getAttribute("user");
-        if (user == null) return ResponseEntity.status(401).body("Unauthenticated");
+        @org.springframework.beans.factory.annotation.Autowired
+        private jakarta.persistence.EntityManager entityManager;
 
-        Optional<Product> prodOpt = productRepository.findById(id);
-        if (prodOpt.isEmpty()) return ResponseEntity.notFound().build();
-
-        Product p = prodOpt.get();
-
-        if (user.getRole() == Role.SELLER) {
-            if (!Boolean.TRUE.equals(user.getSellerApproved())) {
-                return ResponseEntity.status(403).body("Seller not approved");
+        @DeleteMapping("/products/{id}")
+        @Transactional
+        public ResponseEntity<?> deleteProduct(@PathVariable String id, HttpServletRequest request) {
+            User user = (User) request.getAttribute("user");
+            if (user == null) return ResponseEntity.status(401).body("Unauthenticated");
+    
+            Optional<Product> prodOpt = productRepository.findById(id);
+            if (prodOpt.isEmpty()) return ResponseEntity.notFound().build();
+    
+            Product p = prodOpt.get();
+    
+            if (user.getRole() == Role.MANAGER) {
+                if (!Boolean.TRUE.equals(user.getSellerApproved())) {
+                    return ResponseEntity.status(403).body("Seller not approved");
+                }
+                if (p.getSellerProfile() == null || !p.getSellerProfile().getUser().getId().equals(user.getId())) {
+                    return ResponseEntity.status(403).body("Forbidden");
+                }
             }
-            if (p.getSellerProfile() == null || !p.getSellerProfile().getUser().getId().equals(user.getId())) {
-                return ResponseEntity.status(403).body("Forbidden");
+    
+            try {
+                // Delete from CartItem first to prevent FK violation
+                int delCart = entityManager.createQuery("DELETE FROM CartItem c WHERE c.product.id = :id")
+                                           .setParameter("id", id).executeUpdate();
+                System.out.println("DEBUG (Seller): deleted " + delCart + " cart items for product " + id);
+                
+                // Delete the Product
+                int delProd = entityManager.createQuery("DELETE FROM Product p WHERE p.id = :id")
+                                           .setParameter("id", id).executeUpdate();
+                System.out.println("DEBUG (Seller): deleted " + delProd + " product with id " + id);
+                
+                return ResponseEntity.ok("Deleted");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return ResponseEntity.status(500).body("Error deleting product");
             }
         }
-
-        productRepository.delete(p);
-        return ResponseEntity.ok("Deleted");
-    }
 
     @GetMapping("/me/products")
     public ResponseEntity<?> getMyProducts(HttpServletRequest request) {

@@ -36,7 +36,7 @@ export default function ProductList({ query }: { query?: string }) {
   }, [products, query]);
 
   return (
-    <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 max-w-7xl mx-auto">
+    <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 max-w-7xl mx-auto">
       {isLoading ? (
         Array.from({ length: 9 }).map((_, idx) => <ProductCardSkeleton key={idx} />)
       ) : error ? (

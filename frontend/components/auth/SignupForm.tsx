@@ -55,7 +55,7 @@ export default function SignupForm({ nextPath, accountType = "customer" }: { nex
         password,
         confirmPassword,
         accountType,
-        role: accountType === "seller" ? "SELLER" : "CUSTOMER",
+        role: accountType === "seller" ? "MANAGER" : "USER",
       });
       const landingPath =
         accountType === "seller"

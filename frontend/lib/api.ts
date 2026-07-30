@@ -91,6 +91,9 @@ export type CompatAuthUserDTO = {
   orders: unknown[];
   role?: string;
   sellerApproved?: boolean;
+  address?: string;
+  lat?: number;
+  lng?: number;
 };
 
 export function getProducts(params?: { category?: string; tag?: string }) {
@@ -149,6 +152,10 @@ export function getAdminNotifications() {
       createdAt?: string;
     }>
   >(`/api/admin/notifications`, { method: "GET" });
+}
+
+export function clearAdminNotifications() {
+  return apiFetch<{ status: string }>(`/api/admin/notifications`, { method: "DELETE" });
 }
 
 export function getLiveUsers() {
@@ -251,7 +258,7 @@ export function register(body: {
   password: string;
   confirmPassword?: string;
   accountType?: "customer" | "seller";
-  role?: "CUSTOMER" | "SELLER" | "ADMIN";
+  role?: "USER" | "MANAGER" | "ADMIN";
 }) {
   return apiFetch<{ status: boolean; message: unknown }>(`/api/register`, {
     method: "POST",
@@ -277,6 +284,13 @@ export async function getAuthUser(): Promise<CompatAuthUserDTO | null> {
     }
     throw e;
   }
+}
+
+export function updateProfileAddress(address: string, lat: number, lng: number) {
+  return apiFetch<{ status: boolean; message: string }>(`/api/profile/address`, {
+    method: "PUT",
+    body: JSON.stringify({ address, lat, lng }),
+  });
 }
 
 export function logout() {

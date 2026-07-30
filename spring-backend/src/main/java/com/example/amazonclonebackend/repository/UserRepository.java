@@ -20,4 +20,6 @@ public interface UserRepository extends JpaRepository<User, String> {
 
     boolean existsByNumber(String number);
 
+    java.util.List<User> findByRole(com.example.amazonclonebackend.entity.Role role);
+
 }

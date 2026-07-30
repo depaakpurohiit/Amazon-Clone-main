@@ -28,16 +28,25 @@ export const AdminDataProvider = ({ children }: { children: React.ReactNode }) =
     setIsLoading(true);
     setError(null);
     try {
-      const [sellersData, notificationsData, liveUsersData, requestsData] = await Promise.all([
+      const [sellersRes, notificationsRes, liveUsersRes, requestsRes] = await Promise.allSettled([
         getAdminSellers(),
         getAdminNotifications(),
         getLiveUsers(),
         getSellerRequests(),
       ]);
-      setSellers(sellersData);
-      setNotifications(notificationsData ?? []);
-      setLiveUsersCount(liveUsersData?.count ?? 0);
-      setSellerRequests(requestsData ?? []);
+
+      if (sellersRes.status === "fulfilled") {
+        setSellers(sellersRes.value ?? []);
+      }
+      if (notificationsRes.status === "fulfilled") {
+        setNotifications(notificationsRes.value ?? []);
+      }
+      if (liveUsersRes.status === "fulfilled") {
+        setLiveUsersCount(liveUsersRes.value?.count ?? 0);
+      }
+      if (requestsRes.status === "fulfilled") {
+        setSellerRequests(requestsRes.value ?? []);
+      }
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {

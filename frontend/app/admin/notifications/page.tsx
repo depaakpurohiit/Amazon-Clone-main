@@ -1,15 +1,33 @@
 "use client";
 
 import { useAdminData } from "@/context/AdminDataContext";
+import { Button } from "@/components/ui/button";
+import { clearAdminNotifications } from "@/lib/api";
 
 export default function AdminNotificationsPage() {
-  const { notifications, isLoading } = useAdminData();
+  const { notifications, isLoading, refreshAll } = useAdminData();
+
+  const handleClearNotifications = async () => {
+    try {
+      await clearAdminNotifications();
+      await refreshAll();
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold text-slate-900">Notifications</h1>
-        <p className="mt-2 text-sm text-slate-600">View system notifications generated for the admin console.</p>
+      <div className="flex flex-row items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-semibold text-slate-900">Notifications</h1>
+          <p className="mt-2 text-sm text-slate-600">View system notifications generated for the admin console.</p>
+        </div>
+        {notifications.length > 0 && (
+          <Button onClick={handleClearNotifications} variant="outline">
+            Clear all
+          </Button>
+        )}
       </div>
 
       {isLoading ? (

@@ -1,0 +1,9 @@
+{
+  "name": "Test User",
+  "number": "1234567890",
+  "email": "testnewuser@gmail.com",
+  "password": "password",
+  "confirmPassword": "password",
+  "accountType": "customer",
+  "role": "CUSTOMER"
+}

@@ -27,14 +27,14 @@ export default function RoleAccessGate({
     if (isLoading) return;
 
     if (mode === "customer") {
-      if (role === "ADMIN" || role === "SELLER") {
+      if (role === "ADMIN" || role === "MANAGER") {
         router.replace(getRoleLandingPath(role));
       }
       return;
     }
 
     if (mode === "seller") {
-      if (role === "SELLER") return;
+      if (role === "MANAGER") return;
       if (isAuthenticated) {
         router.replace(getRoleLandingPath(role));
       } else {
@@ -48,7 +48,7 @@ export default function RoleAccessGate({
       if (isAuthenticated) {
         router.replace(getRoleLandingPath(role));
       } else {
-        router.replace(`/login?next=${encodeURIComponent(pathname)}`);
+        router.replace("/");
       }
       return;
     }
@@ -62,12 +62,22 @@ export default function RoleAccessGate({
     return fallback;
   }
 
-  if (mode === "customer" && (role === "ADMIN" || role === "SELLER")) {
+  if (mode === "customer" && (role === "ADMIN" || role === "MANAGER")) {
     return fallback;
   }
 
-  if (mode === "seller" && role !== "SELLER") {
-    return fallback;
+  if (mode === "seller" && role !== "MANAGER" && role !== "ADMIN") {
+    // Optionally allow ADMIN to access seller routes
+    if (fallback) return <>{fallback}</>;
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-4">
+        <div className="text-destructive text-4xl mb-4">⛔</div>
+        <h2 className="text-2xl font-bold">Seller Access Only</h2>
+        <p className="text-muted-foreground mb-6">
+          You need an approved seller account to view this page.
+        </p>
+      </div>
+    );
   }
 
   if (mode === "admin" && role !== "ADMIN") {

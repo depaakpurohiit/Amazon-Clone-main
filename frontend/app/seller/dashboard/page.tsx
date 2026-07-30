@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useSellerData } from "@/context/SellerDataContext";
 import { useCart } from "@/context/CartContext";
 import { useEffect, useState } from "react";
+import { normalizeRole } from "@/lib/role";
 
 export default function SellerDashboard() {
   const { products, orders, profile, isLoading } = useSellerData();
@@ -13,7 +14,7 @@ export default function SellerDashboard() {
   const [showVerificationAlert, setShowVerificationAlert] = useState(false);
 
   useEffect(() => {
-    if (authUser && authUser.role === "SELLER" && authUser.sellerApproved === false) {
+    if (authUser && normalizeRole(authUser.role) === "MANAGER" && authUser.sellerApproved === false) {
       setShowVerificationAlert(true);
     }
   }, [authUser]);

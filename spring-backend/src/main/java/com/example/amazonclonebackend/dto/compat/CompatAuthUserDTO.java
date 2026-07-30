@@ -18,5 +18,8 @@ public class CompatAuthUserDTO {
     private List<CompatOrderWrapperDTO> orders;
     private String role;
     private Boolean sellerApproved;
+    private String address;
+    private Double lat;
+    private Double lng;
 }
 

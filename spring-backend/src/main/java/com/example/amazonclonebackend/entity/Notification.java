@@ -21,7 +21,7 @@ public class Notification {
     @Column(name = "type")
     private String type;
 
-    @Column(name = "payload", columnDefinition = "TEXT")
+    @Column(name = "payload", length = 4000)
     private String payload;
 
     @Column(name = "is_read")

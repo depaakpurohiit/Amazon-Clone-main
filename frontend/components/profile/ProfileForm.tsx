@@ -7,13 +7,20 @@ import { LogOut, ArrowLeft, Heart } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { requestSeller } from "@/lib/api";
+import { requestSeller, updateProfileAddress } from "@/lib/api";
 import ConfirmDialog from "@/components/ui/ConfirmDialog";
 import LogoutLoader from "@/components/ui/LogoutLoader";
 import { useState } from "react";
+import dynamic from "next/dynamic";
+import { normalizeRole } from "@/lib/role";
+
+const ProfileMap = dynamic(() => import("./ProfileMapComponent"), { 
+  ssr: false, 
+  loading: () => <div className="h-[400px] w-full bg-slate-100 animate-pulse rounded-xl" /> 
+});
 
 export default function ProfileForm() {
-  const { authUser, isAuthenticated, isLoading, logout } = useCart();
+  const { authUser, isAuthenticated, isLoading, logout, refresh } = useCart();
   const router = useRouter();
   const [showConfirm, setShowConfirm] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
@@ -122,22 +129,45 @@ export default function ProfileForm() {
                   {authUser._id}
                 </div>
               </div>
+
+              {normalizeRole(authUser.role) !== "MANAGER" && (
+                <>
+                  <div className="border-t border-border" />
+
+                  {/* Delivery Address Map */}
+                  <div id="map" className="space-y-4 pt-4 scroll-mt-24">
+                    <h3 className="text-lg font-semibold text-slate-900">Delivery Address</h3>
+                    <ProfileMap 
+                      initialAddress={authUser.address} 
+                      initialLat={authUser.lat} 
+                      initialLng={authUser.lng}
+                      onSave={async (addr, lat, lng) => {
+                        await updateProfileAddress(addr, lat, lng);
+                        await refresh();
+                      }} 
+                    />
+                  </div>
+                </>
+              )}
+
             </CardContent>
           </Card>
         </div>
 
         {/* Right Column - Statistics and Actions */}
         <div className="space-y-6">
-          {/* View Favorites Button */}
-          <Button
-            asChild
-            className="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white"
-          >
-            <Link href="/favorites" className="flex items-center justify-center gap-2">
-              <Heart className="h-5 w-5 fill-current" />
-              View Favorites
-            </Link>
-          </Button>
+          {/* View Favorites Button (Hidden for Sellers) */}
+          {normalizeRole(authUser.role) !== "MANAGER" && (
+            <Button
+              asChild
+              className="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white"
+            >
+              <Link href="/favorites" className="flex items-center justify-center gap-2">
+                <Heart className="h-5 w-5 fill-current" />
+                View Favorites
+              </Link>
+            </Button>
+          )}
 
           {/* Account Statistics Card */}
           <Card>
@@ -170,7 +200,7 @@ export default function ProfileForm() {
               <CardTitle className="text-lg">Actions</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
-              {authUser.role === "SELLER" && authUser.sellerApproved === false ? (
+              {normalizeRole(authUser.role) === "MANAGER" && authUser.sellerApproved === false ? (
                 <Button onClick={async () => {
                   try {
                     await requestSeller({ message: "Request for admin verification" });
@@ -179,7 +209,7 @@ export default function ProfileForm() {
                     alert("Failed to send verification request.");
                   }
                 }} className="w-full">Request Admin Verification</Button>
-              ) : authUser.role === "CUSTOMER" ? (
+              ) : normalizeRole(authUser.role) === "USER" ? (
                 <Button onClick={async () => {
                   try {
                     await requestSeller({ message: "Request to become seller" });

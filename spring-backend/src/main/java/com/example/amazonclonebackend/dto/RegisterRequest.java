@@ -39,7 +39,7 @@ public class RegisterRequest {
 
     /**
      * Optional explicit role field for compatibility with older/newer clients.
-     * Accepted values: CUSTOMER, SELLER.
+     * Accepted values: USER, SELLER.
      */
     private String role;
 

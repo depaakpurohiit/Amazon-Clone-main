@@ -6,11 +6,20 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAdminData } from "@/context/AdminDataContext";
 import SellerRequestModal from "@/components/admin/SellerRequestModal";
-import { approveSellerRequest, rejectSellerRequest } from "@/lib/api";
+import { approveSellerRequest, rejectSellerRequest, clearAdminNotifications } from "@/lib/api";
 
 export default function AdminDashboard() {
   const { sellerRequests, notifications, liveUsersCount, isLoading, refreshAll } = useAdminData();
   const [viewingRequest, setViewingRequest] = useState<any>(null);
+
+  const handleClearNotifications = async () => {
+    try {
+      await clearAdminNotifications();
+      await refreshAll();
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const handleApproveRequest = async (id: string) => {
     try {
@@ -116,8 +125,13 @@ export default function AdminDashboard() {
         </Card>
 
         <Card>
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Notifications</CardTitle>
+            {notifications.length > 0 && (
+              <Button size="sm" variant="ghost" onClick={handleClearNotifications}>
+                Clear all
+              </Button>
+            )}
           </CardHeader>
           <CardContent>
             {isLoading ? (

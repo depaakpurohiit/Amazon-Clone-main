@@ -30,11 +30,11 @@ public class SchemaMigrator implements ApplicationRunner {
         safeExec("UPDATE \"products\" SET \"category\" = 'ELECTRONICS' WHERE \"category\" IS NULL");
 
         // User role / seller approval fields added for admin/seller flows.
-        safeExec("ALTER TABLE \"users\" ADD COLUMN IF NOT EXISTS \"role\" VARCHAR(255) DEFAULT 'CUSTOMER'");
-        safeExec("UPDATE \"users\" SET \"role\" = 'CUSTOMER' WHERE \"role\" IS NULL");
+        safeExec("ALTER TABLE \"users\" ADD COLUMN IF NOT EXISTS \"role\" VARCHAR(255) DEFAULT 'USER'");
+        safeExec("UPDATE \"users\" SET \"role\" = 'USER' WHERE \"role\" IS NULL OR \"role\" = 'CUSTOMER'");
         safeExec("ALTER TABLE \"users\" ADD COLUMN IF NOT EXISTS \"seller_approved\" BOOLEAN DEFAULT FALSE");
         safeExec("UPDATE \"users\" SET \"seller_approved\" = FALSE WHERE \"seller_approved\" IS NULL");
-        safeExec("UPDATE \"users\" SET \"role\" = 'SELLER' WHERE \"seller_approved\" = TRUE AND \"role\" = 'CUSTOMER'");
+        safeExec("UPDATE \"users\" SET \"role\" = 'MANAGER' WHERE \"seller_approved\" = TRUE AND \"role\" = 'USER'");
 
         // Seller ownership linkage for products.
         safeExec("ALTER TABLE \"products\" ADD COLUMN IF NOT EXISTS \"seller_profile_id\" VARCHAR(255)");

@@ -43,7 +43,10 @@ public class CompatAuthUserService {
                 cart,
                 orders,
                 user.getRole() != null ? user.getRole().name() : null,
-                user.getSellerApproved()
+                user.getSellerApproved(),
+                user.getAddress(),
+                user.getLat(),
+                user.getLng()
         );
 
     }

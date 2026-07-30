@@ -8,6 +8,7 @@ import { getSellerProfile, createSellerProduct } from "@/lib/api";
 import { useSellerData } from "@/context/SellerDataContext";
 import { useCart } from "@/context/CartContext";
 import { useEffect } from "react";
+import { normalizeRole } from "@/lib/role";
 
 export default function SellerAddProductPage() {
   const router = useRouter();
@@ -134,7 +135,7 @@ export default function SellerAddProductPage() {
     })();
   }, []);
 
-  if (authUser && authUser.role === "SELLER" && !authUser.sellerApproved) {
+  if (authUser && normalizeRole(authUser.role) === "MANAGER" && !authUser.sellerApproved) {
     return (
       <div className="flex h-64 items-center justify-center">
         <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">

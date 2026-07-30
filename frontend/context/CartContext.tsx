@@ -30,7 +30,7 @@ interface CartContextProps {
   error: string | null;
   refresh: () => Promise<CompatAuthUserDTO | null>;
   login: (email: string, password: string) => Promise<CompatAuthUserDTO | null>;
-  signup: (body: { name: string; number: string; email: string; password: string; confirmPassword: string; accountType?: "customer" | "seller"; role?: "CUSTOMER" | "SELLER" | "ADMIN" }) => Promise<CompatAuthUserDTO | null>;
+  signup: (body: { name: string; number: string; email: string; password: string; confirmPassword: string; accountType?: "customer" | "seller"; role?: "USER" | "MANAGER" | "ADMIN" }) => Promise<CompatAuthUserDTO | null>;
   logout: () => Promise<void>;
   addToCart: (productId: string, quantity?: number) => Promise<void>;
   removeFromCart: (cartItemId: string) => Promise<void>;
@@ -119,7 +119,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   }, [refreshWithRetry]);
 
   const signup = useCallback(
-    async (body: { name: string; number: string; email: string; password: string; confirmPassword: string; accountType?: "customer" | "seller"; role?: "CUSTOMER" | "SELLER" | "ADMIN" }) => {
+    async (body: { name: string; number: string; email: string; password: string; confirmPassword: string; accountType?: "customer" | "seller"; role?: "USER" | "MANAGER" | "ADMIN" }) => {
       setError(null);
       await apiRegister(body);
       await apiLogin({ email: body.email, password: body.password });

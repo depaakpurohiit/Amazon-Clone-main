@@ -22,7 +22,7 @@ public class SellerRequest {
     @JoinColumn(name = "requester_id", nullable = false)
     private User requester;
 
-    @Column(name = "message", columnDefinition = "TEXT")
+    @Column(name = "message", length = 2000)
     private String message;
 
     @Column(name = "status")

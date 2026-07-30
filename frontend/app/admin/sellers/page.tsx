@@ -43,34 +43,58 @@ export default function AdminSellersPage() {
       ) : (
         <div className="space-y-4">
           {sellers.map((seller) => (
-            <div key={seller.id} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-sm text-slate-500">Store ID</p>
-                  <p className="text-lg font-semibold text-slate-900">{seller.businessName ?? "Unnamed store"}</p>
-                  <p className="mt-1 text-sm text-slate-600">Owner ID: {seller.userId ?? "Unknown"}</p>
+            <div key={seller.id}>
+              {isDeleting === seller.id ? (
+                <div className="h-48 rounded-3xl border border-slate-200 bg-slate-100 animate-pulse shadow-sm" />
+              ) : (
+                <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex items-center gap-4">
+                      {seller.logoUrl ? (
+                        <div className="h-16 w-16 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm flex-shrink-0">
+                          <img src={seller.logoUrl} alt={seller.businessName ?? "Store Logo"} className="h-full w-full object-cover" />
+                        </div>
+                      ) : (
+                        <div className="h-16 w-16 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-slate-600 font-bold text-xl flex-shrink-0">
+                          {(seller.businessName ?? "S").charAt(0).toUpperCase()}
+                        </div>
+                      )}
+                      <div>
+                        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Store Profile</p>
+                        <p className="text-lg font-semibold text-slate-900">{seller.businessName ?? "Unnamed store"}</p>
+                        <p className="mt-0.5 text-sm text-slate-600">Owner ID: {seller.userId ?? "Unknown"}</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                      <Button
+                        variant="destructive"
+                        size="sm"
+                        disabled={isDeleting === seller.id}
+                        onClick={() => handleRemoveSeller(seller.id)}
+                      >
+                        Remove seller
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-2xl bg-slate-50 p-4 text-sm text-slate-600 border border-slate-100">
+                      <p className="font-semibold text-slate-900">Status</p>
+                      <p className="mt-1 font-medium text-emerald-600">{seller.status ?? "Unknown"}</p>
+                    </div>
+                    <div className="rounded-2xl bg-slate-50 p-4 text-sm text-slate-600 border border-slate-100">
+                      <p className="font-semibold text-slate-900 mb-2">Logo Preview</p>
+                      {seller.logoUrl ? (
+                        <div className="flex items-center gap-3">
+                          <img src={seller.logoUrl} alt={seller.businessName ?? "Logo"} className="h-10 w-10 rounded-lg object-cover border border-slate-200" />
+                          <span className="text-xs text-slate-500 truncate max-w-[200px]">{seller.logoUrl}</span>
+                        </div>
+                      ) : (
+                        <p className="text-xs text-slate-400">No logo uploaded</p>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-3">
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    disabled={isDeleting === seller.id}
-                    onClick={() => handleRemoveSeller(seller.id)}
-                  >
-                    {isDeleting === seller.id ? "Removing…" : "Remove seller"}
-                  </Button>
-                </div>
-              </div>
-              <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                <div className="rounded-2xl bg-slate-50 p-4 text-sm text-slate-600">
-                  <p className="font-semibold text-slate-900">Status</p>
-                  <p>{seller.status ?? "Unknown"}</p>
-                </div>
-                <div className="rounded-2xl bg-slate-50 p-4 text-sm text-slate-600">
-                  <p className="font-semibold text-slate-900">Logo</p>
-                  <p>{seller.logoUrl ? <a className="text-sky-600 hover:underline" href={seller.logoUrl}>{seller.logoUrl}</a> : "No logo"}</p>
-                </div>
-              </div>
+              )}
             </div>
           ))}
         </div>

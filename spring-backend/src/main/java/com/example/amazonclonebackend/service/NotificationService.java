@@ -26,11 +26,23 @@ public class NotificationService {
     }
 
     public List<NotificationDTO> listAll() {
-        return notificationRepository.findAll().stream().map(n -> new NotificationDTO(n.getId(), n.getType(), n.getPayload(), n.getIsRead(), n.getCreatedAt())).collect(Collectors.toList());
+        try {
+            return notificationRepository.findAll().stream().map(n -> new NotificationDTO(n.getId(), n.getType(), n.getPayload(), n.getIsRead(), n.getCreatedAt())).collect(Collectors.toList());
+        } catch (Exception e) {
+            return java.util.Collections.emptyList();
+        }
     }
 
     public List<NotificationDTO> listUnread() {
-        return notificationRepository.findByIsReadFalse().stream().map(n -> new NotificationDTO(n.getId(), n.getType(), n.getPayload(), n.getIsRead(), n.getCreatedAt())).collect(Collectors.toList());
+        try {
+            return notificationRepository.findByIsReadFalse().stream().map(n -> new NotificationDTO(n.getId(), n.getType(), n.getPayload(), n.getIsRead(), n.getCreatedAt())).collect(Collectors.toList());
+        } catch (Exception e) {
+            return java.util.Collections.emptyList();
+        }
     }
 
+    @Transactional
+    public void clearAll() {
+        notificationRepository.deleteAll();
+    }
 }

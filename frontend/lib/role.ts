@@ -1,24 +1,25 @@
-export type AppRole = "ADMIN" | "SELLER" | "CUSTOMER";
+export type AppRole = "ADMIN" | "MANAGER" | "USER";
 
 export function normalizeRole(role?: string | null): AppRole {
-  if (!role) return "CUSTOMER";
+  if (!role) return "USER";
 
   const normalized = role.trim().toUpperCase().replace(/^ROLE_/, "");
-  if (normalized === "ADMIN" || normalized === "SELLER") return normalized;
+  if (normalized === "ADMIN") return "ADMIN";
+  if (normalized === "MANAGER" || normalized === "SELLER") return "MANAGER";
   if (normalized.includes("ADMIN")) return "ADMIN";
-  if (normalized.includes("SELLER")) return "SELLER";
-  if (normalized.includes("CUSTOMER")) return "CUSTOMER";
-  return "CUSTOMER";
+  if (normalized.includes("MANAGER") || normalized.includes("SELLER")) return "MANAGER";
+  if (normalized.includes("USER") || normalized.includes("CUSTOMER")) return "USER";
+  return "USER";
 }
 
 export function getRoleLandingPath(role?: string | null) {
   const normalized = normalizeRole(role);
   if (normalized === "ADMIN") return "/admin/dashboard";
-  if (normalized === "SELLER") return "/seller/dashboard";
+  if (normalized === "MANAGER") return "/seller/dashboard"; // Keeping the URL as /seller/dashboard for now
   return "/";
 }
 
 export function isPrivilegedRole(role?: string | null) {
   const normalized = normalizeRole(role);
-  return normalized === "ADMIN" || normalized === "SELLER";
+  return normalized === "ADMIN" || normalized === "MANAGER";
 }

@@ -2,7 +2,7 @@
 
 import { useCart } from "@/context/CartContext";
 import { isPrivilegedRole, normalizeRole } from "@/lib/role";
-import { ChevronDown, Menu, Search, ShoppingCart, X } from "lucide-react";
+import { ChevronDown, Menu, Search, ShoppingCart, X, MapPin } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState, type FormEvent } from "react";
@@ -12,12 +12,12 @@ import LogoutLoader from "../ui/LogoutLoader";
 
 export default function Header() {
   const { cart, authUser, isAuthenticated, isLoading, logout } = useCart();
-  const role = normalizeRole(authUser?.role);
-  const isRoleAccount = isPrivilegedRole(authUser?.role);
-  const roleProfilePath = role === "SELLER" ? "/seller/profile" : role === "ADMIN" ? "/admin/dashboard" : "/profile";
-  const cartCount =
-    cart?.reduce((total, item) => total + item.quantity, 0) || 0;
   const [mounted, setMounted] = useState(false);
+  const role = normalizeRole(authUser?.role);
+  const isRoleAccount = mounted ? isPrivilegedRole(authUser?.role) : false;
+  const roleProfilePath = normalizeRole(role) === "MANAGER" ? "/seller/profile" : normalizeRole(role) === "ADMIN" ? "/admin/dashboard" : "/profile";
+  const cartCount = cart?.reduce((total, item) => total + item.quantity, 0) || 0;
+  
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -103,6 +103,24 @@ export default function Header() {
             >
               Trade <span className="text-primary">Hive</span>
             </Link>
+
+            {mounted && isAuthenticated && !isRoleAccount && (
+              <Link 
+                href="/profile#map" 
+                className="hidden lg:flex items-center gap-1 hover:border-gray-300 border border-transparent p-1 px-2 rounded cursor-pointer group transition-all"
+                aria-label="Update delivery location"
+              >
+                <MapPin className="h-5 w-5 text-gray-600 group-hover:text-primary transition-colors mt-2" />
+                <div className="flex flex-col items-start">
+                  <span className="text-[11px] text-gray-500 group-hover:text-gray-700 leading-tight">
+                    Deliver to {authUser?.name ? authUser.name.split(' ')[0] : ''}
+                  </span>
+                  <span className="text-sm font-bold truncate max-w-[160px] leading-tight text-gray-900">
+                    {authUser?.address || "Update location"}
+                  </span>
+                </div>
+              </Link>
+            )}
 
             <nav
               className="hidden md:flex items-center space-x-1"
@@ -199,7 +217,7 @@ export default function Header() {
                       <Link href="/admin/dashboard">Admin Dashboard</Link>
                     </Button>
                   )}
-                  {authUser?.role === "SELLER" && (
+                  {normalizeRole(authUser?.role) === "MANAGER" && (
                     <Button variant="ghost" size="sm" className="text-sm" asChild>
                       <Link href="/seller/dashboard">Seller Dashboard</Link>
                     </Button>
@@ -306,7 +324,7 @@ export default function Header() {
                       <Link href="/admin/dashboard" onClick={closeMobileMenu}>Admin Dashboard</Link>
                     </Button>
                   )}
-                  {authUser?.role === "SELLER" && (
+                  {normalizeRole(authUser?.role) === "MANAGER" && (
                     <Button className="w-full text-sm" variant="ghost" asChild>
                       <Link href="/seller/dashboard" onClick={closeMobileMenu}>Seller Dashboard</Link>
                     </Button>

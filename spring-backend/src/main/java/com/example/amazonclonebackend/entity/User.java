@@ -38,10 +38,19 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Role role = Role.CUSTOMER;
+    private Role role = Role.USER;
 
     @Column(name = "seller_approved")
     private Boolean sellerApproved = false;
+
+    @Column
+    private String address;
+
+    @Column
+    private Double lat;
+
+    @Column
+    private Double lng;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @ToString.Exclude

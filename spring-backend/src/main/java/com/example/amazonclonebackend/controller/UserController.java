@@ -36,6 +36,26 @@ public class UserController {
         return ResponseEntity.ok(compatAuthUserService.build(user));
     }
 
+    @PutMapping("/profile/address")
+    public ResponseEntity<Map<String, Object>> updateAddress(
+            @AuthenticationPrincipal User user,
+            @RequestBody Map<String, Object> payload) {
+        if (user == null) {
+            return ResponseEntity.status(401).build();
+        }
+        
+        try {
+            String address = (String) payload.get("address");
+            Double lat = payload.get("lat") != null ? Double.parseDouble(payload.get("lat").toString()) : null;
+            Double lng = payload.get("lng") != null ? Double.parseDouble(payload.get("lng").toString()) : null;
+            
+            userService.updateUserAddress(user, address, lat, lng);
+            return ResponseEntity.ok(Map.of("status", true, "message", "Address updated"));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("status", false, "message", e.getMessage()));
+        }
+    }
+
     @GetMapping("/logout")
     public ResponseEntity<Map<String, Object>> logout(@AuthenticationPrincipal User user,
                                                     HttpServletRequest request,

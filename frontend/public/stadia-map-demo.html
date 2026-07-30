@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Package Tracking - Stadia Maps</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        /* The map container must have a defined height */
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+        .header {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>Live Package Tracker</h2>
+        <p id="status">Connecting to tracking server...</p>
+    </div>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <script>
+        /* 
+         * STADIA MAPS AUTHENTICATION EXPLANATION:
+         * 
+         * 1. Query String Authentication (Used here):
+         *    We append `?api_key=3276c59d-1bf5-416a-8df4-553916049d55` to the URL.
+         *    This is great for development, local testing, and quick demos because it works immediately.
+         *    However, anyone inspecting the network tab can see your key.
+         * 
+         * 2. Domain-Based Authentication (Recommended for Production):
+         *    For a live production app, you should NOT include the `?api_key=` parameter.
+         *    Instead, log into your Stadia Maps dashboard, navigate to "Allowed Domains", 
+         *    and add your website's domain (e.g., `www.myapp.com`). 
+         *    Stadia Maps will automatically authenticate requests based on the HTTP Referer header 
+         *    from your authorized website, keeping your account completely secure.
+         */
+
+        // 1. Initialize the map
+        // Initial coordinates (Sample Location: New York City)
+        const initialLat = 40.7128;
+        const initialLng = -74.0060;
+        
+        const map = L.map('map').setView([initialLat, initialLng], 13);
+
+        // 2. Add Stadia Maps Raster Tile Layer with your API Key
+        // Using "Alidade Smooth" style. Other options: 'osm_bright', 'outdoors', 'alidade_smooth_dark'
+        L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=3276c59d-1bf5-416a-8df4-553916049d55', {
+            maxZoom: 20,
+            attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // 3. Add a marker for the package
+        const packageMarker = L.marker([initialLat, initialLng]).addTo(map);
+        
+        // 4. Add a popup showing sample package information
+        packageMarker.bindPopup(`
+            <b>Package #TRK-99201</b><br>
+            Status: In Transit<br>
+            Expected Delivery: Today, 5:00 PM
+        `).openPopup();
+
+        // 5. Connect to Java Spring Boot WebSocket for Real-Time GPS Updates
+        function connectToTracker() {
+            // Connect to your Spring Boot WebSocket endpoint
+            // Assuming it's hosted at ws://localhost:8081/ws/tracking
+            const socket = new WebSocket('ws://localhost:8081/ws/tracking');
+            const statusText = document.getElementById('status');
+
+            socket.onopen = function() {
+                console.log("Connected to tracking server");
+                statusText.innerText = "Live tracking active 🟢";
+                statusText.style.color = "green";
+            };
+
+            socket.onmessage = function(event) {
+                // Expected JSON from Java backend: { "lat": 40.7130, "lng": -74.0065 }
+                try {
+                    const data = JSON.parse(event.data);
+                    
+                    if (data.lat && data.lng) {
+                        // Update marker position
+                        const newLatLng = new L.LatLng(data.lat, data.lng);
+                        packageMarker.setLatLng(newLatLng);
+                        
+                        // Optionally pan the map smoothly to the new location
+                        map.panTo(newLatLng);
+                    }
+                } catch (e) {
+                    console.error("Error parsing GPS data", e);
+                }
+            };
+
+            socket.onclose = function() {
+                console.log("Disconnected from tracking server");
+                statusText.innerText = "Tracking offline 🔴";
+                statusText.style.color = "red";
+                
+                // Attempt to reconnect after 5 seconds
+                setTimeout(connectToTracker, 5000);
+            };
+            
+            socket.onerror = function(error) {
+                console.error("WebSocket Error:", error);
+            };
+        }
+
+        // Start the WebSocket connection
+        connectToTracker();
+
+    </script>
+</body>
+</html>
