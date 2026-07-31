@@ -45,8 +45,8 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable)
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/api/products", "/api/product/**", "/api/register", "/api/login", "/api/get-razorpay-key").permitAll()
-                .requestMatchers("/api/getAuthUser", "/api/logout").authenticated()
+                .requestMatchers("/api/products", "/api/product/**", "/api/register", "/api/login", "/api/get-razorpay-key", "/api/seller/*/profile", "/api/seller/*/products").permitAll()
+                .requestMatchers("/api/getAuthUser", "/api/logout", "/api/seller/me/profile").authenticated()
                 .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
                 .requestMatchers("/api/seller/**").hasAnyAuthority("MANAGER","ADMIN")
                 .requestMatchers("/api/addtocart/**", "/api/delete/**", "/api/update-qty/**",

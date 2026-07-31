@@ -1,143 +1,119 @@
-# Trade Hive Backend - Spring Boot Migration
+# Trade Hive — Spring Boot Backend
 
-This is a production-grade Spring Boot backend migrated from a MERN stack application.
+The Spring Boot 3 REST API backend for Trade Hive, a full-stack e-commerce platform.
 
 ## Technology Stack
 
 - **Java**: 21
-- **Spring Boot**: 3.2.0
-- **Database**: PostgreSQL
-- **ORM**: Hibernate/JPA
-- **Security**: Spring Security + JWT
-- **Build Tool**: Maven
-- **Documentation**: OpenAPI/Swagger
-
-## Features
-
-- User registration and authentication with JWT
-- Product catalog management
-- Shopping cart functionality
-- Order processing with Razorpay integration
-- PostgreSQL database with normalized schema
-- RESTful API design
-- Input validation and error handling
-- CORS configuration
+- **Spring Boot**: 3.x
+- **Database**: H2 (local file-based) / PostgreSQL-Neon (production via env vars)
+- **ORM**: Hibernate / JPA
+- **Security**: Spring Security + JWT (stateless, `JSESSIONID`-free)
+- **Build Tool**: Maven (includes `mvnw` wrapper)
+- **Admin Monitoring**: Spring Boot Admin (embedded at `/sba`)
 
 ## Project Structure
 
 ```
 spring-backend/
-├── src/main/java/com/example/amazonclonebackend/
-│   ├── controller/          # REST controllers
-│   ├── service/            # Business logic layer
-│   ├── repository/         # Data access layer
-│   ├── entity/             # JPA entities
-│   ├── dto/                # Data transfer objects
-│   ├── security/           # Security configuration
-│   ├── config/             # Application configuration
-│   ├── exception/          # Exception handling
-│   └── util/               # Utility classes
-├── src/main/resources/
-│   └── application.properties
-├── pom.xml
-├── schema.sql
-└── README.md
+└── src/main/java/com/example/amazonclonebackend/
+    ├── config/         # DataInitializer, SchemaMigrator, application config
+    ├── controller/     # REST endpoints (Admin, Seller, User, Product)
+    ├── dto/            # Data transfer objects
+    ├── entity/         # JPA entities (User, Product, Cart, Order, Notification, etc.)
+    ├── repository/     # Spring Data JPA repositories
+    ├── security/       # JWT filter, SecurityConfig
+    └── service/        # Business logic (UserService, NotificationService, etc.)
 ```
 
-## Database Schema
+## Database
 
-The application uses a normalized PostgreSQL schema with the following main tables:
+By default, an H2 file database is used for local development:
+- **Location**: `spring-backend/data/amazonclone.mv.db`
+- **DDL mode**: `update` (tables are auto-created/migrated on startup)
+- **H2 console**: disabled
 
-- `products` - Product catalog
-- `product_points` - Product feature points
-- `users` - User accounts
-- `user_tokens` - JWT tokens
-- `cart_items` - Shopping cart items
-- `orders` - Order records
-- `order_products` - Order line items
+For production, set the following environment variables to use PostgreSQL (Neon):
+
+| Variable | Description |
+|---|---|
+| `DB_URL` | JDBC connection URL |
+| `DB_USERNAME` | Database username |
+| `DB_PASSWORD` | Database password |
+| `DB_DRIVER` | JDBC driver class (e.g. `org.postgresql.Driver`) |
+| `JWT_SECRET` | 32+ character secret key for JWT signing |
+| `RAZORPAY_KEY_ID` | Razorpay API key ID |
+| `RAZORPAY_KEY_SECRET` | Razorpay API secret |
 
 ## API Endpoints
 
-### Public Endpoints
-- `GET /api/products` - Get all products
-- `GET /api/product/{id}` - Get product by ID
-- `POST /api/register` - User registration
-- `POST /api/login` - User login
+### Public
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/api/products` | Get all marketplace products |
+| `GET` | `/api/product/{id}` | Get single product |
+| `POST` | `/api/register` | Register new user |
+| `POST` | `/api/login` | Authenticate user (returns JWT cookie) |
 
-### Protected Endpoints
-- `POST /api/addtocart/{id}` - Add item to cart
-- `DELETE /api/delete/{id}` - Remove item from cart
-- `PATCH /api/update-qty/{id}` - Update cart item quantity
-- `GET /api/getAuthUser` - Get authenticated user
-- `GET /api/logout` - Logout user
-- `GET /api/get-razorpay-key` - Get Razorpay key
-- `POST /api/create-order` - Create payment order
-- `POST /api/pay-order` - Process payment
+### Authenticated (any logged-in user)
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/api/getAuthUser` | Get current user |
+| `GET` | `/api/logout` | Logout (clears JWT cookie) |
+| `POST` | `/api/addtocart/{id}` | Add product to cart |
+| `DELETE` | `/api/delete/{id}` | Remove item from cart |
+| `PATCH` | `/api/update-qty/{id}` | Update cart item quantity |
+| `POST` | `/api/create-order` | Create Razorpay payment order |
+| `POST` | `/api/pay-order` | Verify and record payment |
 
-## Setup Instructions
+### Seller (MANAGER role)
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/api/seller/products` | Get seller's own products |
+| `POST` | `/api/seller/products` | Create new product |
+| `PUT` | `/api/seller/products/{id}` | Update own product |
+| `DELETE` | `/api/seller/products/{id}` | Delete own product |
+| `POST` | `/api/seller/request` | Submit seller application |
 
-### Prerequisites
-- Java 21
-- PostgreSQL
-- Maven
+### Admin (ADMIN role)
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/api/admin/seller-requests` | List pending seller applications |
+| `POST` | `/api/admin/seller-requests/{id}/approve` | Approve seller application |
+| `POST` | `/api/admin/seller-requests/{id}/reject` | Reject seller application |
+| `GET` | `/api/admin/sellers` | List all sellers |
+| `DELETE` | `/api/admin/sellers/{id}` | Remove seller + their products |
+| `GET` | `/api/admin/products` | List all products |
+| `DELETE` | `/api/admin/products/{id}` | Delete any product |
+| `GET` | `/api/admin/notifications` | List all notifications |
+| `DELETE` | `/api/admin/notifications` | Clear all notifications |
+| `GET` | `/api/admin/live-users` | Get live session count |
 
-### Database Setup
-1. Create a PostgreSQL database named `amazon_clone`
-2. Run the schema.sql file to create tables
-3. Update application.properties with your database credentials
+## Running Locally
 
-### Environment Variables
-Create a `.env` file or set environment variables:
-```
-DB_USERNAME=your_db_username
-DB_PASSWORD=your_db_password
-JWT_SECRET=your_32+_character_jwt_secret_key
-RAZORPAY_KEY_ID=your_razorpay_key_id
-RAZORPAY_KEY_SECRET=your_razorpay_key_secret
-```
-
-### Running the Application
 ```bash
-mvn spring-boot:run
+cd spring-backend
+./mvnw spring-boot:run
 ```
 
-The application will start on `http://localhost:8081`
+The API will be available at `http://localhost:8081`.
 
-Note: the runtime configuration expects Neon/Postgres through the `DB_*` env vars shown above. H2 is now limited to test-only usage under `src/test/resources/application.properties`.
+## Running Tests
 
-## Migration Notes
-
-### From MERN to Spring Boot
-1. **Database**: MongoDB collections → PostgreSQL normalized tables
-2. **Authentication**: Express middleware → Spring Security + JWT
-3. **Validation**: express-validator → Jakarta Validation
-4. **Business Logic**: Inline controller logic → Service layer
-5. **Error Handling**: Try-catch blocks → Global exception handler
-6. **CORS**: cors middleware → Spring CORS configuration
-
-### Key Changes
-- Embedded documents normalized into separate tables
-- UUIDs used for primary keys
-- BCrypt password encoding
-- Proper HTTP status codes
-- DTO pattern for API responses
-- Constructor injection for dependencies
-
-## Testing
-
-Run tests with:
 ```bash
-mvn test
+./mvnw test
 ```
 
-## Deployment
+## Building for Production
 
-Build for production:
 ```bash
-mvn clean package
-java -jar target/amazon-clone-backend-0.0.1-SNAPSHOT.jar
+./mvnw clean package
+java -jar target/amazon-clone-backend-*.jar
 ```
 
-## API Compatibility
+## Security Notes
 
-This Spring Boot backend maintains full API compatibility with the original MERN frontend. All endpoints return the same response formats and handle the same request structures.
+- JWT tokens are stored in `HttpOnly` cookies to prevent XSS access.
+- Spring Boot Admin (`/sba/**`) requires HTTP Basic auth with admin credentials.
+- Frame embedding of `/sba/**` is allowed from the same origin (`SAMEORIGIN`) for the embedded admin monitoring panel.
+- The `notifications` table uses `VARCHAR(4000)` for the payload column for H2 compatibility.

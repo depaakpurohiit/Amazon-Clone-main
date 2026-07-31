@@ -200,7 +200,7 @@ export default function ProfileForm() {
               <CardTitle className="text-lg">Actions</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
-              {normalizeRole(authUser.role) === "MANAGER" && authUser.sellerApproved === false ? (
+              {normalizeRole(authUser.role) === "MANAGER" && authUser.sellerApproved === false && (
                 <Button onClick={async () => {
                   try {
                     await requestSeller({ message: "Request for admin verification" });
@@ -209,16 +209,7 @@ export default function ProfileForm() {
                     alert("Failed to send verification request.");
                   }
                 }} className="w-full">Request Admin Verification</Button>
-              ) : normalizeRole(authUser.role) === "USER" ? (
-                <Button onClick={async () => {
-                  try {
-                    await requestSeller({ message: "Request to become seller" });
-                    alert("Seller request sent — admin will review it.");
-                  } catch {
-                    alert("Failed to send seller request.");
-                  }
-                }} className="w-full">Request to Become Seller</Button>
-              ) : null}
+              )}
               <Button asChild className="w-full" variant="outline">
                 <Link href="/cart">View Cart</Link>
               </Button>

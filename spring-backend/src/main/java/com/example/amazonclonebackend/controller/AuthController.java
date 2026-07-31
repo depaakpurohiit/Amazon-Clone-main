@@ -2,7 +2,10 @@ package com.example.amazonclonebackend.controller;
 
 import com.example.amazonclonebackend.dto.LoginRequest;
 import com.example.amazonclonebackend.dto.RegisterRequest;
+import com.example.amazonclonebackend.entity.Role;
+import com.example.amazonclonebackend.entity.SellerRequest;
 import com.example.amazonclonebackend.entity.User;
+import com.example.amazonclonebackend.repository.SellerRequestRepository;
 import com.example.amazonclonebackend.service.JwtService;
 import com.example.amazonclonebackend.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -30,6 +33,7 @@ public class AuthController {
     private final UserService userService;
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
+    private final SellerRequestRepository sellerRequestRepository;
 
     @PostMapping("/register")
     public ResponseEntity<Map<String, Object>> register(@Valid @RequestBody RegisterRequest request) {
@@ -67,15 +71,16 @@ public class AuthController {
     public ResponseEntity<Map<String, Object>> login(@Valid @RequestBody LoginRequest request,
                                                    HttpServletResponse response) {
         try {
-            log.info("Login attempt for email={}", request.getEmail());
-            User user = userService.findByEmail(request.getEmail())
-                    .orElseThrow(() -> new RuntimeException("Incorrect Email or Password"));
+            String normalizedEmail = request.getEmail() != null ? request.getEmail().trim().toLowerCase() : "";
+            log.info("Login attempt for email={}", normalizedEmail);
+            User user = userService.findByEmail(normalizedEmail)
+                    .orElseThrow(() -> new RuntimeException("No account found with this email"));
 
             boolean ok = userService.authenticate(user, request.getPassword());
             log.info("Authentication result for userId={} : {}", user.getId(), ok);
             if (!ok) {
                 log.warn("Failed login for email={}", request.getEmail());
-                throw new RuntimeException("Incorrect Email or Password");
+                throw new RuntimeException("Incorrect password");
             }
 
             // Generate token

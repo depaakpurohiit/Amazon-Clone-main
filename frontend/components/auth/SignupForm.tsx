@@ -62,6 +62,15 @@ export default function SignupForm({ nextPath, accountType = "customer" }: { nex
           ? sellerLandingPath
           : getRoleLandingPath(user?.role);
       router.replace(landingPath === "/" ? nextPath : landingPath);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Something went wrong.";
+      if (msg.toLowerCase().includes("email already") || msg.toLowerCase().includes("email")) {
+        setLocalError("An account with this email already exists. Please sign in instead.");
+      } else if (msg.toLowerCase().includes("number already") || msg.toLowerCase().includes("number")) {
+        setLocalError("This phone number is already registered. Please use a different number.");
+      } else {
+        setLocalError(msg);
+      }
     } finally {
       setIsSubmitting(false);
     }

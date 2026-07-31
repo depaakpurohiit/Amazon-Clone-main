@@ -18,4 +18,9 @@ public class SellerRequestDTO {
     private String message;
     private String status;
     private LocalDateTime createdAt;
+    
+    // Additional profile details for admin view
+    private String businessName;
+    private String bio;
+    private String logoUrl;
 }

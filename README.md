@@ -3,92 +3,122 @@
   <h3>A fully functional, modern E-commerce storefront</h3>
 </div>
 
-Trade Hive is a complete e-commerce application featuring product browsing, search, shopping cart management, secure checkout flows, and user profiles. Originally built on the MERN stack, it has been migrated to a robust, production-grade Spring Boot backend.
+Trade Hive is a complete full-stack e-commerce application with a **Next.js** frontend and a **Spring Boot** backend. It supports product browsing, cart management, secure checkout, seller management, and a powerful admin panel — all running locally out of the box.
 
 ## ✨ Features
-- **User Authentication**: Secure Sign up, Sign in, and Logout using JWT.
-- **Role-Based Access Control**: Dedicated dashboards and restricted routing for Customers, Sellers, and Admins.
-- **Admin & Infrastructure Dashboard**: Integrated Spring Boot Admin for real-time monitoring of JVM metrics, memory usage, HTTP traces, and log level management—embedded seamlessly into the Next.js frontend via proxy.
-- **Seller Verification Flow**: Customers can request seller privileges, which are held for admin review and approval.
+
+### 🛒 Customer Experience
+- **User Authentication**: Secure Sign up, Sign in, and Logout via JWT.
 - **Product Discovery**: Browse and search through the product catalog.
 - **Shopping Cart**: Add, update, and remove items with persistent cart state.
-- **Checkout & Payments**: Buy products immediately with multiple payment options (Razorpay integration).
-- **Enhanced UI UX**: Polished transitions with global full-page skeleton loading screens.
+- **Checkout & Payments**: Integrated Razorpay payment flow.
+- **User Profile**: View account info, cart summary, and order history.
+
+### 🏪 Seller Features
+- **Seller Dashboard**: Manage listed products, add new ones, and view sales.
+- **Product CRUD**: Full add, edit, and delete product management.
+- **Marketplace Visibility**: Only active, approved sellers' products are shown on the storefront.
+
+### 🔑 Admin Panel
+- **Dashboard**: View live user counts, pending seller requests, and system notifications.
+- **Seller Management**: Approve or reject seller applications; remove sellers and their listings.
+- **Product Management**: View and delete any product from the marketplace.
+- **Notifications**: Real-time system event log with a one-click "Clear all" button.
+- **Infrastructure Metrics**: Embedded Spring Boot Admin panel for JVM health, memory, and HTTP traces.
+- **Access Control**: Unauthenticated users attempting to access any `/admin/*` route are redirected to the home page.
+
+### 🛡️ Role-Based Access Control
+| Role | Landing Page | Capabilities |
+|---|---|---|
+| `USER` | `/` | Browse, cart, checkout, profile |
+| `MANAGER` | `/seller/dashboard` | All USER + seller product management |
+| `ADMIN` | `/admin/dashboard` | All + full platform administration |
 
 ## 🛠️ Technology Stack
 
-### Frontend Client
-- **Framework**: Next.js (App Router, Bloom template)
-- **HTTP Client**: Axios
-- **State Management**: React Context
+### Frontend
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS + shadcn/ui
+- **State Management**: React Context (Auth, Cart, Favorites)
 
-### Backend Server (Spring Boot)
+### Backend
 - **Framework**: Spring Boot 3 (Java 21)
-- **Database**: PostgreSQL (Neon Serverless) with local H2 fallback
-- **Security**: Spring Security & JWT Authentication
-- **Migrations**: Flyway
-
-*(Note: The project previously utilized an Express.js/MongoDB backend. See [MIGRATION_REPORT.md](MIGRATION_REPORT.md) for details on the transition.)*
+- **Database**: H2 (file-based, local) — Neon/PostgreSQL via env vars for production
+- **Security**: Spring Security + JWT
+- **ORM**: Hibernate/JPA
+- **Build**: Maven (includes `mvnw` wrapper)
 
 ## 🚀 Getting Started
 
-Follow these instructions to get the project up and running on your local machine.
-
 ### Prerequisites
 - Node.js (v18+)
-- Java 21+ & Maven
+- Java 21+ and Maven (or use the included `mvnw` wrapper)
 
-### Installation & Setup
+### 1. Install Dependencies
 
-1. **Clone the repository and install dependencies:**
-   From the root of the project, run:
-   ```bash
-   npm install
-   npm run install:all
-   ```
+From the repo root:
+```bash
+npm run install:all
+```
 
-2. **Start the Backend (Spring Boot):**
-   ```bash
-   cd spring-backend
-   mvn spring-boot:run
-   ```
-   *The API will be available at `http://localhost:8081/`*
+### 2. Start the Backend
 
-   > **Database Note**: By default, the Spring backend uses a local H2 file database (`./data/amazonclone`). To use a production Neon/Postgres database, provide the `DB_URL`, `DB_USERNAME`, and `DB_PASSWORD` environment variables.
+```bash
+cd spring-backend
+./mvnw spring-boot:run
+```
 
-3. **Start the Frontend (Next.js):**
-   Open a new terminal window and run:
-   ```bash
-   cd frontend
-   npm run dev
-   ```
-   *The client will be available at `http://localhost:3000/`*
+The API will be available at `http://localhost:8081`.
 
-## 🌐 Demo
-*Original deployment link:* [https://amazonclone-sp.herokuapp.com/](https://amazonclone-sp.herokuapp.com/)
+> **Database**: By default, the backend uses a local H2 file database stored in `spring-backend/data/`. To use PostgreSQL (e.g., Neon), set `DB_URL`, `DB_USERNAME`, `DB_PASSWORD`, and `DB_DRIVER` environment variables.
 
-## 📸 Screenshots
+### 3. Start the Frontend
 
-<details>
-<summary>Click to view screenshots</summary>
+Open a new terminal:
+```bash
+cd frontend
+npm run dev
+```
 
-<br>
+The app will be available at `http://localhost:3000`.
 
-**Home Page**
-![Home Page](https://user-images.githubusercontent.com/84243683/168798477-5441dcb3-f0dc-422d-83bb-e14dee297576.png)
+## 🔐 Default Admin Credentials
 
-**Sign Up & Sign In**
-![Sign Up](https://user-images.githubusercontent.com/84243683/168797684-01651633-52f3-40e9-887a-8cbca72d4491.png)
-![Sign In](https://user-images.githubusercontent.com/84243683/168797547-ccbac103-eb06-49dc-a509-d61caf15603f.png)
+| Email | Password |
+|---|---|
+| `mainadmin@@1212` | `adminadmin@@` |
 
-**Product Details**
-![Product](https://user-images.githubusercontent.com/84243683/168797859-25d26a38-d48c-48fa-8ff5-d21ade5621b4.png)
+## 🌐 Admin Panel Routes
 
-**Shopping Cart & Payment**
-![Cart](https://user-images.githubusercontent.com/84243683/168797981-ea56d3a5-256f-4280-b75a-7fa54952c147.png)
-![Payment](https://user-images.githubusercontent.com/84243683/168798064-dc774ad5-89e6-4a83-aecd-ebcf75c6cd80.png)
+| Route | Description |
+|---|---|
+| `/admin/dashboard` | Overview + pending seller requests + notifications |
+| `/admin/sellers` | List and remove approved sellers |
+| `/admin/products` | View and delete all marketplace products |
+| `/admin/notifications` | System event log with clear functionality |
 
-**User Profile & Orders**
-![Profile](https://user-images.githubusercontent.com/84243683/168798275-e195649f-f0e6-4648-b96d-2c09ab6a72d5.png)
-![Orders](https://user-images.githubusercontent.com/84243683/168798196-7ed1a8a0-7622-428f-a291-84d9ca92ee06.png)
-</details>
+## 🏗️ Project Structure
+
+```
+Amazon-Clone-main/
+├── frontend/           # Next.js App Router frontend
+│   ├── app/            # Page routes (admin/, seller/, checkout/, etc.)
+│   ├── components/     # Reusable UI components
+│   ├── context/        # Auth, Cart, Favorites, AdminData state
+│   └── lib/            # API helpers and role utilities
+└── spring-backend/     # Spring Boot REST API
+    └── src/main/java/com/example/amazonclonebackend/
+        ├── controller/ # REST endpoints
+        ├── service/    # Business logic
+        ├── repository/ # Data access (JPA)
+        ├── entity/     # JPA entities
+        ├── dto/        # Data transfer objects
+        └── security/   # JWT & Spring Security config
+```
+
+## 📝 Notes
+
+- The H2 database files (`spring-backend/data/`) are excluded from version control via `.gitignore`.
+- The frontend proxies `/sba/**`, `/instances/**`, and `/actuator/**` to the backend for Spring Boot Admin monitoring.
+- Deleting a seller from the admin panel also removes all their listed products and clears them from active carts.
+- Deleting a product from the admin panel immediately removes it from the storefront.

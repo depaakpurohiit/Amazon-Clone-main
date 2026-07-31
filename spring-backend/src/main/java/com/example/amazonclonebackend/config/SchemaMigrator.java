@@ -38,6 +38,9 @@ public class SchemaMigrator implements ApplicationRunner {
 
         // Seller ownership linkage for products.
         safeExec("ALTER TABLE \"products\" ADD COLUMN IF NOT EXISTS \"seller_profile_id\" VARCHAR(255)");
+        
+        // Fix logo_url column length which might have been created as VARCHAR(255) initially
+        safeExec("ALTER TABLE \"seller_profiles\" ALTER COLUMN \"logo_url\" SET DATA TYPE CHARACTER VARYING(5000000)");
     }
 
     private void safeExec(String sql) {

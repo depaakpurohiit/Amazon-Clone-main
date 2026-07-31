@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -31,8 +32,7 @@ public class SellerController {
 
     @PostMapping("/request")
     @Transactional
-    public ResponseEntity<?> createSellerRequest(@RequestBody SellerRequestBody body, HttpServletRequest request) {
-        User user = (User) request.getAttribute("user");
+    public ResponseEntity<?> createSellerRequest(@RequestBody SellerRequestBody body, @org.springframework.security.core.annotation.AuthenticationPrincipal User user) {
         if (user == null) return ResponseEntity.status(401).body("Unauthenticated");
 
         SellerRequest sr = new SellerRequest();
@@ -48,8 +48,7 @@ public class SellerController {
 
     @PostMapping("/products")
     @Transactional
-    public ResponseEntity<?> createProduct(@RequestBody ProductDTO dto, HttpServletRequest request) {
-        User user = (User) request.getAttribute("user");
+    public ResponseEntity<?> createProduct(@RequestBody ProductDTO dto, @org.springframework.security.core.annotation.AuthenticationPrincipal User user) {
         if (user == null) return ResponseEntity.status(401).body("Unauthenticated");
 
         // Only sellers or admins can create products
@@ -89,8 +88,7 @@ public class SellerController {
 
     @PutMapping("/products/{id}")
     @Transactional
-    public ResponseEntity<?> updateProduct(@PathVariable String id, @RequestBody ProductDTO dto, HttpServletRequest request) {
-        User user = (User) request.getAttribute("user");
+    public ResponseEntity<?> updateProduct(@PathVariable String id, @RequestBody ProductDTO dto, @AuthenticationPrincipal User user) {
         if (user == null) return ResponseEntity.status(401).body("Unauthenticated");
 
         Optional<Product> prodOpt = productRepository.findById(id);
@@ -128,8 +126,7 @@ public class SellerController {
 
         @DeleteMapping("/products/{id}")
         @Transactional
-        public ResponseEntity<?> deleteProduct(@PathVariable String id, HttpServletRequest request) {
-            User user = (User) request.getAttribute("user");
+        public ResponseEntity<?> deleteProduct(@PathVariable String id, @AuthenticationPrincipal User user) {
             if (user == null) return ResponseEntity.status(401).body("Unauthenticated");
     
             Optional<Product> prodOpt = productRepository.findById(id);
@@ -165,8 +162,7 @@ public class SellerController {
         }
 
     @GetMapping("/me/products")
-    public ResponseEntity<?> getMyProducts(HttpServletRequest request) {
-        User user = (User) request.getAttribute("user");
+    public ResponseEntity<?> getMyProducts(@AuthenticationPrincipal User user) {
         if (user == null) return ResponseEntity.status(401).body("Unauthenticated");
 
         Optional<SellerProfile> profileOpt = sellerProfileRepository.findByUserId(user.getId());
@@ -177,8 +173,7 @@ public class SellerController {
     }
 
     @GetMapping("/me/profile")
-    public ResponseEntity<?> getMySellerProfile(HttpServletRequest request) {
-        User user = (User) request.getAttribute("user");
+    public ResponseEntity<?> getMySellerProfile(@AuthenticationPrincipal User user) {
         if (user == null) return ResponseEntity.status(401).body("Unauthenticated");
 
         return sellerProfileRepository.findByUserId(user.getId())
@@ -189,29 +184,39 @@ public class SellerController {
 
     @PostMapping("/me/profile")
     @Transactional
-    public ResponseEntity<?> saveMySellerProfile(@RequestBody SellerProfileDTO dto, HttpServletRequest request) {
-        User user = (User) request.getAttribute("user");
+    public ResponseEntity<?> saveMySellerProfile(@RequestBody SellerProfileDTO dto, @AuthenticationPrincipal User user) {
         if (user == null) return ResponseEntity.status(401).body("Unauthenticated");
 
+        boolean isNew = sellerProfileRepository.findByUserId(user.getId()).isEmpty();
         SellerProfile profile = sellerProfileRepository.findByUserId(user.getId()).orElseGet(() -> {
             SellerProfile p = new SellerProfile();
             p.setUser(user);
             p.setCreatedAt(LocalDateTime.now());
-            p.setStatus("APPROVED");
+            p.setStatus("PENDING");
             return p;
         });
+
         profile.setBusinessName(dto.getBusinessName());
         profile.setBio(dto.getBio());
         profile.setLogoUrl(dto.getLogoUrl());
-        profile.setStatus(dto.getStatus() != null ? dto.getStatus() : profile.getStatus());
+        // For new profile, enforce PENDING; otherwise allow keeping existing status
+        profile.setStatus(isNew ? "PENDING" : (dto.getStatus() != null ? dto.getStatus() : profile.getStatus()));
         sellerProfileRepository.save(profile);
+
+        if (isNew) {
+            SellerRequest sr = new SellerRequest();
+            sr.setRequester(user);
+            sr.setMessage("New seller account registration — awaiting admin approval to list products.");
+            sr.setStatus("PENDING");
+            sellerRequestRepository.save(sr);
+            notificationService.createNotification("SELLER_REQUEST", "{\"requestId\":\"" + sr.getId() + "\",\"userId\":\"" + user.getId() + "\"}");
+        }
 
         return ResponseEntity.ok(toSellerProfileDTO(profile));
     }
 
     @GetMapping("/me/orders")
-    public ResponseEntity<?> getMySellerOrders(HttpServletRequest request) {
-        User user = (User) request.getAttribute("user");
+    public ResponseEntity<?> getMySellerOrders(@AuthenticationPrincipal User user) {
         if (user == null) return ResponseEntity.status(401).body("Unauthenticated");
 
         Optional<SellerProfile> profileOpt = sellerProfileRepository.findByUserId(user.getId());

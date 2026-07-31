@@ -128,6 +128,9 @@ export function getSellerRequests() {
       message: string;
       status: string;
       createdAt: string;
+      businessName?: string;
+      bio?: string;
+      logoUrl?: string;
     }>
   >(`/api/admin/seller-requests`, {
     method: "GET",

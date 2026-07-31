@@ -1,12 +1,160 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAdminData } from "@/context/AdminDataContext";
 import SellerRequestModal from "@/components/admin/SellerRequestModal";
 import { approveSellerRequest, rejectSellerRequest, clearAdminNotifications } from "@/lib/api";
+
+type Metrics = {
+  jvmMemUsed: number | null;
+  jvmMemMax: number | null;
+  threadsLive: number | null;
+  cpuSystem: number | null;
+  cpuProcess: number | null;
+  hikariActive: number | null;
+  hikariMax: number | null;
+  health: { status: string; db: string; diskFree: number; diskTotal: number } | null;
+};
+
+function formatBytes(bytes: number) {
+  if (bytes >= 1024 ** 3) return (bytes / 1024 ** 3).toFixed(1) + " GB";
+  if (bytes >= 1024 ** 2) return (bytes / 1024 ** 2).toFixed(1) + " MB";
+  return (bytes / 1024).toFixed(1) + " KB";
+}
+
+function pct(value: number | null, max: number | null) {
+  if (value == null || !max) return 0;
+  return Math.round((value / max) * 100);
+}
+
+function StatusDot({ status }: { status: string }) {
+  const isUp = status === "UP";
+  return (
+    <span className={`inline-block h-2.5 w-2.5 rounded-full mr-2 ${isUp ? "bg-green-500" : "bg-red-500"}`} />
+  );
+}
+
+function MetricBar({ value, max, color = "bg-sky-500" }: { value: number; max: number; color?: string }) {
+  const p = Math.min(100, Math.round((value / max) * 100));
+  return (
+    <div className="mt-2 h-2 w-full rounded-full bg-slate-100">
+      <div className={`h-2 rounded-full ${color} transition-all`} style={{ width: `${p}%` }} />
+    </div>
+  );
+}
+
+function SystemMetrics() {
+  const [metrics, setMetrics] = useState<Metrics | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+
+  const fetchMetrics = useCallback(async () => {
+    try {
+      const res = await fetch("/api/admin/metrics", { cache: "no-store" });
+      if (res.ok) {
+        setMetrics(await res.json());
+        setLastUpdated(new Date());
+      }
+    } catch { /* ignore */ }
+    finally { setLoading(false); }
+  }, []);
+
+  useEffect(() => {
+    fetchMetrics();
+    const id = setInterval(fetchMetrics, 10000);
+    return () => clearInterval(id);
+  }, [fetchMetrics]);
+
+  if (loading) {
+    return (
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div key={i} className="h-28 rounded-2xl bg-slate-100 animate-pulse" />
+        ))}
+      </div>
+    );
+  }
+
+  if (!metrics) {
+    return <p className="text-sm text-slate-500">Could not load metrics — backend may be unreachable.</p>;
+  }
+
+  const { health, jvmMemUsed, jvmMemMax, threadsLive, cpuProcess, hikariActive, hikariMax } = metrics;
+  const memPct = pct(jvmMemUsed, jvmMemMax);
+  const dbPct = pct(hikariActive, hikariMax);
+  const diskUsed = health ? health.diskTotal - health.diskFree : null;
+
+  return (
+    <div className="space-y-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {/* Overall Health */}
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Overall Status</p>
+          <p className="mt-2 flex items-center text-lg font-semibold text-slate-900">
+            <StatusDot status={health?.status ?? "DOWN"} />
+            {health?.status ?? "DOWN"}
+          </p>
+        </div>
+
+        {/* Database */}
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Database (H2)</p>
+          <p className="mt-2 flex items-center text-lg font-semibold text-slate-900">
+            <StatusDot status={health?.db ?? "DOWN"} />
+            {health?.db ?? "DOWN"}
+          </p>
+          <p className="mt-1 text-xs text-slate-500">{hikariActive ?? 0} / {hikariMax ?? 10} connections</p>
+          <MetricBar value={hikariActive ?? 0} max={hikariMax ?? 10} color="bg-violet-500" />
+        </div>
+
+        {/* JVM Memory */}
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">JVM Memory</p>
+          <p className="mt-2 text-lg font-semibold text-slate-900">{jvmMemUsed != null ? formatBytes(jvmMemUsed) : "—"}</p>
+          <p className="text-xs text-slate-500">of {jvmMemMax != null ? formatBytes(jvmMemMax) : "—"} ({memPct}%)</p>
+          <MetricBar value={memPct} max={100} color={memPct > 80 ? "bg-red-500" : "bg-sky-500"} />
+        </div>
+
+        {/* CPU */}
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Process CPU</p>
+          <p className="mt-2 text-lg font-semibold text-slate-900">
+            {cpuProcess != null ? (cpuProcess * 100).toFixed(1) + "%" : "—"}
+          </p>
+          <p className="text-xs text-slate-500">JVM process CPU usage</p>
+          <MetricBar value={cpuProcess != null ? cpuProcess * 100 : 0} max={100} color={cpuProcess != null && cpuProcess > 0.8 ? "bg-red-500" : "bg-emerald-500"} />
+        </div>
+
+        {/* Threads */}
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Live Threads</p>
+          <p className="mt-2 text-lg font-semibold text-slate-900">{threadsLive ?? "—"}</p>
+          <p className="text-xs text-slate-500">Active JVM threads</p>
+        </div>
+
+        {/* Disk */}
+        {health && (
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Disk Space</p>
+            <p className="mt-2 text-lg font-semibold text-slate-900">{formatBytes(health.diskFree)} free</p>
+            <p className="text-xs text-slate-500">of {formatBytes(health.diskTotal)} total</p>
+            <MetricBar value={diskUsed ?? 0} max={health.diskTotal} color="bg-amber-500" />
+          </div>
+        )}
+      </div>
+
+      {lastUpdated && (
+        <p className="text-right text-xs text-slate-400">
+          Last updated {lastUpdated.toLocaleTimeString()} · auto-refreshes every 10s
+        </p>
+      )}
+    </div>
+  );
+}
+
 
 export default function AdminDashboard() {
   const { sellerRequests, notifications, liveUsersCount, isLoading, refreshAll } = useAdminData();
@@ -158,14 +306,10 @@ export default function AdminDashboard() {
 
       <Card>
         <CardHeader>
-          <CardTitle>System Health & Infrastructure Metrics</CardTitle>
+          <CardTitle>System Health &amp; Infrastructure Metrics</CardTitle>
         </CardHeader>
-        <CardContent className="p-0">
-          <iframe
-            src="/sba"
-            className="w-full h-[800px] border-0 rounded-b-xl"
-            title="Spring Boot Admin Dashboard"
-          />
+        <CardContent>
+          <SystemMetrics />
         </CardContent>
       </Card>
       
