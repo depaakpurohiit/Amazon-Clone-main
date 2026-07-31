@@ -45,7 +45,7 @@ public class ProductService {
         // Defensive de-duplication: some databases may already contain duplicate rows
         // (e.g. from earlier seeding with generated UUID ids). Frontend sliders rely on
         // stable ordering/slicing, so duplicates are very visible.
-        return dedupeByKey(filtered, Product::getUrl).stream()
+        return dedupeByKey(filtered, Product::getId).stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
