@@ -28,8 +28,7 @@ public class SellerProfile {
     @Column(name = "bio", length = 2000)
     private String bio;
 
-    @Lob
-    @Column(name = "logo_url", length = 5000000)
+    @Column(name = "logo_url", columnDefinition = "text")
     private String logoUrl;
 
     @Column(name = "status")

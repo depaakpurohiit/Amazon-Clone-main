@@ -30,7 +30,7 @@ public class Product {
     private String value;
 
     @Column(name = "acc_value", nullable = false)
-    private Integer accValue;
+    private String accValue;
 
     private String discount;
 

@@ -383,7 +383,7 @@ public class DataLoader implements CommandLineRunner {
         product.setResUrl(resUrl);
         product.setPrice(price);
         product.setValue(value);
-        product.setAccValue(accValue);
+        product.setAccValue(accValue != null ? String.valueOf(accValue) : null);
         product.setDiscount(discount);
         product.setMrp(mrp);
         product.setName(name);

@@ -16,7 +16,7 @@ public class ProductDTO {
     private String resUrl;
     private String price;
     private String value;
-    private Integer accValue;
+    private String accValue;
     private String discount;
     private String mrp;
     private String name;

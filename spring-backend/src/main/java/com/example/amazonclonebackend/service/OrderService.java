@@ -74,8 +74,19 @@ public class OrderService {
                 product.getId(),
                 product.getName(),
                 qty,
-                BigDecimal.valueOf(product.getAccValue())
+                parseAccValue(product.getAccValue())
         );
+    }
+
+    private BigDecimal parseAccValue(String accValue) {
+        if (accValue == null || accValue.trim().equals("-") || accValue.trim().isEmpty()) {
+            return BigDecimal.ZERO;
+        }
+        try {
+            return new BigDecimal(accValue.trim());
+        } catch (NumberFormatException e) {
+            return BigDecimal.ZERO;
+        }
     }
 
     @Transactional
