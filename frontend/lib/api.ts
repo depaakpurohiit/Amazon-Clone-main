@@ -254,6 +254,28 @@ export function adminDeleteProduct(productId: string) {
   });
 }
 
+export function sendSignupOtp(body: {
+  name: string;
+  number: string;
+  email: string;
+  password: string;
+  confirmPassword?: string;
+  accountType?: "customer" | "seller";
+  role?: "USER" | "MANAGER" | "ADMIN";
+}) {
+  return apiFetch<{ status: boolean; message: string }>(`/api/auth/send-otp`, {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+}
+
+export function verifySignupOtp(body: { email: string; otp: string }) {
+  return apiFetch<{ status: boolean; message: string }>(`/api/auth/verify-otp`, {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+}
+
 export function register(body: {
   name: string;
   number: string;

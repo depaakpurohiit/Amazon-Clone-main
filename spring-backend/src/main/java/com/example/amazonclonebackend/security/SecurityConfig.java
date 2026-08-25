@@ -45,7 +45,7 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable)
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/api/products", "/api/product/**", "/api/register", "/api/login", "/api/get-razorpay-key", "/api/seller/*/profile", "/api/seller/*/products").permitAll()
+                .requestMatchers("/api/products", "/api/product/**", "/api/register", "/api/login", "/api/auth/send-otp", "/api/auth/verify-otp", "/api/get-razorpay-key", "/api/seller/*/profile", "/api/seller/*/products").permitAll()
                 .requestMatchers("/api/getAuthUser", "/api/logout", "/api/seller/me/profile").authenticated()
                 .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
                 .requestMatchers("/api/seller/**").hasAnyAuthority("MANAGER","ADMIN")
@@ -73,7 +73,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:3000"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
 

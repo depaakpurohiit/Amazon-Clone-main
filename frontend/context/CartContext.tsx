@@ -9,7 +9,9 @@ import {
   logout as apiLogout,
   register as apiRegister,
   removeCartItem as apiRemoveCartItem,
+  sendSignupOtp as apiSendSignupOtp,
   updateCartQty as apiUpdateCartQty,
+  verifySignupOtp as apiVerifySignupOtp,
 } from "@/lib/api";
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 
@@ -31,6 +33,8 @@ interface CartContextProps {
   refresh: () => Promise<CompatAuthUserDTO | null>;
   login: (email: string, password: string) => Promise<CompatAuthUserDTO | null>;
   signup: (body: { name: string; number: string; email: string; password: string; confirmPassword: string; accountType?: "customer" | "seller"; role?: "USER" | "MANAGER" | "ADMIN" }) => Promise<CompatAuthUserDTO | null>;
+  sendSignupOtp: (body: { name: string; number: string; email: string; password: string; confirmPassword: string; accountType?: "customer" | "seller"; role?: "USER" | "MANAGER" | "ADMIN" }) => Promise<{ status: boolean; message: string }>;
+  verifySignupOtp: (body: { email: string; otp: string }) => Promise<CompatAuthUserDTO | null>;
   logout: () => Promise<void>;
   addToCart: (productId: string, quantity?: number) => Promise<void>;
   removeFromCart: (cartItemId: string) => Promise<void>;
@@ -128,6 +132,23 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     [refreshWithRetry]
   );
 
+  const sendSignupOtp = useCallback(
+    async (body: { name: string; number: string; email: string; password: string; confirmPassword: string; accountType?: "customer" | "seller"; role?: "USER" | "MANAGER" | "ADMIN" }) => {
+      setError(null);
+      return await apiSendSignupOtp(body);
+    },
+    []
+  );
+
+  const verifySignupOtp = useCallback(
+    async (body: { email: string; otp: string }) => {
+      setError(null);
+      await apiVerifySignupOtp(body);
+      return await refreshWithRetry();
+    },
+    [refreshWithRetry]
+  );
+
   const logout = useCallback(async () => {
     setError(null);
     try {
@@ -154,8 +175,12 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     async (cartItemId: string) => {
       setError(null);
       if (!isAuthenticated) throw new Error("Please sign in to manage your cart.");
-      await apiRemoveCartItem(cartItemId);
-      await refresh();
+      setCart((prev) => prev.filter((item) => item.cartItemId !== cartItemId && item.productId !== cartItemId));
+      try {
+        await apiRemoveCartItem(cartItemId);
+      } finally {
+        await refresh();
+      }
     },
     [isAuthenticated, refresh]
   );
@@ -164,8 +189,19 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     async (cartItemId: string, quantity: number) => {
       setError(null);
       if (!isAuthenticated) throw new Error("Please sign in to manage your cart.");
-      await apiUpdateCartQty(cartItemId, Math.max(1, quantity));
-      await refresh();
+      const newQty = Math.max(1, quantity);
+      setCart((prev) =>
+        prev.map((item) =>
+          item.cartItemId === cartItemId || item.productId === cartItemId
+            ? { ...item, quantity: newQty }
+            : item
+        )
+      );
+      try {
+        await apiUpdateCartQty(cartItemId, newQty);
+      } finally {
+        await refresh();
+      }
     },
     [isAuthenticated, refresh]
   );
@@ -181,6 +217,8 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         refresh,
         login,
         signup,
+        sendSignupOtp,
+        verifySignupOtp,
         logout,
         addToCart,
         removeFromCart,

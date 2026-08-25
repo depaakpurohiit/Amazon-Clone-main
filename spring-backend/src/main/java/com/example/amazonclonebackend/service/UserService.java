@@ -23,6 +23,8 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final com.example.amazonclonebackend.repository.EmailOtpRepository emailOtpRepository;
+    private final EmailService emailService;
 
     @Lazy
     @Autowired
@@ -32,9 +34,14 @@ public class UserService {
     @Autowired
     private OrderService orderService;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository,
+                       PasswordEncoder passwordEncoder,
+                       com.example.amazonclonebackend.repository.EmailOtpRepository emailOtpRepository,
+                       EmailService emailService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.emailOtpRepository = emailOtpRepository;
+        this.emailService = emailService;
     }
 
     @Transactional
@@ -90,6 +97,103 @@ public class UserService {
                 saved.getEmail(),
                 saved.getRole(),
                 saved.getSellerApproved()
+        );
+
+        return saved;
+    }
+
+    @Transactional
+    public void generateAndSendRegistrationOtp(RegisterRequest request) {
+        final String email = request.getEmail().trim().toLowerCase();
+        final String number = request.getNumber().trim();
+        final Role requestedRole = parseRole(request.getAccountType(), request.getRole());
+
+        if (requestedRole == Role.ADMIN) {
+            throw new RuntimeException("Cannot register as Admin. Admin account is pre-configured.");
+        }
+
+        if (userRepository.existsByEmail(email)) {
+            throw new RuntimeException("Email already registered");
+        }
+        if (userRepository.existsByNumber(number)) {
+            throw new RuntimeException("Number already registered");
+        }
+        if (!request.getPassword().equals(request.getConfirmPassword())) {
+            throw new RuntimeException("Passwords don't match");
+        }
+        if (request.getPassword().length() < 6) {
+            throw new RuntimeException("Password must be at least 6 characters long");
+        }
+
+        // Generate 6-digit numeric OTP
+        int randomCode = new java.security.SecureRandom().nextInt(900000) + 100000;
+        String otpCode = String.valueOf(randomCode);
+
+        // Remove any old unverified OTPs for this email
+        emailOtpRepository.findFirstByEmailIgnoreCaseAndIsVerifiedFalseOrderByCreatedAtDesc(email).ifPresent(old -> {
+            emailOtpRepository.delete(old);
+        });
+
+        com.example.amazonclonebackend.entity.EmailOtp emailOtp = new com.example.amazonclonebackend.entity.EmailOtp();
+        emailOtp.setEmail(email);
+        emailOtp.setOtp(otpCode);
+        emailOtp.setName(request.getName().trim());
+        emailOtp.setNumber(number);
+        emailOtp.setPasswordHash(passwordEncoder.encode(request.getPassword()));
+        emailOtp.setRole(requestedRole);
+        emailOtp.setAccountType(request.getAccountType());
+        emailOtp.setExpiresAt(java.time.LocalDateTime.now().plusMinutes(10));
+        emailOtp.setIsVerified(false);
+
+        emailOtpRepository.save(emailOtp);
+
+        // Send email via Brevo SMTP
+        emailService.sendOtpEmail(email, request.getName().trim(), otpCode);
+    }
+
+    @Transactional
+    public User verifyOtpAndRegisterUser(String rawEmail, String otp) {
+        final String email = rawEmail.trim().toLowerCase();
+        final String trimmedOtp = otp.trim();
+
+        com.example.amazonclonebackend.entity.EmailOtp emailOtp = emailOtpRepository.findFirstByEmailIgnoreCaseAndIsVerifiedFalseOrderByCreatedAtDesc(email)
+                .orElseThrow(() -> new RuntimeException("No active verification code found for this email. Please request a new code."));
+
+        if (emailOtp.getExpiresAt().isBefore(java.time.LocalDateTime.now())) {
+            throw new RuntimeException("Verification code has expired. Please request a new code.");
+        }
+
+        if (!emailOtp.getOtp().equals(trimmedOtp)) {
+            throw new RuntimeException("Invalid verification code. Please check your email and try again.");
+        }
+
+        if (userRepository.existsByEmail(email)) {
+            throw new RuntimeException("Email already registered");
+        }
+        if (userRepository.existsByNumber(emailOtp.getNumber())) {
+            throw new RuntimeException("Number already registered");
+        }
+
+        // Mark OTP as verified/used
+        emailOtp.setIsVerified(true);
+        emailOtpRepository.save(emailOtp);
+
+        // Create new User entity
+        User user = new User();
+        user.setName(emailOtp.getName());
+        user.setNumber(emailOtp.getNumber());
+        user.setEmail(email);
+        user.setPassword(emailOtp.getPasswordHash());
+        user.setRole(emailOtp.getRole());
+        user.setSellerApproved(Boolean.FALSE);
+
+        User saved = userRepository.save(user);
+
+        log.info(
+                "User successfully verified and registered via OTP email={} role={} id={}",
+                saved.getEmail(),
+                saved.getRole(),
+                saved.getId()
         );
 
         return saved;

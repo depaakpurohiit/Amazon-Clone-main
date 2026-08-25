@@ -64,7 +64,7 @@ public class CartController {
         }
     }
 
-    @PatchMapping("/update-qty/{id}")
+    @RequestMapping(value = "/update-qty/{id}", method = {RequestMethod.PATCH, RequestMethod.POST, RequestMethod.PUT})
     public ResponseEntity<Map<String, Object>> updateQuantity(@PathVariable String id,
                                                             @RequestParam Integer qty,
                                                             @AuthenticationPrincipal User user) {

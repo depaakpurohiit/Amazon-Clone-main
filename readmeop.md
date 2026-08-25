@@ -64,9 +64,14 @@ On the frontend, the architecture is **component-driven** with centralised state
 ### 3.1 Backend Components
 
 - **AuthController** (`controller/AuthController.java`)
-  - Handles `/api/register` and `/api/login`.
-  - Delegates user creation to `UserService`; delegates JWT generation and persistence to `JwtService`.
-  - On successful login, sets an `HttpOnly` cookie named `AmazonClone` containing the JWT.
+  - Handles email OTP generation (`POST /api/auth/send-otp`), OTP verification & registration (`POST /api/auth/verify-otp`), and login (`POST /api/login`).
+  - Delegates OTP generation, email dispatch, and user persistence to `UserService`; delegates JWT generation and persistence to `JwtService`.
+  - On successful registration/login, sets an `HttpOnly` cookie named `AmazonClone` containing the JWT.
+
+- **EmailService** (`service/EmailService.java`)
+  - Handles transactional email delivery through **Brevo SMTP Relay** (`smtp-relay.brevo.com:587` with STARTTLS).
+  - Composes modern, branded HTML verification templates containing secure 6-digit OTPs with 10-minute expiration.
+  - Provides a seamless local development fallback logger when Brevo credentials are not yet specified.
 
 - **UserController** (`controller/UserController.java`)
   - Serves `/api/getAuthUser` (returns the current authenticated user in a legacy-compatible DTO shape) and `/api/logout` (clears tokens and the cookie).
@@ -172,22 +177,37 @@ Below is a step-by-step walkthrough of a customer completing a purchase:
 sequenceDiagram
     participant Browser as Browser (Next.js)
     participant API as Spring Boot API
+    participant Brevo as Brevo SMTP Relay
     participant Auth as JwtAuthFilter
     participant DB as Database (H2/PostgreSQL)
 
-    Note over Browser,DB: 1. Authentication
+    Note over Browser,DB: 1. Email OTP Registration
+    Browser->>API: POST /api/auth/send-otp {name, number, email, password, accountType}
+    API->>DB: Check if email/number exists
+    API->>API: Generate 6-digit secure numeric OTP
+    API->>DB: INSERT INTO email_otps (email, otp, password_hash, expires_at)
+    API->>Brevo: Send HTML OTP Email via STARTTLS (smtp-relay.brevo.com:587)
+    Brevo-->>Browser: User receives OTP in inbox
+    API-->>Browser: 200 {"status": true, "message": "Verification code sent"}
+    Browser->>API: POST /api/auth/verify-otp {email, otp}
+    API->>DB: Validate OTP & expiration in email_otps
+    API->>DB: INSERT INTO users (name, email, password_hash, role)
+    API->>DB: INSERT INTO user_tokens (user_id, token)
+    API-->>Browser: 201 + Set-Cookie: AmazonClone=<JWT>
+
+    Note over Browser,DB: 2. Authentication (Login)
     Browser->>API: POST /api/login {email, password}
     API->>DB: SELECT user WHERE email = ?
     API->>API: BCrypt.verify(password, hash)
     API->>DB: INSERT INTO user_tokens (user_id, token)
     API-->>Browser: 201 + Set-Cookie: AmazonClone=<JWT>
 
-    Note over Browser,DB: 2. Browse Products
+    Note over Browser,DB: 3. Browse Products
     Browser->>API: GET /api/products
     API->>DB: SELECT * FROM products JOIN product_points
     API-->>Browser: 200 [ProductDTO[]] + ETag
 
-    Note over Browser,DB: 3. Add to Cart
+    Note over Browser,DB: 4. Add to Cart
     Browser->>API: POST /api/addtocart/{productId} (Cookie: AmazonClone)
     API->>Auth: Extract JWT from cookie
     Auth->>DB: Verify token exists in user_tokens
@@ -197,7 +217,7 @@ sequenceDiagram
     API->>DB: INSERT INTO cart_items (user_id, product_id)
     API-->>Browser: 201 {"status": true}
 
-    Note over Browser,DB: 4. Checkout & Payment
+    Note over Browser,DB: 5. Checkout & Payment
     Browser->>API: POST /api/create-order {amount}
     API-->>Browser: 200 {order: {id, amount, currency}}
     Browser->>Browser: Razorpay client-side flow
@@ -211,7 +231,7 @@ sequenceDiagram
 
 ```mermaid
 stateDiagram-v2
-    [*] --> UserRegisters: POST /api/register (accountType=seller)
+    [*] --> UserRegisters: POST /api/auth/verify-otp (accountType=seller)
     UserRegisters --> ProfileCreated: POST /api/seller/me/profile
     ProfileCreated --> PendingApproval: SellerRequest (status=PENDING) + Notification
     PendingApproval --> Approved: Admin approves (role → MANAGER, sellerApproved → true)
@@ -231,6 +251,7 @@ stateDiagram-v2
 | **State Management** | React Context | — | Sufficient for the three orthogonal state slices (Auth/Cart, Favorites, Admin/Seller data) without the overhead of Redux or Zustand. |
 | **Mapping** | React Leaflet / Leaflet | 5.x / 1.9 | Lightweight, open-source mapping library for the user address/geolocation feature (profile page). |
 | **Backend Framework** | Spring Boot | 3.2 | Mature ecosystem for REST APIs, built-in dependency injection, battle-tested security, and seamless JPA integration. |
+| **Transactional Email** | Spring Boot Starter Mail + Brevo SMTP | 587 (TLS) | Brevo SMTP Relay (`smtp-relay.brevo.com`) securely delivers email verification OTPs and account notifications to any client domain without direct Gmail app passwords. |
 | **Language** | Java | 21 | LTS release; enables modern language features (records, pattern matching, virtual threads readiness). |
 | **ORM** | Hibernate / Spring Data JPA | — | Declarative repository interfaces minimise boilerplate; `ddl-auto=update` accelerates schema evolution in development. |
 | **Dev Database** | H2 (file-based) | — | Zero-install, embedded database for local development; persists across restarts via file mode. |
@@ -317,6 +338,13 @@ Rather than exposing the backend port to the admin user's browser, the Next.js `
 - Keeps the Spring Boot Admin UI accessible within the same browser session as the frontend.
 - Simplifies CORS configuration by eliminating a second allowed origin.
 
+### 6.11 Two-Step Email OTP Verification via Brevo SMTP
+
+Account creation enforces a mandatory two-step email confirmation cycle before creating permanent records in the `users` table:
+1. **Pending Registration & OTP Generation** — Calling `POST /api/auth/send-otp` validates input constraints, verifies uniqueness of email/phone, generates a secure 6-digit numeric OTP, and stores the pending registration with BCrypt-hashed password in `email_otps` with a 10-minute expiry window.
+2. **Brevo SMTP Relay Delivery** — The backend transmits a responsive, branded HTML email through Brevo SMTP relay (`smtp-relay.brevo.com:587` with STARTTLS). A development-mode fallback logger prints the OTP in application logs if SMTP credentials are not yet configured.
+3. **Atomic Verification & Session Bootstrap** — Calling `POST /api/auth/verify-otp` validates the OTP, marks the verification record as consumed, creates the permanent `User` entity in PostgreSQL/H2, issues a signed JWT, and sets the secure `AmazonClone` cookie for an instant seamless login experience.
+
 ---
 
-*Document generated from codebase analysis. Last updated: July 2026.*
+*Document generated from codebase analysis. Last updated: August 2026.*

@@ -35,6 +35,62 @@ public class AuthController {
     private final PasswordEncoder passwordEncoder;
     private final SellerRequestRepository sellerRequestRepository;
 
+    @PostMapping("/auth/send-otp")
+    public ResponseEntity<Map<String, Object>> sendRegistrationOtp(@Valid @RequestBody RegisterRequest request) {
+        try {
+            log.info("Requesting registration OTP for email={}", request.getEmail());
+            userService.generateAndSendRegistrationOtp(request);
+
+            Map<String, Object> response = new HashMap<>();
+            response.put("status", true);
+            response.put("message", "Verification code sent to your email.");
+
+            return ResponseEntity.ok(response);
+        } catch (RuntimeException e) {
+            log.warn("Error sending registration OTP for email={}: {}", request.getEmail(), e.getMessage());
+            Map<String, Object> response = new HashMap<>();
+            response.put("status", false);
+            response.put("message", new Object[]{Map.of("msg", e.getMessage())});
+
+            return ResponseEntity.status(400).body(response);
+        }
+    }
+
+    @PostMapping("/auth/verify-otp")
+    public ResponseEntity<Map<String, Object>> verifyRegistrationOtp(@Valid @RequestBody com.example.amazonclonebackend.dto.VerifyOtpRequest request) {
+        try {
+            log.info("Verifying registration OTP for email={}", request.getEmail());
+            User user = userService.verifyOtpAndRegisterUser(request.getEmail(), request.getOtp());
+
+            // Generate token & authenticate immediately
+            String token = jwtService.generateToken(user);
+            jwtService.saveUserToken(user, token);
+
+            ResponseCookie cookie = ResponseCookie.from("AmazonClone", token)
+                    .httpOnly(true)
+                    .secure(false)
+                    .path("/")
+                    .sameSite("Lax")
+                    .maxAge(3600)
+                    .build();
+
+            Map<String, Object> responseBody = new HashMap<>();
+            responseBody.put("status", true);
+            responseBody.put("message", "Account verified and registered successfully!");
+
+            return ResponseEntity.status(201)
+                    .header(HttpHeaders.SET_COOKIE, cookie.toString())
+                    .body(responseBody);
+        } catch (RuntimeException e) {
+            log.warn("Error verifying registration OTP for email={}: {}", request.getEmail(), e.getMessage());
+            Map<String, Object> responseBody = new HashMap<>();
+            responseBody.put("status", false);
+            responseBody.put("message", new Object[]{Map.of("msg", e.getMessage())});
+
+            return ResponseEntity.status(400).body(responseBody);
+        }
+    }
+
     @PostMapping("/register")
     public ResponseEntity<Map<String, Object>> register(@Valid @RequestBody RegisterRequest request) {
         try {

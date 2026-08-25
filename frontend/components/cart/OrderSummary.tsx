@@ -15,13 +15,25 @@ export default function OrderSummary() {
     return sum + unit * item.quantity;
   }, 0);
 
-  const total = subtotal;
   const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  const FREE_DELIVERY_THRESHOLD = 499;
+  const isFreeDelivery = subtotal >= FREE_DELIVERY_THRESHOLD || subtotal === 0;
+  const deliveryFee = isFreeDelivery ? 0 : 49;
+  const gst = Math.round(subtotal * 0.18);
+  const total = subtotal + deliveryFee + gst;
+
+  const formatINR = (val: number) => "₹" + val.toLocaleString("en-IN");
 
   return (
     <Card className="sticky top-4">
       <CardHeader>
-        <CardTitle className="text-lg font-semibold">Order Summary</CardTitle>
+        <CardTitle className="text-lg font-semibold flex items-center justify-between">
+          <span>Order Summary</span>
+          <span className="text-xs font-normal text-muted-foreground bg-background px-2 py-0.5 rounded-full border">
+            {itemCount} {itemCount === 1 ? "item" : "items"}
+          </span>
+        </CardTitle>
       </CardHeader>
 
       <CardContent className="space-y-4">
@@ -30,32 +42,44 @@ export default function OrderSummary() {
             <span className="text-muted-foreground">
               Subtotal ({itemCount} items)
             </span>
-            <span className="font-medium">₹{subtotal}</span>
+            <span className="font-medium">{formatINR(subtotal)}</span>
           </div>
 
           <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Shipping</span>
-            <span className="font-medium">—</span>
+            <span className="text-muted-foreground">Delivery Charges</span>
+            {isFreeDelivery ? (
+              <div className="flex items-center gap-1">
+                <span className="text-xs text-muted-foreground line-through">₹49</span>
+                <span className="font-semibold text-green-600 dark:text-green-400">FREE</span>
+              </div>
+            ) : (
+              <span className="font-medium">{formatINR(deliveryFee)}</span>
+            )}
           </div>
 
           <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Tax</span>
-            <span className="font-medium">—</span>
+            <span className="text-muted-foreground">GST & Taxes (18%)</span>
+            <span className="font-medium">{formatINR(gst)}</span>
           </div>
 
           <Separator />
 
-          <div className="flex justify-between">
-            <span className="text-lg font-semibold">Total</span>
-            <span className="text-lg font-bold text-primary">₹{total}</span>
+          <div className="flex justify-between items-baseline">
+            <div>
+              <span className="text-lg font-semibold block">Total</span>
+              <span className="text-[11px] text-muted-foreground">(Incl. of GST & Delivery)</span>
+            </div>
+            <span className="text-xl font-bold text-primary">{formatINR(total)}</span>
           </div>
         </div>
 
-        <div className="p-3 bg-accent/10 rounded-lg border border-accent/20">
+        <div className="p-3 bg-primary/5 rounded-lg border border-primary/10">
           <div className="flex items-center gap-2">
-            <Truck className="h-4 w-4 text-accent-foreground" />
-            <span className="text-sm font-medium text-accent-foreground">
-              Shipping calculated at checkout
+            <Truck className="h-4 w-4 text-primary" />
+            <span className="text-xs font-medium text-foreground">
+              {isFreeDelivery
+                ? "🎉 You are eligible for FREE Delivery!"
+                : `Add ${formatINR(FREE_DELIVERY_THRESHOLD - subtotal)} more for FREE Delivery`}
             </span>
           </div>
         </div>
