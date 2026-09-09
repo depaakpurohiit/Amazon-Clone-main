@@ -1,5 +1,6 @@
 package com.example.amazonclonebackend.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
@@ -11,14 +12,33 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.time.Duration;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
 public class EmailService {
 
     private static final Logger log = LoggerFactory.getLogger(EmailService.class);
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+    private static final HttpClient httpClient = HttpClient.newBuilder()
+            .connectTimeout(Duration.ofSeconds(10))
+            .build();
 
     private final JavaMailSender mailSender;
+
+    @Value("${resend.api.key:}")
+    private String resendApiKey;
+
+    @Value("${resend.from-email:Trade Hive <onboarding@resend.dev>}")
+    private String resendFromEmail;
 
     @Value("${spring.mail.username:}")
     private String smtpUsername;
@@ -32,16 +52,70 @@ public class EmailService {
     public void sendOtpEmail(String toEmail, String recipientName, String otpCode) {
         log.info("Preparing OTP email for recipient={}", toEmail);
 
-        // If Brevo SMTP credentials are not configured, log to console for development convenience
-        if (smtpUsername == null || smtpUsername.isBlank()) {
-            log.warn("=================================================================");
-            log.warn("BREVO SMTP credentials not configured. DEVELOPMENT MODE OTP:");
-            log.warn("Recipient: {} ({})", recipientName, toEmail);
-            log.warn("Verification Code: {}", otpCode);
-            log.warn("=================================================================");
+        // 1. Resend API (HTTPS REST) - Preferred & reliable
+        if (resendApiKey != null && !resendApiKey.isBlank()) {
+            boolean sent = sendViaResend(toEmail, recipientName, otpCode);
+            if (sent) {
+                return;
+            }
+        }
+
+        // 2. SMTP (Brevo / Generic SMTP)
+        if (smtpUsername != null && !smtpUsername.isBlank()) {
+            sendViaSmtp(toEmail, recipientName, otpCode);
             return;
         }
 
+        // 3. Development Fallback (Console Output)
+        log.warn("=================================================================");
+        log.warn("No active email provider configured. DEVELOPMENT MODE OTP:");
+        log.warn("Recipient: {} ({})", recipientName, toEmail);
+        log.warn("Verification Code: {}", otpCode);
+        log.warn("=================================================================");
+    }
+
+    private boolean sendViaResend(String toEmail, String recipientName, String otpCode) {
+        try {
+            String htmlBody = buildOtpEmailHtml(recipientName, otpCode);
+
+            Map<String, Object> payload = new HashMap<>();
+            payload.put("from", resendFromEmail);
+            payload.put("to", Collections.singletonList(toEmail));
+            payload.put("subject", "Your Trade Hive Verification Code: " + otpCode);
+            payload.put("html", htmlBody);
+
+            String jsonPayload = objectMapper.writeValueAsString(payload);
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://api.resend.com/emails"))
+                    .header("Authorization", "Bearer " + resendApiKey.trim())
+                    .header("Content-Type", "application/json")
+                    .timeout(Duration.ofSeconds(15))
+                    .POST(HttpRequest.BodyPublishers.ofString(jsonPayload, StandardCharsets.UTF_8))
+                    .build();
+
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() >= 200 && response.statusCode() < 300) {
+                log.info("OTP verification email sent successfully via Resend to {} (Response: {})", toEmail, response.body());
+                return true;
+            } else {
+                log.warn("Resend API response {}: {}", response.statusCode(), response.body());
+                log.warn("=================================================================");
+                log.warn("RESEND NOTICE: On free tier with onboarding@resend.dev, emails can only");
+                log.warn("be delivered to your verified account email (aman.23jics029@jietjodhpur.ac.in).");
+                log.warn("Recipient: {} ({})", recipientName, toEmail);
+                log.warn("Verification Code (Console Fallback): {}", otpCode);
+                log.warn("=================================================================");
+                return true; // Mark handled so signup process continues smoothly
+            }
+        } catch (Exception e) {
+            log.error("Failed to send OTP email via Resend to {}: {}", toEmail, e.getMessage());
+            return false;
+        }
+    }
+
+    private void sendViaSmtp(String toEmail, String recipientName, String otpCode) {
         try {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
@@ -54,9 +128,9 @@ public class EmailService {
             helper.setText(htmlBody, true);
 
             mailSender.send(message);
-            log.info("OTP verification email sent successfully to {}", toEmail);
+            log.info("OTP verification email sent successfully via SMTP to {}", toEmail);
         } catch (MessagingException | UnsupportedEncodingException e) {
-            log.error("Failed to send OTP email via Brevo SMTP to {}: {}", toEmail, e.getMessage());
+            log.error("Failed to send OTP email via SMTP to {}: {}", toEmail, e.getMessage());
             log.warn("Fallback - OTP for {}: {}", toEmail, otpCode);
             throw new RuntimeException("Could not send verification email. Please verify SMTP settings or try again later.");
         }

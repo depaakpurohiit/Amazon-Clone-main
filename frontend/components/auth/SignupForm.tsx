@@ -218,7 +218,7 @@ export default function SignupForm({
               <div className="space-y-1">
                 <label className="text-sm font-medium">Full Name</label>
                 <Input
-                  placeholder="e.g. Aman Sayed"
+                  placeholder="First and last name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
