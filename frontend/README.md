@@ -60,3 +60,10 @@ The frontend will be available at `http://localhost:3000`. It expects the backen
 npm run lint
 npm run build
 ```
+
+## Email Delivery
+
+Transactional and verification emails are integrated with **Resend**:
+- Configuration via `RESEND_API_KEY`
+- Helper utilities in `lib/resend.ts`
+- API endpoint at `/api/resend`
