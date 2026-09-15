@@ -1,415 +1,543 @@
 [
   {
-    "id": "11111111-2222-3333-4444-555555555551",
-    "url": "https://m.media-amazon.com/images/I/71jG+e7roXL._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/71jG+e7roXL._SL1500_.jpg",
+    "id": "1",
+    "url": "/images/products/1.jpg",
+    "resUrl": "/images/products/1.jpg",
     "price": "₹61,990.00",
     "value": "61,990",
-    "accValue": 61990,
+    "accValue": "61990",
     "discount": "-46%",
     "mrp": "₹1,15,668.00",
     "name": "Lenovo ThinkBook 14 Intel Core i5 11th Gen 14 inch (35.56cm) FHD IPS Thin & Light Laptop (16GB RAM/512GB SSD/Windows 11 Home/MS Office 2021/FPR/Intel Iris Xe Graphics Mineral Grey/1.4 kg), 20VDA0TLIH",
     "category": "ELECTRONICS",
     "points": [
-      "ThinkBook 14 Reliability tested on 12 MIL-STD-810H Methods and 22 Procedures | Body Material: Aluminium | Surface Treatment: Anodizing sandblasting | Built to withstand rugged usage and can handle accidental knocks, drops, and even spills",
-      "Processor: 11th Gen Intel Core i5-1135G7, 2.4 Ghz base clock, 4.2 Ghz max boost clock, 4 Cores, 8 MB Cache | Memory: 16GB (8GB soldered + 8GB SO-DIMM) RAM DDR4-3200 MHz upgradable upto 40 GB | Storage: 512GB SSD M.2",
-      "Operating System: Preloaded Windows 11 Home with Lifetime Validity | Pre-installed software: Microsoft Office Home & Student 2021",
-      "Display: 14-inch (35.56 cm) screen with (1920X1080) Full HD IPS 250 nits Antiglare display | Graphics: Integrated Intel Iris Xe Graphics comes with DirectX 12 enables amazing graphics | Monitor Support: Supports up to 4 independent displays",
-      "Ports: 2x USB 3.2 Gen 1 (1x Always On), 1x USB-C 3.2 Gen 2 (support data transfer, PD 3.0 and DP 1.4), 1x Thunderbolt 4 / USB4 40Gbps (support data transfer, PD 3.0 and DP 1.4), 1x HDMI 1.4b, 1x Card reader, 1x Ethernet (RJ-45), 1x Headphone / microphone combo jack (3.5mm)"
+      "Processor: 11th Gen Intel Core i5 | 16GB RAM | 512GB SSD",
+      "14-inch FHD IPS display | Integrated Iris Xe graphics",
+      "Windows 11 Home | MS Office Home & Student 2021",
+      "USB-C + Thunderbolt 4 | HDMI | Ethernet",
+      "MIL-STD durability tested"
     ]
   },
   {
-    "id": "11111111-2222-3333-4444-555555555553",
-    "url": "https://m.media-amazon.com/images/I/61SUj2aKoEL._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/61SUj2aKoEL._SL1500_.jpg",
-    "price": "₹21,900.00",
-    "value": "21,900",
-    "accValue": 21900,
-    "discount": "-12%",
-    "mrp": "₹24,900.00",
-    "name": "New Apple AirPods Pro with MagSafe Charging Case",
-    "category": "ELECTRONICS",
-    "points": [
-      "Active Noise Cancellation blocks outside noise, so you can immerse yourself in music",
-      "Transparency mode for hearing and interacting with the world around you",
-      "Spatial audio with dynamic head tracking places sound all around you",
-      "Adaptive EQ automatically tunes music to your ears",
-      "Three sizes of soft, tapered silicone tips for a customisable fit"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555554",
-    "url": "https://m.media-amazon.com/images/I/61KNJav3S9L._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/61KNJav3S9L._SL1500_.jpg",
-    "price": "₹1,299.00",
-    "value": "1,299",
-    "accValue": 1299,
-    "discount": "-57%",
-    "mrp": "₹2,990.00",
-    "name": "boAt Airdopes 121v2 True Wireless Earbuds with Upto 14 Hours Playback, Lightweight Earbuds, 8MM Drivers, LED Indicators and Multifunction Controls(Active Black)",
-    "category": "ELECTRONICS",
-    "points": [
-      "Playback- Airdopes 121v2 offers a nonstop playback of up to 3.5H with each charge and an additional 10.5H playtime with the included charging case",
-      "Lightweight- With a dual tone finish on a lightweight ergonomic design weighing just around 4g per earbud, get ready to groove in full flow with Airdopes 121v2v2 TWS earbuds",
-      "Drivers- It possesses powerful 8mm drivers that pump out immersive auditory experience all day long",
-      "Battery Indicator- Its carry cum charge case also has the battery LED indicator that shows the remaining power for the case",
-      "Controls- The true wireless earbuds offer easy access multifunction button controls with stereo calling feature for an overall seamless user experience."
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555558",
-    "url": "https://m.media-amazon.com/images/I/61kFQz2G7tL._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/61kFQz2G7tL._SL1500_.jpg",
-    "price": "₹2,884.00",
-    "value": "2,884",
-    "accValue": 2884,
-    "discount": "-28%",
-    "mrp": "₹3,990.00",
-    "name": "QUBO Smart Cam 360 | 1080p Full HD Wi-Fi Camera | Trust of Hero Group | 360° Deg Coverage with Pan & Tilt | Intruder Alarm | Full Color in Low Light | Two Way Talk | Alexa & OK Google | Made in India",
-    "category": "ELECTRONICS",
-    "points": [
-      "PROUDLY INDIAN: Qubo Smart Cam 360 is Designed & Made in INDIA. Engineered for the Security Needs of the Indian Market.",
-      "TRUST OF HERO GROUP: Our Round-the-Clock Customer Service & Wide field Network not only resolves your all concerns & queries but rather ensures complete peace of mind for Lifetime.",
-      "360 COVERAGE: Multi-Directional rotation of the lens ensures that there are no blind spots. NOTE: Qubo Smart Cam 360 is designed to be used indoors only.",
-      "THEFT PROOF CLOUD STORAGE: Secure all your recordings on cloud storage based in India. Your private home moments stay with you even if the device is stolen.",
-      "PERSON DETECTION WITH INTRUDER ALARM : Advanced AI capabilities that can smartly detect & notify whenever a person is detected. You can also ring an automatic loud siren in case of an intrusion."
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555560",
-    "url": "https://m.media-amazon.com/images/I/71lUj0xR9HL._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/71lUj0xR9HL._SL1500_.jpg",
-    "price": "₹3,999.00",
-    "value": "3,999",
-    "accValue": 3999,
-    "discount": "-43%",
-    "mrp": "₹6,990.00",
-    "name": "boAt Stone 1200 14W Bluetooth Speaker with Upto 9 Hours Battery, RGB LEDs, IPX7 and TWS Feature(Blue)",
-    "category": "ELECTRONICS",
-    "points": [
-      "It delivers a powerful 14W stereo sound for a complete immersive experience.",
-      "Stone 1200 provides a battery time of upto 9 hours without its RGB LEDs and upto 7 hours with it(@60% volume) with a charging time of 4 hours.",
-      "Carry your splashproof speakers to anywhere with IPX7 splash & water shield leaving behind the tension of water running over",
-      "Add a second speaker with our TWS technology and enjoy sound, twice as powerful, Battery Capacity (mAh) - 3600 mAh, Playback Time - 9 hours, Charging Time - 4 hours, Standby Time 360 hours",
-      "Its 360-degree ergonomic design makes it ideal to be carried around anywhere you go. It also comes with a carry strap making it very convenient for you to carry it around."
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555552",
-    "url": "https://m.media-amazon.com/images/I/81vDZyJQ-4L._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/81vDZyJQ-4L._SL1500_.jpg",
-    "price": "₹39,499.00",
-    "value": "39,499",
-    "accValue": 39499,
-    "discount": "-47%",
-    "mrp": "₹74,999.00",
-    "name": "Samsung Galaxy S20 FE 5G (Cloud Navy, 8GB RAM, 128GB Storage) with No Cost EMI & Additional Exchange Offers",
-    "category": "MOBILES",
-    "points": [
-      "5G Ready powered by Qualcomm Snapdragon 865 Octa-Core processor, 8GB RAM, 128GB internal memory expandable up to 1TB, Android 11.0 operating system and dual SIM",
-      "Triple Rear Camera Setup - 12MP (Dual Pixel) OIS F1.8 Wide Rear Camera + 8MP OIS Tele Camera + 12MP Ultra Wide | 30X Space Zoom, Single Take & Night Mode | 32MP F2.2 Front Punch Hole Camera",
-      "6.5-inch(16.40 centimeters) Infinity-O Super AMOLED Display with 120Hz Refresh rate, 1080 x 2400 (FHD+) Resolution",
-      "4500 mAh battery (Non -removable) with Super Fast Charging, FAst Wireless Charging & Finger Print sensor",
-      "IP68 Rated, MicroSD Card Slot (Expandable upto 1 TB), Dual Nano Sim, Hybrid Sim Slot, 5G+5G Dual stand by"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555555",
-    "url": "https://m.media-amazon.com/images/I/71KLi9R6Z-L._UL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/71KLi9R6Z-L._UL1500_.jpg",
-    "price": "₹2,097.00",
-    "value": "2,097",
-    "accValue": 2097,
-    "discount": "-40%",
-    "mrp": "₹3,495.00",
-    "name": "crocs Unisex-Adult Bayaband Clog",
-    "category": "FASHION",
-    "points": [
-      "Sole: Ethylene Vinyl Acetate",
-      "Outer Material: EVA. Washes off with soap and water",
-      "Closure Type: Slip On",
-      "Shoe Width: Regular"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555556",
-    "url": "https://m.media-amazon.com/images/I/71P0l7dGv-L._UL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/71P0l7dGv-L._UL1500_.jpg",
-    "price": "₹1,619.00",
-    "value": "1,619",
-    "accValue": 1619,
-    "discount": "-60%",
-    "mrp": "₹3,999.00",
-    "name": "INDO ERA Women's Viscose Embroidered Straight Kurta Palazzo With Dupatta Set",
-    "category": "FASHION",
-    "points": [
-      "Care Instructions: Dry Clean Only",
-      "Fit Type: Regular",
-      "Print & Pattern : Solid ; Package Contant : Kurta, Palazzo With Dupatta"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555559",
-    "url": "https://m.media-amazon.com/images/I/71pAb9Smi9L._UL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/71pAb9Smi9L._UL1500_.jpg",
-    "price": "₹1,299.00",
-    "value": "1,299",
-    "accValue": 1299,
-    "discount": "-19%",
-    "mrp": "₹1,595.00",
-    "name": "TIMEX Analog Men's Watch",
-    "category": "FASHION",
-    "points": [
-      "Case Shape: Round, Dial Glass Material: Mineral, Band material: Leather",
-      "Watch Movement Type: Quartz, Watch Display Type: Analog",
-      "Case Material: Brass, Case Diameter: 40 millimeters, Brass Bezel ; Case Thickness: 8.8mm",
-      "Water Resistance Depth: 30 meters, Buckle Clasp",
-      "Ideal for birthday, anniversary and wedding gift"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555561",
-    "url": "https://m.media-amazon.com/images/I/61K5q0M6uML._UL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/61K5q0M6uML._UL1500_.jpg",
-    "price": "₹358.00",
-    "value": "358",
-    "accValue": 358,
-    "discount": "-86%",
-    "mrp": "₹2,499.00",
-    "name": "Integriti Men Sweatshirt",
-    "category": "FASHION",
-    "points": [
-      "Care Instructions: Machine Wash",
-      "Fit Type: Modern",
-      "Hooded, Long Sleeve, Print",
-      "Package Dimensions: 10.7 L x 39.6 H x 38.0 W (centimeters)"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555562",
-    "url": "https://m.media-amazon.com/images/I/71dNqglQnJL._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/71dNqglQnJL._SL1500_.jpg",
-    "price": "₹630.00",
-    "value": "630",
-    "accValue": 630,
-    "discount": "-70%",
-    "mrp": "₹2,099.00",
-    "name": "Harpa Synthetic a-line Dress (GR5759_Navy_Small)",
-    "category": "FASHION",
-    "points": [
-      "Care Instructions: Hand Wash Only",
-      "Color name: pink",
-      "100% Polyester",
-      "Hand wash; A-line",
-      "Sleeveless"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555557",
-    "url": "https://m.media-amazon.com/images/I/81DkpzVxVEL._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/81DkpzVxVEL._SL1500_.jpg",
-    "price": "₹999.00",
-    "value": "999",
-    "accValue": 999,
-    "discount": "-50%",
-    "mrp": "₹2,000.00",
-    "name": "Classic Mosquito Net for Double Bed, Embroidery, King Size, Polyester, Strong 30GSM, PVC Coated Steel (L200cm X W200cm X H145cm) Foldable for Double Bed - King Size, Blue",
-    "category": "HOME",
-    "points": [
-      "Size of Double bed is 200cm X 200cm X 145cm (i.e. 6.56ft X 6.56ft X 4.75ft) can Easily accommodate bed for King size, Super King size bed. Suitable for 2 Adults & 1 Child.",
-      "Easily Washable (steel wires are corrosion resistant), Self-Supporting, No Requirement to nail the wall.",
-      "Pops up in an Instant and Automatically, Can be folded in less than 30 Seconds.",
-      "Storage Bag Included at free of cost, comes with patches to cover the future accidental holes in the mosquito net, Provided with large Zipper gates on two Sides with inner and outer runner for easy and convenient Entry and Exit.",
-      "Easy to fold, Easy to carry, it offers a healthy environment to sleep in."
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555563",
-    "url": "https://m.media-amazon.com/images/I/71QKQ9mwV7L._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/71QKQ9mwV7L._SL1500_.jpg",
-    "price": "₹429.00",
-    "value": "429",
-    "accValue": 429,
-    "discount": "-14%",
-    "mrp": "₹499.00",
-    "name": "Yogabar Dark Chocolate & Cranberry Muesli 700g - Breakfast Cereal with 83% Nuts & Seeds, Dried Fruits, & Whole Grains - Vegan & Gluten Free Snack",
-    "category": "HOME",
-    "points": [
-      "Whole grains: Quinoa, Oats and Brown Rice",
-      "Made from 100% natural ingredients",
-      "Rich in nuts and dried fruits: almonds, raisins, dried cranberries rich in seeds: pumpkin, chia and flax",
-      "Antioxidant rich dark chocolate + cranberry",
-      "Slow-roasted, slow ground in small batches for superior flavour"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555564",
-    "url": "https://m.media-amazon.com/images/I/71L0lA7Q6-L._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/71L0lA7Q6-L._SL1500_.jpg",
-    "price": "₹699.00",
-    "value": "699",
-    "accValue": 699,
-    "discount": "-53%",
-    "mrp": "₹1,499.00",
-    "name": "Interiocrafts Cast Iron Degchi Style Dhoop and Tealight Candle Holder",
-    "category": "HOME",
-    "points": [
-      "It can be used as a dhoop dani with the lid on and candle holder with votive stand. A perfect item for your pooja mandir.",
-      "The chic functionality of this beautiful votive candle and dhoop holder is inimitable.",
-      "Rajasthan is famous for its handicrafts and the creativity of the artists can clearly be seen with use of artifacts.",
-      "It will not get heated up while use; It is easy to hold for doing 'Dhuni' in your entire house.",
-      "It can be used for inserting loban, bakhoor, samarni dhoop incense sticks"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555565",
-    "url": "https://m.media-amazon.com/images/I/71X8jCk0pBL._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/71X8jCk0pBL._SL1500_.jpg",
-    "price": "₹499.00",
-    "value": "499",
-    "accValue": 499,
-    "discount": "-50%",
-    "mrp": "₹1,000.00",
-    "name": "Urban Born Cast Iron Metal Flower vase for Home Decor and Living Room Vintage Antique Decor (Gold, 15 x 15 x 15 cm)",
-    "category": "HOME",
-    "points": [
-      "This flower vase is made from one Piece of Iron with unique Decorative design.",
-      "Item size : HXW : 15 x 15 cm / Finish- Gold",
-      "Package contains -1pc Flower vase without Flowers. Good-quality and stylish products. Flowers are for illustration purpose not with Vase.",
-      "Great for gifting purposes in Diwali, Birthday, Anniversary, Corporate party etc."
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555566",
-    "url": "https://m.media-amazon.com/images/I/71xM8h6p5SL._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/71xM8h6p5SL._SL1500_.jpg",
-    "price": "₹999.00",
-    "value": "999",
-    "accValue": 999,
-    "discount": "-33%",
-    "mrp": "₹1,499.00",
-    "name": "Livpure Smart Solid Window Polyester 5 feet Curtains with tieback( Beige ) Set",
-    "category": "HOME",
-    "points": [
-      "Color: Beige Size: 5 Feet Material: Polyester Package Contents: 2 Window Curtains Attached tiebacks: Yes (Velcro) Window Curtain Dimensions: 152.4 x 132 CM. | 60 x 52 INCH",
-      "Blackout: Blocks 95% sunlight from passing through the curtains Noise reduction: Blocks most of the street noise & keeps the inside undisturbed UV protection: Blocks UV rays from sunlight to pass through into your home Temperature insulation: Blocks heat transfer and helps in maintaining the AC efficiency",
-      "Unique 3-Weave Technology: Livpure curtains are made using Triple Weave Technology with three layers of fabric strongly interwoven to ensure effective blackout, protection from the UV rays and insulate your home",
-      "Hanging Style: These curtains are easy to install and come with high quality eyelet rings Eyelet Rings: Detachable with 1.5 in inner diameter for the curtain to fit nicely Wash Care: Hands & Machine washable after removing the eyelets, Do not bleed color",
-      "Product color may slightly vary due to photographic lighting sources or your monitor settings"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555567",
-    "url": "https://m.media-amazon.com/images/I/81A8l6R1m4L._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/81A8l6R1m4L._SL1500_.jpg",
-    "price": "₹399.00",
-    "value": "399",
-    "accValue": 399,
-    "discount": "-60%",
-    "mrp": "₹999.00",
-    "name": "VMPS | Door mats Anti Skid for Home, 40x60 cm Pack of 1 ( Grey ) - Water Absorbent Rugs",
-    "category": "HOME",
-    "points": [
-      "Super Absorbent Doormat: Made of 55% cotton + 45% microfiber, the magic clean mat can easily scrap off mud, dirt, dust, grit, snow, slush, sleet and grass from shoes instantly.",
-      "Non-slip: the non-slip bathroom mat for home is backed with tp rubber to prevent shifting and skidding. Caution : place rug on clean dry smooth floor only. Water under rug can cause it to slip. Keep bottom of rug dry.",
-      "Ultra absorbent: the microfiber washroom door mat is much more absorbent than normal bathmats. High-pile helps save your floors from dripping water.",
-      "Size of Doormats is 16 X 24 inches or 40 X 60 cm or 1.5 ft X 2 ft, ideal for size of your Indoor Entrances, Weight of Single Piece is around 500 Grams",
-      "A high quality Microfiber doormats with heat resistance and non-irritating odour"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555568",
-    "url": "https://m.media-amazon.com/images/I/81xJ6R0Q9TL._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/81xJ6R0Q9TL._SL1500_.jpg",
-    "price": "₹699.00",
-    "value": "699",
-    "accValue": 699,
-    "discount": "-42%",
-    "mrp": "₹1,199.00",
-    "name": "Trending Home Collection Cushion Cover with Booti Zari Embroidered Stitched Zippered Cotton Velvet Cushion Cover | 16X16 Inches | Set of 2| (Yellow)",
-    "category": "HOME",
-    "points": [
-      "Size: 16 X 16 inches/ 40 cm x 40 cm . Only Booti Zari embroidered velvet cushion cover, FILLER ARE NOT INCLUDED. Square pillowcase is suitable for home decor, couch, sofa, chair, bed, car, party, hotel, office, cafe décor",
-      "Fabric Material: The cushion cover is made of Azo free dye with environment friendly ZARI embroidered export quality cotton velvet fabric . The fabric is sturdy durable, not easily breaking or tearing.",
-      "Decoration - All the cushion cover are made by exclusive color and design. You can also use as a gift pack as it comes in beautiful packaging.",
-      "Care Instruction - Dry clean only, No Bleach, No Tumble Dry, Iron at Back Side",
-      "Made in India"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555569",
-    "url": "https://m.media-amazon.com/images/I/81g0tT9hWkL._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/81g0tT9hWkL._SL1500_.jpg",
-    "price": "₹1,399.00",
-    "value": "1,399",
-    "accValue": 1399,
-    "discount": "-72%",
-    "mrp": "₹4,999.00",
-    "name": "NEW LEAF 220 GSM All-Season Printed Super Soft Light Weight Cotton Comforter Set with 1 Bedsheet 2 Pillow Covers (Double, Blue, Orange) -4 Pieces",
-    "category": "HOME",
-    "points": [
-      "The king size quilt set includes - 1pc Bedsheet 1 quilt (100 inch x 90 inch), 2pcs cover ( 18 inch x 28 inch)",
-      "New Embroidered artwork makes the quilts much more durable and lightweight rather than the traditional stitching technique.",
-      "The cover and filling are made of 100% Microfiber.",
-      "The geometric classic pattern is easy to match your bedroom decor, offering you an elegant and classic feeling.",
-      "Machine wash cold, gentle cycle, only non-chlorine bleach when needed, tumble dry low, steam if needed, do not iron. No shrinkage, No colour fading and No unravelling after washing."
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555570",
-    "url": "https://m.media-amazon.com/images/I/71YxwS6s7TL._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/71YxwS6s7TL._SL1500_.jpg",
-    "price": "₹329.00",
-    "value": "329",
-    "accValue": 329,
-    "discount": "-63%",
-    "mrp": "₹899.00",
-    "name": "Kaameri Bazaar Bronze Color Metal Bird cage Tea Light Holder with Butter Pot tealight Glass for Home Décor",
-    "category": "HOME",
-    "points": [
-      "This Diwali Light Your home with this beautiful Bird Cage Tealight Holder",
-      "This stunning Kaameri Bazaar Tealight Holder makes for a perfect addition to your home.",
-      "BENEFITS: They can accent your home or office for the right decor. Perfect for adding a decorative touch to any room's decor",
-      "Made from high quality material, Durable and Long lasting",
-      "Ideal For: Decoration, Gifting, Diwali Decoration, Christmas Party Decoration, Home Decor, Candle Light Dinner"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555571",
-    "url": "https://m.media-amazon.com/images/I/71M8w7Yp6EL._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/71M8w7Yp6EL._SL1500_.jpg",
-    "price": "₹549.00",
-    "value": "549",
-    "accValue": 549,
-    "discount": "-63%",
-    "mrp": "₹1,499.00",
-    "name": "The Vintage Artefacts Donut White, Ceramic Pot and vase Handcrafted, Round Shaped (vase)",
-    "category": "HOME",
-    "points": [
-      "This stunning ceramic pot vase makes for a perfect addition to your home.",
-      "BENEFITS: They can accent your home or office for the right decor. Perfect for adding a decorative touch to any room's decor",
-      "Made from high quality material, Durable and Long lasting",
-      "Ideal For: Decoration, Gifting, Home Decor, Interior Design",
-      "Handcrafted with authentic design elements"
-    ]
-  },
-  {
-    "id": "11111111-2222-3333-4444-555555555572",
-    "url": "https://m.media-amazon.com/images/I/81f8P6f8g6L._SL1500_.jpg",
-    "resUrl": "https://m.media-amazon.com/images/I/81f8P6f8g6L._SL1500_.jpg",
+    "id": "10",
+    "url": "/images/products/10.jpg",
+    "resUrl": "/images/products/10.jpg",
     "price": "₹1,499.00",
     "value": "1,499",
-    "accValue": 1499,
-    "discount": "-44%",
-    "mrp": "₹2,699.00",
-    "name": "JH Gallery Handcrafted and Emboss Painted Colorful Wood Elephant Shape Garden Table (8 Inches Height, Red)",
+    "accValue": "1499",
+    "discount": "-40%",
+    "mrp": "₹2,499.00",
+    "name": "Ergonomic Wireless Mouse (Rechargeable, Silent Click)",
+    "category": "ELECTRONICS",
+    "points": [
+      "Ergonomic shape",
+      "USB-C rechargeable",
+      "Adjustable DPI"
+    ]
+  },
+  {
+    "id": "11",
+    "url": "/images/products/11.jpg",
+    "resUrl": "/images/products/11.jpg",
+    "price": "₹24,990.00",
+    "value": "24,990",
+    "accValue": "24990",
+    "discount": "-17%",
+    "mrp": "₹29,990.00",
+    "name": "Android Tablet 10.4\" (6GB RAM, 128GB Storage)",
+    "category": "ELECTRONICS",
+    "points": [
+      "10.4-inch display",
+      "128GB storage (expandable)",
+      "Dual speakers"
+    ]
+  },
+  {
+    "id": "12",
+    "url": "/images/products/12.jpg",
+    "resUrl": "/images/products/12.jpg",
+    "price": "₹6,499.00",
+    "value": "6,499",
+    "accValue": "6499",
+    "discount": "-24%",
+    "mrp": "₹8,499.00",
+    "name": "Smart Speaker with Voice Assistant (Wi‑Fi, Bluetooth)",
     "category": "HOME",
     "points": [
-      "JH Gallery Presents Hand crafted Or Hand Painted decorative wooden small Elephant Stool Multicolored which widely used in worldwide to decor balcony, office stool, living room, side table.",
-      "Package Content - One Wooden Elephant Statue Table Cum Stool/Handcrafted with Artistic Painting",
-      "Perfect For Decor as Table It's very suitable for gifting as it comes in best packaging as well. Perfect for using end table nightstand, kids step stool, night stand, keeping your planters, as a stand",
-      "Care Instruction : table away from warmth , heat and sunshine. Use dry/wet cotton cloth to remove dirt.",
-      "100% Handmade :- Handmade by recognized Artisans from JH Gallery Rajasthan, product created under Make in INDIA"
+      "Hands-free voice control",
+      "Multi-room audio",
+      "Clear vocals and bass"
     ]
+  },
+  {
+    "id": "13",
+    "url": "/images/products/13.jpg",
+    "resUrl": "/images/products/13.jpg",
+    "price": "₹1,999.00",
+    "value": "1,999",
+    "accValue": "1999",
+    "discount": "-33%",
+    "mrp": "₹2,999.00",
+    "name": "Portable SSD 500GB (USB 3.2, Shock Resistant)",
+    "category": "ACCESSORIES",
+    "points": [
+      "Fast USB 3.2 transfers",
+      "Shock resistant",
+      "Compact design"
+    ]
+  },
+  {
+    "id": "14",
+    "url": "/images/products/14.jpg",
+    "resUrl": "/images/products/14.jpg",
+    "price": "₹12,990.00",
+    "value": "12,990",
+    "accValue": "12990",
+    "discount": "-22%",
+    "mrp": "₹16,990.00",
+    "name": "Air Fryer 4L (Digital, Multiple Presets)",
+    "category": "HOME",
+    "points": [
+      "Less oil cooking",
+      "Digital presets",
+      "Easy-clean basket"
+    ]
+  },
+  {
+    "id": "15",
+    "url": "/images/products/15.jpg",
+    "resUrl": "/images/products/15.jpg",
+    "price": "₹999.00",
+    "value": "999",
+    "accValue": "999",
+    "discount": "-50%",
+    "mrp": "₹1,999.00",
+    "name": "Non-stick Cookware Set (PFOA Free, Induction Base)",
+    "category": "HOME",
+    "points": [
+      "Induction compatible",
+      "Non-stick coating",
+      "Heat-resistant handles"
+    ]
+  },
+  {
+    "id": "16",
+    "url": "/images/products/16.jpg",
+    "resUrl": "/images/products/16.jpg",
+    "price": "₹2,799.00",
+    "value": "2,799",
+    "accValue": "2799",
+    "discount": "-30%",
+    "mrp": "₹3,999.00",
+    "name": "Men's Running Shoes (Lightweight, Breathable)",
+    "category": "SHOES",
+    "points": [
+      "Breathable mesh",
+      "Cushioned sole",
+      "Durable outsole"
+    ]
+  },
+  {
+    "id": "17",
+    "url": "/images/products/17.jpg",
+    "resUrl": "/images/products/17.jpg",
+    "price": "₹3,499.00",
+    "value": "3,499",
+    "accValue": "3499",
+    "discount": "-22%",
+    "mrp": "₹4,499.00",
+    "name": "Backpack 35L (Laptop Compartment, Water Resistant)",
+    "category": "ACCESSORIES",
+    "points": [
+      "Laptop sleeve up to 15.6\"",
+      "Water resistant fabric",
+      "Multiple pockets"
+    ]
+  },
+  {
+    "id": "18",
+    "url": "/images/products/18.jpg",
+    "resUrl": "/images/products/18.jpg",
+    "price": "₹699.00",
+    "value": "699",
+    "accValue": "699",
+    "discount": "-36%",
+    "mrp": "₹1,099.00",
+    "name": "LED Desk Lamp (Dimmable, USB Powered)",
+    "category": "HOME",
+    "points": [
+      "Multiple brightness levels",
+      "USB powered",
+      "Eye-care light"
+    ]
+  },
+  {
+    "id": "19",
+    "url": "/images/products/19.jpg",
+    "resUrl": "/images/products/19.jpg",
+    "price": "₹8,990.00",
+    "value": "8,990",
+    "accValue": "8990",
+    "discount": "-18%",
+    "mrp": "₹10,990.00",
+    "name": "Office Chair (Ergonomic, Lumbar Support, Mesh)",
+    "category": "HOME",
+    "points": [
+      "Breathable mesh back",
+      "Lumbar support",
+      "Adjustable height and tilt"
+    ]
+  },
+  {
+    "id": "2",
+    "url": "/images/products/2.jpg",
+    "resUrl": "/images/products/2.jpg",
+    "price": "₹39,499.00",
+    "value": "39,499",
+    "accValue": "39499",
+    "discount": "-47%",
+    "mrp": "₹74,999.00",
+    "name": "Samsung Galaxy S20 FE 5G (Cloud Navy, 8GB RAM, 128GB Storage)",
+    "category": "MOBILES",
+    "points": [
+      "Snapdragon 865 | 8GB RAM | 128GB storage (expandable)",
+      "6.5-inch Super AMOLED | 120Hz refresh rate",
+      "Triple rear camera + 32MP front camera",
+      "4500mAh battery | Fast + wireless charging",
+      "IP68 rated"
+    ]
+  },
+  {
+    "id": "20",
+    "url": "/images/products/20.jpg",
+    "resUrl": "/images/products/20.jpg",
+    "price": "₹5,499.00",
+    "value": "5,499",
+    "accValue": "5499",
+    "discount": "-31%",
+    "mrp": "₹7,999.00",
+    "name": "Wi‑Fi Router Dual Band (AC1200, Gigabit Ports)",
+    "category": "ELECTRONICS",
+    "points": [
+      "Dual-band Wi‑Fi",
+      "Gigabit ports",
+      "Guest network"
+    ]
+  },
+  {
+    "id": "21",
+    "url": "/images/products/21.jpg",
+    "resUrl": "/images/products/21.jpg",
+    "price": "₹1,799.00",
+    "value": "1,799",
+    "accValue": "1799",
+    "discount": "-25%",
+    "mrp": "₹2,399.00",
+    "name": "Bluetooth Portable Speaker (Water Resistant, 12h Playtime)",
+    "category": "ELECTRONICS",
+    "points": [
+      "12-hour battery",
+      "Water resistant",
+      "Strong bass"
+    ]
+  },
+  {
+    "id": "22",
+    "url": "/images/products/22.jpg",
+    "resUrl": "/images/products/22.jpg",
+    "price": "₹2,299.00",
+    "value": "2,299",
+    "accValue": "2299",
+    "discount": "-23%",
+    "mrp": "₹2,999.00",
+    "name": "Men's Analog Watch (Stainless Steel, Water Resistant)",
+    "category": "ACCESSORIES",
+    "points": [
+      "Classic analog design",
+      "Water resistant",
+      "Quartz movement"
+    ]
+  },
+  {
+    "id": "23",
+    "url": "/images/products/23.jpg",
+    "resUrl": "/images/products/23.jpg",
+    "price": "₹49,990.00",
+    "value": "49,990",
+    "accValue": "49990",
+    "discount": "-29%",
+    "mrp": "₹69,990.00",
+    "name": "5G Smartphone (8GB RAM, 256GB Storage, AMOLED Display)",
+    "category": "MOBILES",
+    "points": [
+      "6.7-inch AMOLED | 120Hz",
+      "Fast charging",
+      "256GB storage"
+    ]
+  },
+  {
+    "id": "24",
+    "url": "/images/products/24.jpg",
+    "resUrl": "/images/products/24.jpg",
+    "price": "₹19,999.00",
+    "value": "19,999",
+    "accValue": "19999",
+    "discount": "-33%",
+    "mrp": "₹29,999.00",
+    "name": "Budget 5G Phone (6GB RAM, 128GB Storage)",
+    "category": "MOBILES",
+    "points": [
+      "5000mAh battery",
+      "Expandable storage",
+      "Dual camera"
+    ]
+  },
+  {
+    "id": "25",
+    "url": "/images/products/25.jpg",
+    "resUrl": "/images/products/25.jpg",
+    "price": "₹7,499.00",
+    "value": "7,499",
+    "accValue": "7499",
+    "discount": "-25%",
+    "mrp": "₹9,999.00",
+    "name": "True Wireless Earbuds (ANC, 30h Playback)",
+    "category": "ELECTRONICS",
+    "points": [
+      "ANC + transparency mode",
+      "Low latency mode",
+      "USB-C case"
+    ]
+  },
+  {
+    "id": "26",
+    "url": "/images/products/26.jpg",
+    "resUrl": "/images/products/26.jpg",
+    "price": "₹3,299.00",
+    "value": "3,299",
+    "accValue": "3299",
+    "discount": "-34%",
+    "mrp": "₹4,999.00",
+    "name": "Smartwatch (AMOLED, Bluetooth Calling, GPS)",
+    "category": "ACCESSORIES",
+    "points": [
+      "Bluetooth calling",
+      "GPS + fitness tracking",
+      "SpO2 + HR monitor"
+    ]
+  },
+  {
+    "id": "27",
+    "url": "/images/products/27.jpg",
+    "resUrl": "/images/products/27.jpg",
+    "price": "₹1,999.00",
+    "value": "1,999",
+    "accValue": "1999",
+    "discount": "-20%",
+    "mrp": "₹2,499.00",
+    "name": "USB-C GaN Charger 65W (Dual Port)",
+    "category": "ACCESSORIES",
+    "points": [
+      "65W fast charging",
+      "Dual port",
+      "Compact GaN design"
+    ]
+  },
+  {
+    "id": "28",
+    "url": "/images/products/28.jpg",
+    "resUrl": "/images/products/28.jpg",
+    "price": "₹2,199.00",
+    "value": "2,199",
+    "accValue": "2199",
+    "discount": "-21%",
+    "mrp": "₹2,799.00",
+    "name": "Bluetooth Neckband Earphones (Magnetic Buds)",
+    "category": "ELECTRONICS",
+    "points": [
+      "Deep bass drivers",
+      "Fast charge",
+      "Comfort fit"
+    ]
+  },
+  {
+    "id": "29",
+    "url": "/images/products/29.jpg",
+    "resUrl": "/images/products/29.jpg",
+    "price": "₹2,999.00",
+    "value": "2,999",
+    "accValue": "2999",
+    "discount": "-25%",
+    "mrp": "₹3,999.00",
+    "name": "Men's Casual Sneakers (Cushioned Sole)",
+    "category": "SHOES",
+    "points": [
+      "Lightweight comfort",
+      "Non-slip outsole",
+      "Breathable upper"
+    ]
+  },
+  {
+    "id": "3",
+    "url": "/images/products/3.jpg",
+    "resUrl": "/images/products/3.jpg",
+    "price": "₹21,900.00",
+    "value": "21,900",
+    "accValue": "21900",
+    "discount": "-12%",
+    "mrp": "₹24,900.00",
+    "name": "Apple AirPods Pro with MagSafe Charging Case",
+    "category": "ACCESSORIES",
+    "points": [
+      "Active Noise Cancellation",
+      "Transparency mode",
+      "Adaptive EQ",
+      "Sweat and water resistant"
+    ]
+  },
+  {
+    "id": "30",
+    "url": "/images/products/30.jpg",
+    "resUrl": "/images/products/30.jpg",
+    "price": "₹3,199.00",
+    "value": "3,199",
+    "accValue": "3199",
+    "discount": "-20%",
+    "mrp": "₹3,999.00",
+    "name": "Women's Running Shoes (Breathable Mesh)",
+    "category": "SHOES",
+    "points": [
+      "Breathable mesh",
+      "Shock absorption",
+      "Daily running ready"
+    ]
+  },
+  {
+    "id": "4",
+    "url": "/images/products/4.jpg",
+    "resUrl": "/images/products/4.jpg",
+    "price": "₹9,999.00",
+    "value": "9,999",
+    "accValue": "9999",
+    "discount": "-23%",
+    "mrp": "₹12,999.00",
+    "name": "Noise Cancelling Wireless Headphones (Bluetooth, 40h Playtime)",
+    "category": "ELECTRONICS",
+    "points": [
+      "Active noise cancellation",
+      "40-hour battery | USB-C fast charging",
+      "Built-in mic for calls"
+    ]
+  },
+  {
+    "id": "5",
+    "url": "/images/products/5.jpg",
+    "resUrl": "/images/products/5.jpg",
+    "price": "₹1,299.00",
+    "value": "1,299",
+    "accValue": "1299",
+    "discount": "-35%",
+    "mrp": "₹1,999.00",
+    "name": "Fast Charging Power Bank 10000mAh (USB-C + USB-A)",
+    "category": "ACCESSORIES",
+    "points": [
+      "10000mAh capacity",
+      "Dual output ports",
+      "Multi-layer protection"
+    ]
+  },
+  {
+    "id": "5cc67794-37fe-4f69-a2ea-d5ab231b43e3",
+    "url": "",
+    "resUrl": "",
+    "price": "100",
+    "value": "550.00",
+    "accValue": "0",
+    "discount": "90.00",
+    "mrp": "1000",
+    "name": "rerer",
+    "category": "dusdus",
+    "points": []
+  },
+  {
+    "id": "6",
+    "url": "/images/products/6.jpg",
+    "resUrl": "/images/products/6.jpg",
+    "price": "₹2,499.00",
+    "value": "2,499",
+    "accValue": "2499",
+    "discount": "-28%",
+    "mrp": "₹3,499.00",
+    "name": "Smart Fitness Band with Heart Rate & SpO2 Monitor",
+    "category": "ACCESSORIES",
+    "points": [
+      "24/7 heart rate tracking | SpO2 monitoring",
+      "Sleep tracking | Multiple sports modes",
+      "Water resistant"
+    ]
+  },
+  {
+    "id": "7",
+    "url": "/images/products/7.jpg",
+    "resUrl": "/images/products/7.jpg",
+    "price": "₹54,990.00",
+    "value": "54,990",
+    "accValue": "54990",
+    "discount": "-18%",
+    "mrp": "₹66,990.00",
+    "name": "Gaming Laptop (Ryzen 7, 16GB RAM, 512GB SSD, RTX Graphics)",
+    "category": "ELECTRONICS",
+    "points": [
+      "Ryzen 7 processor",
+      "16GB RAM | 512GB SSD",
+      "Dedicated RTX graphics"
+    ]
+  },
+  {
+    "id": "8",
+    "url": "/images/products/8.jpg",
+    "resUrl": "/images/products/8.jpg",
+    "price": "₹799.00",
+    "value": "799",
+    "accValue": "799",
+    "discount": "-38%",
+    "mrp": "₹1,299.00",
+    "name": "Stainless Steel Water Bottle (1 Litre, Insulated)",
+    "category": "HOME",
+    "points": [
+      "Double-wall insulation",
+      "Leak-proof lid | BPA-free",
+      "Easy to clean"
+    ]
+  },
+  {
+    "id": "9",
+    "url": "/images/products/9.jpg",
+    "resUrl": "/images/products/9.jpg",
+    "price": "₹3,999.00",
+    "value": "3,999",
+    "accValue": "3999",
+    "discount": "-20%",
+    "mrp": "₹4,999.00",
+    "name": "Wireless Mechanical Keyboard (RGB, Hot-swappable)",
+    "category": "ELECTRONICS",
+    "points": [
+      "Wireless + wired modes",
+      "Hot-swappable switches",
+      "Per-key RGB"
+    ]
+  },
+  {
+    "id": "ace0172e-1259-40e4-9043-118897efec21",
+    "url": "",
+    "resUrl": "",
+    "price": "1000",
+    "value": "1500.00",
+    "accValue": "0",
+    "discount": "50.00",
+    "mrp": "2000",
+    "name": "perfume",
+    "category": "cosmetic",
+    "points": []
   }
 ]
