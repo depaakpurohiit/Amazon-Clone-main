@@ -1,5 +1,37 @@
-export const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8081";
+export function getApiBaseUrl(): string {
+  // If explicitly configured to an external URL, use it
+  if (process.env.NEXT_PUBLIC_API_BASE_URL) {
+    const configured = process.env.NEXT_PUBLIC_API_BASE_URL.trim();
+    // If running in browser and the URL is pointing to localhost, but we're on a public domain (like Vercel):
+    // Never call localhost from a public domain to avoid Chrome PNA permission prompt and ERR_CONNECTION_REFUSED.
+    if (typeof window !== "undefined") {
+      const isLocal =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1";
+      if (!isLocal && (configured.includes("localhost") || configured.includes("127.0.0.1"))) {
+        return "";
+      }
+    }
+    return configured;
+  }
+
+  // If in browser:
+  if (typeof window !== "undefined") {
+    const isLocal =
+      window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1";
+    if (isLocal) {
+      return "http://localhost:8081";
+    }
+    // In production (Vercel / any hosted domain) without an external backend URL:
+    // Return "" so it uses the Next.js API routes on the same domain
+    return "";
+  }
+
+  return "";
+}
+
+export const API_BASE_URL = getApiBaseUrl();
 
 export class ApiError extends Error {
   status: number;
@@ -39,15 +71,39 @@ export async function apiFetch<T>(
   path: string,
   init: RequestInit = {}
 ): Promise<T> {
-  const url = `${API_BASE_URL}${path.startsWith("/") ? "" : "/"}${path}`;
-  const response = await fetch(url, {
-    ...init,
-    headers: {
-      "Content-Type": "application/json",
-      ...(init.headers ?? {}),
-    },
-    credentials: "include",
-  });
+  const baseUrl = getApiBaseUrl();
+  const url = `${baseUrl}${path.startsWith("/") ? "" : "/"}${path}`;
+
+  let response: Response;
+  try {
+    response = await fetch(url, {
+      ...init,
+      headers: {
+        "Content-Type": "application/json",
+        ...(init.headers ?? {}),
+      },
+      credentials: "include",
+    });
+  } catch (err) {
+    // If external/localhost backend was attempted and failed to connect,
+    // gracefully attempt the internal Next.js route handler (same-origin)
+    if (baseUrl) {
+      try {
+        const fallbackUrl = `${path.startsWith("/") ? "" : "/"}${path}`;
+        response = await fetch(fallbackUrl, {
+          ...init,
+          headers: {
+            "Content-Type": "application/json",
+            ...(init.headers ?? {}),
+          },
+        });
+      } catch {
+        throw err;
+      }
+    } else {
+      throw err;
+    }
+  }
 
   if (!response.ok) {
     const body = await parseJsonSafely<unknown>(response).catch(() => undefined);
@@ -307,7 +363,8 @@ export async function getAuthUser(): Promise<CompatAuthUserDTO | null> {
     if (e instanceof ApiError && (e.status === 401 || e.status === 403)) {
       return null;
     }
-    throw e;
+    // Return null on unauthenticated, offline, or fallback states so the UI loads cleanly
+    return null;
   }
 }
 

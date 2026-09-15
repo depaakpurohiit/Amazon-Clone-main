@@ -19,18 +19,29 @@ const nextConfig: NextConfig = {
     ],
   },
   async rewrites() {
+    if (
+      process.env.NODE_ENV === "production" &&
+      !process.env.BACKEND_URL &&
+      !process.env.NEXT_PUBLIC_API_BASE_URL
+    ) {
+      return [];
+    }
+    const backend =
+      process.env.BACKEND_URL ||
+      process.env.NEXT_PUBLIC_API_BASE_URL ||
+      "http://localhost:8081";
     return [
       {
-        source: '/sba/:path*',
-        destination: 'http://localhost:8081/sba/:path*',
+        source: "/sba/:path*",
+        destination: `${backend}/sba/:path*`,
       },
       {
-        source: '/instances/:path*',
-        destination: 'http://localhost:8081/instances/:path*',
+        source: "/instances/:path*",
+        destination: `${backend}/instances/:path*`,
       },
       {
-        source: '/actuator/:path*',
-        destination: 'http://localhost:8081/actuator/:path*',
+        source: "/actuator/:path*",
+        destination: `${backend}/actuator/:path*`,
       },
     ];
   },

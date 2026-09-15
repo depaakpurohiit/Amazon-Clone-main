@@ -39,3 +39,4 @@ yarn-error.log*
 
 # Ignore backend start script
 /spring-backend/start-backend.ps1
+scratch/
