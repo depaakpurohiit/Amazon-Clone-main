@@ -2,7 +2,13 @@
   "name": "trade-hive",
   "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "frontend"
+  ],
   "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix frontend run start",
     "install:frontend": "npm --prefix frontend install",
     "install:all": "npm run install:frontend"
   },
