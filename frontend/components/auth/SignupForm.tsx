@@ -317,7 +317,7 @@ export default function SignupForm({
                     required
                   />
                 </div>
-                <p className="text-xs text-muted-foreground">Code expires in 10 minutes</p>
+                <p className="text-xs text-muted-foreground">Code expires in 10 minutes • Check Spam or Promotions if not in Inbox</p>
               </div>
 
               {localError ? (
