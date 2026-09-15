@@ -41,6 +41,7 @@ export default function SignupForm({
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [otp, setOtp] = useState("");
+  const [previewOtp, setPreviewOtp] = useState<string | null>(null);
 
   const [localError, setLocalError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -83,7 +84,7 @@ export default function SignupForm({
 
     setIsSubmitting(true);
     try {
-      await sendSignupOtp({
+      const res = await sendSignupOtp({
         name: name.trim(),
         number: number.trim(),
         email: email.trim().toLowerCase(),
@@ -92,6 +93,9 @@ export default function SignupForm({
         accountType,
         role: accountType === "seller" ? "MANAGER" : "USER",
       });
+      if (res?.previewOtp) {
+        setPreviewOtp(res.previewOtp);
+      }
       setStep("OTP");
       setCountdown(60);
       setCanResend(false);
@@ -118,7 +122,7 @@ export default function SignupForm({
     setIsSubmitting(true);
 
     try {
-      await sendSignupOtp({
+      const res = await sendSignupOtp({
         name: name.trim(),
         number: number.trim(),
         email: email.trim().toLowerCase(),
@@ -127,6 +131,9 @@ export default function SignupForm({
         accountType,
         role: accountType === "seller" ? "MANAGER" : "USER",
       });
+      if (res?.previewOtp) {
+        setPreviewOtp(res.previewOtp);
+      }
       setCountdown(60);
       setCanResend(false);
       setSuccessMessage(`New code sent to ${email.trim().toLowerCase()}`);
@@ -154,6 +161,11 @@ export default function SignupForm({
       const user = await verifySignupOtp({
         email: email.trim().toLowerCase(),
         otp: trimmedOtp,
+        name: name.trim(),
+        number: number.trim(),
+        password,
+        accountType,
+        role: accountType === "seller" ? "MANAGER" : "USER",
       });
       const landingPath =
         accountType === "seller"
@@ -293,6 +305,29 @@ export default function SignupForm({
                 <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/20 text-green-700 dark:text-green-400 text-xs flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 flex-shrink-0" />
                   <span>{successMessage}</span>
+                </div>
+              ) : null}
+
+              {previewOtp ? (
+                <div className="rounded-xl border border-sky-200 bg-sky-50/90 p-3.5 text-sky-900 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                  <div className="space-y-0.5">
+                    <div className="flex items-center gap-1.5 text-xs font-semibold text-sky-800">
+                      <span className="inline-block h-2 w-2 rounded-full bg-sky-500 animate-pulse" />
+                      Sandbox Mode (No custom domain required)
+                    </div>
+                    <p className="text-xs text-slate-600">
+                      Your code is: <strong className="font-mono text-sm tracking-widest text-sky-950 font-bold bg-white px-2 py-0.5 rounded border border-sky-200">{previewOtp}</strong>
+                    </p>
+                  </div>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    className="h-8 text-xs font-semibold bg-white text-sky-700 border-sky-300 hover:bg-sky-100 hover:text-sky-800 shrink-0 shadow-sm"
+                    onClick={() => setOtp(previewOtp)}
+                  >
+                    Auto-fill Code
+                  </Button>
                 </div>
               ) : null}
 

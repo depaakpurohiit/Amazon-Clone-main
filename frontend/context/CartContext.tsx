@@ -33,8 +33,8 @@ interface CartContextProps {
   refresh: () => Promise<CompatAuthUserDTO | null>;
   login: (email: string, password: string) => Promise<CompatAuthUserDTO | null>;
   signup: (body: { name: string; number: string; email: string; password: string; confirmPassword: string; accountType?: "customer" | "seller"; role?: "USER" | "MANAGER" | "ADMIN" }) => Promise<CompatAuthUserDTO | null>;
-  sendSignupOtp: (body: { name: string; number: string; email: string; password: string; confirmPassword: string; accountType?: "customer" | "seller"; role?: "USER" | "MANAGER" | "ADMIN" }) => Promise<{ status: boolean; message: string }>;
-  verifySignupOtp: (body: { email: string; otp: string }) => Promise<CompatAuthUserDTO | null>;
+  sendSignupOtp: (body: { name: string; number: string; email: string; password: string; confirmPassword: string; accountType?: "customer" | "seller"; role?: "USER" | "MANAGER" | "ADMIN" }) => Promise<{ status: boolean; message: string; previewOtp?: string }>;
+  verifySignupOtp: (body: { email: string; otp: string; name?: string; number?: string; password?: string; accountType?: "customer" | "seller"; role?: "USER" | "MANAGER" | "ADMIN" }) => Promise<CompatAuthUserDTO | null>;
   logout: () => Promise<void>;
   addToCart: (productId: string, quantity?: number) => Promise<void>;
   removeFromCart: (cartItemId: string) => Promise<void>;
@@ -141,7 +141,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   );
 
   const verifySignupOtp = useCallback(
-    async (body: { email: string; otp: string }) => {
+    async (body: { email: string; otp: string; name?: string; number?: string; password?: string; accountType?: "customer" | "seller"; role?: "USER" | "MANAGER" | "ADMIN" }) => {
       setError(null);
       await apiVerifySignupOtp(body);
       return await refreshWithRetry();

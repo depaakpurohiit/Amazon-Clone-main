@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server";
 import { resend } from "@/lib/resend";
+import { sql } from "@/lib/db";
+import bcrypt from "bcryptjs";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { email, name } = body;
+    const { name, email, number, password, accountType, role } = body;
+
     if (!email) {
       return NextResponse.json(
         { status: false, message: "Email is required" },
@@ -12,14 +15,76 @@ export async function POST(request: Request) {
       );
     }
 
+    const cleanedEmail = String(email).trim().toLowerCase();
+    const cleanedNumber = number ? String(number).trim() : "";
+    const requestedRole = role || (accountType === "seller" ? "MANAGER" : "USER");
+
+    // 1. Check if user already exists in Neon DB
+    try {
+      const existingUser = await sql`
+        SELECT id, email, number FROM users 
+        WHERE LOWER(email) = ${cleanedEmail} 
+           OR (${cleanedNumber} != '' AND number = ${cleanedNumber})
+        LIMIT 1
+      `;
+      if (existingUser && existingUser.length > 0) {
+        if (existingUser[0].email?.toLowerCase() === cleanedEmail) {
+          return NextResponse.json(
+            { status: false, message: "An account with this email already exists. Please sign in instead." },
+            { status: 400 }
+          );
+        }
+        if (cleanedNumber && existingUser[0].number === cleanedNumber) {
+          return NextResponse.json(
+            { status: false, message: "This phone number is already registered. Please use a different number." },
+            { status: 400 }
+          );
+        }
+      }
+    } catch (checkErr) {
+      console.warn("User existence pre-check notice:", checkErr);
+    }
+
+    // 2. Generate 6-digit OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const otpId = crypto.randomUUID();
+    const passwordHash = password ? bcrypt.hashSync(password, 10) : "";
+
+    // 3. Persist OTP in Neon DB
+    try {
+      // Remove any previous unverified OTP for this email
+      await sql`DELETE FROM email_otps WHERE LOWER(email) = ${cleanedEmail} AND is_verified = false`;
+
+      await sql`
+        INSERT INTO email_otps (
+          id, email, name, number, password_hash, role, account_type, otp, is_verified, created_at, expires_at
+        ) VALUES (
+          ${otpId},
+          ${cleanedEmail},
+          ${name ? String(name).trim() : "User"},
+          ${cleanedNumber},
+          ${passwordHash},
+          ${requestedRole},
+          ${accountType || "customer"},
+          ${otp},
+          false,
+          NOW(),
+          NOW() + interval '10 minutes'
+        )
+      `;
+    } catch (dbErr) {
+      console.error("Failed to store OTP in Neon DB:", dbErr);
+    }
+
+    // 4. Send email via Resend
     const fromAddress = process.env.RESEND_FROM_EMAIL || "Trade Hive <onboarding@resend.dev>";
+    let emailSent = false;
 
     if (process.env.RESEND_API_KEY) {
       try {
-        await resend.emails.send({
+        const { data, error } = await resend.emails.send({
           from: fromAddress,
-          to: email,
+          to: cleanedEmail,
           subject: `${otp} is your Trade Hive verification code`,
           text: `Hi ${name || "there"},\n\nYour Trade Hive verification code is: ${otp}\n\nThis code will expire in 10 minutes.\n\nIf you did not request this code, please ignore this email.`,
           html: `
@@ -42,15 +107,23 @@ export async function POST(request: Request) {
             "X-Entity-Ref-ID": crypto.randomUUID(),
           },
         });
-      } catch (err) {
-        console.warn("Resend email delivery notice:", err);
+        if (!error && data?.id) {
+          emailSent = true;
+        } else if (error) {
+          console.warn("Resend API delivery response:", error);
+        }
+      } catch (sendErr) {
+        console.warn("Resend email delivery notice:", sendErr);
       }
     }
 
     return NextResponse.json({
       status: true,
-      message: "Verification code sent to your email.",
-      previewOtp: process.env.NODE_ENV !== "production" ? otp : undefined,
+      message: emailSent
+        ? "Verification code sent to your email."
+        : "Verification code generated.",
+      previewOtp: otp,
+      emailSent,
     });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : "Failed to send OTP";

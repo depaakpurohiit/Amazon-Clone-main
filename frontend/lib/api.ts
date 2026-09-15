@@ -319,14 +319,22 @@ export function sendSignupOtp(body: {
   accountType?: "customer" | "seller";
   role?: "USER" | "MANAGER" | "ADMIN";
 }) {
-  return apiFetch<{ status: boolean; message: string }>(`/api/auth/send-otp`, {
+  return apiFetch<{ status: boolean; message: string; previewOtp?: string }>(`/api/auth/send-otp`, {
     method: "POST",
     body: JSON.stringify(body),
   });
 }
 
-export function verifySignupOtp(body: { email: string; otp: string }) {
-  return apiFetch<{ status: boolean; message: string }>(`/api/auth/verify-otp`, {
+export function verifySignupOtp(body: {
+  email: string;
+  otp: string;
+  name?: string;
+  number?: string;
+  password?: string;
+  accountType?: "customer" | "seller";
+  role?: "USER" | "MANAGER" | "ADMIN";
+}) {
+  return apiFetch<{ status: boolean; message: string; user?: any }>(`/api/auth/verify-otp`, {
     method: "POST",
     body: JSON.stringify(body),
   });
