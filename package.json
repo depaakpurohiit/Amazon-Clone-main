@@ -12,5 +12,9 @@
     "install:frontend": "npm --prefix frontend install",
     "install:all": "npm run install:frontend"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "@types/bcryptjs": "^2.4.6",
+    "bcryptjs": "^3.0.3"
+  }
 }
