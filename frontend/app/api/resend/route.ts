@@ -1,9 +1,19 @@
 import { NextResponse } from "next/server";
-import { resend } from "@/lib/resend";
+import { getResendClient } from "@/lib/resend";
+
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    const data = await resend.emails.send({
+    const client = getResendClient();
+    if (!client) {
+      return NextResponse.json(
+        { success: false, error: "RESEND_API_KEY environment variable is not configured." },
+        { status: 500 }
+      );
+    }
+
+    const data = await client.emails.send({
       from: "onboarding@resend.dev",
       to: "aman.23jics029@jietjodhpur.ac.in",
       subject: "Hello World",
@@ -21,10 +31,18 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
+    const client = getResendClient();
+    if (!client) {
+      return NextResponse.json(
+        { success: false, error: "RESEND_API_KEY environment variable is not configured." },
+        { status: 500 }
+      );
+    }
+
     const body = await req.json();
     const { to, subject, html } = body;
 
-    const data = await resend.emails.send({
+    const data = await client.emails.send({
       from: "onboarding@resend.dev",
       to: to || "aman.23jics029@jietjodhpur.ac.in",
       subject: subject || "Hello World",
