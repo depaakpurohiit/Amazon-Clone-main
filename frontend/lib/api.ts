@@ -15,19 +15,8 @@ export function getApiBaseUrl(): string {
     return configured;
   }
 
-  // If in browser:
-  if (typeof window !== "undefined") {
-    const isLocal =
-      window.location.hostname === "localhost" ||
-      window.location.hostname === "127.0.0.1";
-    if (isLocal) {
-      return "http://localhost:8081";
-    }
-    // In production (Vercel / any hosted domain) without an external backend URL:
-    // Return "" so it uses the Next.js API routes on the same domain
-    return "";
-  }
-
+  // When NEXT_PUBLIC_API_BASE_URL is not set, default to same-origin relative URLs ("")
+  // so requests cleanly hit Next.js serverless routes without ERR_CONNECTION_REFUSED
   return "";
 }
 
@@ -96,6 +85,7 @@ export async function apiFetch<T>(
             "Content-Type": "application/json",
             ...(init.headers ?? {}),
           },
+          credentials: "include",
         });
       } catch {
         throw err;

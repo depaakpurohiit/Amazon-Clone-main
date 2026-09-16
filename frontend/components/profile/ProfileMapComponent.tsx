@@ -26,12 +26,12 @@ function LocationMarker({ position, setPosition, setAddress, setSearchQuery }: {
     async click(e) {
       setPosition(e.latlng);
       try {
-        const res = await fetch(`https://api.stadiamaps.com/geocoding/v1/reverse?point.lat=${e.latlng.lat}&point.lon=${e.latlng.lng}&api_key=3276c59d-1bf5-416a-8df4-553916049d55`);
+        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${e.latlng.lat}&lon=${e.latlng.lng}`);
         const data = await res.json();
-        if (data && data.features && data.features.length > 0) {
-          const props = data.features[0].properties;
-          setAddress(props.label || "");
-          setSearchQuery(props.locality || props.name || props.label || "");
+        if (data && data.display_name) {
+          setAddress(data.display_name);
+          const locality = data.address?.city || data.address?.town || data.address?.suburb || data.address?.state || data.display_name;
+          setSearchQuery(locality);
         }
       } catch (err) {
         console.error("Reverse geocoding failed", err);
@@ -72,13 +72,13 @@ export default function ProfileMapComponent({ initialLat, initialLng, initialAdd
     if (!searchQuery.trim()) return;
     setIsSearching(true);
     try {
-      const res = await fetch(`https://api.stadiamaps.com/geocoding/v1/search?text=${encodeURIComponent(searchQuery)}&api_key=3276c59d-1bf5-416a-8df4-553916049d55`);
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchQuery.trim())}`);
       const data = await res.json();
-      if (data && data.features && data.features.length > 0) {
-        const feature = data.features[0];
-        const lon = feature.geometry.coordinates[0];
-        const lat = feature.geometry.coordinates[1];
-        const label = feature.properties.label;
+      if (Array.isArray(data) && data.length > 0) {
+        const first = data[0];
+        const lon = parseFloat(first.lon);
+        const lat = parseFloat(first.lat);
+        const label = first.display_name;
         const newPos = new L.LatLng(lat, lon);
         setPosition(newPos);
         setAddress(label);
@@ -164,8 +164,8 @@ export default function ProfileMapComponent({ initialLat, initialLng, initialAdd
           style={{ height: "100%", width: "100%" }}
         >
           <TileLayer
-            attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>'
-            url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=3276c59d-1bf5-416a-8df4-553916049d55"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <LocationMarker position={position} setPosition={setPosition} setAddress={setAddress} setSearchQuery={setSearchQuery} />
           <MapUpdater position={position} />

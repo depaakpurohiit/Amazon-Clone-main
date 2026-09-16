@@ -145,8 +145,8 @@ export default function SignupForm({
   };
 
   // Step 2: Verify OTP & Finalize Registration
-  const onVerifyOtp = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onVerifyOtp = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     setLocalError(null);
     setSuccessMessage(null);
 
@@ -324,7 +324,10 @@ export default function SignupForm({
                     size="sm"
                     variant="outline"
                     className="h-8 text-xs font-semibold bg-white text-sky-700 border-sky-300 hover:bg-sky-100 hover:text-sky-800 shrink-0 shadow-sm"
-                    onClick={() => setOtp(previewOtp)}
+                    onClick={() => {
+                      setOtp(previewOtp);
+                      setLocalError(null);
+                    }}
                   >
                     Auto-fill Code
                   </Button>
@@ -347,6 +350,12 @@ export default function SignupForm({
                     onChange={(e) => {
                       const digits = e.target.value.replace(/\D/g, "").slice(0, 6);
                       setOtp(digits);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && otp.trim().length === 6 && !isSubmitting) {
+                        e.preventDefault();
+                        onVerifyOtp();
+                      }
                     }}
                     className="text-center font-mono text-2xl tracking-[0.5em] h-14 max-w-[240px] font-bold border-2 focus-visible:ring-primary"
                     required

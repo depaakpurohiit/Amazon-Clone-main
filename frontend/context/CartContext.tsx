@@ -97,39 +97,75 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     };
   }, [refresh]);
 
+  // Load guest cart from localStorage if unauthenticated
   useEffect(() => {
-    if (!authUser) {
-      setCart([]);
-      return;
+    if (authUser) {
+      setCart(
+        (authUser.cart ?? []).map((entry) => ({
+          cartItemId: String(entry.id),
+          productId: String(entry.cartItem?.id || entry.id),
+          name: entry.cartItem?.name || "Product",
+          image: entry.cartItem?.url || "/images/NoImage.jpg",
+          accValue: entry.cartItem?.accValue,
+          quantity: entry.qty || 1,
+        }))
+      );
+    } else if (typeof window !== "undefined") {
+      try {
+        const savedGuest = localStorage.getItem("tradehive_guest_cart");
+        if (savedGuest) {
+          setCart(JSON.parse(savedGuest));
+        } else {
+          setCart([]);
+        }
+      } catch {
+        setCart([]);
+      }
     }
-    setCart(
-      (authUser.cart ?? []).map((entry) => ({
-        cartItemId: entry.id,
-        productId: entry.cartItem.id,
-        name: entry.cartItem.name,
-        image: entry.cartItem.url,
-        accValue: entry.cartItem.accValue,
-        quantity: entry.qty,
-      }))
-    );
   }, [authUser]);
 
   const isAuthenticated = useMemo(() => Boolean(authUser), [authUser]);
 
+  // Sync guest cart to server upon login
+  const syncGuestCart = useCallback(async () => {
+    if (typeof window === "undefined") return;
+    try {
+      const savedGuest = localStorage.getItem("tradehive_guest_cart");
+      if (savedGuest) {
+        const items: CartItem[] = JSON.parse(savedGuest);
+        if (Array.isArray(items) && items.length > 0) {
+          for (const it of items) {
+            for (let q = 0; q < it.quantity; q++) {
+              await apiAddToCart(it.productId);
+            }
+          }
+          localStorage.removeItem("tradehive_guest_cart");
+          await refresh();
+        }
+      }
+    } catch (e) {
+      console.warn("Error syncing guest cart:", e);
+    }
+  }, [refresh]);
+
   const login = useCallback(async (email: string, password: string) => {
     setError(null);
     await apiLogin({ email, password });
-    return await refreshWithRetry();
-  }, [refreshWithRetry]);
+    const user = await refreshWithRetry();
+    await syncGuestCart();
+    return user;
+  }, [refreshWithRetry, syncGuestCart]);
 
   const signup = useCallback(
     async (body: { name: string; number: string; email: string; password: string; confirmPassword: string; accountType?: "customer" | "seller"; role?: "USER" | "MANAGER" | "ADMIN" }) => {
       setError(null);
       await apiRegister(body);
       await apiLogin({ email: body.email, password: body.password });
-      return await refreshWithRetry();
+      const user = await refreshWithRetry();
+      await syncGuestCart();
+      return user;
     },
-    [refreshWithRetry]
+    [refreshWithRetry, syncGuestCart]
   );
 
   const sendSignupOtp = useCallback(
@@ -144,9 +180,11 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     async (body: { email: string; otp: string; name?: string; number?: string; password?: string; accountType?: "customer" | "seller"; role?: "USER" | "MANAGER" | "ADMIN" }) => {
       setError(null);
       await apiVerifySignupOtp(body);
-      return await refreshWithRetry();
+      const user = await refreshWithRetry();
+      await syncGuestCart();
+      return user;
     },
-    [refreshWithRetry]
+    [refreshWithRetry, syncGuestCart]
   );
 
   const logout = useCallback(async () => {
@@ -154,6 +192,9 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       await apiLogout();
     } finally {
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("tradehive_guest_cart");
+      }
       await refresh();
     }
   }, [refresh]);
@@ -161,12 +202,46 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const addToCart = useCallback(
     async (productId: string, quantity = 1) => {
       setError(null);
-      if (!isAuthenticated) throw new Error("Please sign in to add items to cart.");
-      const times = Math.max(1, quantity);
-      for (let i = 0; i < times; i++) {
-        await apiAddToCart(productId);
+      const count = Math.max(1, quantity);
+
+      // Optimistic update: increment count immediately in cart
+      setCart((prev) => {
+        const existingIdx = prev.findIndex((i) => i.productId === productId || i.cartItemId === productId);
+        let updated: CartItem[];
+        if (existingIdx >= 0) {
+          updated = [...prev];
+          updated[existingIdx] = {
+            ...updated[existingIdx],
+            quantity: updated[existingIdx].quantity + count,
+          };
+        } else {
+          updated = [
+            ...prev,
+            {
+              cartItemId: `temp-${productId}-${Date.now()}`,
+              productId: productId,
+              name: "Loading...",
+              image: "/images/NoImage.jpg",
+              quantity: count,
+            },
+          ];
+        }
+
+        if (!isAuthenticated && typeof window !== "undefined") {
+          localStorage.setItem("tradehive_guest_cart", JSON.stringify(updated));
+        }
+        return updated;
+      });
+
+      if (isAuthenticated) {
+        try {
+          for (let i = 0; i < count; i++) {
+            await apiAddToCart(productId);
+          }
+        } finally {
+          await refresh();
+        }
       }
-      await refresh();
     },
     [isAuthenticated, refresh]
   );
@@ -174,12 +249,20 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const removeFromCart = useCallback(
     async (cartItemId: string) => {
       setError(null);
-      if (!isAuthenticated) throw new Error("Please sign in to manage your cart.");
-      setCart((prev) => prev.filter((item) => item.cartItemId !== cartItemId && item.productId !== cartItemId));
-      try {
-        await apiRemoveCartItem(cartItemId);
-      } finally {
-        await refresh();
+      setCart((prev) => {
+        const updated = prev.filter((item) => item.cartItemId !== cartItemId && item.productId !== cartItemId);
+        if (!isAuthenticated && typeof window !== "undefined") {
+          localStorage.setItem("tradehive_guest_cart", JSON.stringify(updated));
+        }
+        return updated;
+      });
+
+      if (isAuthenticated) {
+        try {
+          await apiRemoveCartItem(cartItemId);
+        } finally {
+          await refresh();
+        }
       }
     },
     [isAuthenticated, refresh]
@@ -188,19 +271,25 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const updateQuantity = useCallback(
     async (cartItemId: string, quantity: number) => {
       setError(null);
-      if (!isAuthenticated) throw new Error("Please sign in to manage your cart.");
       const newQty = Math.max(1, quantity);
-      setCart((prev) =>
-        prev.map((item) =>
+      setCart((prev) => {
+        const updated = prev.map((item) =>
           item.cartItemId === cartItemId || item.productId === cartItemId
             ? { ...item, quantity: newQty }
             : item
-        )
-      );
-      try {
-        await apiUpdateCartQty(cartItemId, newQty);
-      } finally {
-        await refresh();
+        );
+        if (!isAuthenticated && typeof window !== "undefined") {
+          localStorage.setItem("tradehive_guest_cart", JSON.stringify(updated));
+        }
+        return updated;
+      });
+
+      if (isAuthenticated) {
+        try {
+          await apiUpdateCartQty(cartItemId, newQty);
+        } finally {
+          await refresh();
+        }
       }
     },
     [isAuthenticated, refresh]
