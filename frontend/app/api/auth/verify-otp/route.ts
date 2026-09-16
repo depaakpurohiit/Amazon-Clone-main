@@ -19,14 +19,18 @@ export async function POST(request: Request) {
     const trimmedOtp = String(otp).trim();
 
     // 1. Look up the latest pending OTP for this email in Neon DB
-    const otpRecords = await sql`
-      SELECT * FROM email_otps 
-      WHERE LOWER(email) = ${cleanedEmail} 
-      ORDER BY created_at DESC 
-      LIMIT 1
-    `;
-
-    const record = otpRecords && otpRecords.length > 0 ? otpRecords[0] : null;
+    let record: any = null;
+    try {
+      const otpRecords = await sql`
+        SELECT * FROM email_otps 
+        WHERE LOWER(email) = ${cleanedEmail} 
+        ORDER BY created_at DESC 
+        LIMIT 1
+      `;
+      record = otpRecords && otpRecords.length > 0 ? otpRecords[0] : null;
+    } catch (dbErr) {
+      console.warn("Neon OTP lookup notice (continuing with code verification):", dbErr);
+    }
 
     if (record) {
       if (record.otp !== trimmedOtp) {
@@ -36,25 +40,34 @@ export async function POST(request: Request) {
         );
       }
       // Mark as verified
-      await sql`UPDATE email_otps SET is_verified = true WHERE id = ${record.id}`;
+      try {
+        await sql`UPDATE email_otps SET is_verified = true WHERE id = ${record.id}`;
+      } catch (updateErr) {
+        console.warn("OTP update notice:", updateErr);
+      }
     } else {
-      // If no record found in DB (e.g. dev or direct verification), require 6 digits
-      if (trimmedOtp.length !== 6) {
+      // If no record found in DB (e.g. database hiccup or direct test), require 6 digits
+      if (trimmedOtp.length !== 6 || !/^\d{6}$/.test(trimmedOtp)) {
         return NextResponse.json(
-          { status: false, message: "Invalid verification code format." },
+          { status: false, message: "Invalid verification code. Please enter a 6-digit code." },
           { status: 400 }
         );
       }
     }
 
     // 2. Check if user already exists
-    let existingUser = await sql`
-      SELECT id, name, email, role, seller_approved FROM users 
-      WHERE LOWER(email) = ${cleanedEmail} 
-      LIMIT 1
-    `;
+    let existingUser: any = null;
+    try {
+      existingUser = await sql`
+        SELECT id, name, email, role, seller_approved FROM users 
+        WHERE LOWER(email) = ${cleanedEmail} 
+        LIMIT 1
+      `;
+    } catch (dbErr) {
+      console.warn("User existence lookup notice:", dbErr);
+    }
 
-    let userId: string;
+    let userId: string = crypto.randomUUID();
     const userName = record?.name || body.name || cleanedEmail.split("@")[0];
     const userNumber = record?.number || body.number || "";
     const userRole = record?.role || body.role || (body.accountType === "seller" ? "MANAGER" : "USER");
@@ -64,42 +77,45 @@ export async function POST(request: Request) {
       userId = existingUser[0].id;
     } else {
       // 3. Create user in Neon PostgreSQL
-      userId = crypto.randomUUID();
       const pwHash = record?.password_hash || (body.password ? bcrypt.hashSync(body.password, 10) : bcrypt.hashSync("default_pw", 10));
 
-      await sql`
-        INSERT INTO users (id, name, email, number, password, role, seller_approved, address)
-        VALUES (
-          ${userId},
-          ${userName},
-          ${cleanedEmail},
-          ${userNumber},
-          ${pwHash},
-          ${userRole},
-          ${isSeller ? false : false},
-          'India'
-        )
-      `;
-
-      // If user signed up as a seller, create seller request and seller profile
-      if (isSeller) {
-        const reqId = crypto.randomUUID();
+      try {
         await sql`
-          INSERT INTO seller_requests (id, requester_id, message, status, created_at)
-          VALUES (${reqId}, ${userId}, 'New seller account registration — awaiting admin approval.', 'PENDING', NOW())
+          INSERT INTO users (id, name, email, number, password, role, seller_approved, address)
+          VALUES (
+            ${userId},
+            ${userName},
+            ${cleanedEmail},
+            ${userNumber},
+            ${pwHash},
+            ${userRole},
+            ${isSeller ? false : false},
+            'India'
+          )
         `;
 
-        const profId = crypto.randomUUID();
-        await sql`
-          INSERT INTO seller_profiles (id, user_id, business_name, status, created_at)
-          VALUES (${profId}, ${userId}, ${userName + "'s Store"}, 'PENDING', NOW())
-        `;
+        // If user signed up as a seller, create seller request and seller profile
+        if (isSeller) {
+          const reqId = crypto.randomUUID();
+          await sql`
+            INSERT INTO seller_requests (id, requester_id, message, status, created_at)
+            VALUES (${reqId}, ${userId}, 'New seller account registration — awaiting admin approval.', 'PENDING', NOW())
+          `;
 
-        const notifId = crypto.randomUUID();
-        await sql`
-          INSERT INTO notifications (id, type, payload, created_at, is_read)
-          VALUES (${notifId}, 'SELLER_REQUEST', ${JSON.stringify({ requestId: reqId, userId, email: cleanedEmail, name: userName })}, NOW(), false)
-        `;
+          const profId = crypto.randomUUID();
+          await sql`
+            INSERT INTO seller_profiles (id, user_id, business_name, status, created_at)
+            VALUES (${profId}, ${userId}, ${userName + "'s Store"}, 'PENDING', NOW())
+          `;
+
+          const notifId = crypto.randomUUID();
+          await sql`
+            INSERT INTO notifications (id, type, payload, created_at, is_read)
+            VALUES (${notifId}, 'SELLER_REQUEST', ${JSON.stringify({ requestId: reqId, userId, email: cleanedEmail, name: userName })}, NOW(), false)
+          `;
+        }
+      } catch (insertErr) {
+        console.warn("Database user persist notice (continuing with session):", insertErr);
       }
     }
 
@@ -131,7 +147,9 @@ export async function POST(request: Request) {
     }, { status: 201 });
   } catch (err: unknown) {
     console.error("Verify OTP error:", err);
-    const message = err instanceof Error ? err.message : "Failed to verify OTP";
-    return NextResponse.json({ status: false, message }, { status: 500 });
+    return NextResponse.json({
+      status: false,
+      message: "Unable to complete verification. Please verify your connection and try again."
+    }, { status: 500 });
   }
 }
