@@ -5,6 +5,7 @@ import { getRoleLandingPath, normalizeRole } from "@/lib/role";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, type ReactNode } from "react";
 import PageSkeletonLoader from "@/components/ui/PageSkeletonLoader";
+import { ShieldAlert } from "lucide-react";
 
 type GateMode = "customer" | "seller" | "admin" | "guest";
 
@@ -71,7 +72,7 @@ export default function RoleAccessGate({
     if (fallback) return <>{fallback}</>;
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-4">
-        <div className="text-destructive text-4xl mb-4">⛔</div>
+        <ShieldAlert className="h-12 w-12 text-destructive mb-2" />
         <h2 className="text-2xl font-bold">Seller Access Only</h2>
         <p className="text-muted-foreground mb-6">
           You need an approved seller account to view this page.

@@ -1,4 +1,4 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, PackageX } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 
@@ -6,7 +6,7 @@ export default function ProductNotFound() {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="text-center">
-        <div className="text-6xl mb-4">😵</div>
+        <PackageX className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
         <h1 className="text-2xl font-bold text-foreground mb-2">
           Product not found
         </h1>

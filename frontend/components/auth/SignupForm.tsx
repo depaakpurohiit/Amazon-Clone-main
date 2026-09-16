@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Input } from "@/components/ui/input";
 import { useCart } from "@/context/CartContext";
 import { getRoleLandingPath } from "@/lib/role";
-import { ArrowLeft, CheckCircle2, KeyRound, Mail, RefreshCw } from "lucide-react";
+import { ArrowLeft, CheckCircle2, KeyRound, Mail, RefreshCw, ShoppingBag, Store } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -230,13 +230,14 @@ export default function SignupForm({
                   setSelectedAccountType("customer");
                   setLocalError(null);
                 }}
-                className={`py-2 px-3 rounded-lg transition-all text-center ${
+                className={`py-2 px-3 rounded-lg transition-all text-center flex items-center justify-center gap-2 ${
                   selectedAccountType === "customer"
                     ? "bg-white dark:bg-slate-900 text-foreground shadow-sm font-semibold"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                🛍️ Customer Account
+                <ShoppingBag className="h-4 w-4 shrink-0" />
+                <span>Customer Account</span>
               </button>
               <button
                 type="button"
@@ -244,13 +245,14 @@ export default function SignupForm({
                   setSelectedAccountType("seller");
                   setLocalError(null);
                 }}
-                className={`py-2 px-3 rounded-lg transition-all text-center ${
+                className={`py-2 px-3 rounded-lg transition-all text-center flex items-center justify-center gap-2 ${
                   selectedAccountType === "seller"
                     ? "bg-white dark:bg-slate-900 text-foreground shadow-sm font-semibold"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                💼 Seller Account
+                <Store className="h-4 w-4 shrink-0" />
+                <span>Seller Account</span>
               </button>
             </div>
           )}

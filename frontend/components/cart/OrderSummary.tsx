@@ -78,7 +78,7 @@ export default function OrderSummary() {
             <Truck className="h-4 w-4 text-primary" />
             <span className="text-xs font-medium text-foreground">
               {isFreeDelivery
-                ? "🎉 You are eligible for FREE Delivery!"
+                ? "You are eligible for FREE Delivery!"
                 : `Add ${formatINR(FREE_DELIVERY_THRESHOLD - subtotal)} more for FREE Delivery`}
             </span>
           </div>
