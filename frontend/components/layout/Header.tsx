@@ -244,26 +244,9 @@ export default function Header() {
                   <Button variant="ghost" size="sm" className="text-sm" asChild>
                     <Link href="/login">Sign In</Link>
                   </Button>
-                  <details className="relative hidden sm:block">
-                    <summary className="list-none flex cursor-pointer items-center gap-1 rounded-md bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/60">
-                      Sign Up
-                      <ChevronDown className="h-4 w-4" />
-                    </summary>
-                    <div className="absolute right-0 z-50 mt-2 w-48 rounded-xl border border-gray-200 bg-white p-2 shadow-xl">
-                      <Link
-                        href="/signup"
-                        className="block rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                      >
-                        Customer account
-                      </Link>
-                      <Link
-                        href="/signup?accountType=seller"
-                        className="block rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                      >
-                        Seller account
-                      </Link>
-                    </div>
-                  </details>
+                  <Button size="sm" className="text-sm" asChild>
+                    <Link href="/signup">Sign Up</Link>
+                  </Button>
                 </>
               )}
             </div>
@@ -354,12 +337,7 @@ export default function Header() {
                   </Button>
                   <Button className="w-full text-sm" variant="default" asChild>
                     <Link href="/signup" onClick={closeMobileMenu}>
-                      Customer Sign Up
-                    </Link>
-                  </Button>
-                  <Button className="w-full text-sm" variant="outline" asChild>
-                    <Link href="/signup?accountType=seller" onClick={closeMobileMenu}>
-                      Seller Sign Up
+                      Sign Up
                     </Link>
                   </Button>
                 </>

@@ -178,23 +178,14 @@ export default function LoginForm({ nextPath }: { nextPath: string }) {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between text-sm text-muted-foreground pt-3 border-t border-border gap-2">
+          <div className="flex items-center justify-center text-sm text-muted-foreground pt-3 border-t border-border">
             <span>Don&apos;t have an account?</span>
-            <div className="flex items-center gap-3">
-              <Link
-                className="text-primary font-semibold hover:underline"
-                href={`/signup?next=${encodeURIComponent(nextPath)}`}
-              >
-                Sign up
-              </Link>
-              <span>•</span>
-              <Link
-                className="text-primary font-semibold hover:underline"
-                href="/seller/add"
-              >
-                Sell on Trade Hive
-              </Link>
-            </div>
+            <Link
+              className="text-primary font-semibold hover:underline ml-1.5"
+              href="/signup"
+            >
+              Sign up
+            </Link>
           </div>
         </CardContent>
       </Card>

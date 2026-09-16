@@ -38,7 +38,7 @@ export default function RoleAccessGate({
       if (isAuthenticated) {
         router.replace(getRoleLandingPath(role));
       } else {
-        router.replace(`/login?next=${encodeURIComponent(pathname)}`);
+        router.replace("/login");
       }
       return;
     }

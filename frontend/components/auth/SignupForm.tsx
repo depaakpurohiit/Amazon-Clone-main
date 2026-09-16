@@ -21,17 +21,20 @@ export default function SignupForm({
   const router = useRouter();
   const sellerLandingPath = "/seller/dashboard";
 
+  // Account Type Selection State (Defaults to prop, can be toggled directly on /signup)
+  const [selectedAccountType, setSelectedAccountType] = useState<"customer" | "seller">(accountType);
+
   useEffect(() => {
     if (isAuthenticated) {
       router.replace(
-        accountType === "seller"
+        selectedAccountType === "seller"
           ? sellerLandingPath
           : authUser
             ? getRoleLandingPath(authUser.role)
             : nextPath
       );
     }
-  }, [accountType, authUser, isAuthenticated, nextPath, router]);
+  }, [selectedAccountType, authUser, isAuthenticated, nextPath, router]);
 
   // Form State
   const [step, setStep] = useState<"DETAILS" | "OTP">("DETAILS");
@@ -90,8 +93,8 @@ export default function SignupForm({
         email: email.trim().toLowerCase(),
         password,
         confirmPassword,
-        accountType,
-        role: accountType === "seller" ? "MANAGER" : "USER",
+        accountType: selectedAccountType,
+        role: selectedAccountType === "seller" ? "MANAGER" : "USER",
       });
       if (res?.previewOtp) {
         setPreviewOtp(res.previewOtp);
@@ -128,8 +131,8 @@ export default function SignupForm({
         email: email.trim().toLowerCase(),
         password,
         confirmPassword,
-        accountType,
-        role: accountType === "seller" ? "MANAGER" : "USER",
+        accountType: selectedAccountType,
+        role: selectedAccountType === "seller" ? "MANAGER" : "USER",
       });
       if (res?.previewOtp) {
         setPreviewOtp(res.previewOtp);
@@ -164,11 +167,11 @@ export default function SignupForm({
         name: name.trim(),
         number: number.trim(),
         password,
-        accountType,
-        role: accountType === "seller" ? "MANAGER" : "USER",
+        accountType: selectedAccountType,
+        role: selectedAccountType === "seller" ? "MANAGER" : "USER",
       });
       const landingPath =
-        accountType === "seller"
+        selectedAccountType === "seller"
           ? sellerLandingPath
           : getRoleLandingPath(user?.role);
       router.replace(landingPath === "/" ? nextPath : landingPath);
@@ -186,10 +189,10 @@ export default function SignupForm({
           {step === "DETAILS" ? (
             <>
               <CardTitle className="text-2xl font-bold">
-                {accountType === "seller" ? "Create seller account" : "Create account"}
+                {selectedAccountType === "seller" ? "Create Seller Account" : "Create Account"}
               </CardTitle>
               <CardDescription>
-                Join Trade Hive to start {accountType === "seller" ? "selling your products" : "shopping today"}.
+                Join Trade Hive to start {selectedAccountType === "seller" ? "selling your products" : "shopping today"}.
               </CardDescription>
             </>
           ) : (
@@ -218,7 +221,41 @@ export default function SignupForm({
         </CardHeader>
 
         <CardContent className="space-y-4">
-          {accountType === "seller" && step === "DETAILS" ? (
+          {/* Account Type Toggle Switch */}
+          {step === "DETAILS" && (
+            <div className="grid grid-cols-2 p-1 bg-slate-100 dark:bg-slate-800/80 rounded-xl mb-2 text-sm font-medium border border-slate-200 dark:border-slate-700">
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedAccountType("customer");
+                  setLocalError(null);
+                }}
+                className={`py-2 px-3 rounded-lg transition-all text-center ${
+                  selectedAccountType === "customer"
+                    ? "bg-white dark:bg-slate-900 text-foreground shadow-sm font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                🛍️ Customer Account
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedAccountType("seller");
+                  setLocalError(null);
+                }}
+                className={`py-2 px-3 rounded-lg transition-all text-center ${
+                  selectedAccountType === "seller"
+                    ? "bg-white dark:bg-slate-900 text-foreground shadow-sm font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                💼 Seller Account
+              </button>
+            </div>
+          )}
+
+          {selectedAccountType === "seller" && step === "DETAILS" ? (
             <p className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs text-amber-800 dark:bg-amber-950/40 dark:border-amber-800 dark:text-amber-300">
               Seller sign-up creates a seller account and takes you to the seller dashboard after verification.
             </p>
@@ -411,7 +448,7 @@ export default function SignupForm({
               Already have an account?{" "}
               <Link
                 className="text-primary font-semibold underline"
-                href={`/login?next=${encodeURIComponent(nextPath)}`}
+                href="/login"
               >
                 Sign in
               </Link>
