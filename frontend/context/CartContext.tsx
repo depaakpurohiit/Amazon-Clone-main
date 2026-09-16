@@ -150,10 +150,16 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   const login = useCallback(async (email: string, password: string) => {
     setError(null);
-    await apiLogin({ email, password });
-    const user = await refreshWithRetry();
-    await syncGuestCart();
-    return user;
+    try {
+      await apiLogin({ email, password });
+      const user = await refreshWithRetry();
+      await syncGuestCart();
+      return user;
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Invalid email or password";
+      setError(msg);
+      throw err;
+    }
   }, [refreshWithRetry, syncGuestCart]);
 
   const signup = useCallback(
